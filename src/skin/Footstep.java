@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * L'enumeration qui contient tout les skins d'empreinte et les fonctions associeb
  */
-enum Footstep {
+public enum Footstep {
 
     NONE(),
     ROUGE(Color.red),
