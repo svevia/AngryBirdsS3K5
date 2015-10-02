@@ -4,8 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-public enum Footstep {
+/**
+ * L'enumeration qui contient tout les skins d'empreinte et les fonctions associeb
+ */
+enum Footstep {
 
+    NONE(),
     ROUGE(Color.red),
     NOIR(Color.black),
     ARCENCIEL(Color.magenta, Color.blue, Color.cyan, Color.green, Color.yellow, Color.ORANGE, Color.red),
@@ -25,13 +29,12 @@ public enum Footstep {
         return c;
     }
 
-    public Graphics drawFootstep(ArrayList<Integer> x, ArrayList<Integer> y, ArrayList<Double> a, Graphics g) {
+    public Graphics drawFootstep(ArrayList<Integer> x, ArrayList<Integer> y, ArrayList<Double> a, int tailSize, Graphics g) {
         int[] xP = new int[4], yP = new int[4];
-        for (int i = 0; i < x.size(); i++) {
+        int i = (x.size() - tailSize < 0)?0:x.size() - tailSize;
+        for (i = i; i < x.size(); i++) {
             for (int j = 0; j < c.length; j++) {
                 g.setColor(c[j]);
-                //g.drawLine(x.get(i), y.get(i)+j*3, x.get(i)+3, (int)(y.get(i)+a.get(i))+j*3);
-                //g.fillOval(x.get(i) + j*3, y.get(i), 3, 3);
                 xP[0] = x.get(i);
                 xP[1] = x.get(i) + 3;
                 xP[2] = x.get(i) + 3;

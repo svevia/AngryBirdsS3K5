@@ -1,23 +1,15 @@
-package skin;
+package skin.oiseau;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import skin.Bird;
 
-public class Canard extends Oiseau {
+public class Papillon extends Bird {
 
-    public Canard() {
-        super(35, 35, 3, 4, Math.PI/4, 0.7, Color.white, Color.orange, Color.blue);
+    public Papillon() {
+        super(50, 20, 2, 4, Math.PI/4, 0.7, Color.LIGHT_GRAY, Color.BLACK, Color.PINK);
     }
 
-    /**
-     * Dessine le canard sur une position x et y en un certain angle sur 
-     * le Graphic g, et renvoie ce dernier
-     * @param posX
-     * @param posY
-     * @param angle
-     * @param g
-     * @return 
-     */
     @Override
     public Graphics draw(int posX, int posY, double angle, Graphics g) {
         super.birdCenterX = posX + fatX / 2;
@@ -32,7 +24,18 @@ public class Canard extends Oiseau {
         super.polyY[1] = (int) (birdCenterY + 2 * r * Math.sin(angle));
         super.polyY[2] = (int) (birdCenterY + 1.5 * r * Math.sin(angle + tailleBec));
         super.polyY[3] = (int) (birdCenterY + r * Math.sin(angle + tailleBec));
-        return super.getGraphic(posX, posY, angle, g);
+        return getGraphic(posX, posY, angle, g);
+    }
+
+    @Override
+    protected Graphics getGraphic(int posX, int posY, double angle, Graphics g) {
+        g.setColor(corps); // La couleur du pigeon
+        g.fillArc(posX, posY, fatX, fatY, 0, 360);
+        g.setColor(bec);  // La couleur du bec
+       // g.fillPolygon(polyX, polyY, polyX.length); // Le bec
+        g.setColor(oeil); // La couleur de son oeil droit
+      //  g.fillOval((int) (birdCenterX + (positionOeil * r) * Math.cos(angle - positionOeil)), (int) (birdCenterY + (positionOeil * r) * Math.sin(angle - positionOeil)), tailleOeil, tailleOeil); // Son oeil droit
+        return g;
     }
 
 }

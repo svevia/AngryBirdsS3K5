@@ -1,9 +1,11 @@
 package skin;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import obstacle.Hitbox;
 
-public abstract class Oiseau {
+public abstract class Bird {
 
     /**
      * Taille du corp l'oiseau en pixel en largeur
@@ -83,8 +85,26 @@ public abstract class Oiseau {
      * La couleur des yeux
      */
     protected Color oeil;
-
-    public Oiseau(int fatX, int fatY, int tailleOeil, int nbPointBec, double tailleBec, double positionOeil, Color corps, Color bec, Color oeil) {
+    
+    /**
+     * La hitbox du pigeon
+     */
+    protected Hitbox hb;
+    
+    /**
+     * Le constructeur de l'oiseau
+     * @param fatX Sa largeur
+     * @param fatY Sa hauteur
+     * @param tailleOeil La taille de son oiel droit
+     * @param nbPointBec Le nombre d'angle de son bec (3 pour un triangle)
+     * @param tailleBec La taille en radian du bec (la taille de la base du bec)
+     * @param positionOeil La distance par rapport au centre et au rayon de l'oeil
+     * compris entre 0 et 1 (si non l'oeil sera en dehors du pigeon)
+     * @param corps La couleur principale du pigeon
+     * @param bec La couleur de son bec
+     * @param oeil La couleur de son oeil droit
+     */
+    public Bird(int fatX, int fatY, int tailleOeil, int nbPointBec, double tailleBec, double positionOeil, Color corps, Color bec, Color oeil) {
         this.fatX = fatX;
         this.fatY = fatY;
         this.tailleOeil = tailleOeil;
@@ -97,6 +117,7 @@ public abstract class Oiseau {
         r = fatX / 2;
         polyX = new int[nbPointBec];
         polyY = new int[nbPointBec];
+        hb = new Hitbox(0, 0, new Dimension(fatX+(int)tailleBec, fatY));
     }
 
     protected Graphics getGraphic(int posX, int posY, double angle, Graphics g) {
@@ -111,6 +132,14 @@ public abstract class Oiseau {
 
     public int getR() {
         return r;
+    }
+
+    public Hitbox getHb() {
+        return hb;
+    }
+
+    public void setCorps(Color corps) {
+        this.corps = corps;
     }
 
     public abstract Graphics draw(int posX, int posY, double angle, Graphics g);

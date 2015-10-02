@@ -2,12 +2,12 @@ package angrybirds;
 
 public class AngryBirds {
 
+    static Presentation p = new Presentation(10);
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {new AnimationOiseau(0, 0.001, -1, 350).setVisible(true);} catch (Exception e){System.out.println("CA MARCHE PAS !!!");}
-
+        p.run();
     }
-
 }

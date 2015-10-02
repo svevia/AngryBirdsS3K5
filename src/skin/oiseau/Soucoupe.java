@@ -1,9 +1,10 @@
-package skin;
+package skin.oiseau;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import skin.Bird;
 
-public class Soucoupe extends Oiseau {
+public class Soucoupe extends Bird {
 
     public Soucoupe() {
         super(60, 35, 5, 4, Math.PI / 4, 0, Color.LIGHT_GRAY, Color.YELLOW, Color.WHITE);

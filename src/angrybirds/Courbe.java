@@ -1,17 +1,20 @@
 package angrybirds;
 
-public class CourbeBeta {
+/**
+ * Objet permettant de creer une courbe du second degres
+ */
+public class Courbe {
 
     private double a, b, c;
 
     /**
-     * Cree une courbe du type a*x²+b*x+c (second degré)
+     * Cree une courbe du type a*x²+b*x+c (second degres)
      *
      * @param a
      * @param b
      * @param c
      */
-    public CourbeBeta(double a, double b, double c) {
+    public Courbe(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
