@@ -1,4 +1,4 @@
-package obstacle;
+package Obstacle;
 
 import static angrybirds.Constante.bird;
 import static angrybirds.Constante.obstacle;
