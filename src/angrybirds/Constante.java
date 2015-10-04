@@ -1,5 +1,8 @@
 package angrybirds;
 
+import obstacle.Obstacle;
+import obstacle.Rond;
+import obstacle.Carre;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;

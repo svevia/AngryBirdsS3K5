@@ -2,7 +2,6 @@ package angrybirds;
 
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
-import skin.Footstep;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se
