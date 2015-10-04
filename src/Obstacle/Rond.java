@@ -1,4 +1,4 @@
-package obstacle;
+package Obstacle;
 
 import java.awt.Color;
 import java.awt.Graphics;
