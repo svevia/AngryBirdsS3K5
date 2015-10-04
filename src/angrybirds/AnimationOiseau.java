@@ -1,7 +1,6 @@
 package angrybirds;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import static angrybirds.Constante.*;
 import java.awt.Color;
@@ -13,6 +12,11 @@ import obstacle.Collision;
 public class AnimationOiseau extends JFrame {
 
     /**
+     * Le visualisateur
+     */
+    private Visualisateur visu = new Visualisateur();
+
+    /**
      * Position du pigeon en x
      */
     int x;
@@ -21,6 +25,11 @@ public class AnimationOiseau extends JFrame {
      * Position du pigeon en y
      */
     int y;
+
+    /**
+     * L'angle de l'oiseau
+     */
+    double a;
 
     /**
      * Le nombre d'incrementation de x par boucle du thread
@@ -36,21 +45,6 @@ public class AnimationOiseau extends JFrame {
      * Courbe qu'aura le pigeon, qui prendra ses paramètres dans le constructeur
      */
     Courbe courbe;
-
-    /**
-     * Liste des points de passages du pigeon en x
-     */
-    ArrayList<Integer> footstepX = new ArrayList<>();
-
-    /**
-     * Liste des points de passages du pigeon en y
-     */
-    ArrayList<Integer> footstepY = new ArrayList<>();
-
-    /**
-     * Liste des angles en x fait par le pigeon
-     */
-    ArrayList<Double> footstepA = new ArrayList<>();
 
     /**
      * Gestion des collisions
@@ -100,20 +94,15 @@ public class AnimationOiseau extends JFrame {
         super.paint(g);
         x += stepByX;
         y = (int) courbe.getYenX(x);
+        a = courbe.angleNext(x);
         // Ajout de coordonnees au trace
         footstepX.add(x);
         footstepY.add(y + bird.getR());
         footstepA.add(courbe.getCoefficientDirecteur(x));
-        g.drawImage(fond.getFond(), 0, 0, null);
-        g = footstep.drawFootstep(footstepX, footstepY, footstepA, bird.getR() / 2 + 20, g); // Dessine le trace
-        g = bird.draw(x, y, courbe.angleNext(x), g); // Dessine le pigeon
-        for (int i = 0; i < obstacle.size(); i++) {
-            g = obstacle.get(i).drawMe(g);
-        }
-        // Si la distance de x et y depassent la fenetre
-        if (x + bird.getR() * 2 > fenetre.getWidth() || y + bird.getR() * 2 > fenetre.getHeight() - 50) {
-            arret();
-        }
+        g = visu.drawFond(g);
+        g = visu.drawFootstep(false, 5, g);
+        g = visu.drawOiseau(x, y, a, g);
+        g = visu.drawObstacle(g);
     }
 
     /**
@@ -170,6 +159,10 @@ public class AnimationOiseau extends JFrame {
                         y1 = 0;
                         y2 = 600;
                         repaint(x1, y1, x2, y2);
+                    }
+                    // Si la distance de x et y depassent la fenetre
+                    if (x + bird.getR() * 2 > fenetre.getWidth() || y + bird.getR() * 2 > fenetre.getHeight() - 50) {
+                        arret();
                     }
                     Thread.sleep(vitesse);
                 } catch (InterruptedException e) {

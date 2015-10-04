@@ -5,6 +5,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import obstacle.Hitbox;
 
+/**
+ * La class abstraite Bird normalise la creation des oiseaux donnant acce a une
+ * methode un constructeur et une fonction draw.
+ */
 public abstract class Bird {
 
     /**
@@ -120,9 +124,18 @@ public abstract class Bird {
         hb = new Hitbox(0, 0, new Dimension(fatX+(int)tailleBec, fatY));
     }
 
+    /**
+     * La fonction dessine l'oiseau en position x, y et angle a sur le Graphics
+     * voulu "g"
+     * @param posX La position de l'entite en x
+     * @param posY La position de l'entite en y
+     * @param angle Sa direction
+     * @param g Le Graphics sur le quel applique le dessin
+     * @return Le Graphics dessine
+     */
     protected Graphics getGraphic(int posX, int posY, double angle, Graphics g) {
         g.setColor(corps); // La couleur du pigeon
-        g.fillOval(posX, posY, fatX, fatY); // Le corp du canard (35 de diametre par defaut, fat)
+        g.fillOval(posX, posY, fatX, fatY); // Le corp
         g.setColor(bec);  // La couleur du bec
         g.fillPolygon(polyX, polyY, polyX.length); // Le bec
         g.setColor(oeil); // La couleur de son oeil droit
@@ -142,6 +155,14 @@ public abstract class Bird {
         this.corps = corps;
     }
 
+    /**
+     * Cette fonction dessine l'oiseau sur un Graphics
+     * @param posX La position de l'oiseau en x
+     * @param posY La position de l'oiseau en y 
+     * @param angle L'angle de l'oiseau
+     * @param g La Graphics sur le quel dessiner
+     * @return 
+     */
     public abstract Graphics draw(int posX, int posY, double angle, Graphics g);
 
 }

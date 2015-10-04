@@ -15,7 +15,7 @@ public class Soucoupe extends Bird {
         super.birdCenterX = posX + fatX / 2;
         super.birdCenterY = posY + fatY / 2;
 
-        // Le bec du canard
+        // La lumiere de la soucoupe
         super.polyX[0] = (int) (birdCenterX - 15);
         super.polyX[1] = (int) (birdCenterX + 15);
         super.polyX[2] = (int) (birdCenterX + 30);
@@ -27,6 +27,15 @@ public class Soucoupe extends Bird {
         return getGraphic(posX, posY, angle, g);
     }
 
+    /**
+     * Vue que la soucope a deux fenetre, considere comme des oeils, il a fallut
+     * override la fonction
+     * @param posX
+     * @param posY
+     * @param angle
+     * @param g
+     * @return 
+     */
     @Override
     protected Graphics getGraphic(int posX, int posY, double angle, Graphics g) {
         g.setColor(corps); // La couleur du pigeon

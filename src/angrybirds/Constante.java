@@ -23,12 +23,12 @@ public class Constante {
      * La couleur du trace choisi
      */
     public static Footstep footstep = Footstep.ROUGE;
-    
+
     /**
      * La fond choisi
      */
     public static Fond fond = Fond.PAYSAGE;
-   
+
     /**
      * Les dimensions de la fenetre
      */
@@ -38,6 +38,21 @@ public class Constante {
      * Liste des obstacles du jeu
      */
     public static ArrayList<Obstacle> obstacle = new ArrayList<>();
+
+    /**
+     * Liste des points de passages du pigeon en x
+     */
+    public static ArrayList<Integer> footstepX = new ArrayList<>();
+
+    /**
+     * Liste des points de passages du pigeon en y
+     */
+    public static ArrayList<Integer> footstepY = new ArrayList<>();
+
+    /**
+     * Liste des angles fait par le pigeon
+     */
+    public static ArrayList<Double> footstepA = new ArrayList<>();
 
     /**
      * Fonction qui ajoute entre 5 obstacles a des endroits fix sur une fenetre
