@@ -3,54 +3,118 @@ package Obstacle;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+/**
+ * Class abstraite des obstacles
+ * @author Wissam
+ */
+public abstract class Obstacle {
 
-public class Obstacle extends JPanel {
-	private int x, y, largueur, hauteur;
+    /**
+     * La hauteur de l'obstacle
+     */
+    protected int hight;
 
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+    /**
+     * La largeur de l'obstacle
+     */
+    protected int widht;
 
-		g.setColor(Color.BLUE);
-		g.fillOval(x, y, largueur, hauteur);
+    /**
+     * La position en X de l'obstacle
+     */
+    protected int x;
 
-	}
+    /**
+     * La position en Y de l'obstacle
+     */
+    protected int y;
 
-	public Obstacle(int x, int y, int largueur, int hauteur) {
-		this.x = x;
-		this.y = y;
-		this.largueur = largueur;
-		this.hauteur = hauteur;
-		JFrame fenetre = new JFrame();
-		setPreferredSize(new Dimension(500, 500));
-		fenetre.getContentPane().add(this);
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.pack();
-		fenetre.setVisible(true);
-	}
+    /**
+     * La couleur de l'obstacle
+     */
+    protected Color c;
 
-	public int getX() {
-		return x;
-	}
+    /**
+     * La hitbox de l'obstacle
+     */
+    protected Hitbox hb;
+    
+    
+    /**
+     * Cree un obtacle avec sa taille, sa position et sa couleur initiale
+     * @param hight Hauteur
+     * @param widht Largeur
+     * @param x Position aux abscisses
+     * @param y Position aux ordonnees
+     * @param c Couleur
+     */
+    public Obstacle(int hight, int widht, int x, int y, Color c) {
+        this.hight = hight;
+        this.widht = widht;
+        this.x = x;
+        this.y = y;
+        this.c = c;
+        hb = new Hitbox(x, y, new Dimension(widht, hight));
+    }
 
-	public void setX(int x) {
-		this.x = x;
-	}
+    /**
+     * Dessine l'obstacle
+     * @return 
+     */
+    public abstract Graphics drawMe(Graphics g);
+    
+    public abstract Graphics drawMe(int x, int y, Graphics g);
+    
+    public abstract Graphics drawMe(int x, int y, Color c,Graphics g);
 
-	public int getY() {
-		return y;
-	}
+    public int getHight() {
+        return hight;
+    }
 
-	public void setY(int y) {
-		this.y = y;
-	}
+    public void setHight(int hight) {
+        this.hight = hight;
+    }
 
-	public static void main(String[] args) {
-		Obstacle o1 = new Obstacle(200, 50, 10, 10);
-	}
+    public int getWeight() {
+        return widht;
+    }
 
+    public void setWeight(int weight) {
+        this.widht = weight;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Color getC() {
+        return c;
+    }
+
+    public void setC(Color c) {
+        this.c = c;
+    }
+
+    public int getWidht() {
+        return widht;
+    }
+
+    public Hitbox getHb() {
+        return hb;
+    }
+    
+    
 }
