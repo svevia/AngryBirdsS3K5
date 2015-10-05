@@ -183,4 +183,5 @@ public abstract class Obstacle {
             obstacle.remove(o);
         }
     }
+    
 }
