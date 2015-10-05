@@ -21,11 +21,11 @@ public class Collision {
 
     /**
      * Fonction permettant de trouver l'element percute
-     *
      * @return 0 si aucun element n'est percute, si non son index dans la liste
      */
     private int entityHit() {
         for (int i = 0; i < obstacle.size(); i++) {
+            // Compare les hit boxes
             int j = bird.getHb().compareTo(obstacle.get(i).getHb());
             if (j == 1) {
                 return i;
