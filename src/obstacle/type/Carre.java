@@ -37,5 +37,4 @@ public class Carre extends Obstacle {
     public Graphics drawMe(int x, int y, Color c, Graphics g) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }
