@@ -15,6 +15,10 @@ public class Collision {
 
     AnimationOiseau anim;
 
+    /**
+     *
+     * @param animationOiseau
+     */
     public Collision(AnimationOiseau animationOiseau) {
         anim = animationOiseau;
     }

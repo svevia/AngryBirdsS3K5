@@ -18,11 +18,16 @@ public class HeartCore implements Runnable {
      */
     static int step;
 
+    /**
+     * L'animation utilise
+     */
     AnimationOiseau anim;
 
     /**
      *
      * @param vitesse
+     * @param step
+     * @param animationOiseau
      */
     public HeartCore(int vitesse, int step, AnimationOiseau animationOiseau) {
         this.vitesse = vitesse;

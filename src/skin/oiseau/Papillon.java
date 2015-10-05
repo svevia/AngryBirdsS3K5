@@ -4,8 +4,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import skin.Bird;
 
+/**
+ * Class non finie
+ */
 public class Papillon extends Bird {
 
+    /**
+     *
+     */
     public Papillon() {
         super(50, 20, 2, 4, Math.PI/4, 0.7, Color.LIGHT_GRAY, Color.BLACK, Color.PINK);
     }

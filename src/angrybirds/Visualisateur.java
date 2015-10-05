@@ -2,8 +2,6 @@ package angrybirds;
 
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
-import java.awt.Image;
-import java.awt.image.ImageObserver;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se

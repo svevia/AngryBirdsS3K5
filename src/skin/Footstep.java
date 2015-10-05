@@ -3,21 +3,55 @@ package skin;
 import java.awt.Color;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
-import angrybirds.HeartCore;
 
 /**
  * L'enumeration qui contient tout les skins d'empreinte et les fonctions associeb
  */
 public enum Footstep {
 
+    /**
+     * Sans couleur
+     */
     NONE(),
+
+    /**
+     * Couleur simple rouge
+     */
     ROUGE(Color.red),
+
+    /**
+     * Couleur simple noir
+     */
     NOIR(Color.black),
+
+    /**
+     * Au couleur de l'arc en ciel
+     */
     ARCENCIEL(Color.magenta, Color.blue, Color.cyan, Color.green, Color.yellow, Color.ORANGE, Color.red),
+
+    /**
+     * Au couleur du drapeau de la gaypride
+     */
     GAY(Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.magenta),
+
+    /**
+     * Couleur simple rose
+     */
     ROSE(Color.pink),
+
+    /**
+     * Au couleur du serpent vert et noir
+     */
     RAZER(Color.black, new Color(2, 255, 4), Color.black),
+
+    /**
+     * Aux couleurs des pays bas
+     */
     NEERLANDE(Color.red, Color.red, Color.white, Color.white, Color.blue, Color.blue),
+
+    /**
+     *  Aux couleurs des USA
+     */
     USA(Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red);
 
     /**
@@ -43,9 +77,6 @@ public enum Footstep {
 
     /**
      * Dessinne une partie des empreintes
-     * @param x La liste des points en x
-     * @param y La liste des point en y
-     * @param a La liste des angles de chaque pas
      * @param part Nombre de pas a dessiner a partir de l'entite
      * @param g Graphique sur le quel il s'applique
      * @return 
@@ -72,9 +103,6 @@ public enum Footstep {
     
     /**
      * Dessinne toute les empreintes
-     * @param x La liste des points en x
-     * @param y La liste des point en y
-     * @param a La liste des angles de chaque pas
      * @param g Graphique sur le quel il s'applique
      * @return 
      */

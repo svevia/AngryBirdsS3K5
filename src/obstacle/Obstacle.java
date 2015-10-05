@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 /**
  * Class abstraite des obstacles
- *
- * @author Wissam
  */
 public abstract class Obstacle {
 
@@ -64,6 +62,7 @@ public abstract class Obstacle {
     /**
      * Dessine l'obstacle
      *
+     * @param g
      * @return
      */
     public abstract Graphics drawMe(Graphics g);
@@ -89,50 +88,98 @@ public abstract class Obstacle {
      */
     public abstract Graphics drawMe(int x, int y, Color c, Graphics g);
 
+    /**
+     *
+     * @return
+     */
     public int getHight() {
         return hight;
     }
 
+    /**
+     *
+     * @param hight
+     */
     public void setHight(int hight) {
         this.hight = hight;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getWeight() {
         return widht;
     }
 
+    /**
+     *
+     * @param weight
+     */
     public void setWeight(int weight) {
         this.widht = weight;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     *
+     * @param x
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     *
+     * @param y
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getC() {
         return c;
     }
 
+    /**
+     *
+     * @param c
+     */
     public void setC(Color c) {
         this.c = c;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getWidht() {
         return widht;
     }
 
+    /**
+     *
+     * @return
+     */
     public Hitbox getHb() {
         return hb;
     }

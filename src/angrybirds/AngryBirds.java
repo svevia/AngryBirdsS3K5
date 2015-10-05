@@ -1,8 +1,14 @@
 package angrybirds;
 
+/**
+ *  La class main qui lance le programme
+ */
 public class AngryBirds {
 
-    static Presentation p = new Presentation(10);
+    /**
+     * Le programme qui se lancera
+     */
+    static LivrableUn p = new LivrableUn(10);
     
     /**
      * @param args the command line arguments

@@ -143,46 +143,90 @@ public abstract class Bird {
         return g;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getR() {
         return r;
     }
 
+    /**
+     *
+     * @return
+     */
     public Hitbox getHb() {
         return hb;
     }
 
+    /**
+     *
+     * @param corps
+     */
     public void setCorps(Color corps) {
         this.corps = corps;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPosX() {
         return posX;
     }
 
+    /**
+     *
+     * @param posX
+     */
     public void setPosX(int posX) {
         this.posX = posX;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPosY() {
         return posY;
     }
 
+    /**
+     *
+     * @param posY
+     */
     public void setPosY(int posY) {
         this.posY = posY;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getBirdCenterX() {
         return birdCenterX;
     }
 
+    /**
+     *
+     * @param birdCenterX
+     */
     public void setBirdCenterX(int birdCenterX) {
         this.birdCenterX = birdCenterX;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getBirdCenterY() {
         return birdCenterY;
     }
 
+    /**
+     *
+     * @param birdCenterY
+     */
     public void setBirdCenterY(int birdCenterY) {
         this.birdCenterY = birdCenterY;
     }

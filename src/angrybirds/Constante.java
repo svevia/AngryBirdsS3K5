@@ -53,9 +53,12 @@ public class Constante {
      */
     public static ArrayList<Double> footstepA;
     
+    /**
+     * Reinitialise la class a zero
+     */
     public static void iniz() {
         bird = new RougeGorge();
-        footstep = Footstep.ARCENCIEL;
+        footstep = Footstep.ROUGE;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
