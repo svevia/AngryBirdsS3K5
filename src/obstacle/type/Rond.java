@@ -1,7 +1,8 @@
-package Obstacle;
+package obstacle.type;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import obstacle.Obstacle;
 
 /**
  * Objet permettant de faire des obstacles en forme de rond

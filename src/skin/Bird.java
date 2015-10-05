@@ -155,6 +155,39 @@ public abstract class Bird {
         this.corps = corps;
     }
 
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
+    public int getBirdCenterX() {
+        return birdCenterX;
+    }
+
+    public void setBirdCenterX(int birdCenterX) {
+        this.birdCenterX = birdCenterX;
+    }
+
+    public int getBirdCenterY() {
+        return birdCenterY;
+    }
+
+    public void setBirdCenterY(int birdCenterY) {
+        this.birdCenterY = birdCenterY;
+    }
+
+    
     /**
      * Cette fonction dessine l'oiseau sur un Graphics
      * @param posX La position de l'oiseau en x

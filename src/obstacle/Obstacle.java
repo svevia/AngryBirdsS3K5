@@ -3,9 +3,12 @@ package obstacle;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import static angrybirds.Constante.obstacle;
+import java.util.ArrayList;
 
 /**
  * Class abstraite des obstacles
+ *
  * @author Wissam
  */
 public abstract class Obstacle {
@@ -39,10 +42,10 @@ public abstract class Obstacle {
      * La hitbox de l'obstacle
      */
     protected Hitbox hb;
-    
-    
+
     /**
      * Cree un obtacle avec sa taille, sa position et sa couleur initiale
+     *
      * @param hight Hauteur
      * @param widht Largeur
      * @param x Position aux abscisses
@@ -60,13 +63,31 @@ public abstract class Obstacle {
 
     /**
      * Dessine l'obstacle
-     * @return 
+     *
+     * @return
      */
     public abstract Graphics drawMe(Graphics g);
-    
+
+    /**
+     * Dessine l'obstacle en une position donne
+     *
+     * @param x
+     * @param y
+     * @param g
+     * @return
+     */
     public abstract Graphics drawMe(int x, int y, Graphics g);
-    
-    public abstract Graphics drawMe(int x, int y, Color c,Graphics g);
+
+    /**
+     * Dessine l'obstacle en une position donne et en une couleur specifie
+     *
+     * @param x
+     * @param y
+     * @param c
+     * @param g
+     * @return
+     */
+    public abstract Graphics drawMe(int x, int y, Color c, Graphics g);
 
     public int getHight() {
         return hight;
@@ -115,6 +136,51 @@ public abstract class Obstacle {
     public Hitbox getHb() {
         return hb;
     }
-    
-    
+
+    /**
+     * Ajoute un obstacle
+     *
+     * @param o Obstacle a ajouter
+     */
+    static public void addObstacle(Obstacle o) {
+        obstacle.add(o);
+    }
+
+    /**
+     * Ajoute une liste d'obstacle a la liste principal
+     *
+     * @param o La liste
+     */
+    static public void addListObstacle(Obstacle... o) {
+        for (Obstacle oi : o) {
+            addObstacle(oi);
+        }
+    }
+
+    /**
+     * Retire l'obstacle numero i
+     *
+     * @param i L'index de l'obstacle
+     */
+    static public void removeObstacle(int i) {
+        obstacle.remove(i);
+    }
+
+    /**
+     * Retire tout les obstacles
+     */
+    static public void removeAllObstacle() {
+        obstacle = new ArrayList<>();
+    }
+
+    /**
+     * Retire tout les obstacles d'un certain type
+     *
+     * @param o Le type
+     */
+    static public void removeAllSpecifiedKindObstacle(Obstacle o) {
+        for (int i = 0; i < obstacle.size(); i++) {
+            obstacle.remove(o);
+        }
+    }
 }

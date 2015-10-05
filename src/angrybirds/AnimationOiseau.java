@@ -3,7 +3,6 @@ package angrybirds;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import static angrybirds.Constante.*;
-import java.awt.Color;
 import obstacle.Collision;
 
 /**
@@ -14,42 +13,37 @@ public class AnimationOiseau extends JFrame {
     /**
      * Le visualisateur
      */
-    private Visualisateur visu = new Visualisateur();
+    private Visualisateur visu;
 
     /**
-     * Position du pigeon en x
+     * Gestionnaire de collision
      */
-    int x;
-
-    /**
-     * Position du pigeon en y
-     */
-    int y;
-
-    /**
-     * L'angle de l'oiseau
-     */
-    double a;
-
-    /**
-     * Le nombre d'incrementation de x par boucle du thread
-     */
-    int stepByX = 3;
+    private Collision stun;
 
     /**
      * Thread de l'animation
      */
-    Thread fred = new Thread(new avancement(20));
+    private Thread core;
 
     /**
-     * Courbe qu'aura le pigeon, qui prendra ses paramètres dans le constructeur
+     * Position du pigeon en x
      */
-    Courbe courbe;
+    private int x;
 
     /**
-     * Gestion des collisions
+     * Position du pigeon en y
      */
-    Collision coll = new Collision();
+    private int y;
+
+    /**
+     * L'angle de l'oiseau
+     */
+    private double a;
+
+    /**
+     * Courbe qu'aura le pigeon, qui prendra ses parametres dans le constructeur
+     */
+    private Courbe courbe;
 
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
@@ -63,53 +57,35 @@ public class AnimationOiseau extends JFrame {
     public AnimationOiseau(int x, double a, double b, double c) {
         this.x = x;
         courbe = new Courbe(a, b, c);
-        start();
     }
 
-//    public AnimationOiseau() {
-//        menuDeDemarrage mdd = new menuDeDemarrage();
-//    }
+    /**
+     * Initializer, initialisant la class
+     */
     {
-        setTitle("Angry Fly");
+        setTitle("Angry Fly Test : " + angrybirds.AngryBirds.p.i);
         setResizable(false);
         setSize(fenetre);
         setDefaultCloseOperation(3);
         setLocationRelativeTo(null);
+        setVisible(true);
+        visu = new Visualisateur(); // Gestionnaire d'affichage
+        stun = new Collision(); // Gestionnaire de collision
+        core = new Thread(new HeartCore(40, 7)); // Gestionnaire d'evenement
     }
 
     /**
      * Demmarrage de l'animation
      */
     public final void start() {
-        Constante.inizObstacle();
-        fred.start();
-    }
-
-    /**
-     *
-     * @param g
-     */
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        x += stepByX;
-        y = (int) courbe.getYenX(x);
-        a = courbe.angleNext(x);
-        // Ajout de coordonnees au trace
-        footstepX.add(x);
-        footstepY.add(y + bird.getR());
-        footstepA.add(courbe.getCoefficientDirecteur(x));
-        g = visu.drawFond(g);
-        g = visu.drawFootstep(false, 5, g);
-        g = visu.drawOiseau(x, y, a, g);
-        g = visu.drawObstacle(g);
+        core.start();
     }
 
     /**
      * Arrete le thread du jeu et relance un nouveau jeu
      */
     void arret() {
-        fred.stop();
+        core.stop();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
@@ -119,64 +95,59 @@ public class AnimationOiseau extends JFrame {
     }
 
     /**
-     * La classe du thread de l'animation
+     *
+     * @param g
      */
-    class avancement implements Runnable {
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        y = (int) courbe.getYenX(x);
+        a = courbe.angleNext(x);
+        addFootstepCoord();
+        g = visu.drawFond(g);
+        g = visu.drawFootstep(false, 5, g);
+        g = visu.drawOiseau(x, y, a, g);
+        g = visu.drawObstacle(g);
+    }
+    
+    /**
+     * Fonction qui ajoute les coordonnes actuel a une liste
+     */
+    private void addFootstepCoord() {
+        footstepX.add(x);
+        footstepY.add(y + bird.getR());
+        footstepA.add(courbe.getCoefficientDirecteur(x));
+    }
 
-        /**
-         * En milliseconde, le temps entre 2 pas (ou deux battements d'ailes)
-         */
-        int vitesse;
+    /**
+     * @return x
+     */
+    public int getX() {
+        return x;
+    }
 
-        /**
-         *
-         * @param vitesse
-         */
-        public avancement(int vitesse) {
-            this.vitesse = vitesse;
-        }
+    /**
+     *
+     * @param x
+     */
+    public void setX(int x) {
+        this.x = x;
+    }
 
-        /**
-         * Le run avance le x, repaint et attends un peu
-         */
-        @Override
-        public void run() {
-            while (true) {
-                int x1 = x - bird.getR(), x2 = x + bird.getR(), y1 = y - bird.getR(), y2 = y + bird.getR();
-                // Ce try/catch renferme a peu pres tout le traitement pour que le 
-                // repaint se passe sans "encombre"
-                try {
-                    if (x > 15) {
-                        if (y < 15) {
-                            repaint(0, 0, 800, y2 + 25);
-                            System.out.println(y2);
-                        } else {
-                            repaint(x1, y1, x2, y2);
-                        }
-                    } else {
-                        x1 = 0;
-                        x2 = 800;
-                        y1 = 0;
-                        y2 = 600;
-                        repaint(x1, y1, x2, y2);
-                    }
-                    // Si la distance de x et y depassent la fenetre
-                    if (x + bird.getR() * 2 > fenetre.getWidth() || y + bird.getR() * 2 > fenetre.getHeight() - 50) {
-                        arret();
-                    }
-                    Thread.sleep(vitesse);
-                } catch (InterruptedException e) {
-                    System.out.println("Fred a un soucis :(\n" + e.getMessage());
-                }
-                int tmp = coll.entityHit();
-                if (tmp != 0) {
-                    bird.setCorps(Color.BLACK);
-                    obstacle.get(tmp).setC(Color.BLACK);
-                    repaint();
-                    arret();
-                }
-            }
-        }
+    /**
+     * @return y
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
+     * Incremente x de i
+     *
+     * @param i L'incrementeur
+     */
+    public void incrementeX(int i) {
+        this.x += i;
     }
 
 //    class menuDeDemarrage extends JDialog implements ActionListener {

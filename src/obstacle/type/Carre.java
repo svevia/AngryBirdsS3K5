@@ -1,7 +1,8 @@
-package Obstacle;
+package obstacle.type;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import obstacle.Obstacle;
 
 /**
  * Dessine un obstacle en forme de carre

@@ -32,7 +32,7 @@ public class Canard extends Bird {
     public Graphics draw(int posX, int posY, double angle, Graphics g) {
         super.birdCenterX = posX + fatX / 2;
         super.birdCenterY = posY + fatY / 2;
-
+        
         // Le bec du canard
         super.polyX[0] = (int) (birdCenterX + r * Math.cos(angle - tailleBec));
         super.polyX[1] = (int) (birdCenterX + 2 * r * Math.cos(angle));

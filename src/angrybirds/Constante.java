@@ -1,12 +1,8 @@
 package angrybirds;
 
 import obstacle.Obstacle;
-import obstacle.Rond;
-import obstacle.Carre;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import obstacle.*;
 import skin.Footstep;
 import skin.Bird;
 import skin.Fond;
@@ -56,16 +52,4 @@ public class Constante {
      * Liste des angles fait par le pigeon
      */
     public static ArrayList<Double> footstepA = new ArrayList<>();
-
-    /**
-     * Fonction qui ajoute entre 5 obstacles a des endroits fix sur une fenetre
-     * de 800 par 600 par defaut.
-     */
-    public static void inizObstacle() {
-        obstacle.add(new Rond(20, 20, 650, 80, Color.red));
-        obstacle.add(new Carre(100, 40, 750, 400, Color.pink));
-        obstacle.add(new Carre(40, 40, 550, 300, Color.yellow));
-        obstacle.add(new Rond(20, 20, 600, 500, Color.black));
-        obstacle.add(new Rond(60, 60, 550, 200, Color.GREEN));
-    }
 }
