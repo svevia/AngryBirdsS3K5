@@ -42,5 +42,4 @@ public class Rond extends Obstacle {
         g.fillOval(x, y, widht, hight);
         return g;
     }
-
 }
