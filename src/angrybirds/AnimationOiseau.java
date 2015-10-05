@@ -26,6 +26,11 @@ public class AnimationOiseau extends JFrame {
     private Thread core;
 
     /**
+     * Courbe qu'aura le pigeon, qui prendra ses parametres dans le constructeur
+     */    
+    private Courbe courbe;
+
+    /**
      * Position du pigeon en x
      */
     private int x;
@@ -39,11 +44,6 @@ public class AnimationOiseau extends JFrame {
      * L'angle de l'oiseau
      */
     private double a;
-
-    /**
-     * Courbe qu'aura le pigeon, qui prendra ses parametres dans le constructeur
-     */
-    private Courbe courbe;
 
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
@@ -70,8 +70,8 @@ public class AnimationOiseau extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
-        stun = new Collision(); // Gestionnaire de collision
-        core = new Thread(new HeartCore(40, 7)); // Gestionnaire d'evenement
+        stun = new Collision(this); // Gestionnaire de collision
+        core = new Thread(new HeartCore(40, 7, this)); // Gestionnaire d'evenement
     }
 
     /**
@@ -84,13 +84,14 @@ public class AnimationOiseau extends JFrame {
     /**
      * Arrete le thread du jeu et relance un nouveau jeu
      */
-    void arret() {
+    public void arret() {
         core.stop();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
             System.out.println("Probleme de sommeil\n" + ex.getMessage());
         }
+        dispose();
         AngryBirds.p.run();
     }
 
@@ -108,8 +109,9 @@ public class AnimationOiseau extends JFrame {
         g = visu.drawFootstep(false, 5, g);
         g = visu.drawOiseau(x, y, a, g);
         g = visu.drawObstacle(g);
+        stun.verif();
     }
-    
+
     /**
      * Fonction qui ajoute les coordonnes actuel a une liste
      */

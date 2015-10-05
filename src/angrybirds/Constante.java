@@ -16,17 +16,17 @@ public class Constante {
     /**
      * L'oiseau choisi
      */
-    public static Bird bird = new RougeGorge();
+    public static Bird bird;
 
     /**
      * La couleur du trace choisi
      */
-    public static Footstep footstep = Footstep.ROUGE;
+    public static Footstep footstep;
 
     /**
      * La fond choisi
      */
-    public static Fond fond = Fond.PAYSAGE;
+    public static Fond fond;
 
     /**
      * Les dimensions de la fenetre
@@ -36,20 +36,30 @@ public class Constante {
     /**
      * Liste des obstacles du jeu
      */
-    public static ArrayList<Obstacle> obstacle = new ArrayList<>();
+    public static ArrayList<Obstacle> obstacle;
 
     /**
      * Liste des points de passages du pigeon en x
      */
-    public static ArrayList<Integer> footstepX = new ArrayList<>();
+    public static ArrayList<Integer> footstepX;
 
     /**
      * Liste des points de passages du pigeon en y
      */
-    public static ArrayList<Integer> footstepY = new ArrayList<>();
+    public static ArrayList<Integer> footstepY;
 
     /**
      * Liste des angles fait par le pigeon
      */
-    public static ArrayList<Double> footstepA = new ArrayList<>();
+    public static ArrayList<Double> footstepA;
+    
+    public static void iniz() {
+        bird = new RougeGorge();
+        footstep = Footstep.ARCENCIEL;
+        fond = Fond.PAYSAGE;
+        obstacle = new ArrayList<>();
+        footstepX = new ArrayList<>();
+        footstepY = new ArrayList<>();
+        footstepA = new ArrayList<>();
+    }
 }

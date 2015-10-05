@@ -3,6 +3,7 @@ package skin;
 import java.awt.Color;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
+import angrybirds.HeartCore;
 
 /**
  * L'enumeration qui contient tout les skins d'empreinte et les fonctions associeb
@@ -56,8 +57,8 @@ public enum Footstep {
             for (int j = 0; j < c.length; j++) {
                 g.setColor(c[j]);
                 xP[0] = footstepX.get(i);
-                xP[1] = footstepX.get(i) + 3;
-                xP[2] = footstepX.get(i) + 3;
+                xP[1] = footstepX.get(i) + 7;
+                xP[2] = footstepX.get(i) + 7;
                 xP[3] = footstepX.get(i);
                 yP[0] = footstepY.get(i) + j * 3;
                 yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * 3;
