@@ -1,5 +1,6 @@
 package obstacle;
 
+import angrybirds.Constante;
 import java.awt.Dimension;
 
 /**
@@ -12,8 +13,14 @@ public class Hitbox implements Comparable<Hitbox> {
 
     private int y;
 
-    private Dimension d;
-
+    private Dimension d;    
+    
+    /**
+     * Crée une hitbox avec sa position et sa dimension
+     * @param x position aux abscisses
+     * @param y position aux ordonnees
+     * @param d dimensions de la hitbox
+     */
     public Hitbox(int x, int y, Dimension d) {
         this.x = x;
         this.y = y;
@@ -23,7 +30,7 @@ public class Hitbox implements Comparable<Hitbox> {
     /**
      * Fonction qui gere les collisions ULTRA SIMPLIFIEE
      *
-     * @param o
+     * @param o 
      * @return
      */
     @Override
@@ -53,6 +60,8 @@ public class Hitbox implements Comparable<Hitbox> {
     }
 
     public void setX(int x) {
+        if(x < 0 || x > Constante.fenetre.width)
+            throw new IllegalArgumentException(this.getClass().getName() + " : setX : " + x);
         this.x = x;
     }
 
@@ -61,6 +70,8 @@ public class Hitbox implements Comparable<Hitbox> {
     }
 
     public void setY(int y) {
+        if(y < 0 || y > Constante.fenetre.width)
+            throw new IllegalArgumentException(this.getClass().getName() + " : setY : " + y);
         this.y = y;
     }
 
@@ -73,7 +84,7 @@ public class Hitbox implements Comparable<Hitbox> {
     }
 
     public void setPosition(int x, int y) {
-        this.x = x;
-        this.y = y;
+        setX(x);
+        setY(y);
     }
 }
