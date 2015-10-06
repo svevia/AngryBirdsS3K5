@@ -51,10 +51,10 @@ public abstract class Obstacle {
      * @param c Couleur
      */
     public Obstacle(int hight, int widht, int x, int y, Color c) {
-        this.hight = hight;
-        this.widht = widht;
-        this.x = x;
-        this.y = y;
+        setHight(hight);
+        setWeight(widht);
+        setX(x);
+        setY(y);
         this.c = c;
         hb = new Hitbox(x, y, new Dimension(widht, hight));
     }
@@ -101,7 +101,10 @@ public abstract class Obstacle {
      * @param hight
      */
     public void setHight(int hight) {
-        this.hight = hight;
+        if(hight > 0)
+            this.hight = hight;
+        else
+            this.hight = 42;
     }
 
     /**
@@ -117,7 +120,10 @@ public abstract class Obstacle {
      * @param weight
      */
     public void setWeight(int weight) {
-        this.widht = weight;
+        if(weight > 0)
+            this.widht = weight;
+        else
+            this.widht = 42;
     }
 
     /**
