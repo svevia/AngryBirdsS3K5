@@ -1,4 +1,4 @@
-package skin;
+package skin.oiseau;
 
 //
 //  DLC comming soon !!!
