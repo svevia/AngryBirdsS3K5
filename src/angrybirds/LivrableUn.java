@@ -42,7 +42,7 @@ public class LivrableUn implements Runnable {
                 Obstacle.addListObstacle(
                         new Rond(20, 20, 650, 80, Color.red),
                         new Rond(20, 20, 650, 80, Color.red),
-                      //  new Carre(100, 40, 750, 400, Color.pink),
+                        new Carre(800, 40, 500, 0, Color.pink),
                         new Carre(40, 40, 550, 300, Color.yellow),
                         new Rond(20, 20, 600, 500, Color.black),
                         new Rond(60, 60, 550, 200, Color.GREEN)

@@ -33,12 +33,12 @@ public class AnimationOiseau extends JFrame {
     /**
      * Position du pigeon en x
      */
-    private int x;
+    private int xPigeon;
 
     /**
      * Position du pigeon en y
      */
-    private int y;
+    private int yPigeon;
 
     /**
      * L'angle de l'oiseau
@@ -55,7 +55,7 @@ public class AnimationOiseau extends JFrame {
      * @param c + c
      */
     public AnimationOiseau(int x, double a, double b, double c) {
-        this.x = x;
+        this.xPigeon = x;
         courbe = new Courbe(a, b, c);
     }
 
@@ -102,12 +102,12 @@ public class AnimationOiseau extends JFrame {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        y = (int) courbe.getYenX(x);
-        a = courbe.angleNext(x);
+        yPigeon = (int) courbe.getYenX(xPigeon);
+        a = courbe.angleNext(xPigeon);
         addFootstepCoord();
         g = visu.drawFond(g);
         g = visu.drawFootstep(false, 5, g);
-        g = visu.drawOiseau(x, y, a, g);
+        g = visu.drawOiseau(xPigeon, yPigeon, a, g);
         g = visu.drawObstacle(g);
         stun.verif();
     }
@@ -116,16 +116,16 @@ public class AnimationOiseau extends JFrame {
      * Fonction qui ajoute les coordonnes actuel a une liste
      */
     private void addFootstepCoord() {
-        footstepX.add(x);
-        footstepY.add(y + bird.getR());
-        footstepA.add(courbe.getCoefficientDirecteur(x));
+        footstepX.add(xPigeon);
+        footstepY.add(yPigeon + bird.getR());
+        footstepA.add(courbe.getCoefficientDirecteur(xPigeon));
     }
 
     /**
      * @return x
      */
     public int getX() {
-        return x;
+        return xPigeon;
     }
 
     /**
@@ -133,14 +133,14 @@ public class AnimationOiseau extends JFrame {
      * @param x
      */
     public void setX(int x) {
-        this.x = x;
+        this.xPigeon = x;
     }
 
     /**
      * @return y
      */
     public int getY() {
-        return y;
+        return yPigeon;
     }
 
     /**
@@ -149,7 +149,7 @@ public class AnimationOiseau extends JFrame {
      * @param i L'incrementeur
      */
     public void incrementeX(int i) {
-        this.x += i;
+        this.xPigeon += i;
     }
 
 //    class menuDeDemarrage extends JDialog implements ActionListener {
