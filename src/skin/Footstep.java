@@ -28,6 +28,11 @@ public enum Footstep {
      * Au couleur de l'arc en ciel
      */
     ARCENCIEL(Color.magenta, Color.blue, Color.cyan, Color.green, Color.yellow, Color.ORANGE, Color.red),
+    
+    /**
+     * Au couleur du drapeau Allemand
+     */
+    BRETZEL(Color.BLACK, Color.RED, Color.YELLOW),
 
     /**
      * Au couleur du drapeau de la gaypride
@@ -52,7 +57,12 @@ public enum Footstep {
     /**
      *  Aux couleurs des USA
      */
-    USA(Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red);
+    USA(Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red),
+    
+    /**
+     * au couleur du drapeau Russe
+     */
+    VODKA(Color.WHITE, Color.BLUE, Color.RED );
 
     /**
      * La liste des couleurs du skin
