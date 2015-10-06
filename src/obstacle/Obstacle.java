@@ -1,5 +1,6 @@
 package obstacle;
 
+import angrybirds.Constante;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -41,6 +42,14 @@ public abstract class Obstacle {
      */
     protected Hitbox hb;
 
+    public Obstacle(){
+        setHight(42);
+        setWeight(42);
+        setX(42);
+        setY(42);
+        this.c = Color.lightGray;
+        this.hb = new Hitbox(this.x, this.y, new Dimension(this.widht, this.hight));
+    }
     /**
      * Cree un obtacle avec sa taille, sa position et sa couleur initiale
      *
@@ -56,7 +65,7 @@ public abstract class Obstacle {
         setX(x);
         setY(y);
         this.c = c;
-        hb = new Hitbox(x, y, new Dimension(widht, hight));
+        this.hb = new Hitbox(this.x, this.y, new Dimension(this.widht, this.hight));
     }
 
     /**
@@ -139,6 +148,8 @@ public abstract class Obstacle {
      * @param x
      */
     public void setX(int x) {
+        if(x < 0 || x > Constante.fenetre.width)
+            throw new IllegalArgumentException(this.getClass().getName() + " : setX : " + x);
         this.x = x;
     }
 
@@ -155,6 +166,8 @@ public abstract class Obstacle {
      * @param y
      */
     public void setY(int y) {
+        if(y < 0 || y > Constante.fenetre.height)
+            throw new IllegalArgumentException(this.getClass().getName() + " : setY : " + y);
         this.y = y;
     }
 
@@ -216,7 +229,8 @@ public abstract class Obstacle {
      * @param i L'index de l'obstacle
      */
     static public void removeObstacle(int i) {
-        obstacle.remove(i);
+        if(i < obstacle.size())
+            obstacle.remove(i);
     }
 
     /**
