@@ -58,7 +58,7 @@ public class Constante {
      */
     public static void iniz() {
         bird = new RougeGorge();
-        footstep = Footstep.ROUGE;
+        footstep = Footstep.VODKA;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
