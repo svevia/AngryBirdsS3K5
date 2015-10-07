@@ -18,7 +18,7 @@ public class testCourbe {
 	
 	@Test
 	public void testPositionOiseau(){
-		AnimationOiseau a = new AnimationOiseau(3, 1, 1, 1);
+		AnimationOiseau a = new AnimationOiseau(1, 1, 1);
 		Courbe c = new Courbe(1,1,1);
 		assertEquals(c.getYenX(3),a.getY(),0);	
 	}
