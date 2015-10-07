@@ -22,22 +22,7 @@ public class Rond extends Obstacle {
     }
 
     @Override
-    public Graphics drawMe(Graphics g) {
-        g.setColor(c);
-        g.fillOval(x, y, widht, hight);
-        return g;
-    }
-
-    @Override
-    public Graphics drawMe(int x, int y, Graphics g) {
-        g.setColor(c);
-        g.fillOval(x, y, widht, hight);
-        return g;
-    }
-
-    @Override
-    public Graphics drawMe(int x, int y, Color c, Graphics g) {
-        setC(c);
+    public Graphics draw(Graphics g) {
         g.setColor(c);
         g.fillOval(x, y, widht, hight);
         return g;

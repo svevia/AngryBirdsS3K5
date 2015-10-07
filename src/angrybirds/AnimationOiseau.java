@@ -30,20 +30,6 @@ public class AnimationOiseau extends JFrame {
      */    
     private Courbe courbe;
 
-    /**
-     * Position du pigeon en x
-     */
-    private int xPigeon;
-
-    /**
-     * Position du pigeon en y
-     */
-    private int yPigeon;
-
-    /**
-     * L'angle de l'oiseau
-     */
-    private double a;
 
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
@@ -54,8 +40,7 @@ public class AnimationOiseau extends JFrame {
      * @param b + bx
      * @param c + c
      */
-    public AnimationOiseau(int x, double a, double b, double c) {
-        this.xPigeon = x;
+    public AnimationOiseau(double a, double b, double c) {
         courbe = new Courbe(a, b, c);
     }
 
@@ -102,12 +87,10 @@ public class AnimationOiseau extends JFrame {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        yPigeon = (int) courbe.getYenX(xPigeon);
-        a = courbe.angleNext(xPigeon);
         addFootstepCoord();
         g = visu.drawFond(g);
         g = visu.drawFootstep(false, 5, g);
-        g = visu.drawOiseau(xPigeon, yPigeon, a, g);
+        g = visu.drawOiseau(g);
         g = visu.drawObstacle(g);
         stun.verif();
     }
@@ -116,78 +99,12 @@ public class AnimationOiseau extends JFrame {
      * Fonction qui ajoute les coordonnes actuel a une liste
      */
     private void addFootstepCoord() {
-        footstepX.add(xPigeon);
-        footstepY.add(yPigeon + bird.getR());
-        footstepA.add(courbe.getCoefficientDirecteur(xPigeon));
+        footstepX.add(bird.getPosX());
+        footstepY.add(bird.getPosY() + bird.getR());
+        footstepA.add(courbe.getCoefficientDirecteur(bird.getPosX()));
     }
-
-    /**
-     * @return x
-     */
-    public int getX() {
-        return xPigeon;
+    
+    public Courbe getCourbe() {
+        return courbe;
     }
-
-    /**
-     *
-     * @param x
-     */
-    public void setX(int x) {
-        this.xPigeon = x;
-    }
-
-    /**
-     * @return y
-     */
-    public int getY() {
-        return yPigeon;
-    }
-
-    /**
-     * Incremente x de i
-     *
-     * @param i L'incrementeur
-     */
-    public void incrementeX(int i) {
-        this.xPigeon += i;
-    }
-
-//    class menuDeDemarrage extends JDialog implements ActionListener {
-//
-//        private JPanel pMain = new JPanel(new BorderLayout(1, 3)), p1 = new JPanel(), p2 = new JPanel();
-//        private JLabel courbeEtA = new JLabel("Courbe : a -> "), B = new JLabel("b ->"), C = new JLabel("c ->"), departEtX = new JLabel(" - Demarre en x ->");
-//        private JTextArea aT = new JTextArea("0.002"), bT = new JTextArea("-1.7"), cT = new JTextArea("400"), xT = new JTextArea("0");
-//        private JButton start = new JButton("Demarrer"), rez = new JButton("RaZ"), essai = new JButton("Tester");
-//
-//        {
-//            setSize(800, 200);
-//            setLocationRelativeTo(null);
-//            setDefaultCloseOperation(2);
-//            setVisible(true);
-//
-//            start.addActionListener(this);
-//
-//            p1.add(courbeEtA);
-//            p1.add(aT);
-//            p1.add(B);
-//            p1.add(bT);
-//            p1.add(C);
-//            p1.add(cT);
-//            pMain.add("North", p1);
-//            p2.add(start);
-//            p2.add(rez);
-//            p2.add(essai);
-//            pMain.add("South", p2);
-//            add(pMain);
-//        }
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            if (e.getSource() == start) {
-//                x = Integer.parseInt(xT.getText());
-//                courbe = new Courbe(Integer.parseInt(aT.getText()), Integer.parseInt(bT.getText()), Integer.parseInt(cT.getText()));
-//                start();
-//            }
-//        }
-//    }
 }

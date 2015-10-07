@@ -1,5 +1,6 @@
 package skin;
 
+import angrybirds.Entity;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -9,32 +10,25 @@ import obstacle.Hitbox;
  * La class abstraite Bird normalise la creation des oiseaux donnant acce a une
  * methode un constructeur et une fonction draw.
  */
-public abstract class Bird {
+public abstract class Bird extends Entity {
+
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
 
     /**
-     * Taille du corp l'oiseau en pixel en largeur
+     * Angle d'inclinaison du pigeon
      */
-    protected int fatX;
-
-    /**
-     * Taille du corp l'oiseau en pixel en hauteur
-     */
-    protected int fatY;
-
+    protected int a;
+    
     /**
      * Rayon du corp de l'oiseau en pixel
      */
     protected int r;
-
-    /**
-     * Sa position en X sur la fenetre
-     */
-    protected int posX;
-
-    /**
-     * Sa postion en Y sur la fenetre
-     */
-    protected int posY;
 
     /**
      * La position graphique du centre du corp de l'oiseau en x sur la fenetre
@@ -89,28 +83,24 @@ public abstract class Bird {
      * La couleur des yeux
      */
     protected Color oeil;
-    
-    /**
-     * La hitbox du pigeon
-     */
-    protected Hitbox hb;
-    
+
+
     /**
      * Le constructeur de l'oiseau
+     *
      * @param fatX Sa largeur
      * @param fatY Sa hauteur
      * @param tailleOeil La taille de son oiel droit
      * @param nbPointBec Le nombre d'angle de son bec (3 pour un triangle)
      * @param tailleBec La taille en radian du bec (la taille de la base du bec)
-     * @param positionOeil La distance par rapport au centre et au rayon de l'oeil
-     * compris entre 0 et 1 (si non l'oeil sera en dehors du pigeon)
+     * @param positionOeil La distance par rapport au centre et au rayon de
+     * l'oeil compris entre 0 et 1 (si non l'oeil sera en dehors du pigeon)
      * @param corps La couleur principale du pigeon
      * @param bec La couleur de son bec
      * @param oeil La couleur de son oeil droit
      */
-    public Bird(int fatX, int fatY, int tailleOeil, int nbPointBec, double tailleBec, double positionOeil, Color corps, Color bec, Color oeil) {
-        this.fatX = fatX;
-        this.fatY = fatY;
+    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, int tailleOeil, int nbPointBec, double tailleBec, double positionOeil, Color corps, Color bec, Color oeil) {
+        super(pigeonX, pigeonY, fatX, fatY);
         this.tailleOeil = tailleOeil;
         this.nbPointBec = nbPointBec;
         this.tailleBec = tailleBec;
@@ -121,12 +111,13 @@ public abstract class Bird {
         r = fatX / 2;
         polyX = new int[nbPointBec];
         polyY = new int[nbPointBec];
-        hb = new Hitbox(0, 0, new Dimension(fatX+(int)tailleBec, fatY));
+        hb = new Hitbox(0, 0, new Dimension(fatX + (int) tailleBec, fatY));
     }
 
     /**
      * La fonction dessine l'oiseau en position x, y et angle a sur le Graphics
      * voulu "g"
+     *
      * @param posX La position de l'entite en x
      * @param posY La position de l'entite en y
      * @param angle Sa direction
@@ -135,7 +126,7 @@ public abstract class Bird {
      */
     protected Graphics getGraphic(int posX, int posY, double angle, Graphics g) {
         g.setColor(corps); // La couleur du pigeon
-        g.fillOval(posX, posY, fatX, fatY); // Le corp
+        g.fillOval(posX, posY, super.widht, super.hight); // Le corp
         g.setColor(bec);  // La couleur du bec
         g.fillPolygon(polyX, polyY, polyX.length); // Le bec
         g.setColor(oeil); // La couleur de son oeil droit
@@ -172,7 +163,7 @@ public abstract class Bird {
      * @return
      */
     public int getPosX() {
-        return posX;
+        return super.x;
     }
 
     /**
@@ -180,7 +171,7 @@ public abstract class Bird {
      * @param posX
      */
     public void setPosX(int posX) {
-        this.posX = posX;
+        super.x = posX;
     }
 
     /**
@@ -188,7 +179,7 @@ public abstract class Bird {
      * @return
      */
     public int getPosY() {
-        return posY;
+        return super.y;
     }
 
     /**
@@ -196,7 +187,7 @@ public abstract class Bird {
      * @param posY
      */
     public void setPosY(int posY) {
-        this.posY = posY;
+        super.y = posY;
     }
 
     /**
@@ -230,16 +221,4 @@ public abstract class Bird {
     public void setBirdCenterY(int birdCenterY) {
         this.birdCenterY = birdCenterY;
     }
-
-    
-    /**
-     * Cette fonction dessine l'oiseau sur un Graphics
-     * @param posX La position de l'oiseau en x
-     * @param posY La position de l'oiseau en y 
-     * @param angle L'angle de l'oiseau
-     * @param g La Graphics sur le quel dessiner
-     * @return 
-     */
-    public abstract Graphics draw(int posX, int posY, double angle, Graphics g);
-
 }

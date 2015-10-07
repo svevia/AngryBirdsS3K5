@@ -2,54 +2,19 @@ package obstacle;
 
 import angrybirds.Constante;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import static angrybirds.Constante.obstacle;
+import angrybirds.Entity;
 import java.util.ArrayList;
 
 /**
  * Class abstraite des obstacles
  */
-public abstract class Obstacle {
-
-    /**
-     * La hauteur de l'obstacle
-     */
-    protected int hight;
-
-    /**
-     * La largeur de l'obstacle
-     */
-    protected int widht;
-
-    /**
-     * La position en X de l'obstacle
-     */
-    protected int x;
-
-    /**
-     * La position en Y de l'obstacle
-     */
-    protected int y;
-
+public abstract class Obstacle extends Entity{
     /**
      * La couleur de l'obstacle
      */
     protected Color c;
 
-    /**
-     * La hitbox de l'obstacle
-     */
-    protected Hitbox hb;
-
-    public Obstacle(){
-        setHight(42);
-        setWeight(42);
-        setX(42);
-        setY(42);
-        this.c = Color.lightGray;
-        this.hb = new Hitbox(this.x, this.y, new Dimension(this.widht, this.hight));
-    }
     /**
      * Cree un obtacle avec sa taille, sa position et sa couleur initiale
      *
@@ -59,43 +24,10 @@ public abstract class Obstacle {
      * @param y Position aux ordonnees
      * @param c Couleur
      */
-    public Obstacle(int hight, int widht, int x, int y, Color c) {
-        setHight(hight);
-        setWeight(widht);
-        setX(x);
-        setY(y);
+    public Obstacle(int x, int y, int widht, int hight, Color c) {
+        super(x, y, hight, widht);
         this.c = c;
-        this.hb = new Hitbox(this.x, this.y, new Dimension(this.widht, this.hight));
     }
-
-    /**
-     * Dessine l'obstacle
-     *
-     * @param g
-     * @return
-     */
-    public abstract Graphics drawMe(Graphics g);
-
-    /**
-     * Dessine l'obstacle en une position donne
-     *
-     * @param x
-     * @param y
-     * @param g
-     * @return
-     */
-    public abstract Graphics drawMe(int x, int y, Graphics g);
-
-    /**
-     * Dessine l'obstacle en une position donne et en une couleur specifie
-     *
-     * @param x
-     * @param y
-     * @param c
-     * @param g
-     * @return
-     */
-    public abstract Graphics drawMe(int x, int y, Color c, Graphics g);
 
     /**
      *

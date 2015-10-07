@@ -22,8 +22,8 @@ public class Visualisateur {
      * @param g Graphics qui recoit le dessin
      * @return Le Graphics modefie
      */
-    public Graphics drawOiseau(int x, int y, double a, Graphics g) {
-        g = bird.draw(x, y, a, g);
+    public Graphics drawOiseau(Graphics g) {
+        g = bird.draw(g);
         return g;
     }
 
@@ -50,7 +50,7 @@ public class Visualisateur {
      */
     public Graphics drawObstacle (Graphics g) {
         for (int i = 0; i < obstacle.size(); i++) {
-            g = obstacle.get(i).drawMe(g);
+            g = obstacle.get(i).draw(g);
         }
         return g;
     }

@@ -22,19 +22,9 @@ public class Carre extends Obstacle {
     }
 
     @Override
-    public Graphics drawMe(Graphics g) {
+    public Graphics draw(Graphics g) {
         g.setColor(c);
         g.fillRect(x, y, widht, hight);
         return g;
-    }
-
-    @Override
-    public Graphics drawMe(int x, int y, Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Graphics drawMe(int x, int y, Color c, Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

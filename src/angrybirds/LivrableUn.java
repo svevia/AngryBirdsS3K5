@@ -37,7 +37,7 @@ public class LivrableUn implements Runnable {
         if (i < n) {
             try {
                 iniz();
-                jeu = new AnimationOiseau(0, 0.0005, -0.5, 450 + r.nextInt(50));
+                jeu = new AnimationOiseau(0.0005, -0.5, 450 + r.nextInt(50));
                 //jeu = new AnimationOiseau(0, 0, 0, 450 + r.nextInt(50));
                 Obstacle.addListObstacle(
                         new Rond(20, 20, 650, 80, Color.red),
