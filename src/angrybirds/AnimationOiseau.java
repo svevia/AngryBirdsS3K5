@@ -1,14 +1,14 @@
 package angrybirds;
 
 import java.awt.Graphics;
-import javax.swing.JFrame;
 import static angrybirds.Constante.*;
 import entites.Collision;
+import javax.swing.JPanel;
 
 /**
  * La class principale du programme
  */
-public class AnimationOiseau extends JFrame {
+public class AnimationOiseau extends JPanel {
 
     /**
      * Le visualisateur
@@ -27,9 +27,8 @@ public class AnimationOiseau extends JFrame {
 
     /**
      * Courbe qu'aura le pigeon, qui prendra ses parametres dans le constructeur
-     */    
+     */
     private Courbe courbe;
-
 
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
@@ -48,12 +47,7 @@ public class AnimationOiseau extends JFrame {
      * Initializer, initialisant la class
      */
     {
-        setTitle("Angry Fly Test : " + angrybirds.AngryBirds.p.i);
-        setResizable(false);
-        setSize(fenetre);
-        setDefaultCloseOperation(3);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        setDoubleBuffered(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
         core = new Thread(new HeartCore(40, 7, this)); // Gestionnaire d'evenement
@@ -76,8 +70,8 @@ public class AnimationOiseau extends JFrame {
         } catch (InterruptedException ex) {
             System.out.println("Probleme de sommeil\n" + ex.getMessage());
         }
-        dispose();
-        AngryBirds.p.run();
+        gf.dispose();
+        Main.p.run();
     }
 
     /**
@@ -86,13 +80,13 @@ public class AnimationOiseau extends JFrame {
      */
     @Override
     public void paint(Graphics g) {
-        super.paint(g);
-        addFootstepCoord();
-        g = visu.drawFond(g);
-        g = visu.drawFootstep(false, 5, g);
-        g = visu.drawOiseau(g);
-        g = visu.drawObstacle(g);
-        stun.verif();
+            super.paint(g);
+            addFootstepCoord();
+            g = visu.drawFond(g);
+            g = visu.drawFootstep(false, 5, g);
+            g = visu.drawOiseau(g);
+            g = visu.drawObstacle(g);
+            stun.verif();
     }
 
     /**
@@ -103,7 +97,7 @@ public class AnimationOiseau extends JFrame {
         footstepY.add(bird.getPosY() + bird.getR());
         footstepA.add(courbe.getCoefficientDirecteur(bird.getPosX()));
     }
-    
+
     public Courbe getCourbe() {
         return courbe;
     }

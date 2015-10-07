@@ -36,12 +36,12 @@ public class LivrableUnTest {
     }
 
     /**
-     * Test of run method, of class LivrableUn.
+     * Test of run method, of class GameFrame.
      */
     @Test
     public void testRun() {
         System.out.println("run");
-        LivrableUn instance = null;
+        GameFrame instance = null;
         instance.run();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

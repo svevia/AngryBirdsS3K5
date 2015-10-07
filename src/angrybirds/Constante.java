@@ -54,6 +54,11 @@ public class Constante {
     public static ArrayList<Double> footstepA;
     
     /**
+     * La fenetre du jeu
+     */
+    public static GameFrame gf;
+    
+    /**
      * Reinitialise la class a zero
      */
     public static void iniz() {

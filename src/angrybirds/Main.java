@@ -3,12 +3,12 @@ package angrybirds;
 /**
  *  La class main qui lance le programme
  */
-public class AngryBirds {
+public class Main {
 
     /**
      * Le programme qui se lancera
      */
-    static LivrableUn p = new LivrableUn(10);
+    static LivOne p = new LivOne(10);
     
     /**
      * @param args the command line arguments

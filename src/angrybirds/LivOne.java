@@ -1,45 +1,37 @@
 package angrybirds;
 
-import entites.obstacle.skin.Rond;
-import entites.obstacle.skin.Carre;
 import static angrybirds.Constante.iniz;
-import java.awt.Color;
-import java.util.Random;
+import static angrybirds.Constante.gf;
 import entites.obstacle.Obstacle;
+import entites.obstacle.skin.Carre;
+import entites.obstacle.skin.Rond;
+import java.awt.Color;
 
 /**
- * Premier livrable
+ *
+ * @author Wissam
  */
-public class LivrableUn implements Runnable {
-
-    private Random r = new Random();
-    private int n;
+public class LivOne implements Runnable {
 
     /**
      * Le numero de lancement de l'application
      */
-    public int i;
-    
-    /**
-     * L'animation sur la quelle travailler
-     */
-    private AnimationOiseau jeu;
+    private int i;
 
     /**
-     *
-     * @param nombreSerie
+     * Le nombre d'essai total
      */
-    public LivrableUn(int nombreSerie) {
-        n = nombreSerie;
+    private int n;
+
+    public LivOne(int n) {
+        this.n = n;
     }
-
+    
     @Override
     public void run() {
         if (i < n) {
             try {
                 iniz();
-                jeu = new AnimationOiseau(0.0005, -0.5, 450 + r.nextInt(50));
-                //jeu = new AnimationOiseau(0, 0, 0, 450 + r.nextInt(50));
                 Obstacle.addListObstacle(
                         new Rond(500, 20, 20, 80, Color.red),
                         new Rond(550, 200, 80, 80, Color.red),
@@ -48,7 +40,7 @@ public class LivrableUn implements Runnable {
                         new Rond(200, 200, 60, 50, Color.black),
                         new Rond(600, 600, 50, 20, Color.GREEN)
                 );
-                jeu.start();
+                gf = new GameFrame(i, n);
             } catch (Exception e) {
                 System.out.println("CA MARCHE PAS !!!\n" + e.toString());
             }
