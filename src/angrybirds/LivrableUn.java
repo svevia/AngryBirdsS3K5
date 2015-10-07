@@ -40,12 +40,12 @@ public class LivrableUn implements Runnable {
                 jeu = new AnimationOiseau(0.0005, -0.5, 450 + r.nextInt(50));
                 //jeu = new AnimationOiseau(0, 0, 0, 450 + r.nextInt(50));
                 Obstacle.addListObstacle(
-                        new Rond(20, 20, 650, 80, Color.red),
-                        new Rond(20, 20, 650, 80, Color.red),
-                        new Carre(800, 40, 500, 0, Color.pink),
-                        new Carre(40, 40, 550, 300, Color.yellow),
-                        new Rond(20, 20, 600, 500, Color.black),
-                        new Rond(60, 60, 550, 200, Color.GREEN)
+                        new Rond(500, 20, 20, 80, Color.red),
+                        new Rond(550, 200, 80, 80, Color.red),
+                        new Carre(500, 400, 50, 0, Color.pink),
+                        new Carre(400, 400, 50, 30, Color.yellow),
+                        new Rond(200, 200, 60, 50, Color.black),
+                        new Rond(600, 600, 50, 20, Color.GREEN)
                 );
                 jeu.start();
             } catch (Exception e) {

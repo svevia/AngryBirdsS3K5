@@ -42,15 +42,14 @@ public class HeartCore implements Runnable {
     public void run() {
         while (true) {
             try {
-                int x1 = bird.getPosX();
+                int x1 = bird.getPosX() - 10;
                 int x2 = bird.getBirdCenterX() + bird.getR() + 10;
-                int y1 = bird.getPosY();
+                int y1 = bird.getPosY() - 10;
                 int y2 = bird.getBirdCenterY() + bird.getR() + 10;
-                x1 = (x1 < 0) ? 0 : x1;
-                x2 = (x2 < 0) ? 0 : x2;
                 bird.setPosX(bird.getPosX() + step);
                 bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
-                bird.setA((int) anim.getCourbe().angleNext(bird.getPosX()));
+                bird.setA(anim.getCourbe().angleNext(bird.getPosX()));
+                System.out.println(bird.getA());
                 anim.repaint(x1, y1, x2, y2);
                 if (bird.getBirdCenterX() < 40) {
                     anim.repaint();

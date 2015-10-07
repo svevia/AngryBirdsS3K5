@@ -12,19 +12,11 @@ import obstacle.Hitbox;
  */
 public abstract class Bird extends Entity {
 
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
     /**
      * Angle d'inclinaison du pigeon
      */
-    protected int a;
-    
+    protected double a;
+
     /**
      * Rayon du corp de l'oiseau en pixel
      */
@@ -84,7 +76,6 @@ public abstract class Bird extends Entity {
      */
     protected Color oeil;
 
-
     /**
      * Le constructeur de l'oiseau
      *
@@ -124,14 +115,22 @@ public abstract class Bird extends Entity {
      * @param g Le Graphics sur le quel applique le dessin
      * @return Le Graphics dessine
      */
-    protected Graphics getGraphic(int posX, int posY, double angle, Graphics g) {
+    protected Graphics getGraphic(Graphics g) {
         g.setColor(corps); // La couleur du pigeon
-        g.fillOval(posX, posY, super.widht, super.hight); // Le corp
+        g.fillOval(getPosX(), getPosY(), getWidht(), getHight()); // Le corp
         g.setColor(bec);  // La couleur du bec
         g.fillPolygon(polyX, polyY, polyX.length); // Le bec
         g.setColor(oeil); // La couleur de son oeil droit
-        g.fillOval((int) (birdCenterX + (positionOeil * r) * Math.cos(angle - positionOeil)), (int) (birdCenterY + (positionOeil * r) * Math.sin(angle - positionOeil)), tailleOeil, tailleOeil); // Son oeil droit
+        g.fillOval((int) (birdCenterX + (positionOeil * r) * Math.cos(getA() - positionOeil)), (int) (birdCenterY + (positionOeil * r) * Math.sin(getA() - positionOeil)), tailleOeil, tailleOeil); // Son oeil droit
         return g;
+    }
+
+    public double getA() {
+        return a;
+    }
+
+    public void setA(double a) {
+        this.a = a;
     }
 
     /**
