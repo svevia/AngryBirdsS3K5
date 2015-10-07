@@ -1,12 +1,12 @@
 package angrybirds;
 
-import obstacle.Obstacle;
+import entites.bird.skin.Canard;
+import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import skin.Footstep;
-import skin.Bird;
-import skin.Fond;
-import skin.oiseau.*;
+import entites.bird.Footstep;
+import entites.bird.Bird;
+import entites.bird.Fond;
 
 /**
  * La classe constante reunni toute les constantes du programme.

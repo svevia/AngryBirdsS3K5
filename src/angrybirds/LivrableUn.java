@@ -1,10 +1,11 @@
 package angrybirds;
 
+import entites.obstacle.skin.Rond;
+import entites.obstacle.skin.Carre;
 import static angrybirds.Constante.iniz;
 import java.awt.Color;
 import java.util.Random;
-import obstacle.Obstacle;
-import obstacle.type.*;
+import entites.obstacle.Obstacle;
 
 /**
  * Premier livrable

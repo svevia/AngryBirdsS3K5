@@ -3,7 +3,7 @@ package angrybirds;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import static angrybirds.Constante.*;
-import obstacle.Collision;
+import entites.Collision;
 
 /**
  * La class principale du programme
