@@ -57,7 +57,7 @@ public abstract class Bird extends Entity {
      * @param bec La couleur de son bec
      * @param oeil La couleur de son oeil droit
      */
-    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Color corps, Color bec, Color oeil) {
+    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Color corps) {
         super(pigeonX, pigeonY, fatX, fatY);
         this.corps = corps;
         r = fatX / 2;

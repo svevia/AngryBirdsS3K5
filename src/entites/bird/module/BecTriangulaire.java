@@ -11,20 +11,21 @@ import java.awt.Graphics;
 public class BecTriangulaire extends ModuleBird {
 
     private int nbPoint;
-
+    private Color couleur;
     private int hauteur;
     private double largeur;
 
-    public BecTriangulaire(int hauteur, double largeur, double distanceCentre, Bird b) {
+    public BecTriangulaire(int hauteur, double largeur, double distanceCentre, Bird b, Color couleur) {
         super(distanceCentre, b, false);
         nbPoint = 3;
         this.hauteur = hauteur;
         this.largeur = largeur;
+        this.couleur = couleur;
     }
 
     @Override
     public Graphics draw(Graphics g) {
-        g.setColor(Color.orange);
+        g.setColor(couleur);
         int[] pointX = new int[nbPoint];
         int[] pointY = new int[nbPoint];
         double angle = (Math.sin(b.getA()));

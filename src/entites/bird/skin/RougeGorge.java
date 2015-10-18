@@ -12,14 +12,14 @@ import entites.bird.module.Oeil;
  */
 public class RougeGorge extends Bird {
 
-    private BecTriangulaire bec = new BecTriangulaire(2, Math.PI / 4, 1, this);
-    private Oeil oeil = new Oeil(7, this, true, 3, Color.BLACK);
+    private BecTriangulaire bec = new BecTriangulaire(2, Math.PI / 4, 1, this, Color.orange);
+    private Oeil oeil = new Oeil(8, this, true, 3, Color.BLACK);
 
     /**
      * Constructeur de la class creeant automatiquement l'oiseau
      */
     public RougeGorge() {
-        super(0, 0, 20, 20, Color.red, Color.yellow, Color.black);
+        super(0, 0, 20, 20, Color.red);
         super.hb.setD(new Dimension(20, 20));
         addModule(bec);
         addModule(oeil);

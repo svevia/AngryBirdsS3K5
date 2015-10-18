@@ -63,7 +63,7 @@ public class Constante {
      * Reinitialise la class a zero
      */
     public static void iniz() {
-        bird = new RougeGorge();
+        bird = new Canard();
         footstep = Footstep.ARCENCIEL;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
