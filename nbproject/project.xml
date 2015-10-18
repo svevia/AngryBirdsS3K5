@@ -6,6 +6,7 @@
             <name>GitAngryBirds</name>
             <source-roots>
                 <root id="src.dir"/>
+                <root id="src.UML.dir" name="UML Package"/>
             </source-roots>
             <test-roots>
                 <root id="test.test.dir" name="Test Packages"/>

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import entites.Hitbox;
+import java.util.ArrayList;
 
 /**
  * La class abstraite Bird normalise la creation des oiseaux donnant acce a une
@@ -33,48 +34,14 @@ public abstract class Bird extends Entity {
     protected int birdCenterY;
 
     /**
-     * La taille de l'oeil en pixel
-     */
-    protected int tailleOeil;
-
-    /**
-     * Le nombre de point du bec, un triangle en vaux 3 par exemple
-     */
-    protected int nbPointBec;
-
-    /**
-     * Les coordonnees des points du bec de l'oiseau en x sur le fenetre
-     */
-    protected int[] polyX;
-
-    /**
-     * Les coordonnees des points du bec de l'oiseau en y sur le fenetre
-     */
-    protected int[] polyY;
-
-    /**
-     * La taille du bec en radian ex : PI/4 donnera un bec de 35°
-     */
-    protected double tailleBec;
-
-    /**
-     * La position de l'oeil par rapport au centre de l'oiseau ex : 0.7 donnera
-     * l'oeil à 70% du rayon du bord
-     */
-    protected double positionOeil;
-
-    /**
      * La couleur du corps
      */
     protected Color corps;
+
     /**
-     * La couleur du bec
+     * Les modules de l'oiseau
      */
-    protected Color bec;
-    /**
-     * La couleur des yeux
-     */
-    protected Color oeil;
+    protected ArrayList<ModuleBird> modul = new ArrayList<>();
 
     /**
      * Le constructeur de l'oiseau
@@ -90,19 +57,11 @@ public abstract class Bird extends Entity {
      * @param bec La couleur de son bec
      * @param oeil La couleur de son oeil droit
      */
-    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, int tailleOeil, int nbPointBec, double tailleBec, double positionOeil, Color corps, Color bec, Color oeil) {
+    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Color corps, Color bec, Color oeil) {
         super(pigeonX, pigeonY, fatX, fatY);
-        this.tailleOeil = tailleOeil;
-        this.nbPointBec = nbPointBec;
-        this.tailleBec = tailleBec;
-        this.positionOeil = positionOeil;
         this.corps = corps;
-        this.bec = bec;
-        this.oeil = oeil;
         r = fatX / 2;
-        polyX = new int[nbPointBec];
-        polyY = new int[nbPointBec];
-        hb = new Hitbox(0, 0, new Dimension(fatX + (int) tailleBec, fatY));
+        hb = new Hitbox(0, 0, new Dimension(fatX, fatY));
     }
 
     /**
@@ -115,13 +74,9 @@ public abstract class Bird extends Entity {
      * @param g Le Graphics sur le quel applique le dessin
      * @return Le Graphics dessine
      */
-    protected Graphics getGraphic(Graphics g) {
+    protected Graphics MinimalBirdFactory(Graphics g) {
         g.setColor(corps); // La couleur du pigeon
         g.fillOval(getPosX(), getPosY(), getWidht(), getHight()); // Le corp
-        g.setColor(bec);  // La couleur du bec
-        g.fillPolygon(polyX, polyY, polyX.length); // Le bec
-        g.setColor(oeil); // La couleur de son oeil droit
-        g.fillOval((int) (birdCenterX + (positionOeil * r) * Math.cos(getA() - positionOeil)), (int) (birdCenterY + (positionOeil * r) * Math.sin(getA() - positionOeil)), tailleOeil, tailleOeil); // Son oeil droit
         return g;
     }
 
@@ -219,5 +174,37 @@ public abstract class Bird extends Entity {
      */
     public void setBirdCenterY(int birdCenterY) {
         this.birdCenterY = birdCenterY;
+    }
+
+    /**
+     * Le draw des modules
+     *
+     * @param g
+     * @return
+     */
+    public Graphics drawAllModule(Graphics g, boolean over) {
+        if (over) {
+            for (int i = 0; i < modul.size(); i++) {
+                if (modul.get(i).over) {
+                    modul.get(i).draw(g);
+                }
+            }
+        } else {
+            for (int i = 0; i < modul.size(); i++) {
+                if (!modul.get(i).over) {
+                    modul.get(i).draw(g);
+                }
+            }
+        }
+        return g;
+    }
+
+    /**
+     * Ajoute un module a l'oiseau
+     *
+     * @param mb
+     */
+    public void addModule(ModuleBird mb) {
+        modul.add(mb);
     }
 }

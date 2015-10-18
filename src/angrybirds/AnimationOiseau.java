@@ -95,7 +95,7 @@ public class AnimationOiseau extends JPanel {
     private void addFootstepCoord() {
         footstepX.add(bird.getPosX());
         footstepY.add(bird.getPosY() + bird.getR());
-        footstepA.add(courbe.getCoefficientDirecteur(bird.getPosX()));
+        footstepA.add(courbe.angleNextD(bird.getPosX()));
     }
 
     public Courbe getCourbe() {

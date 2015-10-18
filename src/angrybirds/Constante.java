@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import entites.bird.Footstep;
 import entites.bird.Bird;
 import entites.bird.Fond;
+import entites.bird.skin.RougeGorge;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -62,8 +63,8 @@ public class Constante {
      * Reinitialise la class a zero
      */
     public static void iniz() {
-        bird = new Canard();
-        footstep = Footstep.VODKA;
+        bird = new RougeGorge();
+        footstep = Footstep.ARCENCIEL;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();

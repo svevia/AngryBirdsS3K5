@@ -52,7 +52,7 @@ public class HeartCore implements Runnable {
                 y1 = (y1 > 0) ? y1 : 0;
                 bird.setPosX(bird.getPosX() + step);
                 bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
-                bird.setA(anim.getCourbe().angleNext(bird.getPosX()));
+                bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
                 anim.repaint(x1, y1, x2, y2);
                 if (bird.getBirdCenterX() < 40) {
                     anim.repaint();

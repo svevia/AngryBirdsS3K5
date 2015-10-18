@@ -47,7 +47,7 @@ public class BirdTest {
     }
 
     /**
-     * Test of getGraphic method, of class Bird.
+     * Test of MinimalBirdFactory method, of class Bird.
      */
     @Test
     public void testGetGraphic() {
@@ -55,7 +55,7 @@ public class BirdTest {
         Graphics g = null;
         Bird instance = null;
         Graphics expResult = null;
-        Graphics result = instance.getGraphic(g);
+        Graphics result = instance.MinimalBirdFactory(g);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

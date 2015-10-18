@@ -43,6 +43,6 @@ public class Canard extends Bird {
         super.polyY[2] = (int) (birdCenterY + 1.5 * r * Math.sin(getA() + tailleBec));
         super.polyY[3] = (int) (birdCenterY + r * Math.sin(getA() + tailleBec));
         super.hb.setPosition(getPosX(), getPosY());
-        return super.getGraphic(g);
+        return super.MinimalBirdFactory(g);
     }
 }

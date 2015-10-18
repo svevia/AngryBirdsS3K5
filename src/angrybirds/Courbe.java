@@ -31,44 +31,54 @@ public class Courbe {
     }
 
     /**
-     * Renvoie le nombre de y qu'aura en plus au prochain x l'oiseau, donnant
-     * ainsi une "direction" Si le chiffre est negative, le pigeon s'envole, si
-     * non il est en train de se crasher
+     * Renvoei le prochain angle qu'aura l'oiseau
      *
      * @param x
      * @return
      */
-    public double getCoefficientDirecteur(int x) {
-        double yCoef, xCoef;
-        yCoef = (getYenX(x) - getYenX(x + 1));
-        xCoef = (x - (x + 1));
-        return yCoef / xCoef;
-    }
+    public double angleNextD(int x) {
+        double d1 = distanceEntreDeuxPoints(x + 1, x, getYenX(x + 1), getYenX(x));
+        double d2 = distanceEntreDeuxPoints(x + 1, x + d1, getYenX(x + 1), getYenX(x));
+        double angle = calculAngle(d1, d1, d2);
 
-    /**
-     * Retourne la difference en la position du pigeon en Ordonnees et de sa
-     * position suivante
-     *
-     * @param x
-     * @return
-     */
-    public double getCoefficientDirecteurY(int x) {
-        return getYenX(x) - getYenX(x - 1);
-    }
-
-    /**
-     * Renvoie l'angle en radian du prochain point
-     *
-     * @param x
-     * @return
-     */
-    public double angleNext(int x) {
-        double tmp = getCoefficientDirecteurY(x);
-        if (tmp < 0) {
-            return Math.PI / 2 - Math.atan(1 / getCoefficientDirecteurY(x)) + Math.PI;
+        if (!actualYRiserThanNext(x)) {
+            return angle;
         } else {
-            return Math.PI / 2 - Math.atan(1 / getCoefficientDirecteurY(x));
+            return -angle;
         }
-        //return 1 / getCoefficientDirecteurY(x); //Pour faire un 3'6 au pigeon en l'air rpz oklm #posay
+    }
+
+    /**
+     * Calcule la distance entre deux point (x, y)
+     *
+     * @param x1
+     * @param x2
+     * @param y1
+     * @param y2
+     * @return
+     */
+    private double distanceEntreDeuxPoints(double x1, double x2, double y1, double y2) {
+        return (Math.pow((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)), 0.5));
+    }
+
+    /**
+     * Calcule l'angle de trois distance dans un triangle isocéle (calcul ici la
+     * pointe)
+     *
+     * @param d1
+     * @param d2
+     * @param d3
+     * @return
+     */
+    private double calculAngle(double d1, double d2, double d3) {
+        double p1 = (Math.pow(d1, 2) + Math.pow(d2, 2) - Math.pow(d3, 2));
+        double p2 = 2 * d1 * d2;
+        return Math.acos(p1 / p2);
+    }
+
+    private boolean actualYRiserThanNext(int x) {
+        double actual = getYenX(x);
+        double next = getYenX(x + 1);
+        return actual > next;
     }
 }
