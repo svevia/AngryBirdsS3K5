@@ -1,15 +1,14 @@
- Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
 package entites.obstacle;
 
 import entites.Hitbox;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
-package entites.obstacle;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -31,18 +30,24 @@ public class ObstacleTest {
     
     @BeforeClass
     public static void setUpClass() {
+        System.out.println("Test de la Classe Obstable");
+        System.out.println("+=======================================+");
     }
     
     @AfterClass
     public static void tearDownClass() {
+        System.out.println("+=======================================+");
+        System.out.println("Fin du Test de la Classe Obstacle");
     }
     
     @Before
     public void setUp() {
+        System.out.println("+-------------------+");
     }
     
     @After
     public void tearDown() {
+        System.out.println();
     }
 
     /**
@@ -51,12 +56,10 @@ public class ObstacleTest {
     @Test
     public void testGetHight() {
         System.out.println("getHight");
-        Obstacle instance = null;
-        int expResult = 0;
+        Obstacle instance = new ObstacleImpl();
+        int expResult = 200;
         int result = instance.getHight();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,11 +68,12 @@ public class ObstacleTest {
     @Test
     public void testSetHight() {
         System.out.println("setHight");
-        int hight = 0;
-        Obstacle instance = null;
-        instance.setHight(hight);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Obstacle instance = new ObstacleImpl();
+        instance.setHight(150);
+        assertEquals(instance.getHight(), 150);
+        instance.setHight(-100);
+        assertTrue(instance.getHight()> 0);
+        
     }
 
     /**
@@ -78,12 +82,10 @@ public class ObstacleTest {
     @Test
     public void testGetWeight() {
         System.out.println("getWeight");
-        Obstacle instance = null;
-        int expResult = 0;
+        Obstacle instance = new ObstacleImpl();
+        int expResult = 100;
         int result = instance.getWeight();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -92,11 +94,12 @@ public class ObstacleTest {
     @Test
     public void testSetWeight() {
         System.out.println("setWeight");
-        int weight = 0;
-        Obstacle instance = null;
-        instance.setWeight(weight);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Obstacle instance = new ObstacleImpl();
+        instance.setWeight(15);
+        assertEquals(instance.getWeight(), 15);
+        instance.setWeight(-20);
+        assertTrue(instance.getWeight() > 0);
+        
     }
 
     /**
@@ -105,12 +108,10 @@ public class ObstacleTest {
     @Test
     public void testGetX() {
         System.out.println("getX");
-        Obstacle instance = null;
-        int expResult = 0;
+        Obstacle instance = new ObstacleImpl();
+        int expResult = 10;
         int result = instance.getX();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -119,11 +120,11 @@ public class ObstacleTest {
     @Test
     public void testSetX() {
         System.out.println("setX");
-        int x = 0;
-        Obstacle instance = null;
-        instance.setX(x);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Obstacle instance = new ObstacleImpl();
+        instance.setX(42);
+        assertEquals(instance, 42);
+        instance.setX(-50);
+        assertTrue(instance.getX() > 0);
     }
 
     /**
@@ -132,12 +133,10 @@ public class ObstacleTest {
     @Test
     public void testGetY() {
         System.out.println("getY");
-        Obstacle instance = null;
-        int expResult = 0;
+        Obstacle instance = new ObstacleImpl();
+        int expResult = 20;
         int result = instance.getY();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -146,11 +145,11 @@ public class ObstacleTest {
     @Test
     public void testSetY() {
         System.out.println("setY");
-        int y = 0;
-        Obstacle instance = null;
-        instance.setY(y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Obstacle instance = new ObstacleImpl();
+        instance.setY(42);
+        assertEquals(instance.getY(), 42);
+        instance.setY(-42);
+        assertTrue(instance.getY() > 0);
     }
 
     /**
@@ -159,12 +158,10 @@ public class ObstacleTest {
     @Test
     public void testGetC() {
         System.out.println("getC");
-        Obstacle instance = null;
-        Color expResult = null;
+        Obstacle instance = new ObstacleImpl();
+        Color expResult = Color.red;
         Color result = instance.getC();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);    
     }
 
     /**
@@ -173,11 +170,10 @@ public class ObstacleTest {
     @Test
     public void testSetC() {
         System.out.println("setC");
-        Color c = null;
+        Color c = Color.BLUE;
         Obstacle instance = null;
         instance.setC(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getC(), c);
     }
 
     /**
@@ -186,12 +182,10 @@ public class ObstacleTest {
     @Test
     public void testGetWidht() {
         System.out.println("getWidht");
-        Obstacle instance = null;
-        int expResult = 0;
+        Obstacle instance = new ObstacleImpl();
+        int expResult = 100;
         int result = instance.getWidht();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -200,12 +194,10 @@ public class ObstacleTest {
     @Test
     public void testGetHb() {
         System.out.println("getHb");
-        Obstacle instance = null;
-        Hitbox expResult = null;
+        Obstacle instance = new ObstacleImpl();
+        Hitbox expResult = new Hitbox(10, 20, new Dimension(100, 200));
         Hitbox result = instance.getHb();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -214,10 +206,8 @@ public class ObstacleTest {
     @Test
     public void testAddObstacle() {
         System.out.println("addObstacle");
-        Obstacle o = null;
+        Obstacle o = new ObstacleImpl();
         Obstacle.addObstacle(o);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -226,10 +216,8 @@ public class ObstacleTest {
     @Test
     public void testAddListObstacle() {
         System.out.println("addListObstacle");
-        Obstacle[] o = null;
+        Obstacle[] o = {new ObstacleImpl(), new ObstacleImpl()};
         Obstacle.addListObstacle(o);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -239,9 +227,8 @@ public class ObstacleTest {
     public void testRemoveObstacle() {
         System.out.println("removeObstacle");
         int i = 0;
+        Obstacle.addObstacle(new ObstacleImpl());
         Obstacle.removeObstacle(i);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -250,9 +237,8 @@ public class ObstacleTest {
     @Test
     public void testRemoveAllObstacle() {
         System.out.println("removeAllObstacle");
+        Obstacle.addObstacle(new ObstacleImpl());
         Obstacle.removeAllObstacle();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -261,16 +247,22 @@ public class ObstacleTest {
     @Test
     public void testRemoveAllSpecifiedKindObstacle() {
         System.out.println("removeAllSpecifiedKindObstacle");
-        Obstacle o = null;
+        Obstacle o = new ObstacleImpl();
+        Obstacle.addObstacle(o);
         Obstacle.removeAllSpecifiedKindObstacle(o);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     public class ObstacleImpl extends Obstacle {
 
         public ObstacleImpl() {
-            super(0, 0, 0, 0, null);
+            super(10, 20, 100, 200, null);
+        }
+        
+        @Override
+        public Graphics draw(Graphics g) {
+        g.setColor(c);
+        g.fillOval(x, y, widht, hight);
+        return g;
         }
     }
     

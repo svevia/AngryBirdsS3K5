@@ -1,14 +1,12 @@
- Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
 package entites;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
-package entites;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,18 +28,24 @@ public class EntityTest {
     
     @BeforeClass
     public static void setUpClass() {
+        System.out.println("Test de la Classe Entity");
+        System.out.println("+=======================================+");
     }
     
     @AfterClass
     public static void tearDownClass() {
+        System.out.println("+=======================================+");
+        System.out.println("Fin du Test de la Classe Entity");
     }
     
     @Before
     public void setUp() {
+        System.out.println("+-------------------+");
     }
     
     @After
     public void tearDown() {
+        System.out.println();
     }
 
     /**
@@ -50,12 +54,10 @@ public class EntityTest {
     @Test
     public void testGetX() {
         System.out.println("getX");
-        Entity instance = null;
-        int expResult = 0;
+        Entity instance = new EntityImpl();
+        int expResult = 10;
         int result = instance.getX();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -64,11 +66,11 @@ public class EntityTest {
     @Test
     public void testSetX() {
         System.out.println("setX");
-        int x = 0;
-        Entity instance = null;
-        instance.setX(x);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Entity instance = new EntityImpl();
+        instance.setX(42);
+        assertEquals(42, instance.getX());
+        instance.setX(-42);
+        assertTrue(instance.getX() > 0);
     }
 
     /**
@@ -77,12 +79,10 @@ public class EntityTest {
     @Test
     public void testGetY() {
         System.out.println("getY");
-        Entity instance = null;
-        int expResult = 0;
+        Entity instance = new EntityImpl();
+        int expResult = 20;
         int result = instance.getY();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,11 +91,11 @@ public class EntityTest {
     @Test
     public void testSetY() {
         System.out.println("setY");
-        int y = 0;
-        Entity instance = null;
-        instance.setY(y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Entity instance = new EntityImpl();
+        instance.setY(42);
+        assertEquals(42, instance.getY());
+        instance.setY(-42);
+        assertTrue(instance.getY() > 0);
     }
 
     /**
@@ -104,12 +104,10 @@ public class EntityTest {
     @Test
     public void testGetHight() {
         System.out.println("getHight");
-        Entity instance = null;
-        int expResult = 0;
+        Entity instance = new EntityImpl();
+        int expResult = 100;
         int result = instance.getHight();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);        
     }
 
     /**
@@ -118,11 +116,11 @@ public class EntityTest {
     @Test
     public void testSetHight() {
         System.out.println("setHight");
-        int hight = 0;
-        Entity instance = null;
-        instance.setHight(hight);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Entity instance = new EntityImpl();
+        instance.setHight(42);
+        assertEquals(42, instance.getY());
+        instance.setHight(-42);
+        assertTrue(instance.getY() > 0);
     }
 
     /**
@@ -131,12 +129,10 @@ public class EntityTest {
     @Test
     public void testGetWidht() {
         System.out.println("getWidht");
-        Entity instance = null;
-        int expResult = 0;
+        Entity instance = new EntityImpl();
+        int expResult = 200;
         int result = instance.getWidht();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -145,11 +141,11 @@ public class EntityTest {
     @Test
     public void testSetWidht() {
         System.out.println("setWidht");
-        int widht = 0;
-        Entity instance = null;
-        instance.setWidht(widht);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Entity instance = new EntityImpl();
+        instance.setWidht(42);
+        assertEquals(42, instance.getWidht());
+        instance.setWidht(-42);
+        assertTrue(instance.getWidht() > 0);
     }
 
     /**
@@ -158,12 +154,10 @@ public class EntityTest {
     @Test
     public void testGetHb() {
         System.out.println("getHb");
-        Entity instance = null;
-        Hitbox expResult = null;
+        Entity instance = new EntityImpl();
+        Hitbox expResult = new Hitbox(10, 20, new Dimension(100, 200));
         Hitbox result = instance.getHb();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);        
     }
 
     /**
@@ -172,11 +166,10 @@ public class EntityTest {
     @Test
     public void testSetHb() {
         System.out.println("setHb");
-        Hitbox hb = null;
-        Entity instance = null;
+        Hitbox hb = new Hitbox(10, 20, new Dimension(42, 42));;
+        Entity instance = new EntityImpl();
         instance.setHb(hb);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(hb, instance.getHb());
     }
 
     /**
@@ -184,24 +177,18 @@ public class EntityTest {
      */
     @Test
     public void testDraw() {
-        System.out.println("draw");
-        Graphics g = null;
-        Entity instance = null;
-        Graphics expResult = null;
-        Graphics result = instance.draw(g);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(true);
     }
 
     public class EntityImpl extends Entity {
 
         public EntityImpl() {
-            super(0, 0, 0, 0);
+            super(10, 20, 100, 200);
         }
 
         public Graphics draw(Graphics g) {
-            return null;
+            g.fillOval(x, y, widht, hight);
+            return g;
         }
     }
     
