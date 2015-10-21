@@ -71,7 +71,7 @@ public class AnimationOiseau extends JPanel {
             System.out.println("Probleme de sommeil\n" + ex.getMessage());
         }
         gf.dispose();
-        Main.p.run();
+        LivOne.p.run();
     }
 
     /**

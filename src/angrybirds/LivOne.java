@@ -3,8 +3,7 @@ package angrybirds;
 import static angrybirds.Constante.iniz;
 import static angrybirds.Constante.gf;
 import entites.obstacle.Obstacle;
-import entites.obstacle.skin.Carre;
-import entites.obstacle.skin.Rond;
+import entites.obstacle.skin.*;
 import java.awt.Color;
 
 /**
@@ -13,6 +12,11 @@ import java.awt.Color;
  */
 public class LivOne implements Runnable {
 
+    /**
+     * Le programme qui se lancera
+     */
+    static LivOne p = new LivOne(10);
+    
     /**
      * Le numero de lancement de l'application
      */
@@ -26,25 +30,31 @@ public class LivOne implements Runnable {
     public LivOne(int n) {
         this.n = n;
     }
-    
+
     @Override
     public void run() {
         if (i < n) {
             try {
                 iniz();
-                Obstacle.addListObstacle(
-//                        new Rond(500, 20, 20, 80, Color.red),
-//                        new Rond(550, 200, 80, 80, Color.red),
-//                        new Carre(500, 400, 50, 0, Color.pink),
-//                        new Carre(400, 400, 50, 30, Color.yellow),
-//                        new Rond(200, 200, 60, 50, Color.black),
-//                        new Rond(600, 600, 50, 20, Color.GREEN)
-                );
+                Obstacle.addListObstacle( //                        new Rond(500, 20, 20, 80, Color.red),
+                        //                        new Rond(550, 200, 80, 80, Color.red),
+                        //                        new Carre(500, 400, 50, 0, Color.pink),
+                        //                        new Carre(400, 400, 50, 30, Color.yellow),
+                        //                        new Rond(200, 200, 60, 50, Color.black),
+                        //                        new Rond(600, 600, 50, 20, Color.GREEN)
+                        );
                 gf = new GameFrame(i, n);
             } catch (Exception e) {
                 System.out.println("CA MARCHE PAS !!!\n" + e.toString());
             }
             i++;
         }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        p.run();
     }
 }
