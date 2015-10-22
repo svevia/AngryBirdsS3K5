@@ -101,4 +101,10 @@ public class AnimationOiseau extends JPanel {
     public Courbe getCourbe() {
         return courbe;
     }
+
+    public Thread getCore() {
+        return core;
+    }
+    
+    
 }
