@@ -16,7 +16,7 @@ public class LivOne implements Runnable {
      * Le programme qui se lancera
      */
     static LivOne p = new LivOne(10);
-    
+
     /**
      * Le numero de lancement de l'application
      */

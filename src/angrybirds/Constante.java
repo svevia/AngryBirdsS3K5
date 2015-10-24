@@ -1,13 +1,10 @@
 package angrybirds;
 
-import entites.bird.skin.Canard;
+import entites.bird.skin.*;
 import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import entites.bird.Footstep;
-import entites.bird.Bird;
-import entites.bird.Fond;
-import entites.bird.skin.RougeGorge;
+import entites.bird.*;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -64,7 +61,7 @@ public class Constante {
      */
     public static void iniz() {
         bird = new RougeGorge();
-        footstep = Footstep.ARCENCIEL;
+        footstep = Footstep.BRETZEL;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();

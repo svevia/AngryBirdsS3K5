@@ -82,10 +82,7 @@ public class AnimationOiseau extends JPanel {
     public void paint(Graphics g) {
             super.paint(g);
             addFootstepCoord();
-            g = visu.drawFond(g);
-            g = visu.drawFootstep(false, 5, g);
-            g = visu.drawOiseau(g);
-            g = visu.drawObstacle(g);
+            g = visu.drawAllNeed(g);
             stun.verif();
     }
 

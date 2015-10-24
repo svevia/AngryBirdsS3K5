@@ -54,6 +54,8 @@ public class HeartCore implements Runnable {
                 bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
                 bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
                 anim.repaint(x1, y1, x2, y2);
+                /* Pour d'obscures raisons, quand l'oiseau n'a pas quitté les premiers
+                pixels, le repaint bug */
                 if (bird.getBirdCenterX() < 40) {
                     anim.repaint();
                 }
