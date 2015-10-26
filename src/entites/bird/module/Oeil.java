@@ -22,7 +22,8 @@ public class Oeil extends ModuleBird {
     @Override
     public Graphics draw(Graphics g) {
         g.setColor(couleur);
-        g.fillOval((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(Math.PI/4))), (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(-Math.PI/4))), diametre, diametre);
+        double angle = (Math.sin(b.getA()));
+        g.fillOval((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI/4))), (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI/4))), diametre, diametre);
         return g;
     }
 
