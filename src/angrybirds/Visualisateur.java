@@ -77,7 +77,7 @@ public class Visualisateur {
      */
     public Graphics drawAllNeed(Graphics g) {
         g = drawFond(g);
-        g = drawFootstep(false, 5, g);
+        g = drawFootstep(false, 20, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
         return g;

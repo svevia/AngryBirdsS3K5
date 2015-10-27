@@ -17,8 +17,8 @@ public class Rond extends Obstacle {
      * @param y
      * @param c 
      */
-    public Rond(int hight, int widht, int x, int y, Color c) {
-        super(hight, widht, x, y, c);
+    public Rond(int x, int y, int hight, int widht, Color c) {
+        super(x, y, hight, widht, c);
     }
 
     @Override

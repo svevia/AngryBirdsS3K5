@@ -36,12 +36,12 @@ public class LivOne implements Runnable {
             try {
                 iniz();
                 Obstacle.addListObstacle(
-                        new Rond(500, 20, 20, 80, Color.red),
-                        //                        new Rond(550, 200, 80, 80, Color.red),
-                        //                        new Carre(500, 400, 50, 0, Color.pink),
-                        //                        new Carre(400, 400, 50, 30, Color.yellow),
-                        //                        new Rond(200, 200, 60, 50, Color.black),
-                        new Rond(600, 600, 50, 20, Color.black)
+                        new Rond(500, 20, 80, 80, Color.red),
+                        new Rond(550, 200, 80, 80, Color.red),
+                        new Carre(500, 400, 50, 0, Color.pink),
+                        new Carre(400, 400, 50, 30, Color.yellow),
+                        new Rond(200, 200, 60, 50, Color.black),
+                        new Rond(500, 500, 50, 50, Color.black)
                 );
                 gf = new GameFrame(i + 1, n, generateCourbe());
             } catch (Exception e) {

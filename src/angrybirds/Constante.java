@@ -69,6 +69,10 @@ public class Constante {
         footstepA = new ArrayList<>();
     }
 
+    /**
+     * Genere une courbe aleatoirement dans le cadre du jeu
+     * @return La courbe genere
+     */
     public static Courbe generateCourbe() {
         return new Courbe(0.0008, -0.9, 450);
     }

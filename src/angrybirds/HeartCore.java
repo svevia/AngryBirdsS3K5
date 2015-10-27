@@ -13,6 +13,10 @@ public class HeartCore implements Runnable {
      */
     int vitesse;
 
+    private double distanceParcourue;
+    private int xDepart;
+    private int yDepart;
+
     /**
      * L'animation utilise
      */
@@ -34,34 +38,44 @@ public class HeartCore implements Runnable {
      */
     @Override
     public void run() {
+        xDepart = bird.getX();
+        yDepart = (int) anim.getCourbe().getYenX(bird.getX());
         while (true) {
-            try {
-                bird.setPosX(bird.getPosX() + 1);
-                bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
-                bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
+            System.out.println(bird.getX() + " - " + anim.getCourbe().getYenX(bird.getX()));
+            distanceParcourue = anim.getCourbe().distanceEntreDeuxPoints(xDepart, bird.getX(), yDepart, anim.getCourbe().getYenX(bird.getX()));
+            bird.setPosX(bird.getPosX() + 1);
+            bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
+            bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
+            // A varier entre 2 et 6
+            if (distanceParcourue > 6) {
                 refresh();
-                Thread.sleep(5);
-            } catch (InterruptedException e) {
-                System.out.println("Fred a un soucis :(\n" + e.getMessage());
             }
+
         }
     }
 
     private void refresh() {
         /* Pour d'obscures raisons, quand l'oiseau n'a pas quitté les premiers
          pixels, le repaint bug */
-        if (bird.getBirdCenterX() < 40) {
+        if (bird.getBirdCenterX() < 80) {
             anim.repaint();
         } else {
-            int x1 = bird.getPosX() - 1;
-            int x2 = bird.getBirdCenterX() + 1;
-            int y1 = bird.getPosY() - 1;
-            int y2 = bird.getBirdCenterY() + 1;
+            int x1 = bird.getPosX() - 10;
+            int x2 = bird.getBirdCenterX() + 10;
+            int y1 = bird.getPosY() - 10;
+            int y2 = bird.getBirdCenterY() + 10;
             x1 = (x1 > 0) ? x1 : 0;
             x2 = (x2 > 0) ? x2 : 0;
             y2 = (y2 > 0) ? y2 : 0;
             y1 = (y1 > 0) ? y1 : 0;
             anim.repaint(x1, y1, x2, y2);
+        }
+        xDepart = bird.getX();
+        yDepart = (int) anim.getCourbe().getYenX(bird.getX());
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            System.out.println("Fred a un soucis :(\n" + e.getMessage());
         }
     }
 }

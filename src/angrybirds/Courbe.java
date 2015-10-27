@@ -5,6 +5,9 @@ package angrybirds;
  */
 public class Courbe {
 
+    /**
+     * Les points de la courbe
+     */
     private double a, b, c;
 
     /**
@@ -21,7 +24,7 @@ public class Courbe {
     }
 
     /**
-     * Renvoie la position du pigeon en x
+     * Renvoie la position y du pigeon en x
      *
      * @param x
      * @return
@@ -31,7 +34,7 @@ public class Courbe {
     }
 
     /**
-     * Renvoei le prochain angle qu'aura l'oiseau
+     * Renvoie le prochain angle qu'aura l'oiseau
      *
      * @param x
      * @return
@@ -57,7 +60,7 @@ public class Courbe {
      * @param y2
      * @return
      */
-    private double distanceEntreDeuxPoints(double x1, double x2, double y1, double y2) {
+    public double distanceEntreDeuxPoints(double x1, double x2, double y1, double y2) {
         return (Math.pow((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)), 0.5));
     }
 
@@ -76,6 +79,11 @@ public class Courbe {
         return Math.acos(p1 / p2);
     }
 
+    /**
+     * Determine si le point suivant est plus haut que l'ancien
+     * @param x
+     * @return 
+     */
     private boolean actualYRiserThanNext(int x) {
         double actual = getYenX(x);
         double next = getYenX(x + 1);

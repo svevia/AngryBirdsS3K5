@@ -35,23 +35,23 @@ public class Hitbox implements Comparable<Hitbox> {
      */
     @Override
     public int compareTo(Hitbox o) {
-        int x1 = o.getX(), x2 = o.getX() + o.getD().width, y1 = o.getY(), y2 = o.getY() + o.getD().height;
-        boolean sous = false, dessus = false, droite = false, gauche = false;
-        if (x + d.width > x1) {
-            droite = true;
-        }
-        if (x < x2) {
-            gauche = true;
-        }
-        if (y + d.height < y2) {
-            dessus = true;
-        }
-        if (y > y1) {
-            sous = true;
-        }
-        if (droite && dessus && sous) {
-            return 1;
-        }
+//        int x1 = o.getX(), x2 = o.getX() + o.getD().width, y1 = o.getY(), y2 = o.getY() + o.getD().height;
+//        boolean sous = false, dessus = false, droite = false, gauche = false;
+//        if (x + d.width > x1) {
+//            droite = true;
+//        }
+//        if (x < x2) {
+//            gauche = true;
+//        }
+//        if (y + d.height < y2) {
+//            dessus = true;
+//        }
+//        if (y > y1) {
+//            sous = true;
+//        }
+//        if (droite && dessus && sous) {
+//            return 1;
+//        }
         return 0;
     }
 
