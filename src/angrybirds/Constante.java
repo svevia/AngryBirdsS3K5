@@ -29,7 +29,7 @@ public class Constante {
     /**
      * Les dimensions de la fenetre
      */
-    public static Dimension fenetre = new Dimension(800, 600);
+    public static Dimension fenetre = new Dimension(1200, 600);
 
     /**
      * Liste des obstacles du jeu
@@ -50,22 +50,26 @@ public class Constante {
      * Liste des angles fait par le pigeon
      */
     public static ArrayList<Double> footstepA;
-    
+
     /**
      * La fenetre du jeu
      */
     public static GameFrame gf;
-    
+
     /**
      * Reinitialise la class a zero
      */
     public static void iniz() {
         bird = new Canard();
-        footstep = Footstep.BRETZEL;
+        footstep = Footstep.GAY;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
         footstepA = new ArrayList<>();
+    }
+
+    public static Courbe generateCourbe() {
+        return new Courbe(0.0008, -0.9, 450);
     }
 }

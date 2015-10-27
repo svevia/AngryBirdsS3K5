@@ -6,7 +6,9 @@ import entites.Collision;
 import javax.swing.JPanel;
 
 /**
- * La class principale du programme
+ * La class principale du programme la ou se consentre aussi le visualisateur du
+ * jeu, le moteur de collision, le thread principal du jeu et la courbe engage 
+ * par l'oiseau
  */
 public class AnimationOiseau extends JPanel {
 
@@ -31,6 +33,12 @@ public class AnimationOiseau extends JPanel {
     private Courbe courbe;
 
     /**
+     * Securite
+     */
+    private AnimationOiseau() {
+    }
+
+    /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
      * courbe
      *
@@ -42,15 +50,19 @@ public class AnimationOiseau extends JPanel {
     public AnimationOiseau(double a, double b, double c) {
         courbe = new Courbe(a, b, c);
     }
+    
+    public AnimationOiseau(Courbe c) {
+        courbe = c;
+    }
 
     /**
-     * Initializer, initialisant la class
+     * Initializer, initialisant la classe
      */
     {
         setDoubleBuffered(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
-        core = new Thread(new HeartCore(40, 7, this)); // Gestionnaire d'evenement
+        core = new Thread(new HeartCore(40, this)); // Gestionnaire d'evenement
     }
 
     /**
@@ -75,7 +87,7 @@ public class AnimationOiseau extends JPanel {
     }
 
     /**
-     *
+     * Le painteur du jeu
      * @param g
      */
     @Override
@@ -102,6 +114,4 @@ public class AnimationOiseau extends JPanel {
     public Thread getCore() {
         return core;
     }
-    
-    
 }
