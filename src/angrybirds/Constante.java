@@ -36,7 +36,11 @@ public class Constante {
      */
     public static ArrayList<Obstacle> obstacle;
 
-    public static ArrayList<ModuleBird> modul;
+    /**
+     * Liste de tout les modules
+     */
+    public static ArrayList<ModuleBird> allModul;
+
     /**
      * Liste des points de passages du pigeon en x
      */
@@ -61,11 +65,11 @@ public class Constante {
      * Reinitialise la class a zero
      */
     public static void iniz() {
+        allModul = new ArrayList<>();
         bird = new Canard();
         footstep = Footstep.GAY;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
-        modul = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
         footstepA = new ArrayList<>();
@@ -73,6 +77,7 @@ public class Constante {
 
     /**
      * Genere une courbe aleatoirement dans le cadre du jeu
+     *
      * @return La courbe genere
      */
     public static Courbe generateCourbe() {

@@ -18,17 +18,12 @@ public class BecCanard extends ModuleBird {
     private Color couleur;
     private double largeur;
     int[] pointX, pointY;
-  
+
     public BecCanard(double largeur, double distanceCentre, Bird b, Color couleur) {
         super(distanceCentre, b, false);
         nbPoint = 4;
         this.largeur = largeur;
         this.couleur = couleur;
-        for(int i = 0; i < this.pointX.length; i++) {
-        	for(int j = 0; j < this.pointY.length; j++) {
-        		hb = new Hitbox(pointX[i], pointY[j], new Dimension(pointX[nbPoint], pointY[nbPoint]));
-        	}
-        }
     }
 
     @Override
@@ -48,13 +43,13 @@ public class BecCanard extends ModuleBird {
         g.fillPolygon(pointX, pointY, nbPoint);
         return g;
     }
-//            super.polyX[0] = (int) (birdCenterX + r * Math.cos(getA() - tailleBec));
-//        super.polyX[1] = (int) (birdCenterX + 2 * r * Math.cos(getA()));
-//        super.polyX[2] = (int) (birdCenterX + 1.5 * r * Math.cos(getA() + tailleBec));
-//        super.polyX[3] = (int) (birdCenterX + r * Math.cos(getA() + tailleBec));
-//        super.polyY[0] = (int) (birdCenterY + r * Math.sin(getA() - tailleBec));
-//        super.polyY[1] = (int) (birdCenterY + 2 * r * Math.sin(getA()));
-//        super.polyY[2] = (int) (birdCenterY + 1.5 * r * Math.sin(getA() + tailleBec));
-//        super.polyY[3] = (int) (birdCenterY + r * Math.sin(getA() + tailleBec));
-    
+
+    @Override
+    public void createHitbox() {
+        for (int i = 0; i < this.pointX.length; i++) {
+            for (int j = 0; j < this.pointY.length; j++) {
+                hb = new Hitbox(pointX[i], pointY[j], new Dimension(pointX[nbPoint], pointY[nbPoint]));
+            }
+        }
+    }
 }

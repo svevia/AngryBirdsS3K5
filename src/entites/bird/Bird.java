@@ -1,8 +1,7 @@
 package entites.bird;
 
+import static angrybirds.Constante.allModul;
 import entites.Entity;
-import angrybirds.Constante;
-import static angrybirds.Constante.modul;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -43,7 +42,7 @@ public abstract class Bird extends Entity {
     /**
      * Les modules de l'oiseau
      */
-//    protected ArrayList<ModuleBird> modul = new ArrayList<>();
+    protected ArrayList<ModuleBird> modul = new ArrayList<>();
 
     /**
      * Le constructeur de l'oiseau
@@ -187,7 +186,7 @@ public abstract class Bird extends Entity {
     public Graphics drawAllModule(Graphics g, boolean over) {
         if (over) {
             for (int i = 0; i < modul.size(); i++) {
-                if (modul.get(i).over) {
+                if (modul.get(i).isOver()) {
                     modul.get(i).draw(g);
                 }
             }
@@ -208,5 +207,6 @@ public abstract class Bird extends Entity {
      */
     public void addModule(ModuleBird mb) {
         modul.add(mb);
+        allModul.add(mb);
     }
 }

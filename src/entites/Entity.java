@@ -34,7 +34,7 @@ public abstract class Entity {
     protected Hitbox hb;
 
     /**
-     * Definie une entite en x et y sur une taille donne
+     * Definie une entite en x et y sur une taille donne avec sa Hitbox carre
      *
      * @param x
      * @param y

@@ -15,10 +15,16 @@ public abstract class ModuleBird {
      */
     protected Bird b;
     
+    /**
+     * La Hitbox du module
+     */
     protected Hitbox hb;
     
+    /**
+     * L'emplecement par rapport au corps de l'oiseau, sur ou sous l'oiseau sur 
+     * un plan 2D
+     */
     protected  boolean over;
-    
     
     /**
      * Distance comprise entre 0 et 1, plus que 1 mettra le module hors du corp
@@ -53,4 +59,9 @@ public abstract class ModuleBird {
      * @param g 
      */
     abstract public Graphics draw(Graphics g);
+    
+    /**
+     * Cree ou met a jour la Hitbox du module
+     */
+    abstract public void createHitbox();
 }

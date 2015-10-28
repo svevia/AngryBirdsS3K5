@@ -1,8 +1,6 @@
 package entites;
 
 import angrybirds.Constante;
-import static angrybirds.Constante.obstacle;
-import static angrybirds.Constante.modul;
 import java.awt.Dimension;
 
 /**
@@ -11,10 +9,19 @@ import java.awt.Dimension;
  */
 public class Hitbox implements Comparable<Hitbox> {
 
+    /**
+     * Position en x de la Hitbox
+     */
     private int x;
 
+    /**
+     * Position en y en de la Hitbox
+     */
     private int y;
 
+    /**
+     * Dimension d'une Hitbox carre
+     */
     private Dimension d;    
     
     /**

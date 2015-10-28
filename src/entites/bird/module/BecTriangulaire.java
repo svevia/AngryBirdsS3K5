@@ -25,12 +25,7 @@ public class BecTriangulaire extends ModuleBird {
         this.hauteur = hauteur;
         this.largeur = largeur;
         this.couleur = couleur;
-        for(int i = 0; i < this.pointX.length; i++) {
-        	for(int j = 0; j < this.pointY.length; i++) {
-        		hb = new Hitbox(this.pointX[i], this.pointY[j], 
-        				new Dimension(this.pointX[this.nbPoint], this.pointY[this.nbPoint]));
-        	}
-        }
+        createHitbox();
     }
 
     @Override
@@ -47,5 +42,15 @@ public class BecTriangulaire extends ModuleBird {
         pointY[2] = (int) (b.getBirdCenterY() + b.getR() * Math.sin(angle + largeur));
         g.fillPolygon(pointX, pointY, nbPoint);
         return g;
+    }
+
+    @Override
+    public void createHitbox() {
+        for (int i = 0; i < this.pointX.length; i++) {
+            for (int j = 0; j < this.pointY.length; i++) {
+                hb = new Hitbox(this.pointX[i], this.pointY[j],
+                        new Dimension(this.pointX[this.nbPoint], this.pointY[this.nbPoint]));
+            }
+        }
     }
 }

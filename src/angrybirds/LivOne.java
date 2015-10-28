@@ -30,31 +30,28 @@ public class LivOne implements Runnable {
         this.n = n;
     }
 
-    @Override
-    public void run() {
-        if (i < n) {
-            try {
-                iniz();
-                Obstacle.addListObstacle(
-                        new Rond(500, 20, 80, 80, Color.red),
-                        new Rond(550, 200, 80, 80, Color.red),
-                        new Carre(500, 400, 50, 0, Color.pink),
-                        new Carre(400, 400, 50, 30, Color.yellow),
-                        new Rond(200, 200, 60, 50, Color.black),
-                        new Rond(500, 500, 50, 50, Color.black)
-                );
-                gf = new GameFrame(i + 1, n, generateCourbe());
-            } catch (Exception e) {
-                System.out.println("CA MARCHE PAS !!!\n" + e.toString());
-            }
-            i++;
-        }
-    }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         p.run();
+    }
+
+    @Override
+    public void run() {
+        if (i < n) {
+            iniz();
+            Obstacle.addListObstacle(
+                    new Rond(500, 20, 80, 80, Color.red),
+                    new Rond(550, 200, 80, 80, Color.red),
+                    new Carre(500, 400, 50, 0, Color.pink),
+                    new Carre(400, 400, 50, 30, Color.yellow),
+                    new Rond(200, 200, 60, 50, Color.black),
+                    new Rond(500, 500, 50, 50, Color.black)
+            );
+            gf = new GameFrame(i + 1, n, generateCourbe());
+
+            i++;
+        }
     }
 }

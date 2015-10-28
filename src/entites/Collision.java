@@ -1,18 +1,19 @@
 package entites;
 
 import angrybirds.AnimationOiseau;
-import static angrybirds.Constante.bird;
-import static angrybirds.Constante.fenetre;
-import static angrybirds.Constante.obstacle;
+import static angrybirds.Constante.*;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Class qui gere les collisions
+ * Classe qui gere les collisions, le moteur de collision
  */
 public class Collision {
 
+    /**
+     * L'animation ou est appele le moteur de collision
+     */
     AnimationOiseau anim;
 
     /**
@@ -38,7 +39,7 @@ public class Collision {
         return 0;
     }
     
-    private boolean BorderTouch () {
+    private boolean borderTouch () {
         return (bird.getBirdCenterX() > fenetre.width 
                 || bird.getBirdCenterY() > fenetre.height-50);
     }
@@ -47,7 +48,7 @@ public class Collision {
      * Verifie qu'aucune collision n'est comise
      */
     public void verif() {
-        if (entityHit() != 0 || BorderTouch()) {
+        if (entityHit() != 0 || borderTouch()) {
             try {
                 bird.setCorps(Color.black);
                 obstacle.get(entityHit()).setC(Color.black);
@@ -59,5 +60,4 @@ public class Collision {
             }
         }
     }
-
 }
