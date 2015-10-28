@@ -47,7 +47,7 @@ public class HeartCore implements Runnable {
             bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
             bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
             // A varier entre 2 et 6
-            if (distanceParcourue > 6) {
+            if (distanceParcourue > vitesse) {
                 refresh();
             }
 
