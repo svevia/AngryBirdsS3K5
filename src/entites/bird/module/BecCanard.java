@@ -1,8 +1,11 @@
 package entites.bird.module;
 
+import entites.Hitbox;
 import entites.bird.Bird;
 import entites.bird.ModuleBird;
+
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 /**
@@ -14,19 +17,25 @@ public class BecCanard extends ModuleBird {
     private int nbPoint;
     private Color couleur;
     private double largeur;
-
+    int[] pointX, pointY;
+  
     public BecCanard(double largeur, double distanceCentre, Bird b, Color couleur) {
         super(distanceCentre, b, false);
         nbPoint = 4;
         this.largeur = largeur;
         this.couleur = couleur;
+        for(int i = 0; i < this.pointX.length; i++) {
+        	for(int j = 0; j < this.pointY.length; j++) {
+        		hb = new Hitbox(pointX[i], pointY[j], new Dimension(pointX[nbPoint], pointY[nbPoint]));
+        	}
+        }
     }
 
     @Override
     public Graphics draw(Graphics g) {
         g.setColor(couleur);
-        int[] pointX = new int[nbPoint];
-        int[] pointY = new int[nbPoint];
+        this.pointX = new int[nbPoint];
+        this.pointY = new int[nbPoint];
         double angle = (Math.sin(b.getA()));
         pointX[0] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle - largeur));
         pointX[1] = (int) (b.getBirdCenterX() + 2 * b.getR() * Math.cos(angle));

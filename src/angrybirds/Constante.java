@@ -36,6 +36,7 @@ public class Constante {
      */
     public static ArrayList<Obstacle> obstacle;
 
+    public static ArrayList<ModuleBird> modul;
     /**
      * Liste des points de passages du pigeon en x
      */
@@ -64,6 +65,7 @@ public class Constante {
         footstep = Footstep.GAY;
         fond = Fond.PAYSAGE;
         obstacle = new ArrayList<>();
+        modul = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
         footstepA = new ArrayList<>();

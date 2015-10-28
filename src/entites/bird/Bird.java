@@ -1,6 +1,8 @@
 package entites.bird;
 
 import entites.Entity;
+import angrybirds.Constante;
+import static angrybirds.Constante.modul;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -41,7 +43,7 @@ public abstract class Bird extends Entity {
     /**
      * Les modules de l'oiseau
      */
-    protected ArrayList<ModuleBird> modul = new ArrayList<>();
+//    protected ArrayList<ModuleBird> modul = new ArrayList<>();
 
     /**
      * Le constructeur de l'oiseau

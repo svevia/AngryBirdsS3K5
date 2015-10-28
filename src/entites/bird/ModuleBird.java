@@ -2,6 +2,8 @@ package entites.bird;
 
 import java.awt.Graphics;
 
+import entites.Hitbox;
+
 /**
  * Un module d'oiseau est un éléments qui se rajoute au corps de l'oiseau
  * en fonction de sa distance au centre de l'oiseau
@@ -12,6 +14,8 @@ public abstract class ModuleBird {
      * L'oiseau a qui appartient le module
      */
     protected Bird b;
+    
+    protected Hitbox hb;
     
     protected  boolean over;
     

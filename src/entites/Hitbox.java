@@ -1,6 +1,8 @@
 package entites;
 
 import angrybirds.Constante;
+import static angrybirds.Constante.obstacle;
+import static angrybirds.Constante.modul;
 import java.awt.Dimension;
 
 /**

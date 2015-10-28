@@ -1,8 +1,11 @@
 package entites.bird.module;
 
+import entites.Hitbox;
 import entites.bird.Bird;
 import entites.bird.ModuleBird;
+
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 /**
@@ -14,6 +17,7 @@ public class BecTriangulaire extends ModuleBird {
     private Color couleur;
     private int hauteur;
     private double largeur;
+    int[] pointX, pointY;
 
     public BecTriangulaire(int hauteur, double largeur, double distanceCentre, Bird b, Color couleur) {
         super(distanceCentre, b, false);
@@ -21,13 +25,19 @@ public class BecTriangulaire extends ModuleBird {
         this.hauteur = hauteur;
         this.largeur = largeur;
         this.couleur = couleur;
+        for(int i = 0; i < this.pointX.length; i++) {
+        	for(int j = 0; j < this.pointY.length; i++) {
+        		hb = new Hitbox(this.pointX[i], this.pointY[j], 
+        				new Dimension(this.pointX[this.nbPoint], this.pointY[this.nbPoint]));
+        	}
+        }
     }
 
     @Override
     public Graphics draw(Graphics g) {
         g.setColor(couleur);
-        int[] pointX = new int[nbPoint];
-        int[] pointY = new int[nbPoint];
+        this.pointX = new int[nbPoint];
+        this.pointY = new int[nbPoint];
         double angle = (Math.sin(b.getA()));
         pointX[0] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle - largeur));
         pointX[1] = (int) (b.getBirdCenterX() + hauteur * b.getR() * Math.cos(angle));
