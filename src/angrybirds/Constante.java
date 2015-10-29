@@ -73,7 +73,7 @@ public class Constante {
         allModul = new ArrayList<>();
         bird = new Canard();
         footstep = Footstep.GAY;
-        fond = Fond.PAYSAGE;
+        fond = Fond.ENFER;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();

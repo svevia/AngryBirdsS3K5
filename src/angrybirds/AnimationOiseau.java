@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 /**
  * La class principale du programme la ou se consentre aussi le visualisateur du
- * jeu, le moteur de collision, le thread principal du jeu et la courbe engage 
+ * jeu, le moteur de collision, le thread principal du jeu et la courbe engage
  * par l'oiseau
  */
 public class AnimationOiseau extends JPanel {
@@ -40,7 +40,7 @@ public class AnimationOiseau extends JPanel {
 
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
-     * courbe
+     * courbe en trois points
      *
      * @param x point de depart en x
      * @param a ax²
@@ -50,7 +50,13 @@ public class AnimationOiseau extends JPanel {
     public AnimationOiseau(double a, double b, double c) {
         courbe = new Courbe(a, b, c);
     }
-    
+
+    /**
+     * Constructeur prenant en parametre le point de depart du pigeon et sa
+     * courbe
+     *
+     * @param c Courbe
+     */
     public AnimationOiseau(Courbe c) {
         courbe = c;
     }
@@ -62,7 +68,7 @@ public class AnimationOiseau extends JPanel {
         setDoubleBuffered(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
-        core = new Thread(new HeartCore(10, this)); // Gestionnaire d'evenement
+        core = new Thread(new HeartCore(5, this)); // Gestionnaire d'evenement
     }
 
     /**
@@ -88,14 +94,15 @@ public class AnimationOiseau extends JPanel {
 
     /**
      * Le painteur du jeu
+     *
      * @param g
      */
     @Override
     public void paint(Graphics g) {
-            super.paint(g);
-            addFootstepCoord();
-            g = visu.drawAllNeed(g);
-            stun.verif();
+        super.paint(g);
+        addFootstepCoord();
+        g = visu.drawAllNeed(g);
+        stun.verif();
     }
 
     /**

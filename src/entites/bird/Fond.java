@@ -11,7 +11,8 @@ public enum Fond {
     /**
      *
      */
-    PAYSAGE("src/ressource/fond.png");
+    PLAINE("src/ressource/plaine.png"),
+    ENFER("src/ressource/enfer.png");
     
     String source;
 
