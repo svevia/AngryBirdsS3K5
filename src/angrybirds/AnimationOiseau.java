@@ -62,7 +62,7 @@ public class AnimationOiseau extends JPanel {
         setDoubleBuffered(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
-        core = new Thread(new HeartCore(5, this)); // Gestionnaire d'evenement
+        core = new Thread(new HeartCore(10, this)); // Gestionnaire d'evenement
     }
 
     /**

@@ -12,6 +12,11 @@ import entites.bird.*;
 public class Constante {
 
     /**
+     * La vitesse de l'oiseau
+     */
+    public static int vitesse;
+    
+    /**
      * L'oiseau choisi
      */
     public static Bird bird;

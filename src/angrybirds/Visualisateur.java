@@ -36,11 +36,11 @@ public class Visualisateur {
      * @param g Graphics qui recoit le dessin
      * @return Le Graphics modifie
      */
-    public Graphics drawFootstep(boolean full, int part, Graphics g) {
+    public Graphics drawFootstep(boolean full, int part, int tailleVerticale, int tailleHorizontale, Graphics g) {
         if (full) {
-            g = footstep.drawAllFootstep(g);
+            g = footstep.drawAllFootstep(tailleVerticale, tailleHorizontale, g);
         } else {
-            g = footstep.drawFootstep(part, g);
+            g = footstep.drawFootstep(part, tailleVerticale, tailleHorizontale, g);
         }
         return g;
     }
@@ -77,7 +77,7 @@ public class Visualisateur {
      */
     public Graphics drawAllNeed(Graphics g) {
         g = drawFond(g);
-        g = drawFootstep(false, 20, g);
+        g = drawFootstep(false, 20, 3, vitesse+3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
         return g;

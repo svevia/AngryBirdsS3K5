@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import static angrybirds.Constante.*;
 
 /**
- * L'enumeration qui contient tout les skins d'empreinte et les fonctions associeb
+ * L'enumeration qui contient tout les skins d'empreinte et les fonctions associees
  */
 public enum Footstep {
 
@@ -91,20 +91,20 @@ public enum Footstep {
      * @param g Graphique sur le quel il s'applique
      * @return 
      */
-    public Graphics drawFootstep(int part, Graphics g) {
+    public Graphics drawFootstep(int part, int tailleVerticale, int tailleHorizontale, Graphics g) {
         int[] xP = new int[4], yP = new int[4];
         int i = (footstepX.size() - part < 0)?0:footstepX.size() - part;
         for (i = i; i < footstepX.size(); i++) {
             for (int j = 0; j < c.length; j++) {
                 g.setColor(c[j]);
                 xP[0] = footstepX.get(i);
-                xP[1] = footstepX.get(i) + 7;
-                xP[2] = footstepX.get(i) + 7;
+                xP[1] = footstepX.get(i) + tailleHorizontale;
+                xP[2] = footstepX.get(i) + tailleHorizontale;
                 xP[3] = footstepX.get(i);
-                yP[0] = footstepY.get(i) + j * 3;
-                yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * 3;
-                yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + 3 + j * 3;
-                yP[3] = footstepY.get(i) + 3 + j * 3;
+                yP[0] = footstepY.get(i) + j * tailleVerticale;
+                yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
+                yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
+                yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
                 g.fillPolygon(xP, yP, 4);
             }
         }
@@ -116,19 +116,19 @@ public enum Footstep {
      * @param g Graphique sur le quel il s'applique
      * @return 
      */
-    public Graphics drawAllFootstep(Graphics g) {
+    public Graphics drawAllFootstep(int tailleVerticale, int tailleHorizontale, Graphics g) {
         int[] xP = new int[4], yP = new int[4];
         for (int i = 0; i < footstepX.size(); i++) {
             for (int j = 0; j < c.length; j++) {
                 g.setColor(c[j]);
                 xP[0] = footstepX.get(i);
-                xP[1] = footstepX.get(i) + 3;
-                xP[2] = footstepX.get(i) + 3;
+                xP[1] = footstepX.get(i) + tailleHorizontale;
+                xP[2] = footstepX.get(i) + tailleHorizontale;
                 xP[3] = footstepX.get(i);
-                yP[0] = footstepY.get(i) + j * 3;
-                yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * 3;
-                yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + 3 + j * 3;
-                yP[3] = footstepY.get(i) + 3 + j * 3;
+                yP[0] = footstepY.get(i) + j * tailleVerticale;
+                yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
+                yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
+                yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
                 g.fillPolygon(xP, yP, 4);
             }
         }

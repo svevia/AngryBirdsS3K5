@@ -1,6 +1,6 @@
 package angrybirds;
 
-import static angrybirds.Constante.bird;
+import static angrybirds.Constante.*;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
@@ -9,13 +9,15 @@ import static angrybirds.Constante.bird;
 public class HeartCore implements Runnable {
 
     /**
-     * En milliseconde, le temps entre 2 pas (ou deux battements d'ailes)
+     * La distance parcourue entre le point(xDepart; yDepart) et la position du
+     * pigeon
      */
-    int vitesse;
-
     private double distanceParcourue;
-    private int xDepart;
-    private int yDepart;
+    
+    /**
+     * Point de depart qui permet de calculer la vitesse du pigeon
+     */
+    private int xDepart, yDepart;
 
     /**
      * L'animation utilise
@@ -29,8 +31,8 @@ public class HeartCore implements Runnable {
      * @param animationOiseau
      */
     public HeartCore(int vitesse, AnimationOiseau animationOiseau) {
-        this.vitesse = vitesse;
         anim = animationOiseau;
+        Constante.vitesse = vitesse;
     }
 
     /**
@@ -41,7 +43,6 @@ public class HeartCore implements Runnable {
         xDepart = bird.getX();
         yDepart = (int) anim.getCourbe().getYenX(bird.getX());
         while (true) {
-            System.out.println(bird.getX() + " - " + anim.getCourbe().getYenX(bird.getX()));
             distanceParcourue = anim.getCourbe().distanceEntreDeuxPoints(xDepart, bird.getX(), yDepart, anim.getCourbe().getYenX(bird.getX()));
             bird.setPosX(bird.getPosX() + 1);
             bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
