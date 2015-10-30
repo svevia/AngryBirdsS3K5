@@ -100,7 +100,12 @@ public class Constante {
      * @return La courbe genere
      */
     public static Courbe generateCourbe() {
-        return new Courbe(0.0008, -0.9, 450);
+	Random alea = new Random();
+    	double a = (alea.nextInt(4) + 7)/10000;
+    	double b = alea.nextInt(10)/10;
+    	if(alea.nextInt(2) == 0)
+    		b = -b;
+        return new Courbe(a, b, 450);
     }
 
     /**
