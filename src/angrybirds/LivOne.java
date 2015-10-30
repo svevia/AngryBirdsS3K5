@@ -2,8 +2,6 @@ package angrybirds;
 
 import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
-import entites.obstacle.skin.*;
-import java.awt.Color;
 
 /**
  *
@@ -41,7 +39,7 @@ public class LivOne implements Runnable {
     public void run() {
         if (i < n) {
             iniz();
-            Obstacle.addListObstacle(generateListObstacle(1));
+            Obstacle.addListObstacle(generateListObstacle(9));
             gf = new GameFrame(i + 1, n, generateCourbe());
 
             i++;

@@ -52,6 +52,6 @@ public class BecTriangulaire extends ModuleBird {
 
     @Override
     public int getSize() {
-        return hauteur;
+        return hauteur * 3;
     }
 }

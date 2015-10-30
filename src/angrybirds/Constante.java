@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import entites.bird.*;
 import entites.obstacle.skin.Carre;
 import java.awt.Color;
+import java.util.Random;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -83,7 +84,7 @@ public class Constante {
      */
     public static void iniz() {
         allModul = new ArrayList<>();
-        bird = new Canard();
+        bird = new RougeGorge();
         footstep = Footstep.GAY;
         fond = Fond.PLAINE;
         obstacle = new ArrayList<>();
@@ -104,8 +105,9 @@ public class Constante {
 
     /**
      * Genere une liste d'obstacle aleatoire
+     *
      * @param combien
-     * @return 
+     * @return
      */
     public static ArrayList<Obstacle> generateListObstacle(int combien) {
         ArrayList<Obstacle> ret = new ArrayList<>();
@@ -114,12 +116,15 @@ public class Constante {
         }
         return ret;
     }
-    
+
     /**
      * Genere un obstacle aleatoire
-     * @return 
+     *
+     * @return un obstacle genere aleatoirement
      */
     public static Obstacle genereObstacle() {
-        return new Carre(20, 20, 50, 50, Color.red);
+        Random r = new Random();
+        int x = r.nextInt(fenetre.width), y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
+        return new Carre(x, y, h, w, Color.red);
     }
 }

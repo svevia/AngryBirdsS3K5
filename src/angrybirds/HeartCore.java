@@ -1,8 +1,6 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
