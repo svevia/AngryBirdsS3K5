@@ -129,7 +129,7 @@ public class Constante {
      */
     public static Obstacle genereObstacle() {
         Random r = new Random();
-        int x = r.nextInt(fenetre.width), y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
+        int x = r.nextInt(fenetre.width-200)+200, y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
         return new Carre(x, y, h, w, Color.red);
     }
 }
