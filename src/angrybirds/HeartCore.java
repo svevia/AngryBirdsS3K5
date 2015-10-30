@@ -1,6 +1,8 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
+import java.awt.Graphics;
+import static java.lang.System.out;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
@@ -13,7 +15,7 @@ public class HeartCore implements Runnable {
      * pigeon
      */
     private double distanceParcourue;
-    
+
     /**
      * Point de depart qui permet de calculer la vitesse du pigeon
      */
@@ -47,7 +49,6 @@ public class HeartCore implements Runnable {
             bird.setPosX(bird.getPosX() + 1);
             bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
             bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
-            // A varier entre 2 et 6
             if (distanceParcourue > vitesse) {
                 refresh();
             }

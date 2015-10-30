@@ -44,7 +44,7 @@ public class LivOne implements Runnable {
             Obstacle.addListObstacle(
                     new Rond(500, 20, 80, 80, Color.red),
                     new Rond(550, 200, 80, 80, Color.red),
-                    new Carre(500, 400, 50, 0, Color.pink),
+                    new Carre(500, 300, 50, 50, Color.pink),
                     new Carre(400, 400, 50, 30, Color.yellow),
                     new Rond(200, 200, 60, 50, Color.black),
                     new Rond(500, 500, 50, 50, Color.black)

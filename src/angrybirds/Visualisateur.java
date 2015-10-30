@@ -2,6 +2,8 @@ package angrybirds;
 
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
+import entites.Entity;
+import java.awt.Color;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se
@@ -95,5 +97,31 @@ public class Visualisateur {
         } finally {
             return (60 / (vitesse + 2)) + 10;
         }
+    }
+    
+    /**
+     * Dessine les contours de la hitbox d'une entite
+     * @param e
+     * @param g
+     * @param c
+     * @return 
+     */
+    public Graphics drawHitBox(Entity e, Graphics g, Color c) {
+        g.setColor(c);
+        g.drawRect(e.getHb().getX(), e.getHb().getY(), e.getHb().getD().width, e.getHb().getD().height);
+        return g;
+    }
+    
+    /**
+     * Dessine la hitbox de toute les entite, en bleu l'oiseau, en noir les obstacles
+     * @param g
+     * @return 
+     */
+    public Graphics drawAllHitBox(Graphics g) {
+        for (int i = 0; i < obstacle.size(); i++) {
+            g = drawHitBox(obstacle.get(i), g, Color.black);
+        }
+        g = drawHitBox(bird, g, Color.red);
+        return g;
     }
 }

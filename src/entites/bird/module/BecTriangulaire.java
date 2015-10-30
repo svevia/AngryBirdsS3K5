@@ -1,11 +1,8 @@
 package entites.bird.module;
 
-import entites.Hitbox;
 import entites.bird.Bird;
 import entites.bird.ModuleBird;
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
 /**
@@ -25,7 +22,6 @@ public class BecTriangulaire extends ModuleBird {
         this.hauteur = hauteur;
         this.largeur = largeur;
         this.couleur = couleur;
-        createHitbox();
     }
 
     @Override
@@ -44,13 +40,18 @@ public class BecTriangulaire extends ModuleBird {
         return g;
     }
 
+//    @Override
+//    public void createHitbox() {
+//        for (int i = 0; i < this.pointX.length; i++) {
+//            for (int j = 0; j < this.pointY.length; i++) {
+//                hb = new Hitbox(this.pointX[i], this.pointY[j],
+//                        new Dimension(this.pointX[this.nbPoint], this.pointY[this.nbPoint]));
+//            }
+//        }
+//    }
+
     @Override
-    public void createHitbox() {
-        for (int i = 0; i < this.pointX.length; i++) {
-            for (int j = 0; j < this.pointY.length; i++) {
-                hb = new Hitbox(this.pointX[i], this.pointY[j],
-                        new Dimension(this.pointX[this.nbPoint], this.pointY[this.nbPoint]));
-            }
-        }
+    public int getSize() {
+        return hauteur;
     }
 }

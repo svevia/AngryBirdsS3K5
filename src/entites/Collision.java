@@ -33,6 +33,7 @@ public class Collision {
             // Compare les hit boxes
             int j = bird.getHb().compareTo(obstacle.get(i).getHb());
             if (j == 1) {
+                System.out.println(i);
                 return i;
             }
         }

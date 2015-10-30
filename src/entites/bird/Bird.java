@@ -62,7 +62,7 @@ public abstract class Bird extends Entity {
         super(pigeonX, pigeonY, fatX, fatY);
         this.corps = corps;
         r = fatX / 2;
-        hb = new Hitbox(0, 0, new Dimension(fatX, fatY));
+        hb = new Hitbox(pigeonX, pigeonY, new Dimension(fatX, fatY));
     }
 
     /**

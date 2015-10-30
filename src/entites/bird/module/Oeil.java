@@ -1,11 +1,8 @@
 package entites.bird.module;
 
-import entites.Hitbox;
 import entites.bird.Bird;
 import entites.bird.ModuleBird;
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
 /**
@@ -21,7 +18,6 @@ public class Oeil extends ModuleBird {
         super(distanceCentre, b, over);
         this.diametre = diametre;
         this.couleur = couleur;
-        createHitbox();
     }
 
     @Override
@@ -32,9 +28,13 @@ public class Oeil extends ModuleBird {
         return g;
     }
 
+//    @Override
+//    public void createHitbox() {
+//        hb = new Hitbox((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))),
+//                (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), new Dimension(diametre, diametre));
+//    }
     @Override
-    public void createHitbox() {
-        hb = new Hitbox((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))),
-                (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), new Dimension(diametre, diametre));
+    public int getSize() {
+        return 0;
     }
 }

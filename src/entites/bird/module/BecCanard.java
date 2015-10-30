@@ -1,11 +1,9 @@
 package entites.bird.module;
 
-import entites.Hitbox;
 import entites.bird.Bird;
 import entites.bird.ModuleBird;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
 /**
@@ -43,13 +41,23 @@ public class BecCanard extends ModuleBird {
         g.fillPolygon(pointX, pointY, nbPoint);
         return g;
     }
+    
+    
 
-    @Override
-    public void createHitbox() {
-        for (int i = 0; i < this.pointX.length; i++) {
-            for (int j = 0; j < this.pointY.length; j++) {
-                hb = new Hitbox(pointX[i], pointY[j], new Dimension(pointX[nbPoint], pointY[nbPoint]));
-            }
-        }
+//    @Override
+//    public void createHitbox() {
+//        for (int i = 0; i < this.pointX.length; i++) {
+//            for (int j = 0; j < this.pointY.length; j++) {
+//                hb = new Hitbox(pointX[i], pointY[j], new Dimension(pointX[nbPoint], pointY[nbPoint]));
+//            }
+//        }
+//    }
+
+    public double getLargeur() {
+        return largeur;
+    }
+
+    public int getSize() {
+        return 20;
     }
 }

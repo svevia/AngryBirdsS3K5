@@ -20,18 +20,15 @@ public class Canard extends Bird {
      */
     public Canard() {
         super(0, 0, 40, 40, Color.white);
-        super.hb.setD(new Dimension(20, 20));
         addModule(bec);
         addModule(oeil);
+        hb.setD(new Dimension((int) (40 + bec.getSize()), 40));
     }
 
     /**
      * Dessine le canard sur une position x et y en un certain getA sur le
      * Graphic g, et renvoie ce dernier
      *
-     * @param getPosX()
-     * @param posY
-     * @param angle
      * @param g
      * @return
      */
