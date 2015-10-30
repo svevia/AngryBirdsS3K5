@@ -46,7 +46,6 @@ public abstract class Entity {
         this.y = y;
         this.hight = hight;
         this.widht = widht;
-        System.out.println(x + " - " + y + " - " + widht + " - " +  hight);
         hb = new Hitbox(x, y, new Dimension(widht, hight));
     }
 

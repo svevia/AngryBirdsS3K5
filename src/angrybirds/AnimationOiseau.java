@@ -3,6 +3,7 @@ package angrybirds;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import entites.Collision;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -68,7 +69,7 @@ public class AnimationOiseau extends JPanel {
         setDoubleBuffered(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
-        core = new Thread(new HeartCore(5, this)); // Gestionnaire d'evenement
+        core = new Thread(new HeartCore(4, this)); // Gestionnaire d'evenement
     }
 
     /**
@@ -77,21 +78,7 @@ public class AnimationOiseau extends JPanel {
     public final void start() {
         core.start();
     }
-
-    /**
-     * Arrete le thread du jeu et relance un nouveau jeu
-     */
-    public void arret() {
-        core.stop();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            System.out.println("Probleme de sommeil\n" + ex.getMessage());
-        }
-        gf.dispose();
-        LivOne.p.run();
-    }
-
+    
     /**
      * Le painteur du jeu
      *
@@ -102,7 +89,7 @@ public class AnimationOiseau extends JPanel {
         super.paint(g);
         addFootstepCoord();
         g = visu.drawAllNeed(g);
-        g = visu.drawAllHitBox(g);
+        //     g = visu.drawAllHitBox(g);
         stun.verif();
     }
 

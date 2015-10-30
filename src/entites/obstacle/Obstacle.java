@@ -157,6 +157,15 @@ public abstract class Obstacle extends Entity{
     }
 
     /**
+     * Ajoute une liste d'obstacle a la liste principal
+     *
+     * @param o La liste
+     */
+    static public void addListObstacle(ArrayList<Obstacle> o) {
+        obstacle = o;
+    }
+
+    /**
      * Retire l'obstacle numero i
      *
      * @param i L'index de l'obstacle

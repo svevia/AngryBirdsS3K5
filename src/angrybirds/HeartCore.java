@@ -1,8 +1,8 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
-import java.awt.Graphics;
-import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
@@ -24,7 +24,7 @@ public class HeartCore implements Runnable {
     /**
      * L'animation utilise
      */
-    AnimationOiseau anim;
+    public AnimationOiseau anim;
 
     /**
      *
@@ -44,7 +44,7 @@ public class HeartCore implements Runnable {
     public void run() {
         xDepart = bird.getX();
         yDepart = (int) anim.getCourbe().getYenX(bird.getX());
-        while (true) {
+        while (!last) {
             distanceParcourue = anim.getCourbe().distanceEntreDeuxPoints(xDepart, bird.getX(), yDepart, anim.getCourbe().getYenX(bird.getX()));
             bird.setPosX(bird.getPosX() + 1);
             bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
@@ -52,11 +52,18 @@ public class HeartCore implements Runnable {
             if (distanceParcourue > vitesse) {
                 refresh();
             }
-
         }
+        refresh();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+        gf.dispose();
+        LivOne.p.run();
     }
 
-    private void refresh() {
+    public void refresh() {
         /* Pour d'obscures raisons, quand l'oiseau n'a pas quitté les premiers
          pixels, le repaint bug */
         if (bird.getBirdCenterX() < 80) {

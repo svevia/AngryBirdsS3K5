@@ -5,6 +5,8 @@ import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import entites.bird.*;
+import entites.obstacle.skin.Carre;
+import java.awt.Color;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -15,7 +17,7 @@ public class Constante {
      * La vitesse de l'oiseau
      */
     public static int vitesse;
-    
+
     /**
      * L'oiseau choisi
      */
@@ -67,17 +69,28 @@ public class Constante {
     public static GameFrame gf;
 
     /**
+     * Indique au coeur que c'est son dernier batement....
+     */
+    public static boolean last = false;
+
+    /**
+     * L'index de l'obstacle rencontre si il y a collision
+     */
+    public static int wallHurty;
+
+    /**
      * Reinitialise la class a zero
      */
     public static void iniz() {
         allModul = new ArrayList<>();
         bird = new Canard();
         footstep = Footstep.GAY;
-        fond = Fond.ENFER;
+        fond = Fond.PLAINE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
         footstepA = new ArrayList<>();
+        last = false;
     }
 
     /**
@@ -87,5 +100,26 @@ public class Constante {
      */
     public static Courbe generateCourbe() {
         return new Courbe(0.0008, -0.9, 450);
+    }
+
+    /**
+     * Genere une liste d'obstacle aleatoire
+     * @param combien
+     * @return 
+     */
+    public static ArrayList<Obstacle> generateListObstacle(int combien) {
+        ArrayList<Obstacle> ret = new ArrayList<>();
+        for (int i = 0; i < combien; i++) {
+            ret.add(genereObstacle());
+        }
+        return ret;
+    }
+    
+    /**
+     * Genere un obstacle aleatoire
+     * @return 
+     */
+    public static Obstacle genereObstacle() {
+        return new Carre(20, 20, 50, 50, Color.red);
     }
 }
