@@ -101,8 +101,9 @@ public class Constante {
      */
     public static Courbe generateCourbe() {
 	Random alea = new Random();
-    	double a = (alea.nextInt(4) + 7)/10000;
-    	double b = alea.nextInt(10)/10;
+    	double a = (alea.nextDouble() + 7)/10000;
+    	double b = alea.nextDouble()*1.5;
+        System.out.println(a + " - " + b);
     	if(alea.nextInt(2) == 0)
     		b = -b;
         return new Courbe(a, b, 450);
