@@ -1,5 +1,6 @@
 package angrybirds;
 
+import entites.Matrice;
 import entites.bird.skin.*;
 import entites.obstacle.Obstacle;
 import java.awt.Dimension;
@@ -132,5 +133,48 @@ public class Constante {
         Random r = new Random();
         int x = r.nextInt(fenetre.width-200)+200, y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
         return new Carre(x, y, h, w, Color.red);
+    }
+    
+    /**
+     * Retourne une matrice permettant de faire une homotetie de rapport k autour de l'origine
+     * @param k
+     * @return
+     */
+    public static Matrice homotetie(int k){
+    	Matrice homo = new Matrice(3, 3);
+    	for(int idx = 0; idx < 2; idx++)
+    		homo.setValueAtIdx(idx, idx, k);
+    	homo.setValueAtIdx(2, 2, 1);
+    	return homo;
+    }
+    
+    /**
+     * Retourne une matrice permettant de faire une translation de vecteur (x,y)
+     * @param x
+     * @param y
+     * @return
+     */
+    public static Matrice translation(int x, int y){
+    	Matrice trans = new Matrice(3, 3);
+    	for(int idx = 0; idx < 3; idx++)
+    		trans.setValueAtIdx(idx, idx, 1);
+    	trans.setValueAtIdx(0, 2, x);
+    	trans.setValueAtIdx(1, 2, y);
+    	return trans;
+    }
+    
+    /**
+     * Retourne une matrice permettant de faire une rotation autour de l'origine d'angle teta
+     * @param teta
+     * @return
+     */
+    public static Matrice rotation(int teta){
+    	Matrice rota = new Matrice(3,3);
+    	for(int idx = 0; idx < 2; idx++)
+    		rota.setValueAtIdx(idx, idx, (int)Math.cos(teta));
+    	rota.setValueAtIdx(0, 1, (int)-Math.sin(teta));
+    	rota.setValueAtIdx(1, 0, (int)Math.sin(teta));
+    	rota.setValueAtIdx(2, 2, 1);
+    	return rota;
     }
 }
