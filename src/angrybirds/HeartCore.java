@@ -27,7 +27,6 @@ public class HeartCore implements Runnable {
     /**
      *
      * @param vitesse
-     * @param step
      * @param animationOiseau
      */
     public HeartCore(int vitesse, AnimationOiseau animationOiseau) {
@@ -61,6 +60,9 @@ public class HeartCore implements Runnable {
         LivOne.p.run();
     }
 
+    /**
+     * Refresh l'animation du jeu
+     */
     public void refresh() {
         /* Pour d'obscures raisons, quand l'oiseau n'a pas quitté les premiers
          pixels, le repaint bug */

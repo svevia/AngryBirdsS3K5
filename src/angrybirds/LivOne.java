@@ -4,8 +4,7 @@ import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
 
 /**
- *
- * @author Wissam
+ * La classe qui lancera le livrable 1
  */
 public class LivOne implements Runnable {
 
@@ -24,6 +23,10 @@ public class LivOne implements Runnable {
      */
     private int n;
 
+    /**
+     *
+     * @param n
+     */
     public LivOne(int n) {
         this.n = n;
     }
@@ -35,13 +38,15 @@ public class LivOne implements Runnable {
         p.run();
     }
 
+    /**
+     * Un run equivaut a un jeu
+     */
     @Override
     public void run() {
         if (i < n) {
             iniz();
             Obstacle.addListObstacle(generateListObstacle(9));
             gf = new GameFrame(i + 1, n, generateCourbe());
-
             i++;
         }
     }

@@ -1,6 +1,5 @@
 package entites;
 
-import angrybirds.Constante;
 import java.awt.Dimension;
 
 /**
@@ -40,8 +39,8 @@ public class Hitbox implements Comparable<Hitbox> {
     /**
      * Fonction qui gere les collisions ULTRA SIMPLIFIEE
      *
-     * @param o
-     * @return
+     * @param o La Hitbox a comparer
+     * @return Le numero de l'obstacle en collision ou 0 si rien
      */
     @Override
     public int compareTo(Hitbox o) {
@@ -53,44 +52,75 @@ public class Hitbox implements Comparable<Hitbox> {
         return 0;
     }
 
+    /**
+     * 
+     * @return Retourne la position en x de la Hitbox 
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * 
+     * @param x Change la position en x de la Hitbox
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     * 
+     * @return Retourne la position en y de la Hitbox 
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * 
+     * @param y Change la positon en y de la Hitbox 
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    /**
+     * 
+     * @return Retourne la dimension de la Hitbox 
+     */
     public Dimension getD() {
         return d;
     }
 
+    /**
+     * 
+     * @param d Change la dimension de la Hitbox
+     */
     public void setD(Dimension d) {
         this.d = d;
     }
 
+    /**
+     * Met a jour les points x et y en même temps
+     * @param x La nouvelle position en x
+     * @param y La nouvelle position en y
+     */
     public void setPosition(int x, int y) {
         setX(x);
         setY(y);
     }
 
+    
+    /**
+     * Met a jour les points x et y et la dimension en même temps
+     * @param x La nouvelle position en x
+     * @param y La nouvelle position en y
+     * @param d La nouvelle dimension
+     */
     public void misaAJour(int x, int y, Dimension d) {
         this.x = x;
         this.y = y;
         this.d = d;
-    }
-
-    public void misaAJour(int x, int y) {
-        this.x = x;
-        this.y = y;
     }
 
     @Override

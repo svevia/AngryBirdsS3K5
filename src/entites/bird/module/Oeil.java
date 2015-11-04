@@ -14,6 +14,14 @@ public class Oeil extends ModuleBird {
     Color couleur;
     double angle;
 
+    /**
+     *
+     * @param distanceCentre
+     * @param b
+     * @param over
+     * @param diametre
+     * @param couleur
+     */
     public Oeil(double distanceCentre, Bird b, boolean over, int diametre, Color couleur) {
         super(distanceCentre, b, over);
         this.diametre = diametre;
@@ -33,7 +41,12 @@ public class Oeil extends ModuleBird {
 //        hb = new Hitbox((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))),
 //                (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), new Dimension(diametre, diametre));
 //    }
-    @Override
+
+    /**
+     *
+     * @return
+     */
+        @Override
     public int getSize() {
         return 0;
     }

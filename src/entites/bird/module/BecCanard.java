@@ -17,6 +17,13 @@ public class BecCanard extends ModuleBird {
     private double largeur;
     int[] pointX, pointY;
 
+    /**
+     *
+     * @param largeur
+     * @param distanceCentre
+     * @param b
+     * @param couleur
+     */
     public BecCanard(double largeur, double distanceCentre, Bird b, Color couleur) {
         super(distanceCentre, b, false);
         nbPoint = 4;
@@ -53,10 +60,19 @@ public class BecCanard extends ModuleBird {
 //        }
 //    }
 
+    /**
+     *
+     * @return
+     */
+    
     public double getLargeur() {
         return largeur;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSize() {
         return 20;
     }

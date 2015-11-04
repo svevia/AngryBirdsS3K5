@@ -36,10 +36,10 @@ public abstract class Entity {
     /**
      * Definie une entite en x et y sur une taille donne avec sa Hitbox carre
      *
-     * @param x
-     * @param y
-     * @param hight
-     * @param widht
+     * @param x La position en x de l'entite
+     * @param y La position en y de l'entite
+     * @param hight La hauteur de l'entite
+     * @param widht La largeur de l'entite
      */
     public Entity(int x, int y, int hight, int widht) {
         this.x = x;
@@ -49,42 +49,82 @@ public abstract class Entity {
         hb = new Hitbox(x, y, new Dimension(widht, hight));
     }
 
+    /**
+     *
+     * @return La position de l'entite en x
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     *
+     * @param x La position de l'entite en x a changer
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     *
+     * @return La position de l'entite en y
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     *
+     * @param y La position de l'entite en y a changer
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    /**
+     *
+     * @return La hauteur de l'entite
+     */
     public int getHight() {
         return hight;
     }
 
+    /**
+     *
+     * @param hight La hauteur de l'entite a changer
+     */
     public void setHight(int hight) {
         this.hight = hight;
     }
 
+    /**
+     *
+     * @return La largeur de l'entite
+     */
     public int getWidht() {
         return widht;
     }
 
+    /**
+     *
+     * @param widht La largeur de l'entite a changer
+     */
     public void setWidht(int widht) {
         this.widht = widht;
     }
 
+    /**
+     * 
+     * @return La Hitbox de l'entite 
+     */
     public Hitbox getHb() {
         return hb;
     }
 
+    /**
+     * 
+     * @param hb La Hitbox a changer 
+     */
     public void setHb(Hitbox hb) {
         this.hb = hb;
     }
@@ -92,8 +132,8 @@ public abstract class Entity {
     /**
      * Dessine l'entite sur un Graphics
      *
-     * @param g
-     * @return
+     * @param g le Graphics sur le quel dessiner
+     * @return Le Graphics modifie
      */
     public abstract Graphics draw(Graphics g);
 }

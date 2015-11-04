@@ -8,15 +8,13 @@ import javax.swing.*;
 /**
  * Un luncher uniquement fait pour le background, ce lucnher rajoute quelques
  * trucs utiles qu'il fait essayer pour comprendre
- *
- * @author Wissam
  */
 public class TestLuncherInterditAuxMineurs extends JFrame implements ActionListener {
 
     /**
      * Ici tu rentre ta courbe
      */
-    double a = 0.0009, b = -0.6, c = 450;
+    private double a = 0.0009, b = -0.6, c = 450;
 
     /**
      * Le jeu sous son magnifique panel double bufferise, pimpe et tout
@@ -24,19 +22,22 @@ public class TestLuncherInterditAuxMineurs extends JFrame implements ActionListe
     private AnimationOiseau jeu = new AnimationOiseau(a, b, c);
     //private AnimationOiseau jeu = new AnimationOiseau(0, 0, 450);
 
-    JDialog control = new JDialog();
+    private JDialog control = new JDialog();
 
     /**
      * Le jolie panel des admin flambant neuf
      */
-    JPanel adminPanel = new JPanel();
+    private JPanel adminPanel = new JPanel();
 
     /**
      * Et ses boutons
      */
-    JButton pause = new JButton("Pause");
+    private JButton pause = new JButton("Pause");
 
-    boolean waiting = false;
+    /**
+     * Boolean pour savoir si le jeu est en pause
+     */
+    private boolean waiting = false;
 
     {
         setSize(Constante.fenetre.getSize());
@@ -60,7 +61,6 @@ public class TestLuncherInterditAuxMineurs extends JFrame implements ActionListe
 
     /**
      *
-     * @param totalSeries
      */
     public TestLuncherInterditAuxMineurs() {
         jeu.start();
@@ -79,6 +79,10 @@ public class TestLuncherInterditAuxMineurs extends JFrame implements ActionListe
         }
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         iniz();
         new TestLuncherInterditAuxMineurs();

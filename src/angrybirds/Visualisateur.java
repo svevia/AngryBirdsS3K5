@@ -19,10 +19,7 @@ public class Visualisateur {
     /**
      * Dessine l'oiseau en x, y et a sur g
      *
-     * @param x Position en x
      * @param y Position en y
-     * @param a Angle en a
-     * @param g Graphics qui recoit le dessin
      * @return Le Graphics modefie
      */
     public Graphics drawOiseau(Graphics g) {
@@ -35,7 +32,9 @@ public class Visualisateur {
      *
      * @param full Si on les veut toute ou pas
      * @param part Le nombre d'empreinte si full = false
+     * @param tailleVerticale
      * @param g Graphics qui recoit le dessin
+     * @param tailleHorizontale
      * @return Le Graphics modifie
      */
     public Graphics drawFootstep(boolean full, int part, int tailleVerticale, int tailleHorizontale, Graphics g) {

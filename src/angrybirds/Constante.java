@@ -101,12 +101,14 @@ public class Constante {
      * @return La courbe genere
      */
     public static Courbe generateCourbe() {
-	Random alea = new Random();
-    	double a = (alea.nextDouble() + 7)/10000;
-    	double b = alea.nextDouble()*1.5;
+        Random alea = new Random();
+        double a = (alea.nextDouble() + 7) / 10000;
+        double b = alea.nextDouble() * 1.4;
         System.out.println(a + " - " + b);
-    	if(alea.nextInt(2) == 0)
-    		b = -b;
+        if (alea.nextInt(2) == 0) {
+            b = -b;
+        }
+        b = 1.1;
         return new Courbe(a, b, 450);
     }
 
@@ -131,50 +133,58 @@ public class Constante {
      */
     public static Obstacle genereObstacle() {
         Random r = new Random();
-        int x = r.nextInt(fenetre.width-200)+200, y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
+        int x = r.nextInt(fenetre.width - 200) + 200, y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
         return new Carre(x, y, h, w, Color.red);
     }
-    
+
     /**
-     * Retourne une matrice permettant de faire une homotetie de rapport k autour de l'origine
+     * Retourne une matrice permettant de faire une homotetie de rapport k
+     * autour de l'origine
+     *
      * @param k
      * @return
      */
-    public static Matrice homotetie(int k){
-    	Matrice homo = new Matrice(3, 3);
-    	for(int idx = 0; idx < 2; idx++)
-    		homo.setValueAtIdx(idx, idx, k);
-    	homo.setValueAtIdx(2, 2, 1);
-    	return homo;
+    public static Matrice homotetie(int k) {
+        Matrice homo = new Matrice(3, 3);
+        for (int idx = 0; idx < 2; idx++) {
+            homo.setValueAtIdx(idx, idx, k);
+        }
+        homo.setValueAtIdx(2, 2, 1);
+        return homo;
     }
-    
+
     /**
      * Retourne une matrice permettant de faire une translation de vecteur (x,y)
+     *
      * @param x
      * @param y
      * @return
      */
-    public static Matrice translation(int x, int y){
-    	Matrice trans = new Matrice(3, 3);
-    	for(int idx = 0; idx < 3; idx++)
-    		trans.setValueAtIdx(idx, idx, 1);
-    	trans.setValueAtIdx(0, 2, x);
-    	trans.setValueAtIdx(1, 2, y);
-    	return trans;
+    public static Matrice translation(int x, int y) {
+        Matrice trans = new Matrice(3, 3);
+        for (int idx = 0; idx < 3; idx++) {
+            trans.setValueAtIdx(idx, idx, 1);
+        }
+        trans.setValueAtIdx(0, 2, x);
+        trans.setValueAtIdx(1, 2, y);
+        return trans;
     }
-    
+
     /**
-     * Retourne une matrice permettant de faire une rotation autour de l'origine d'angle teta
+     * Retourne une matrice permettant de faire une rotation autour de l'origine
+     * d'angle teta
+     *
      * @param teta
      * @return
      */
-    public static Matrice rotation(int teta){
-    	Matrice rota = new Matrice(3,3);
-    	for(int idx = 0; idx < 2; idx++)
-    		rota.setValueAtIdx(idx, idx, (int)Math.cos(teta));
-    	rota.setValueAtIdx(0, 1, (int)-Math.sin(teta));
-    	rota.setValueAtIdx(1, 0, (int)Math.sin(teta));
-    	rota.setValueAtIdx(2, 2, 1);
-    	return rota;
+    public static Matrice rotation(int teta) {
+        Matrice rota = new Matrice(3, 3);
+        for (int idx = 0; idx < 2; idx++) {
+            rota.setValueAtIdx(idx, idx, (int) Math.cos(teta));
+        }
+        rota.setValueAtIdx(0, 1, (int) -Math.sin(teta));
+        rota.setValueAtIdx(1, 0, (int) Math.sin(teta));
+        rota.setValueAtIdx(2, 2, 1);
+        return rota;
     }
 }

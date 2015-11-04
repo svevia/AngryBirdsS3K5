@@ -3,11 +3,10 @@ package angrybirds;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import entites.Collision;
-import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
- * La class principale du programme la ou se consentre aussi le visualisateur du
+ * La classe principale du programme la ou se consentre aussi le visualisateur du
  * jeu, le moteur de collision, le thread principal du jeu et la courbe engage
  * par l'oiseau
  */
@@ -34,7 +33,7 @@ public class AnimationOiseau extends JPanel {
     private Courbe courbe;
 
     /**
-     * Securite
+     * Le constructeur est en prive pour ne pas pouvoir l'appeler
      */
     private AnimationOiseau() {
     }
@@ -42,9 +41,7 @@ public class AnimationOiseau extends JPanel {
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
      * courbe en trois points
-     *
-     * @param x point de depart en x
-     * @param a ax²
+     * @param a ax au carre
      * @param b + bx
      * @param c + c
      */
@@ -62,9 +59,6 @@ public class AnimationOiseau extends JPanel {
         courbe = c;
     }
 
-    /**
-     * Initializer, initialisant la classe
-     */
     {
         setDoubleBuffered(true);
         visu = new Visualisateur(); // Gestionnaire d'affichage
@@ -81,8 +75,7 @@ public class AnimationOiseau extends JPanel {
     
     /**
      * Le painteur du jeu
-     *
-     * @param g
+     * @param g Le graphics sur le quelle dessiner
      */
     @Override
     public void paint(Graphics g) {
@@ -102,10 +95,18 @@ public class AnimationOiseau extends JPanel {
         footstepA.add(courbe.angleNextD(bird.getPosX()));
     }
 
+    /**
+     * Retourne le courbe de l'animation
+     * @return La courbe
+     */
     public Courbe getCourbe() {
         return courbe;
     }
 
+    /**
+     * Retourne le thread du jeu
+     * @return Le thread du jeu
+     */
     public Thread getCore() {
         return core;
     }

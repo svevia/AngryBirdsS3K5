@@ -1,4 +1,3 @@
- Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
 package angrybirds;
 
 import org.junit.After;

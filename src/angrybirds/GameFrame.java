@@ -22,7 +22,9 @@ public class GameFrame extends JFrame {
 
     /**
      *
+     * @param serieNum
      * @param totalSeries
+     * @param c
      */
     public GameFrame(int serieNum, int totalSeries, Courbe c) {
         jeu = new AnimationOiseau(c);

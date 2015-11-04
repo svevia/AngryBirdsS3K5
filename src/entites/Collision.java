@@ -16,7 +16,7 @@ public class Collision {
 
     /**
      *
-     * @param animationOiseau
+     * @param animationOiseau L'animation sur la quelle travailler
      */
     public Collision(AnimationOiseau animationOiseau) {
         anim = animationOiseau;
@@ -38,9 +38,14 @@ public class Collision {
         return 0;
     }
 
+    /**
+     * Methode qui indique si un cote de la fenetre est touche
+     * @return True si l'oiseau touche les bords
+     */
     private boolean borderTouch() {
-        return (bird.getBirdCenterX() > fenetre.width
-                || bird.getBirdCenterY() > fenetre.height - 50);
+        return (bird.getPosX() + bird.getWidht() > fenetre.width
+                || bird.getBirdCenterY() > fenetre.height - 50
+                || bird.getBirdCenterY() < 0);
     }
 
     /**

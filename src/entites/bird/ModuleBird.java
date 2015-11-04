@@ -25,24 +25,46 @@ public abstract class ModuleBird {
      */
     protected double distanceCentre;
 
+    /**
+     *
+     * @param distanceCentre
+     * @param b
+     * @param over
+     */
     public ModuleBird(double distanceCentre, Bird b, boolean over) {
         this.distanceCentre = distanceCentre;
         this.b = b;
         this.over = over;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getDistanceCentre() {
         return distanceCentre;
     }
 
+    /**
+     *
+     * @param distanceCentre
+     */
     public void setDistanceCentre(double distanceCentre) {
         this.distanceCentre = distanceCentre;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isOver() {
         return over;
     }
 
+    /**
+     *
+     * @param over
+     */
     public void setOver(boolean over) {
         this.over = over;
     }
@@ -51,6 +73,7 @@ public abstract class ModuleBird {
      * La representation graphique du module
      *
      * @param g
+     * @return 
      */
     abstract public Graphics draw(Graphics g);
 
@@ -58,5 +81,10 @@ public abstract class ModuleBird {
 //     * Cree ou met a jour la Hitbox du module
 //     */
 //    abstract public void createHitbox();
-    abstract public int getSize();
+
+    /**
+     *
+     * @return
+     */
+        abstract public int getSize();
 }

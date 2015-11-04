@@ -16,6 +16,14 @@ public class BecTriangulaire extends ModuleBird {
     private double largeur;
     int[] pointX, pointY;
 
+    /**
+     *
+     * @param hauteur
+     * @param largeur
+     * @param distanceCentre
+     * @param b
+     * @param couleur
+     */
     public BecTriangulaire(int hauteur, double largeur, double distanceCentre, Bird b, Color couleur) {
         super(distanceCentre, b, false);
         nbPoint = 3;
@@ -50,6 +58,11 @@ public class BecTriangulaire extends ModuleBird {
 //        }
 //    }
 
+    /**
+     *
+     * @return
+     */
+    
     @Override
     public int getSize() {
         return hauteur * 3;

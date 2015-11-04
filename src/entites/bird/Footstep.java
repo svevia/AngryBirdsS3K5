@@ -88,7 +88,9 @@ public enum Footstep {
     /**
      * Dessinne une partie des empreintes
      * @param part Nombre de pas a dessiner a partir de l'entite
+     * @param tailleVerticale
      * @param g Graphique sur le quel il s'applique
+     * @param tailleHorizontale
      * @return 
      */
     public Graphics drawFootstep(int part, int tailleVerticale, int tailleHorizontale, Graphics g) {
@@ -113,6 +115,8 @@ public enum Footstep {
     
     /**
      * Dessinne toute les empreintes
+     * @param tailleVerticale
+     * @param tailleHorizontale
      * @param g Graphique sur le quel il s'applique
      * @return 
      */

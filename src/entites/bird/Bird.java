@@ -47,13 +47,11 @@ public abstract class Bird extends Entity {
     /**
      * Le constructeur de l'oiseau
      *
+     * @param pigeonX
      * @param fatX Sa largeur
+     * @param pigeonY
      * @param fatY Sa hauteur
-     * @param tailleOeil La taille de son oiel droit
-     * @param nbPointBec Le nombre d'angle de son bec (3 pour un triangle)
      * @param tailleBec La taille en radian du bec (la taille de la base du bec)
-     * @param positionOeil La distance par rapport au centre et au rayon de
-     * l'oeil compris entre 0 et 1 (si non l'oeil sera en dehors du pigeon)
      * @param corps La couleur principale du pigeon
      * @param bec La couleur de son bec
      * @param oeil La couleur de son oeil droit
@@ -70,8 +68,6 @@ public abstract class Bird extends Entity {
      * voulu "g"
      *
      * @param posX La position de l'entite en x
-     * @param posY La position de l'entite en y
-     * @param angle Sa direction
      * @param g Le Graphics sur le quel applique le dessin
      * @return Le Graphics dessine
      */
@@ -181,6 +177,7 @@ public abstract class Bird extends Entity {
      * Le draw des modules
      *
      * @param g
+     * @param over
      * @return
      */
     public Graphics drawAllModule(Graphics g, boolean over) {
