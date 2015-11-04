@@ -104,7 +104,6 @@ public class Constante {
         Random alea = new Random();
         double a = (alea.nextDouble() + 7) / 10000;
         double b = alea.nextDouble() * -2;
-        System.out.println(a + " - " + b);
         return new Courbe(a, b, 450);
     }
 

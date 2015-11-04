@@ -81,12 +81,29 @@ public class Courbe {
 
     /**
      * Determine si le point suivant est plus haut que l'ancien
+     *
      * @param x
-     * @return 
+     * @return
      */
     private boolean actualYRiserThanNext(int x) {
         double actual = getYenX(x);
         double next = getYenX(x + 1);
         return actual > next;
+    }
+
+    /**
+     * 
+     * @return Retourne le premier argument de la fonction ax²+bx+c 
+     */
+    public double getA() {
+        return a;
+    }
+
+    /**
+     * 
+     * @return Retourne le deuxieme argument de la fonction ax²+bx+c 
+     */
+    public double getB() {
+        return b;
     }
 }

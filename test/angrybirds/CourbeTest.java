@@ -94,5 +94,38 @@ public class CourbeTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of angleNextD method, of class Courbe.
+     */
+    @Test
+    public void testAngleNextD() {
+        System.out.println("angleNextD");
+        int x = 0;
+        Courbe instance = null;
+        double expResult = 0.0;
+        double result = instance.angleNextD(x);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of distanceEntreDeuxPoints method, of class Courbe.
+     */
+    @Test
+    public void testDistanceEntreDeuxPoints() {
+        System.out.println("distanceEntreDeuxPoints");
+        double x1 = 0.0;
+        double x2 = 0.0;
+        double y1 = 0.0;
+        double y2 = 0.0;
+        Courbe instance = null;
+        double expResult = 0.0;
+        double result = instance.distanceEntreDeuxPoints(x1, x2, y1, y2);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
