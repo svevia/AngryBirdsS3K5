@@ -1,62 +1,33 @@
- Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
 package angrybirds;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 /**
- *
- * @author Wissam
+ * Test en suspend
  */
-
-
 public class HeartCoreTest {
-    
-    public HeartCoreTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of run method, of class HeartCore.
-     */
-    @Test
-    public void testRun() {
-        System.out.println("run");
-        HeartCore instance = null;
-        instance.run();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    /**
+//     * Test of run method, of class HeartCore.
+//     */
+//    @Test
+//    public void testRun() {
+//        System.out.println("Test d'un run");
+//        LivOne lv = new LivOne(1);
+//        lv.run();
+//        while (!last) {}
+//        System.out.println("ok");
+//        
+//    }
 
-    /**
-     * Test of refresh method, of class HeartCore.
-     */
-    @Test
-    public void testRefresh() {
-        System.out.println("refresh");
-        HeartCore instance = null;
-        instance.refresh();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+//    /**
+//     * Test of refresh method, of class HeartCore.
+//     */
+//    @Test
+//    public void testRefresh() {
+//        System.out.println("refresh");
+//        HeartCore instance = null;
+//        instance.refresh();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
 }

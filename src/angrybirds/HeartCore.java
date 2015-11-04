@@ -42,6 +42,7 @@ public class HeartCore implements Runnable {
         xDepart = bird.getX();
         yDepart = (int) anim.getCourbe().getYenX(bird.getX());
         while (!last) {
+            System.out.println(bird.getX());
             distanceParcourue = anim.getCourbe().distanceEntreDeuxPoints(xDepart, bird.getX(), yDepart, anim.getCourbe().getYenX(bird.getX()));
             bird.setPosX(bird.getPosX() + 1);
             bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));

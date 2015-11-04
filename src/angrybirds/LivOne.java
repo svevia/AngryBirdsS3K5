@@ -11,7 +11,7 @@ public class LivOne implements Runnable {
     /**
      * Le programme qui se lancera
      */
-    static LivOne p = new LivOne(10);
+    static LivOne p;
 
     /**
      * Le numero de lancement de l'application
@@ -35,6 +35,7 @@ public class LivOne implements Runnable {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        p = new LivOne(10);
         p.run();
     }
 
