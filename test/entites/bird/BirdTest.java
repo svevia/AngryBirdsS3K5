@@ -243,5 +243,56 @@ public class BirdTest {
             super(0, 0, 0, 0, 0, 0, 0.0, 0.0, null, null, null);
         }
     }
+
+    /**
+     * Test of MinimalBirdFactory method, of class Bird.
+     */
+    @Test
+    public void testMinimalBirdFactory() {
+        System.out.println("MinimalBirdFactory");
+        Graphics g = null;
+        Bird instance = null;
+        Graphics expResult = null;
+        Graphics result = instance.MinimalBirdFactory(g);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of drawAllModule method, of class Bird.
+     */
+    @Test
+    public void testDrawAllModule() {
+        System.out.println("drawAllModule");
+        Graphics g = null;
+        boolean over = false;
+        Bird instance = null;
+        Graphics expResult = null;
+        Graphics result = instance.drawAllModule(g, over);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of addModule method, of class Bird.
+     */
+    @Test
+    public void testAddModule() {
+        System.out.println("addModule");
+        ModuleBird mb = null;
+        Bird instance = null;
+        instance.addModule(mb);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    public class BirdImpl extends Bird {
+
+        public BirdImpl() {
+            super(0, 0, 0, 0, null);
+        }
+    }
     
 }

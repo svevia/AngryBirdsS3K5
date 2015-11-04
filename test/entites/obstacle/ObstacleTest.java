@@ -4,6 +4,7 @@ import entites.Hitbox;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -263,6 +264,37 @@ public class ObstacleTest {
         g.setColor(c);
         g.fillOval(x, y, widht, hight);
         return g;
+        }
+    }
+
+    /**
+     * Test of addListObstacle method, of class Obstacle.
+     */
+    @Test
+    public void testAddListObstacle_ObstacleArr() {
+        System.out.println("addListObstacle");
+        Obstacle[] o = null;
+        Obstacle.addListObstacle(o);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of addListObstacle method, of class Obstacle.
+     */
+    @Test
+    public void testAddListObstacle_ArrayList() {
+        System.out.println("addListObstacle");
+        ArrayList<Obstacle> o = null;
+        Obstacle.addListObstacle(o);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    public class ObstacleImpl extends Obstacle {
+
+        public ObstacleImpl() {
+            super(0, 0, 0, 0, null);
         }
     }
     

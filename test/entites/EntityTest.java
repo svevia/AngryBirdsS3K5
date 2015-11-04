@@ -191,5 +191,16 @@ public class EntityTest {
             return g;
         }
     }
+
+    public class EntityImpl extends Entity {
+
+        public EntityImpl() {
+            super(0, 0, 0, 0);
+        }
+
+        public Graphics draw(Graphics g) {
+            return null;
+        }
+    }
     
 }

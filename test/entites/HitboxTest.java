@@ -153,5 +153,34 @@ public class HitboxTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of misaAJour method, of class Hitbox.
+     */
+    @Test
+    public void testMisaAJour() {
+        System.out.println("misaAJour");
+        int x = 0;
+        int y = 0;
+        Dimension d = null;
+        Hitbox instance = null;
+        instance.misaAJour(x, y, d);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of toString method, of class Hitbox.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+        Hitbox instance = null;
+        String expResult = "";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

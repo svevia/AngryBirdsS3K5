@@ -1,14 +1,11 @@
- Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
-package angrybirds;
 
+Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
-package angrybirds;
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -19,8 +16,8 @@ import org.junit.runners.Suite;
 
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({angrybirds.VisualisateurTest.class, angrybirds.CourbeTest.class, angrybirds.HeartCoreTest.class, angrybirds.GameFrameTest.class, angrybirds.AnimationOiseauTest.class, angrybirds.LivOneTest.class, angrybirds.ConstanteTest.class, angrybirds.TestLuncherInterditAuxMineursTest.class})
-public class AngrybirdsSuite {
+@Suite.SuiteClasses({angrybirds.AngrybirdsSuite.class})
+public class RootSuite {
 
     @BeforeClass
     public static void setUpClass() throws Exception {

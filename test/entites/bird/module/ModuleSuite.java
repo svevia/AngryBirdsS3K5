@@ -1,5 +1,5 @@
  Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
-package angrybirds;
+package entites.bird.module;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
-package angrybirds;
+package entites.bird.module;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -19,8 +19,8 @@ import org.junit.runners.Suite;
 
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({angrybirds.VisualisateurTest.class, angrybirds.CourbeTest.class, angrybirds.HeartCoreTest.class, angrybirds.GameFrameTest.class, angrybirds.AnimationOiseauTest.class, angrybirds.LivOneTest.class, angrybirds.ConstanteTest.class, angrybirds.TestLuncherInterditAuxMineursTest.class})
-public class AngrybirdsSuite {
+@Suite.SuiteClasses({entites.bird.module.BecTriangulaireTest.class, entites.bird.module.OeilTest.class, entites.bird.module.BecCanardTest.class})
+public class ModuleSuite {
 
     @BeforeClass
     public static void setUpClass() throws Exception {

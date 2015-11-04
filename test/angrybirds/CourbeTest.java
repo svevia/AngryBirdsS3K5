@@ -127,5 +127,33 @@ public class CourbeTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getA method, of class Courbe.
+     */
+    @Test
+    public void testGetA() {
+        System.out.println("getA");
+        Courbe instance = null;
+        double expResult = 0.0;
+        double result = instance.getA();
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getB method, of class Courbe.
+     */
+    @Test
+    public void testGetB() {
+        System.out.println("getB");
+        Courbe instance = null;
+        double expResult = 0.0;
+        double result = instance.getB();
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

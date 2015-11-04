@@ -1,3 +1,4 @@
+ Error reading included file Templates/UnitTests/Templates/Licenses/license-default.txt
 package angrybirds;
 
 import org.junit.After;
@@ -13,9 +14,9 @@ import static org.junit.Assert.*;
  */
 
 
-public class AngryBirdsTest {
+public class LivOneTest {
     
-    public AngryBirdsTest() {
+    public LivOneTest() {
     }
     
     @BeforeClass
@@ -35,13 +36,25 @@ public class AngryBirdsTest {
     }
 
     /**
-     * Test of main method, of class Main.
+     * Test of main method, of class LivOne.
      */
     @Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        Main.main(args);
+        LivOne.main(args);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of run method, of class LivOne.
+     */
+    @Test
+    public void testRun() {
+        System.out.println("run");
+        LivOne instance = null;
+        instance.run();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

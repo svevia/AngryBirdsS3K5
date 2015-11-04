@@ -14,9 +14,9 @@ import static org.junit.Assert.*;
  */
 
 
-public class HeartCoreTest {
+public class GameFrameTest {
     
-    public HeartCoreTest() {
+    public GameFrameTest() {
     }
     
     @BeforeClass
@@ -35,26 +35,8 @@ public class HeartCoreTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of run method, of class HeartCore.
-     */
     @Test
-    public void testRun() {
-        System.out.println("run");
-        HeartCore instance = null;
-        instance.run();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of refresh method, of class HeartCore.
-     */
-    @Test
-    public void testRefresh() {
-        System.out.println("refresh");
-        HeartCore instance = null;
-        instance.refresh();
+    public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
