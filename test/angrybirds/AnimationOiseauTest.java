@@ -94,5 +94,19 @@ public class AnimationOiseauTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getCore method, of class AnimationOiseau.
+     */
+    @Test
+    public void testGetCore() {
+        System.out.println("getCore");
+        AnimationOiseau instance = null;
+        Thread expResult = null;
+        Thread result = instance.getCore();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
