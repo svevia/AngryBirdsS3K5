@@ -2,7 +2,6 @@ package entites.bird;
 
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.net.URL;
 
 /**
  *  Enumeration contenant tout les fonds
