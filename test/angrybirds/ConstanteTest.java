@@ -97,7 +97,7 @@ public class ConstanteTest {
     @Test
     public void testGenereObstacle() {
         System.out.println("Test de la génération d'obstacle");
-        int borneXMin = 200, borneXMax = fenetre.width;
+        int borneXMin = 500, borneXMax = fenetre.width;
         int borneYMin = 0, borneYMax = fenetre.height;
         int tailleHMin = 0, tailleHMax = 100;
         int tailleWMin = 0, tailleWMax = 100;
