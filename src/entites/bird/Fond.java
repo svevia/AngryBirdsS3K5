@@ -2,6 +2,7 @@ package entites.bird;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.net.URL;
 
 /**
  *  Enumeration contenant tout les fonds
@@ -11,12 +12,12 @@ public enum Fond {
     /**
      *
      */
-    PLAINE("src/ressource/plaine.png"),
+    PLAINE("/ressource/plaine.png"),
 
     /**
      *
      */
-    ENFER("src/ressource/enfer.png");
+    ENFER("/ressource/enfer.png");
     
     String source;
 
@@ -29,6 +30,6 @@ public enum Fond {
      * @return
      */
     public Image getFond() {
-        return Toolkit.getDefaultToolkit().getImage(source);
+        return Toolkit.getDefaultToolkit().getImage(getClass().getResource(source));
     }
 }
