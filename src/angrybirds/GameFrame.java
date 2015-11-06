@@ -12,14 +12,6 @@ public class GameFrame extends JFrame {
      */
     private AnimationOiseau jeu;
 
-    {
-        setSize(Constante.fenetre.getSize());
-        setDefaultCloseOperation(3);
-        setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
-    }
-
     /**
      *
      * @param serieNum
@@ -28,7 +20,13 @@ public class GameFrame extends JFrame {
      */
     public GameFrame(int serieNum, int totalSeries, Courbe c) {
         jeu = new AnimationOiseau(c);
+        setDefaultCloseOperation(3);
+        setResizable(false);
         setContentPane(jeu);
+        setSize(Constante.fenetre.getSize());
+        setLocationRelativeTo(null);
+        setVisible(true);
+
         setTitle("Angry Birds - Essai n° : " + serieNum + "/" + totalSeries);
         jeu.start();
     }

@@ -67,7 +67,7 @@ public class HeartCore implements Runnable {
     public void refresh() {
         /* Pour d'obscures raisons, quand l'oiseau n'a pas quitté les premiers
          pixels, le repaint bug */
-        if (bird.getBirdCenterX() < 80) {
+        if (bird.getBirdCenterX() < 100) {
             anim.repaint();
         } else {
             int x1 = bird.getPosX() - 10 - vitesse;

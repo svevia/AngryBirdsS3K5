@@ -6,10 +6,6 @@ import entites.bird.ModuleBird;
 import java.awt.Color;
 import java.awt.Graphics;
 
-/**
- *
- * @author Wissam
- */
 public class BecCanard extends ModuleBird {
 
     private int nbPoint;

@@ -22,7 +22,7 @@ public class Canard extends Bird {
         super(0, 0, 40, 40, Color.white);
         addModule(bec);
         addModule(oeil);
-        hb.setD(new Dimension((int) (40 + bec.getSize()), 40));
+        //hb.setD(new Dimension((int) (40 + bec.getSize()), 40));
     }
 
     /**

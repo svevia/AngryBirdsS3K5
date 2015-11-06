@@ -54,7 +54,9 @@ public class Collision {
     public void verif() {
         if (entityHit() != 0 || borderTouch()) {
             bird.setCorps(Color.gray);
-            obstacle.get(entityHit()).setC(Color.gray);
+            if (!borderTouch()){
+	            obstacle.get(entityHit()).setC(Color.gray);
+            }
             last = true;
         }
     }

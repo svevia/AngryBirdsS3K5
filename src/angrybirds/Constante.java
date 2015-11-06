@@ -85,7 +85,7 @@ public class Constante {
      */
     public static void iniz() {
         allModul = new ArrayList<>();
-        bird = new RougeGorge();
+        bird = new Canard();
         footstep = Footstep.GAY;
         fond = Fond.PLAINE;
         obstacle = new ArrayList<>();

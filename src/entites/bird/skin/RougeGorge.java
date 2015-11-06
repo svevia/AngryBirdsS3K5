@@ -22,7 +22,7 @@ public class RougeGorge extends Bird {
         super(0, 0, 20, 20, Color.red);
         addModule(bec);
         addModule(oeil);
-        hb.setD(new Dimension((int) (20 + bec.getSize()), 20));
+        //hb.setD(new Dimension((int) (20 + bec.getSize()), 20));
     }
 
     @Override
