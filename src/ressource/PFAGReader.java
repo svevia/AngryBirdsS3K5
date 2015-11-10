@@ -49,6 +49,11 @@ public class PFAGReader {
             while ((line = in.readLine()) != null) {
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("imagecustomz")) {
+                    name = "";
+                    src = "";
+                    x = 0;
+                    y = 0;
+                    opacacite = false;
                     st2 = new StringTokenizer(st.nextToken(), ",");
                     while (st2.hasMoreTokens()) {
                         st = new StringTokenizer(st2.nextToken(), "=");

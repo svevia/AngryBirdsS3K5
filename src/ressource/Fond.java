@@ -1,6 +1,6 @@
 package ressource;
 
-import static ressource.AllRessource.*;
+import static angrybirds.Constante.allIPacketmageRessource;
 
 /**
  * Enumeration contenant tout les fonds
@@ -10,7 +10,9 @@ public enum Fond {
     /**
      * Une jolie plaine
      */
-    PLAINE(allImageRessource.get("ciel"), allImageRessource.get("nuage"), allImageRessource.get("herbe"));
+    Plaine(allIPacketmageRessource.get("ciel"), allIPacketmageRessource.get("nuage"), allIPacketmageRessource.get("herbe")),
+    
+    Enfer(allIPacketmageRessource.get("sunset"), allIPacketmageRessource.get("cielnoir"), allIPacketmageRessource.get("volcan"), allIPacketmageRessource.get("solrocheux"));
 
     ImageCustomz[] source;
 

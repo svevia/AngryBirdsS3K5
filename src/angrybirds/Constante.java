@@ -7,10 +7,10 @@ import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import entites.bird.*;
-import entites.obstacle.skin.Carre;
-import java.awt.Color;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Random;
+import ressource.ImageCustomz;
 import ressource.PFAGReader;
 
 /**
@@ -82,19 +82,28 @@ public class Constante {
      * L'index de l'obstacle rencontre si il y a collision
      */
     public static int wallHurty;
-    
+
+    /**
+     * Le reader de pfag
+     */
     public static PFAGReader gReader;
+
+    /**
+     * Les images du packet utilise
+     */
+    static public HashMap<String, ImageCustomz> allIPacketmageRessource;
 
     /**
      * Reinitialise la class a zero
      */
     public static void iniz() throws IOException {
-        gReader = new PFAGReader("src/ressource/plaine.pfag");
+        gReader = new PFAGReader("src/ressource/enfer.pfag");
+        allIPacketmageRessource = gReader.listeImage();
         fenetre = gReader.dimensionFenetre();
         allModul = new ArrayList<>();
         bird = new RougeGorge();
         footstep = Footstep.VODKA;
-        fond = Fond.PLAINE;
+        fond = Fond.Enfer;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
