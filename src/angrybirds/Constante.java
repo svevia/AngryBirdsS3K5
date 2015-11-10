@@ -97,7 +97,7 @@ public class Constante {
      */
     static public HashMap<String, ImageCustomz> allIPacketmageRessource;
     
-    public static int indexPFAGUtilise = 0;
+    public static int indexPFAGUtilise = 1;
 
     /**
      * Reinitialise la class a zero
