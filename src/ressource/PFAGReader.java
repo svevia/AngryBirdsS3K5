@@ -12,10 +12,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Random;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PFAGReader {
 
@@ -39,8 +38,8 @@ public class PFAGReader {
      * @return La liste des images et leur positions, si aucune position n'est
      * specifie la position de l'image vaut 0
      */
-    public HashMap<String, ImageCustomz> hashMapImage(String pfag) {
-        HashMap<String, ImageCustomz> hm = new HashMap<>();
+    public LinkedHashMap<String, ImageCustomz> hashMapImage(String pfag) {
+        LinkedHashMap<String, ImageCustomz> hm = new LinkedHashMap<>();
         String line = "";
         StringTokenizer st;
         StringTokenizer st2;
@@ -77,7 +76,6 @@ public class PFAGReader {
                                 break;
                         }
                     }
-                    System.out.println(name);
                     hm.put(name, new ImageCustomz(x, y, src));
                 }
             }
