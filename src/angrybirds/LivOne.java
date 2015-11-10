@@ -2,7 +2,10 @@ package angrybirds;
 
 import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
+import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * La classe qui lancera le livrable 1
@@ -46,11 +49,15 @@ public class LivOne implements Runnable {
     @Override
     public void run() {
         if (i < n) {
-            iniz();
-            Random r = new Random();
-            Obstacle.addListObstacle(generateListObstacle(r.nextInt(5) + 5));
-            gf = new GameFrame(i + 1, n, generateCourbe());
-            i++;
+            try {
+                iniz();
+                Random r = new Random();
+                Obstacle.addListObstacle(generateListObstacle(r.nextInt(5) + 5));
+                gf = new GameFrame(i + 1, n, generateCourbe());
+                i++;
+            } catch (IOException ex) {
+                System.out.println("Bug LivOne Iniz");
+            }
         }
     }
 }

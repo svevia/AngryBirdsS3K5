@@ -3,6 +3,7 @@ package angrybirds;
 import static angrybirds.Constante.iniz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.*;
 
 /**
@@ -84,8 +85,12 @@ public class TestLuncherInterditAuxMineurs extends JFrame implements ActionListe
      * @param args
      */
     public static void main(String[] args) {
-        iniz();
-        new TestLuncherInterditAuxMineurs();
+        try {
+            iniz();
+            new TestLuncherInterditAuxMineurs();
+        } catch (IOException ex) {
+            System.out.println("Bug TestInterditAuxMineurs Iniz");
+        }
     }
 
 }

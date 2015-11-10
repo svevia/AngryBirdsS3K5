@@ -11,6 +11,7 @@ import entites.obstacle.skin.Carre;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Random;
+import ressource.PFAGReader;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -40,7 +41,7 @@ public class Constante {
     /**
      * Les dimensions de la fenetre
      */
-    public static Dimension fenetre = new Dimension(1920, 1080);//4K maggle
+    public static Dimension fenetre;// = new Dimension(1920, 1080);//4K maggle
 
     /**
      * Liste des obstacles du jeu
@@ -81,11 +82,15 @@ public class Constante {
      * L'index de l'obstacle rencontre si il y a collision
      */
     public static int wallHurty;
+    
+    public static PFAGReader gReader;
 
     /**
      * Reinitialise la class a zero
      */
     public static void iniz() throws IOException {
+        gReader = new PFAGReader("src/ressource/plaine.pfag");
+        fenetre = gReader.dimensionFenetre();
         allModul = new ArrayList<>();
         bird = new RougeGorge();
         footstep = Footstep.VODKA;

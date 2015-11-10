@@ -23,7 +23,7 @@ public class AllRessource {
      * src/ressource/ciel.png) A besoin d'une mise a jour pour fonctionner, si
      * non cetet liste est vide
      */
-    static public HashMap<String, ImageCustomz> allImageRessource = listeImage();
+    static public HashMap<String, ImageCustomz> allImageRessource = Constante.gReader.listeImage();
 
     /**
      * Met a jour la hashmap avec toute les images !png! du dossier ressource
@@ -31,7 +31,7 @@ public class AllRessource {
      * @throws IOException
      *
      */
-    static public HashMap<String, ImageCustomz> listeImage() {
+    /*static public HashMap<String, ImageCustomz> listeImage() {
         HashMap<String, ImageCustomz> yolo = new HashMap<>();
         try {
             Path path = Paths.get("src/ressource");
@@ -64,7 +64,7 @@ public class AllRessource {
             System.out.println("Bug AllRessource");
         }
         return yolo;
-    }
+    }*/
 
 //    static public ImageCustomz ciel = new ImageCustomz(0, 0, "/ressource/ciel.png");
 //    static public ImageCustomz nuage = new ImageCustomz(0, 0, "/ressource/nuage.png");
