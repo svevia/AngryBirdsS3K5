@@ -4,6 +4,7 @@ import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
 import java.io.IOException;
 import java.util.Random;
+import ressource.PFAGReader;
 
 /**
  * La classe qui lancera le livrable 1
@@ -50,7 +51,7 @@ public class LivOne implements Runnable {
             try {
                 iniz();
                 Random r = new Random();
-                Obstacle.addListObstacle(gReader.listeObstacle());
+                Obstacle.addListObstacle(gReader.listeObstacle(PFAGReader.listePFAG().get(indexPFAGUtilise)));
                 gf = new GameFrame(i + 1, n, generateCourbe());
                 i++;
             } catch (IOException ex) {

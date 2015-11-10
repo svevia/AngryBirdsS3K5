@@ -52,4 +52,9 @@ public class ImageCustomz {
     public Image getImage() {
         return Toolkit.getDefaultToolkit().getImage(getClass().getResource(src));
     }
+
+    @Override
+    public String toString() {
+        return "Image source : " + src + " ; Position en X : " + posX + " ; Position en Y : " + posY + " ; ";
+    }
 }

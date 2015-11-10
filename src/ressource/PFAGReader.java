@@ -1,32 +1,36 @@
 package ressource;
 
 import static angrybirds.Constante.fenetre;
+import static angrybirds.Constante.listeFichier;
 import entites.obstacle.Obstacle;
 import entites.obstacle.skin.Carre;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PFAGReader {
 
     String source;
     BufferedReader in;
+    HashMap<String, String> pfagOfSource;
 
     /**
-     * Cree un reader pfag avec une source
+     * Cree un reader du fichier src/ressource
      *
      * @param source
      */
-    public PFAGReader(String source) {
-        this.source = source;
+    public PFAGReader() {
+        this.source = "src/ressource";
+        pfagOfSource = listeFichier(source, "pfag");
     }
 
     /**
@@ -35,7 +39,7 @@ public class PFAGReader {
      * @return La liste des images et leur positions, si aucune position n'est
      * specifie la position de l'image vaut 0
      */
-    public HashMap<String, ImageCustomz> listeImage() {
+    public HashMap<String, ImageCustomz> hashMapImage(String pfag) {
         HashMap<String, ImageCustomz> hm = new HashMap<>();
         String line = "";
         StringTokenizer st;
@@ -43,9 +47,8 @@ public class PFAGReader {
         String name = "";
         String src = "";
         int x = 0, y = 0;
-        boolean opacacite = false;
         try {
-            in = Files.newBufferedReader(Paths.get(source), Charset.forName("UTF-8"));
+            in = Files.newBufferedReader(Paths.get("src/" + pfagOfSource.get(pfag)));
             while ((line = in.readLine()) != null) {
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("imagecustomz")) {
@@ -53,7 +56,6 @@ public class PFAGReader {
                     src = "";
                     x = 0;
                     y = 0;
-                    opacacite = false;
                     st2 = new StringTokenizer(st.nextToken(), ",");
                     while (st2.hasMoreTokens()) {
                         st = new StringTokenizer(st2.nextToken(), "=");
@@ -70,26 +72,44 @@ public class PFAGReader {
                             case "y":
                                 y = Integer.parseInt(st.nextToken());
                                 break;
-                            case "opaque":
-                                if (st.nextToken().equals("true")) {
-                                    opacacite = true;
-                                } else {
-                                    opacacite = false;
-                                }
-                                break;
                             default:
                                 System.out.println("Un argument est incorrecte " + st.nextToken());
                                 break;
                         }
                     }
+                    System.out.println(name);
                     hm.put(name, new ImageCustomz(x, y, src));
                 }
             }
             in.close();
+            System.out.println(hm);
         } catch (IOException ex) {
             System.out.println("Bug lecture");
         }
         return hm;
+    }
+
+    public ArrayList<ImageCustomz> listeImage(String pfag) {
+        ArrayList<ImageCustomz> al = new ArrayList<>();
+        HashMap<String, ImageCustomz> src = hashMapImage(pfag);
+        for (HashMap.Entry<String, ImageCustomz> entry : src.entrySet()) {
+            al.add(entry.getValue());
+        }
+        return al;
+    }
+
+    /**
+     * Liste tout les fichiers pfag du repertoire src/ressource
+     *
+     * @return Tout les fichiers pfag du repertoire src/ressource
+     */
+    public static ArrayList<String> listePFAG() {
+        ArrayList<String> ar = new ArrayList<>();
+        HashMap<String, String> src = listeFichier("src/ressource", "pfag");
+        for (HashMap.Entry<String, String> entry : src.entrySet()) {
+            ar.add(entry.getKey());
+        }
+        return ar;
     }
 
     /**
@@ -98,7 +118,7 @@ public class PFAGReader {
      * @return La liste des images et leur positions, si aucune position n'est
      * specifie la position de l'image vaut 0
      */
-    public ArrayList<Obstacle> listeObstacle() {
+    public ArrayList<Obstacle> listeObstacle(String pfag) {
         ArrayList<Obstacle> ar = new ArrayList<>();
         String line = "";
         StringTokenizer st;
@@ -108,7 +128,7 @@ public class PFAGReader {
         Color couleur = Color.red;
         Random r = new Random();
         try {
-            in = Files.newBufferedReader(Paths.get(source), Charset.forName("UTF-8"));
+            in = Files.newBufferedReader(Paths.get("src/" + pfagOfSource.get(pfag)));
             while ((line = in.readLine()) != null) {
                 x = 0;
                 y = 0;
@@ -172,14 +192,14 @@ public class PFAGReader {
      * @return La taille de la fenetre si specifie dans le ficher pfag si non
      * par defaut la fenetre fait 1920 par 1080 p
      */
-    public Dimension dimensionFenetre() {
+    public Dimension dimensionFenetre(String pfag) {
         Dimension d = new Dimension();
         String line = "";
         StringTokenizer st;
         StringTokenizer st2;
         int x = 0, y = 0;
         try {
-            in = Files.newBufferedReader(Paths.get(source), Charset.forName("UTF-8"));
+            in = Files.newBufferedReader(Paths.get("src/" + pfagOfSource.get(pfag)));
             while ((line = in.readLine()) != null) {
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("fenetre")) {

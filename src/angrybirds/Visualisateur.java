@@ -66,8 +66,8 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawFond(Graphics g) {
-        for (int i = 0; i < fond.getFond().length; i++) {
-            g.drawImage(fond.getFond()[i].getImage(), fond.getFond()[i].getPosX(), fond.getFond()[i].getPosY(), null);
+        for (int i = 0; i < fond.size(); i++) {
+            g.drawImage(fond.get(i).getImage(), fond.get(i).getPosX(), fond.get(i).getPosY(), null);
         }
         return g;
     }

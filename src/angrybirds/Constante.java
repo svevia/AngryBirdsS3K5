@@ -1,17 +1,21 @@
 package angrybirds;
 
-import ressource.Fond;
-import entites.Matrice;
 import entites.bird.skin.*;
 import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import entites.bird.*;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 import ressource.ImageCustomz;
 import ressource.PFAGReader;
+import static ressource.PFAGReader.listePFAG;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -36,8 +40,8 @@ public class Constante {
     /**
      * La fond choisi
      */
-    public static Fond fond;
-
+    public static ArrayList<ImageCustomz> fond;
+    
     /**
      * Les dimensions de la fenetre
      */
@@ -92,18 +96,19 @@ public class Constante {
      * Les images du packet utilise
      */
     static public HashMap<String, ImageCustomz> allIPacketmageRessource;
+    
+    public static int indexPFAGUtilise = 0;
 
     /**
      * Reinitialise la class a zero
      */
     public static void iniz() throws IOException {
-        gReader = new PFAGReader("src/ressource/enfer.pfag");
-        allIPacketmageRessource = gReader.listeImage();
-        fenetre = gReader.dimensionFenetre();
+        gReader = new PFAGReader();
+        fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
         bird = new RougeGorge();
         footstep = Footstep.VODKA;
-        fond = Fond.Enfer;
+        fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
@@ -124,53 +129,49 @@ public class Constante {
     }
 
     /**
-     * Retourne une matrice permettant de faire une homotetie de rapport k
-     * autour de l'origine
+     * Liste tout les fichiers de la source qui ont l'extension specifie et sa
+     * source
      *
-     * @param k
+     * @param source
+     * @param extension
      * @return
      */
-    public static Matrice homotetie(int k) {
-        Matrice homo = new Matrice(3, 3);
-        for (int idx = 0; idx < 2; idx++) {
-            homo.setValueAtIdx(idx, idx, k);
+    public static HashMap<String, String> listeFichier(String source, String extension) {
+        if (extension.length() < 1) {
+            return null;
         }
-        homo.setValueAtIdx(2, 2, 1);
-        return homo;
-    }
-
-    /**
-     * Retourne une matrice permettant de faire une translation de vecteur (x,y)
-     *
-     * @param x
-     * @param y
-     * @return
-     */
-    public static Matrice translation(int x, int y) {
-        Matrice trans = new Matrice(3, 3);
-        for (int idx = 0; idx < 3; idx++) {
-            trans.setValueAtIdx(idx, idx, 1);
+        HashMap<String, String> sources = new HashMap<>();
+        String tmp = "";
+        String src = "";
+        try {
+            Path path = Paths.get(source);
+            DirectoryStream<Path> stream;
+            stream = Files.newDirectoryStream(path);
+            try {
+                Iterator<Path> iterator = stream.iterator();
+                while (iterator.hasNext()) {
+                    Path p = iterator.next();
+                    tmp = p.toString();
+                    tmp = tmp.substring(tmp.length() - extension.length());
+                    if (tmp.equals(extension)) {
+                        if (p.getName(0).toString().equals("src")) {
+                            tmp = "";
+                            for (int i = 1; i < p.getNameCount() - 1; i++) {
+                                tmp += p.getName(i) + "/";
+                            }
+                        }
+                        src = tmp + p.getName(p.getNameCount() - 1).toString();
+                        tmp = p.getName(p.getNameCount() - 1).toString();
+                        tmp = tmp.substring(0, tmp.length() - (extension.length() + 1));
+                        sources.put(tmp, src);
+                    }
+                }
+            } finally {
+                stream.close();
+            }
+        } catch (IOException ex) {
+            System.out.println("Bug lecture des sources, source ou/et extension incorectes");
         }
-        trans.setValueAtIdx(0, 2, x);
-        trans.setValueAtIdx(1, 2, y);
-        return trans;
-    }
-
-    /**
-     * Retourne une matrice permettant de faire une rotation autour de l'origine
-     * d'angle teta
-     *
-     * @param teta
-     * @return
-     */
-    public static Matrice rotation(int teta) {
-        Matrice rota = new Matrice(3, 3);
-        for (int idx = 0; idx < 2; idx++) {
-            rota.setValueAtIdx(idx, idx, (int) Math.cos(teta));
-        }
-        rota.setValueAtIdx(0, 1, (int) -Math.sin(teta));
-        rota.setValueAtIdx(1, 0, (int) Math.sin(teta));
-        rota.setValueAtIdx(2, 2, 1);
-        return rota;
+        return sources;
     }
 }
