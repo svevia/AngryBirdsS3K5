@@ -1,5 +1,6 @@
 package angrybirds;
 
+import ressource.Fond;
 import entites.Matrice;
 import entites.bird.skin.*;
 import entites.obstacle.Obstacle;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import entites.bird.*;
 import entites.obstacle.skin.Carre;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -38,7 +40,7 @@ public class Constante {
     /**
      * Les dimensions de la fenetre
      */
-    public static Dimension fenetre = new Dimension(1200, 600);
+    public static Dimension fenetre = new Dimension(1920, 1080);//4K maggle
 
     /**
      * Liste des obstacles du jeu
@@ -83,10 +85,10 @@ public class Constante {
     /**
      * Reinitialise la class a zero
      */
-    public static void iniz() {
+    public static void iniz() throws IOException {
         allModul = new ArrayList<>();
-        bird = new Canard();
-        footstep = Footstep.GAY;
+        bird = new RougeGorge();
+        footstep = Footstep.VODKA;
         fond = Fond.PLAINE;
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
@@ -104,7 +106,7 @@ public class Constante {
         Random alea = new Random();
         double a = (alea.nextDouble() + 7) / 10000;
         double b = alea.nextDouble() * -2;
-        return new Courbe(a, b, 450);
+        return new Courbe(a, b, fenetre.getHeight() - 150);
     }
 
     /**
@@ -128,7 +130,7 @@ public class Constante {
      */
     public static Obstacle genereObstacle() {
         Random r = new Random();
-        int x = r.nextInt(fenetre.width - 500) + 500, y = r.nextInt(fenetre.height), h = r.nextInt(100), w = r.nextInt(100);
+        int x = r.nextInt(fenetre.width - 500) + 500, y = r.nextInt(fenetre.height), h = r.nextInt(100) + 100, w = r.nextInt(100) + 100;
         return new Carre(x, y, h, w, Color.red);
     }
 

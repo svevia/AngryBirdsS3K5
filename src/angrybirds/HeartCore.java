@@ -1,12 +1,16 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
  * coeur qui bat.
  */
 public class HeartCore implements Runnable {
+
+    Timer t = new Timer();
 
     /**
      * La distance parcourue entre le point(xDepart; yDepart) et la position du
@@ -42,7 +46,6 @@ public class HeartCore implements Runnable {
         xDepart = bird.getX();
         yDepart = (int) anim.getCourbe().getYenX(bird.getX());
         while (!last) {
-            System.out.println(bird.getX());
             distanceParcourue = anim.getCourbe().distanceEntreDeuxPoints(xDepart, bird.getX(), yDepart, anim.getCourbe().getYenX(bird.getX()));
             bird.setPosX(bird.getPosX() + 1);
             bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
@@ -52,13 +55,15 @@ public class HeartCore implements Runnable {
             }
         }
         refresh();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
-        gf.dispose();
-        LivOne.p.run();
+        t.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                gf.dispose();
+                LivOne.p.run();
+            }
+        }, 2000);
+
     }
 
     /**

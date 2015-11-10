@@ -5,6 +5,18 @@ package angrybirds;
  */
 public class Courbe {
 
+    enum SpecialFigureAcrobatique {
+
+        Looping(1, 1, 1);
+
+        double a, b, c;
+        
+        private SpecialFigureAcrobatique(double a, double b, double c) {
+            
+        }
+        
+    }
+    
     /**
      * Les points de la courbe
      */

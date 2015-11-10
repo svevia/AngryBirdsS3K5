@@ -4,15 +4,16 @@ import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import entites.Entity;
 import java.awt.Color;
+import ressource.AllRessource;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se
  * qui est dessine et se qui dit quand on doit dessine ne se melange pas, cette
  * classe a donc pour but de faire la liaison entre se que sur quoi on dessine,
- * qui appel un evement et se qui est dessine. Concretement, une classe contenant
- * un Graphics veut qu'on lui ajoute en dessin, un oiseau, un obstacle ou une
- * empreintes full ou partiel, la classe Viasualisateur prendra donc en parametre
- * se qu'on veut, ou on veut et sur quoi on le veut pour le mettre.
+ * qui appel un evement et se qui est dessine. Concretement, une classe
+ * contenant un Graphics veut qu'on lui ajoute en dessin, un oiseau, un obstacle
+ * ou une empreintes full ou partiel, la classe Viasualisateur prendra donc en
+ * parametre se qu'on veut, ou on veut et sur quoi on le veut pour le mettre.
  */
 public class Visualisateur {
 
@@ -66,7 +67,9 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawFond(Graphics g) {
-        g.drawImage(fond.getFond(), 0, 0, null);
+        for (int i = 0; i < fond.getFond().length; i++) {
+            g.drawImage(fond.getFond()[i].getImage(), fond.getFond()[i].getPosX(), fond.getFond()[i].getPosY(), null);
+        }
         return g;
     }
 
@@ -91,30 +94,34 @@ public class Visualisateur {
      * @return Le nombre de point que doit garder le footstep en memoire
      */
     private int calculTraceFootStep() {
+        //Si jamais on a un 60/0 on cale un finally ici
         try {
             return (60 / (vitesse + 1)) + 10;
         } finally {
             return (60 / (vitesse + 2)) + 10;
         }
     }
-    
+
     /**
      * Dessine les contours de la hitbox d'une entite
+     *
      * @param e
      * @param g
      * @param c
-     * @return 
+     * @return
      */
     public Graphics drawHitBox(Entity e, Graphics g, Color c) {
         g.setColor(c);
         g.drawRect(e.getHb().getX(), e.getHb().getY(), e.getHb().getD().width, e.getHb().getD().height);
         return g;
     }
-    
+
     /**
-     * Dessine la hitbox de toute les entite, en bleu l'oiseau, en noir les obstacles
+     * Dessine la hitbox de toute les entite, en bleu l'oiseau, en noir les
+     * obstacles
+     *
      * @param g
-     * @return 
+     * @return
      */
     public Graphics drawAllHitBox(Graphics g) {
         for (int i = 0; i < obstacle.size(); i++) {
