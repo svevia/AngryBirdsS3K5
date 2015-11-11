@@ -15,6 +15,7 @@ import javafx.stage.WindowEvent;
 public class Menu extends Application implements EventHandler<ActionEvent> {
 
     public static LivOne p;
+        Thread son = new MusicMenu();
 
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
@@ -31,6 +32,7 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
         primaryStage.setScene(scene);
         primaryStage.show();
         fred.start();
+        son.start();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -55,7 +57,6 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
         jeu.setStyle("-fx-font-size: 40;\n"
                 + "-fx-text-fill: rgba(255,0,0,1);\n"
                 + "-fx-font-family: sans-serif;\n"
-                + "-fx-transform:rotate(1.4rad);"
                 + "-fx-font-angle: 40;\n"
                 + "-fx-effect: dropshadow( three-pass-box , rgba(0,0,127,1) , 1,10,0,0 );"
                 + "-fx-scale-y:3;"
@@ -78,6 +79,7 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         if (event.getSource() == jouer) {
             p = new LivOne(10);
+            son.stop();
             p.run();
         }
 
