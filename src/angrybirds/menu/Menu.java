@@ -2,20 +2,27 @@ package angrybirds.menu;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class Menu extends Application {
 
     public void start(Stage primaryStage) {
-        FlowPane root = new FlowPane();
+        GridPane root = new GridPane();
+        root.setAlignment(Pos.CENTER);
+        root.setHgap(10);
+        root.setVgap(10);
+        root.setPadding(new Insets(25, 25, 25, 25));
+
         Scene scene = new Scene(root, 1000, 666);
         Thread fred = new Thread(new AnimationMenu(root));
         ajouterComposant(root);
-        
+
         primaryStage.setTitle("Manu Angry Birds");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -35,8 +42,12 @@ public class Menu extends Application {
         launch(args);
     }
 
-    void ajouterComposant(FlowPane root) {
-        root.getChildren().add(new Button("Jouer"));
-        root.getChildren().add(new Button("Option"));
+    void ajouterComposant(GridPane root) {
+        BoutonMenu jouer = new BoutonMenu("Jouer");
+        BoutonMenu option = new BoutonMenu("Option");
+        BoutonMenu quitter = new BoutonMenu("Quitter");
+        root.add(jouer, 0, 0);
+        root.add(option, 0, 1);
+        root.add(quitter, 0, 2);
     }
 }
