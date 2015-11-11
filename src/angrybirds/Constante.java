@@ -97,6 +97,9 @@ public class Constante {
      */
     static public HashMap<String, ImageCustomz> allIPacketmageRessource;
     
+    /**
+     * L'index du PFAG a utiliser
+     */
     public static int indexPFAGUtilise = 0;
 
     /**
@@ -129,11 +132,10 @@ public class Constante {
     }
 
     /**
-     * Liste tout les fichiers de la source qui ont l'extension specifie et sa
-     * source
-     *
-     * @param source
-     * @param extension
+     * Liste tout les fichiers de la source qui ont l'extension specifie en clef
+     * et sa source en valeur
+     * @param source Source a parcourir, ex : src/ressource
+     * @param extension Suite de lettre apres le point, ex : pfag
      * @return
      */
     public static HashMap<String, String> listeFichier(String source, String extension) {
