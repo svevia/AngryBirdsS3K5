@@ -1,7 +1,5 @@
 package angrybirds.menu;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 public class BoutonMenu extends Button {
@@ -16,12 +14,5 @@ public class BoutonMenu extends Button {
                 + "-fx-text-fill: white;\n"
                 + "-fx-font-family: monospace;\n"
                 + "-fx-font-size: 40px;\n");
-        setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println(getText());
-            }
-        });
     }
 }

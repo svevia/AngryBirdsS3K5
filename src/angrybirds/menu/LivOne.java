@@ -1,5 +1,6 @@
-package angrybirds;
+package angrybirds.menu;
 
+import angrybirds.GameFrame;
 import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
 import java.io.IOException;
@@ -10,12 +11,7 @@ import ressource.PFAGReader;
  * La classe qui lancera le livrable 1
  */
 public class LivOne implements Runnable {
-
-    /**
-     * Le programme qui se lancera
-     */
-    static LivOne p;
-
+    
     /**
      * Le numero de lancement de l'application
      */
@@ -32,14 +28,6 @@ public class LivOne implements Runnable {
      */
     public LivOne(int n) {
         this.n = n;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        p = new LivOne(10);
-        p.run();
     }
 
     /**

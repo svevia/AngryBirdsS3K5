@@ -1,6 +1,7 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
+import static angrybirds.menu.Menu.p;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -60,7 +61,7 @@ public class HeartCore implements Runnable {
             @Override
             public void run() {
                 gf.dispose();
-                LivOne.p.run();
+                p.run();
             }
         }, 2000);
 
@@ -83,7 +84,7 @@ public class HeartCore implements Runnable {
             x2 = (x2 > 0) ? x2 : 0;
             y2 = (y2 > 0) ? y2 : 0;
             y1 = (y1 > 0) ? y1 : 0;
-            anim.repaint();
+            anim.repaint(x1, y1, x2, y2);
         }
         xDepart = bird.getX();
         yDepart = (int) anim.getCourbe().getYenX(bird.getX());
