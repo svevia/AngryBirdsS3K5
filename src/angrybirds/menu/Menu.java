@@ -15,7 +15,7 @@ import javafx.stage.WindowEvent;
 public class Menu extends Application implements EventHandler<ActionEvent> {
 
     public static LivOne p;
-        Thread son = new MusicMenu();
+    Thread son = new MusicMenu();
 
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
@@ -58,8 +58,8 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
                 + "-fx-text-fill: rgba(255,0,0,1);\n"
                 + "-fx-font-family: sans-serif;\n"
                 + "-fx-font-angle: 40;\n"
-                + "-fx-effect: dropshadow( three-pass-box , rgba(0,0,127,1) , 1,10,0,0 );"
-                + "-fx-scale-y:3;"
+                + "-fx-effect: dropshadow( three-pass-box , rgba(0,0,127,1) , 1,10,0,0 );\n"
+                + "-fx-scale-y:3;\n"
                 + "-fx-scale-x:3;"
         );
         jeu.setPadding(new Insets(0, 0, 25, 30));
