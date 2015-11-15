@@ -17,7 +17,7 @@ public class FenetrePrincipale extends Application {
     public void start(Stage primaryStage) {
         Menu menu = new Menu();
         Option option = new Option();
-        scene = new Scene(menu, 1000, 666);
+        scene = new Scene(option, 1000, 666);
         primaryStage.setTitle("Menu Angry Birds");
         primaryStage.getIcons().add(new Image("ressource/icon.png"));
         primaryStage.setScene(scene);
@@ -36,7 +36,5 @@ public class FenetrePrincipale extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-//        p = new LivOne(10);
-//        p.run();
     }
 }

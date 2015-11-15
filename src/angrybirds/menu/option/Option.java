@@ -1,22 +1,26 @@
 package angrybirds.menu.option;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
-/**
- *
- * @author Wissam
- */
-public class Option extends GridPane {
+public class Option extends Pane {
 
-    private Label jeu = new Label("AngryBirds");
+    private Label jeu = new Label("Option");
+    VBox gp = new VBox();
+    ScrollPane sp = new ScrollPane(gp);
+    Background bkg1 = new Background(new BackgroundImage(new Image("ressource/papyrus.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT));
 
     public Option() {
-        setAlignment(Pos.CENTER);
-        setHgap(10);
-        setVgap(10);
+
         jeu.setStyle("-fx-font-size: 40;\n"
                 + "-fx-text-fill: rgba(255,0,0,1);\n"
                 + "-fx-font-family: sans-serif;\n"
@@ -25,7 +29,15 @@ public class Option extends GridPane {
                 + "-fx-scale-y:3;\n"
                 + "-fx-scale-x:3;"
         );
-        jeu.setPadding(new Insets(0, 0, 25, 30));
+        gp.getChildren().add(jeu);
+        gp.setAlignment(Pos.CENTER);
+        gp.setPrefSize(800, 666);
+        gp.setFillWidth(false);
+        gp.setBackground(bkg1);
+        sp.setLayoutX(100);
+        sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        getChildren().add(sp);
     }
 
 }

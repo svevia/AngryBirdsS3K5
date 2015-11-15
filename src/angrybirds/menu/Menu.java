@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -58,7 +57,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         }
 
         if (event.getSource() == option) {
-            scene = new Scene(new Option());
+            System.out.println("ouaip");
         }
 
         if (event.getSource() == quitter) {
