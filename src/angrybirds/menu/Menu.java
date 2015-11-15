@@ -45,7 +45,9 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+        p = new LivOne(10);
+        p.run();
     }
 
     private Label jeu = new Label("AngryBirds");

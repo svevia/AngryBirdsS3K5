@@ -1,6 +1,5 @@
 package angrybirds;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import entites.Collision;

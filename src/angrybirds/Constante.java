@@ -101,6 +101,8 @@ public class Constante {
      * L'index du PFAG a utiliser
      */
     public static int indexPFAGUtilise = 0;
+    
+    public static int entityHitty = 0;
 
     /**
      * Reinitialise la class a zero
@@ -110,12 +112,13 @@ public class Constante {
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
         bird = new RougeGorge();
-        footstep = Footstep.VODKA;
+        footstep = Footstep.ARCENCIEL;
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
         footstepY = new ArrayList<>();
         footstepA = new ArrayList<>();
+        entityHitty = 0;
         last = false;
     }
 
