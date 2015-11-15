@@ -1,61 +1,31 @@
 package angrybirds.menu;
 
-import javafx.application.Application;
+import static angrybirds.menu.FenetrePrincipale.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
-public class Menu extends Application implements EventHandler<ActionEvent> {
-
-    public static LivOne p;
-    Thread son = new MusicMenu();
-
-    public void start(Stage primaryStage) {
-        GridPane root = new GridPane();
-        root.setAlignment(Pos.CENTER);
-        root.setHgap(10);
-        root.setVgap(10);
-
-        Scene scene = new Scene(root, 1000, 666);
-        Thread fred = new Thread(new AnimationMenu(root));
-        ajouterComposant(root);
-
-        primaryStage.setTitle("Menu Angry Birds");
-        primaryStage.getIcons().add(new Image("ressource/icon.png"));
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        fred.start();
-        son.start();
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                System.exit(0);
-            }
-        });
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        //launch(args);
-        p = new LivOne(10);
-        p.run();
-    }
+/**
+ *
+ * @author Wissam
+ */
+public class Menu extends GridPane implements EventHandler<ActionEvent> {
 
     private Label jeu = new Label("AngryBirds");
     private BoutonMenu jouer = new BoutonMenu("Jouer");
     private BoutonMenu option = new BoutonMenu("Option");
     private BoutonMenu quitter = new BoutonMenu("Quitter");
+    private Thread fred = new Thread(new AnimationMenu(this));
 
-    void ajouterComposant(GridPane root) {
+    public Menu() {
+        setAlignment(Pos.CENTER);
+        setHgap(10);
+        setVgap(10);
+
         jeu.setStyle("-fx-font-size: 40;\n"
                 + "-fx-text-fill: rgba(255,0,0,1);\n"
                 + "-fx-font-family: sans-serif;\n"
@@ -71,10 +41,12 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
         // Note ou plutot astuce de progra, ne commencez pas par l'index
         // 0 pour placer vos articles sur la grille, on sait jamais si d'autres
         // viennent s'ajouter avant, le resultat est le meme au final
-        root.add(jeu, 5, 2);
-        root.add(jouer, 5, 5);
-        root.add(option, 5, 6);
-        root.add(quitter, 5, 7);
+        add(jeu, 5, 2);
+        add(jouer, 5, 5);
+        add(option, 5, 6);
+        add(quitter, 5, 7);
+        
+        fred.start();
     }
 
     @Override
@@ -86,7 +58,7 @@ public class Menu extends Application implements EventHandler<ActionEvent> {
         }
 
         if (event.getSource() == option) {
-            System.out.println("option");
+            scene = new Scene(new Option());
         }
 
         if (event.getSource() == quitter) {

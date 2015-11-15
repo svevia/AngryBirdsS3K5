@@ -1,7 +1,7 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
-import static angrybirds.menu.Menu.p;
+import static angrybirds.menu.FenetrePrincipale.p;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.TimerTask;
