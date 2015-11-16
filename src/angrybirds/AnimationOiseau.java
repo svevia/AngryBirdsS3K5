@@ -40,18 +40,6 @@ public class AnimationOiseau extends JPanel {
 
     /**
      * Constructeur prenant en parametre le point de depart du pigeon et sa
-     * courbe en trois points
-     *
-     * @param a ax au carre
-     * @param b + bx
-     * @param c + c
-     */
-    public AnimationOiseau(double a, double b, double c) {
-        courbe = new Courbe(a, b, c);
-    }
-
-    /**
-     * Constructeur prenant en parametre le point de depart du pigeon et sa
      * courbe
      *
      * @param c Courbe
@@ -61,10 +49,10 @@ public class AnimationOiseau extends JPanel {
     }
 
     {
-        setDoubleBuffered(true);
+        setDoubleBuffered(true); // Un bel affichage en HD
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
-        core = new Thread(new HeartCore(4, this)); // Gestionnaire d'evenement
+        core = new HeartCore(4, this); // Gestionnaire d'evenement
     }
 
     /**
@@ -75,7 +63,7 @@ public class AnimationOiseau extends JPanel {
     }
 
     /**
-     * Le painteur du jeu
+     * Le painteur du jeu, simplifie grace au visu'
      *
      * @param g Le graphics sur le quelle dessiner
      */

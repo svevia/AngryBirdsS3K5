@@ -111,7 +111,7 @@ public class Constante {
         gReader = new PFAGReader();
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
-        bird = new RougeGorge();
+        bird = new Canard();
         footstep = Footstep.ARCENCIEL;
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();
@@ -122,17 +122,17 @@ public class Constante {
         last = false;
     }
 
-    /**
-     * Genere une courbe aleatoirement dans le cadre du jeu
-     *
-     * @return La courbe genere
-     */
-    public static Courbe generateCourbe() {
-        Random alea = new Random();
-        double a = (alea.nextDouble() + 7) / 10000;
-        double b = alea.nextDouble() * -2;
-        return new Courbe(a, b, fenetre.getHeight() - 150);
-    }
+//    /**
+//     * Genere une courbe aleatoirement dans le cadre du jeu
+//     *
+//     * @return La courbe genere
+//     */
+//    public static Courbe generateCourbe() {
+//        Random alea = new Random();
+//        double a = (alea.nextDouble() + 7) / 10000;
+//        double b = alea.nextDouble() * -2;
+//        return new Courbe(a, b, fenetre.getHeight() - 150);
+//    }
 
     /**
      * Liste tout les fichiers de la source qui ont l'extension specifie en clef

@@ -1,7 +1,6 @@
 package entites.bird.skin;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import entites.bird.Bird;
 import entites.bird.module.BecCanard;

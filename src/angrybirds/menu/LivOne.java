@@ -2,9 +2,9 @@ package angrybirds.menu;
 
 import angrybirds.GameFrame;
 import static angrybirds.Constante.*;
+import angrybirds.Courbe;
 import entites.obstacle.Obstacle;
 import java.io.IOException;
-import java.util.Random;
 import ressource.PFAGReader;
 
 /**
@@ -38,9 +38,8 @@ public class LivOne implements Runnable {
         if (i < n) {
             try {
                 iniz();
-                Random r = new Random();
                 Obstacle.addListObstacle(gReader.listeObstacle(PFAGReader.listePFAG().get(indexPFAGUtilise)));
-                gf = new GameFrame(i + 1, n, generateCourbe());
+                gf = new GameFrame(i + 1, n, new Courbe());
                 i++;
             } catch (IOException ex) {
                 System.out.println("Bug LivOne Iniz");

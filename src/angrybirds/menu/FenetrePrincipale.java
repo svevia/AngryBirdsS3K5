@@ -45,6 +45,8 @@ public class FenetrePrincipale extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+       // launch(args);
+        p = new LivOne(1);
+        p.run();
     }
 }

@@ -4,13 +4,12 @@ import static angrybirds.Constante.*;
 import static angrybirds.menu.FenetrePrincipale.p;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TimerTask;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
  * coeur qui bat.
  */
-public class HeartCore implements Runnable, ActionListener {
+public class HeartCore extends Thread implements  ActionListener {
 
     javax.swing.Timer t1 = new javax.swing.Timer(2000, this);
     java.util.Timer t2 = new java.util.Timer();
@@ -39,13 +38,6 @@ public class HeartCore implements Runnable, ActionListener {
     public HeartCore(int vitesse, AnimationOiseau animationOiseau) {
         anim = animationOiseau;
         Constante.vitesse = vitesse;
-        t2.schedule(new TimerTask() {
-
-            @Override
-            public void run() {
-                System.out.println("ok");
-            }
-        }, 0);
     }
 
     /**

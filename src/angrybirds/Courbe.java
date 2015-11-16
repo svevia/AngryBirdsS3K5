@@ -4,18 +4,6 @@ package angrybirds;
  * Objet permettant de creer une courbe du second degres
  */
 public class Courbe {
-
-    enum SpecialFigureAcrobatique {
-
-        Looping(1, 1, 1);
-
-        double a, b, c;
-        
-        private SpecialFigureAcrobatique(double a, double b, double c) {
-            
-        }
-        
-    }
     
     /**
      * Les points de la courbe
@@ -29,12 +17,16 @@ public class Courbe {
      * @param b
      * @param c
      */
-    public Courbe(double a, double b, double c) {
+    public Courbe( double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
+    public Courbe() {
+        
+    }
+    
     /**
      * Renvoie la position y du pigeon en x
      *

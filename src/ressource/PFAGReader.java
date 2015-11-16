@@ -80,7 +80,6 @@ public class PFAGReader {
                 }
             }
             in.close();
-            System.out.println(hm);
         } catch (IOException ex) {
             System.out.println("Bug lecture");
         }
