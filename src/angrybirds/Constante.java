@@ -72,10 +72,15 @@ public class Constante {
     public static ArrayList<Double> footstepA;
 
     /**
-     * La fenetre du jeu
+     * OLD - La fenetre du jeu
      */
-    public static GameFrame gf;
+    public static OldGameFrame gf;
 
+    /**
+     * Le luncher du jeu
+     */
+    public static Luncher l;
+    
     /**
      * Indique au coeur que c'est son dernier batement....
      */

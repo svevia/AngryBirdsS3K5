@@ -36,7 +36,7 @@ public class AnimationOiseau extends JPanel {
     /**
      * Le constructeur est en prive pour ne pas pouvoir l'appeler
      */
-    private AnimationOiseau() {
+    public AnimationOiseau() {
     }
 
     /**
@@ -95,6 +95,14 @@ public class AnimationOiseau extends JPanel {
         return courbe;
     }
 
+    /**
+     * Change la courbe de l'animation
+     * @param c 
+     */
+    public void setCourbe(Courbe c) {
+        this.courbe = c;
+    }
+    
     /**
      * Retourne le thread du jeu
      *

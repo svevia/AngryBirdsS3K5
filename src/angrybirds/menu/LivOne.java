@@ -1,6 +1,6 @@
 package angrybirds.menu;
 
-import angrybirds.GameFrame;
+import angrybirds.OldGameFrame;
 import static angrybirds.Constante.*;
 import angrybirds.Courbe;
 import entites.obstacle.Obstacle;
@@ -39,7 +39,7 @@ public class LivOne implements Runnable {
             try {
                 iniz();
                 Obstacle.addListObstacle(gReader.listeObstacle(PFAGReader.listePFAG().get(indexPFAGUtilise)));
-                gf = new GameFrame(i + 1, n, new Courbe());
+                gf = new OldGameFrame(i + 1, n, new Courbe());
                 i++;
             } catch (IOException ex) {
                 System.out.println("Bug LivOne Iniz");

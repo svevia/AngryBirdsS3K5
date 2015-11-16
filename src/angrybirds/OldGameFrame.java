@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 /**
  * La fenetre du jeu
  */
-public class GameFrame extends JFrame {
+public class OldGameFrame extends JFrame {
 
     /**
      * Le jeu sous panel
@@ -18,7 +18,7 @@ public class GameFrame extends JFrame {
      * @param totalSeries
      * @param c
      */
-    public GameFrame(int serieNum, int totalSeries, Courbe c) {
+    public OldGameFrame(int serieNum, int totalSeries, Courbe c) {
         jeu = new AnimationOiseau(c);
         setDefaultCloseOperation(3);
         setResizable(false);
