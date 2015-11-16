@@ -12,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Random;
 import ressource.ImageCustomz;
 import ressource.PFAGReader;
 import static ressource.PFAGReader.listePFAG;
@@ -111,7 +110,7 @@ public class Constante {
         gReader = new PFAGReader();
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
-        bird = new Canard();
+        bird = new RougeGorge();
         footstep = Footstep.ARCENCIEL;
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();

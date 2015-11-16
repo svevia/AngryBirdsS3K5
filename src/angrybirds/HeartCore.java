@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
  * coeur qui bat.
  */
-public class HeartCore extends Thread implements  ActionListener {
+public class HeartCore extends Thread implements ActionListener {
 
     javax.swing.Timer t1 = new javax.swing.Timer(2000, this);
     java.util.Timer t2 = new java.util.Timer();
@@ -31,6 +31,11 @@ public class HeartCore extends Thread implements  ActionListener {
     public AnimationOiseau anim;
 
     /**
+     * "L'horloge" du jeu
+     */
+    public static double t = 0;
+
+    /**
      *
      * @param vitesse
      * @param animationOiseau
@@ -45,13 +50,16 @@ public class HeartCore extends Thread implements  ActionListener {
      */
     @Override
     public void run() {
-        xDepart = bird.getX();
-        yDepart = (int) anim.getCourbe().getYenX(bird.getX());
+        anim.repaint();
+        xDepart = (int) anim.getCourbe().getXenT(t);
+        yDepart = (int) anim.getCourbe().getYenT(t);
         while (!last) {
-            distanceParcourue = anim.getCourbe().distanceEntreDeuxPoints(xDepart, bird.getX(), yDepart, anim.getCourbe().getYenX(bird.getX()));
-            bird.setPosX(bird.getPosX() + 1);
-            bird.setPosY((int) anim.getCourbe().getYenX(bird.getPosX()));
-            bird.setA(anim.getCourbe().angleNextD(bird.getPosX()));
+            distanceParcourue = anim.getCourbe().calculDistance(xDepart, bird.getX(), yDepart, (int) anim.getCourbe().getYenT(bird.getX()));
+            t++;
+            bird.setPosX((int) anim.getCourbe().getXenT(t));
+            bird.setPosY((int) anim.getCourbe().getYenT(t));
+            bird.setA(anim.getCourbe().angleAenT(t));
+            System.out.println(bird.getA());
             if (distanceParcourue > vitesse) {
                 refresh(false);
             }
@@ -91,8 +99,8 @@ public class HeartCore extends Thread implements  ActionListener {
                 anim.repaint(x1, y1, x2, y2);
             }
         }
-        xDepart = bird.getX();
-        yDepart = (int) anim.getCourbe().getYenX(bird.getX());
+        xDepart = (int) anim.getCourbe().getXenT(t);
+        yDepart = (int) anim.getCourbe().getYenT(t);
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {

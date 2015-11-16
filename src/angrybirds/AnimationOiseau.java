@@ -2,6 +2,7 @@ package angrybirds;
 
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
+import static angrybirds.HeartCore.t;
 import entites.Collision;
 import javax.swing.JPanel;
 
@@ -82,7 +83,7 @@ public class AnimationOiseau extends JPanel {
     private void addFootstepCoord() {
         footstepX.add(bird.getPosX());
         footstepY.add(bird.getPosY() + bird.getR());
-        footstepA.add(courbe.angleNextD(bird.getPosX()));
+        footstepA.add(courbe.angleAenT(t));
     }
 
     /**

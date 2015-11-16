@@ -75,7 +75,7 @@ public abstract class Bird extends Entity {
         g.setColor(corps); // La couleur du pigeon
         g.fillOval(getPosX(), getPosY(), getWidht(), getHight()); // Le corp
         g.setColor(Color.black);
-        g.drawOval(getPosX(), getPosY(), getWidht()+1, getHight()+1); // Le corp
+        g.drawOval(getPosX(), getPosY(), getWidht(), getHight()); // Le corp
         return g;
     }
 

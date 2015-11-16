@@ -11,7 +11,7 @@ import ressource.PFAGReader;
  * La classe qui lancera le livrable 1
  */
 public class LivOne implements Runnable {
-    
+
     /**
      * Le numero de lancement de l'application
      */
@@ -44,6 +44,8 @@ public class LivOne implements Runnable {
             } catch (IOException ex) {
                 System.out.println("Bug LivOne Iniz");
             }
+        } else {
+            System.exit(i);
         }
     }
 }
