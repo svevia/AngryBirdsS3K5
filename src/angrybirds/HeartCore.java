@@ -15,12 +15,6 @@ public class HeartCore extends Thread implements ActionListener {
     java.util.Timer t2 = new java.util.Timer();
 
     /**
-     * La distance parcourue entre le point(xDepart; yDepart) et la position du
-     * pigeon
-     */
-    private double distanceParcourue;
-
-    /**
      * Point de depart qui permet de calculer la vitesse du pigeon
      */
     private int xDepart, yDepart;
@@ -33,7 +27,7 @@ public class HeartCore extends Thread implements ActionListener {
     /**
      * "L'horloge" du jeu
      */
-    public static double t = 0;
+    public static int t = 1;
 
     /**
      *
@@ -50,17 +44,14 @@ public class HeartCore extends Thread implements ActionListener {
      */
     @Override
     public void run() {
-        anim.repaint();
-        xDepart = (int) anim.getCourbe().getXenT(t);
-        yDepart = (int) anim.getCourbe().getYenT(t);
+        xDepart = (int) anim.getCourbe().getXenT(1);
+        yDepart = (int) anim.getCourbe().getYenT(1);
         while (!last) {
-            distanceParcourue = anim.getCourbe().calculDistance(xDepart, bird.getX(), yDepart, (int) anim.getCourbe().getYenT(bird.getX()));
             t++;
             bird.setPosX((int) anim.getCourbe().getXenT(t));
             bird.setPosY((int) anim.getCourbe().getYenT(t));
             bird.setA(anim.getCourbe().angleAenT(t));
-            System.out.println(bird.getA());
-            if (distanceParcourue > vitesse) {
+            if (anim.getCourbe().calculDistance(xDepart, yDepart, bird.getX(), bird.getY()) > vitesse) {
                 refresh(false);
             }
         }

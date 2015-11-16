@@ -93,11 +93,11 @@ public class Visualisateur {
      * @return Le nombre de point que doit garder le footstep en memoire
      */
     private int calculTraceFootStep() {
-        //Si jamais on a un 60/0 on cale un finally ici
+        //Si jamais on a un x/0 on cale un finally ici
         try {
-            return (60 / (vitesse + 1)) + 10;
+            return (100 / (vitesse + 1)) + 10;
         } finally {
-            return (60 / (vitesse + 2)) + 10;
+            return (100 / (vitesse + 2)) + 10;
         }
     }
 

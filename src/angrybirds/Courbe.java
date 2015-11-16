@@ -5,6 +5,9 @@ package angrybirds;
  */
 public class Courbe {
 
+    /**
+     * Constructeur vide
+     */
     public Courbe() {
     }
 
@@ -14,8 +17,8 @@ public class Courbe {
      * @param t
      * @return
      */
-    public int getXenT(double t) {
-        return (int) (t * 1);
+    public double getXenT(double t) {
+        return (t * 1);
     }
 
     /**
@@ -24,11 +27,11 @@ public class Courbe {
      * @param t
      * @return
      */
-    public int getYenT(double t) {
-        return (int) (0.0009 * Math.pow(t, 2) + -0.9 * t + (Constante.fenetre.height - 200));
+    public double getYenT(double t) {
+        return (0.0009 * Math.pow(t, 2) + -0.9 * t + (Constante.fenetre.height - 200));
     }
 
-    double calculDistance(int x1, int y1, int x2, int y2) {
+    double calculDistance(double x1, double y1, double x2, double y2) {
         return (Math.pow((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)), 0.5));
     }
 
@@ -39,16 +42,16 @@ public class Courbe {
     }
 
     double angleAenT(double t) {
-        int x = getYenT(t);
-        int y = getYenT(t);
-        int xP = getXenT(t+1);
-        int yP = getYenT(t+1);
+        double x = getXenT(t);
+        double y = getYenT(t);
+        double xP = getXenT(t + 1);
+        double yP = getYenT(t + 1);
         double d1 = calculDistance(x, y, xP, yP);
         double d2 = calculDistance(x, y, xP, y);
+        double d3 = calculDistance(xP, y, xP, yP);
         if (xP < x) {
             d2 = -d2;
         }
-        double d3 = calculDistance(xP, y, xP, yP);
         if (yP < y) {
             d3 = -d3;
         }
