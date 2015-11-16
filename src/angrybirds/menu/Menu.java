@@ -60,7 +60,6 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
 
         if (event.getSource() == option) {
             root.changeScene(2);
-            System.out.println("ouaip");
         }
 
         if (event.getSource() == quitter) {

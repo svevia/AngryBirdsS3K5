@@ -1,8 +1,6 @@
 package angrybirds.menu;
 
 import angrybirds.option.Option;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,7 +14,7 @@ public class FenetrePrincipale extends Application {
     public static Thread son = new MusicMenu();
     public Menu menu = new Menu(this);
     public Option option = new Option(this);
-    public Scene scene = new Scene(menu, 1000, 666);;
+    public Scene scene = new Scene(option, 1000, 666);;
 
     public void start(Stage primaryStage) {
         primaryStage.setScene(scene);
