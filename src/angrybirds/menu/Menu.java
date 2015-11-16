@@ -19,8 +19,10 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
     private BoutonMenu option = new BoutonMenu("Option");
     private BoutonMenu quitter = new BoutonMenu("Quitter");
     private Thread fred = new Thread(new AnimationMenu(this));
+    private FenetrePrincipale root;
 
-    public Menu() {
+    public Menu(FenetrePrincipale root) {
+        this.root = root;
         setAlignment(Pos.CENTER);
         setHgap(10);
         setVgap(10);
@@ -57,6 +59,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         }
 
         if (event.getSource() == option) {
+            root.changeScene(2);
             System.out.println("ouaip");
         }
 
