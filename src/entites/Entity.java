@@ -1,6 +1,5 @@
 package entites;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 
 /**
@@ -46,7 +45,7 @@ public abstract class Entity {
         this.y = y;
         this.hight = hight;
         this.widht = widht;
-        hb = new Hitbox(x, y, new Dimension(widht, hight));
+        hb = new Hitbox(x, y, widht, hight);
     }
 
     /**
@@ -135,5 +134,5 @@ public abstract class Entity {
      * @param g le Graphics sur le quel dessiner
      * @return Le Graphics modifie
      */
-    public abstract Graphics draw(Graphics g);
+    public abstract Skin draw(Skin g);
 }

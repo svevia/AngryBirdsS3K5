@@ -1,6 +1,6 @@
 package angrybirds;
 
-import entites.bird.skin.*;
+import entites.bird.RougeGorge;
 import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;

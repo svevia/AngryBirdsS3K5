@@ -36,6 +36,10 @@ public class Hitbox implements Comparable<Hitbox> {
         this.d = d;
     }
 
+    public Hitbox(int pigeonX, int pigeonY, int fatX, int fatY) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Fonction qui gere les collisions ULTRA SIMPLIFIEE
      *

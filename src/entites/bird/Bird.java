@@ -3,9 +3,9 @@ package entites.bird;
 import static angrybirds.Constante.allModul;
 import entites.Entity;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import entites.Hitbox;
+import entites.Skin;
 import java.util.ArrayList;
 
 /**
@@ -60,7 +60,7 @@ public abstract class Bird extends Entity {
         super(pigeonX, pigeonY, fatX, fatY);
         this.corps = corps;
         r = fatX / 2;
-        hb = new Hitbox(pigeonX, pigeonY, new Dimension(fatX, fatY));
+        hb = new Hitbox(pigeonX, pigeonY, fatX, fatY);
     }
 
     /**
@@ -207,5 +207,19 @@ public abstract class Bird extends Entity {
     public void addModule(ModuleBird mb) {
         modul.add(mb);
         allModul.add(mb);
+    }
+
+    @Override
+    public Skin draw(Skin s) {
+        birdCenterX = getX() + getWidht() / 2;
+        birdCenterY = getY() + getHight() / 2;
+
+        super.hb.setPosition(getX(), getY());
+        Graphics g = s.getG();
+        g = drawAllModule(g, false);
+        g = MinimalBirdFactory(g);
+        g = drawAllModule(g, true);
+        s.setG(g);
+        return s;
     }
 }

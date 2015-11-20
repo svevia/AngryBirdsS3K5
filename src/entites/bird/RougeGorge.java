@@ -1,8 +1,6 @@
-package entites.bird.skin;
+package entites.bird;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import entites.bird.Bird;
 import entites.bird.module.BecTriangulaire;
 import entites.bird.module.Oeil;
@@ -23,17 +21,5 @@ public class RougeGorge extends Bird {
         addModule(bec);
         addModule(oeil);
         //hb.setD(new Dimension((int) (20 + bec.getSize()), 20));
-    }
-
-    @Override
-    public Graphics draw(Graphics g) {
-        super.birdCenterX = getX() + getWidht() / 2;
-        super.birdCenterY = getY() + getHight() / 2;
-
-        super.hb.setPosition(getX(), getY());
-        g = drawAllModule(g, false);
-        g = MinimalBirdFactory(g);
-        g = drawAllModule(g, true);
-        return g;
     }
 }
