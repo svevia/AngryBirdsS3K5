@@ -1,7 +1,6 @@
 package entites.bird;
 
 import java.awt.Color;
-import entites.bird.Bird;
 import entites.bird.module.BecTriangulaire;
 import entites.bird.module.Oeil;
 

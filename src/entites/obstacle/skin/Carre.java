@@ -1,8 +1,9 @@
 package entites.obstacle.skin;
 
+import entites.Skin;
 import java.awt.Color;
-import java.awt.Graphics;
 import entites.obstacle.Obstacle;
+import java.awt.Graphics;
 
 /**
  * Dessine un obstacle en forme de carre
@@ -11,20 +12,23 @@ public class Carre extends Obstacle {
 
     /**
      * Cree un obstacle en forme de carre
+     *
      * @param hight
      * @param widht
      * @param x
      * @param y
-     * @param c 
+     * @param c
      */
     public Carre(int x, int y, int hight, int widht, Color c) {
         super(x, y, hight, widht, c);
     }
 
     @Override
-    public Graphics draw(Graphics g) {
+    public Skin draw(Skin s) {
+        Graphics g = s.getG();
         g.setColor(c);
         g.fillRect(x, y, widht, hight);
-        return g;
+        s.setG(g);
+        return s;
     }
 }

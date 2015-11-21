@@ -3,6 +3,7 @@ package angrybirds;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import entites.Entity;
+import entites.Skin;
 import java.awt.Color;
 
 /**
@@ -23,7 +24,7 @@ public class Visualisateur {
      * @return Le Graphics modefie
      */
     public Graphics drawOiseau(Graphics g) {
-        g = bird.draw(g);
+        g = bird.draw(new Skin(g)).getG();
         return g;
     }
 
@@ -54,7 +55,7 @@ public class Visualisateur {
      */
     public Graphics drawObstacle(Graphics g) {
         for (int i = 0; i < obstacle.size(); i++) {
-            g = obstacle.get(i).draw(g);
+            g = obstacle.get(i).draw(new Skin(g)).getG();
         }
         return g;
     }
@@ -111,7 +112,7 @@ public class Visualisateur {
      */
     public Graphics drawHitBox(Entity e, Graphics g, Color c) {
         g.setColor(c);
-        g.drawRect(e.getHb().getX(), e.getHb().getY(), e.getHb().getD().width, e.getHb().getD().height);
+        g.drawRect(e.getHb().x, e.getHb().y, e.getHb().w, e.getHb().h);
         return g;
     }
 

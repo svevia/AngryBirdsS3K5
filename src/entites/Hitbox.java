@@ -11,33 +11,36 @@ public class Hitbox implements Comparable<Hitbox> {
     /**
      * Position en x de la Hitbox
      */
-    private int x;
+    public int x;
 
     /**
      * Position en y en de la Hitbox
      */
-    private int y;
+    public int y;
 
     /**
-     * Dimension d'une Hitbox carre
+     * La largeur d'une Hitbox carre
      */
-    private Dimension d;
+    public int w;
+ 
+    /**
+     * La hauteur d'une Hitbox carre
+     */
+    public int h;
 
     /**
      * Crée une hitbox avec sa position et sa dimension
      *
      * @param x position aux abscisses
      * @param y position aux ordonnees
-     * @param d dimensions de la hitbox
+     * @param w largeur de la hitbox
+     * @param h hauteur de la hitbox
      */
-    public Hitbox(int x, int y, Dimension d) {
+    public Hitbox(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
-        this.d = d;
-    }
-
-    public Hitbox(int pigeonX, int pigeonY, int fatX, int fatY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.w = w;
+        this.h = h;
     }
 
     /**
@@ -48,8 +51,8 @@ public class Hitbox implements Comparable<Hitbox> {
      */
     @Override
     public int compareTo(Hitbox o) {
-        if (x + d.width > o.x && x < o.x + o.d.width) {
-            if (y < o.y + o.d.height && y + d.height > o.y) {
+        if (x + w > o.x && x < o.x + o.w) {
+            if (y < o.y + o.h && y + h > o.y) {
                 return 1;
             }
         }
@@ -89,22 +92,6 @@ public class Hitbox implements Comparable<Hitbox> {
     }
 
     /**
-     * 
-     * @return Retourne la dimension de la Hitbox 
-     */
-    public Dimension getD() {
-        return d;
-    }
-
-    /**
-     * 
-     * @param d Change la dimension de la Hitbox
-     */
-    public void setD(Dimension d) {
-        this.d = d;
-    }
-
-    /**
      * Met a jour les points x et y en même temps
      * @param x La nouvelle position en x
      * @param y La nouvelle position en y
@@ -121,14 +108,15 @@ public class Hitbox implements Comparable<Hitbox> {
      * @param y La nouvelle position en y
      * @param d La nouvelle dimension
      */
-    public void misaAJour(int x, int y, Dimension d) {
+    public void misaAJour(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
-        this.d = d;
+        this.w = w;
+        this.h = h;
     }
 
     @Override
     public String toString() {
-        return "Position : x : " + x + " ; y : " + y + " ; Taille : w " + d.width + " ; h : " + d.height;
+        return "Position : x : " + x + " ; y : " + y + " ; Taille : w " + w + " ; h : " + h;
     }
 }

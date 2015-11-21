@@ -1,11 +1,10 @@
 package entites.bird;
 
 import java.awt.Color;
-import entites.bird.Bird;
 import entites.bird.module.BecCanard;
 import entites.bird.module.Oeil;
 
-/**
+/**w
  * Class permettante de dessiner un canard
  */
 public class Canard extends Bird {
