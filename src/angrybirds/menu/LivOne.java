@@ -39,7 +39,7 @@ public class LivOne implements Runnable {
             try {
                 iniz();
                 Obstacle.addListObstacle(gReader.listeObstacle(PFAGReader.listePFAG().get(indexPFAGUtilise)));
-                gf = new OldGameFrame(i + 1, n, new Courbe());
+                gf = new OldGameFrame(i + 1, n, new Courbe(0, 1, 0, 0.0009, -0.9, (fenetre.height-200)));
                 i++;
             } catch (IOException ex) {
                 System.out.println("Bug LivOne Iniz");

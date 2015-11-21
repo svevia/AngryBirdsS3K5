@@ -5,10 +5,34 @@ package angrybirds;
  */
 public class Courbe {
 
+    double aX, bX, cX;
+    double aY, bY, cY;
+    int nbMaxY, nbMaxX;
+
     /**
      * Constructeur vide
      */
-    public Courbe() {
+    private Courbe() {
+    }
+
+    public Courbe(double aX, double bX, double cX, double aY, double bY, double cY) {
+        this.aX = aX;
+        this.bX = bX;
+        this.cX = cX;
+        this.aY = aY;
+        this.bY = bY;
+        this.cY = cY;
+    }
+
+    public Courbe(double aX, double bX, double cX, double aY, double bY, double cY, int nbMaxY, int nbMaxX) {
+        this.aX = aX;
+        this.bX = bX;
+        this.cX = cX;
+        this.aY = aY;
+        this.bY = bY;
+        this.cY = cY;
+        this.nbMaxY = nbMaxY;
+        this.nbMaxX = nbMaxX;
     }
 
     /**
@@ -18,7 +42,7 @@ public class Courbe {
      * @return
      */
     public double getXenT(double t) {
-        return (t * 1);
+        return (aX * Math.pow(t, 2) + bX * t + cX);
     }
 
     /**
@@ -28,7 +52,7 @@ public class Courbe {
      * @return
      */
     public double getYenT(double t) {
-        return (0.0009 * Math.pow(t, 2) + -0.9 * t + (Constante.fenetre.height - 200));
+        return (aY * Math.pow(t, 2) + bY * t + cY);
     }
 
     double calculDistance(double x1, double y1, double x2, double y2) {

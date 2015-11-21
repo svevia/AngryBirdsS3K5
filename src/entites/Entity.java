@@ -1,5 +1,7 @@
 package entites;
 
+import angrybirds.Courbe;
+
 /**
  * Donne les parametres minimale pour obtenir une entitee utilisable sur le jeu
  */
@@ -31,6 +33,17 @@ public abstract class Entity {
     protected Hitbox hb;
 
     /**
+     * La courbe que suit l'entite
+     */
+    protected Courbe crb;
+
+    /**
+     * L'indicateur de mouvement de l'entite, si elle est equipe d'une courbe ce
+     * booleen doit etre true
+     */
+    private boolean move;
+
+    /**
      * Definie une entite en x et y sur une taille donne avec sa Hitbox carre
      *
      * @param x La position en x de l'entite
@@ -38,11 +51,16 @@ public abstract class Entity {
      * @param hight La hauteur de l'entite
      * @param widht La largeur de l'entite
      */
-    public Entity(int x, int y, int hight, int widht) {
+    public Entity(int x, int y, int hight, int widht, Courbe crb) {
         this.x = x;
         this.y = y;
         this.hight = hight;
         this.widht = widht;
+        this.crb = crb;
+        move = true;
+        if (crb == null) {
+            move = false;
+        }
         hb = new Hitbox(x, y, widht, hight);
     }
 
@@ -111,19 +129,35 @@ public abstract class Entity {
     }
 
     /**
-     * 
-     * @return La Hitbox de l'entite 
+     *
+     * @return La Hitbox de l'entite
      */
     public Hitbox getHb() {
         return hb;
     }
 
     /**
-     * 
-     * @param hb La Hitbox a changer 
+     *
+     * @param hb La Hitbox a changer
      */
     public void setHb(Hitbox hb) {
         this.hb = hb;
+    }
+
+    public Courbe getCourbe() {
+        return crb;
+    }
+
+    public void setCourbe(Courbe crb) {
+        this.crb = crb;
+        move = true;
+        if (crb == null) {
+            move = false;
+        }
+    }
+
+    public boolean isMove() {
+        return move;
     }
 
     /**

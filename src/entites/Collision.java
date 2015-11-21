@@ -1,6 +1,6 @@
 package entites;
 
-import angrybirds.AnimationOiseau;
+import angrybirds.AnimationJeu;
 import static angrybirds.Constante.*;
 import java.awt.Color;
 
@@ -12,13 +12,13 @@ public class Collision {
     /**
      * L'animation ou est appele le moteur de collision
      */
-    AnimationOiseau anim;
+    AnimationJeu anim;
 
     /**
      *
      * @param animationOiseau L'animation sur la quelle travailler
      */
-    public Collision(AnimationOiseau animationOiseau) {
+    public Collision(AnimationJeu animationOiseau) {
         anim = animationOiseau;
     }
 

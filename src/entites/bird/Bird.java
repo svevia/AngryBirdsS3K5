@@ -2,6 +2,7 @@ package entites.bird;
 
 import entites.bird.module.ModuleBird;
 import static angrybirds.Constante.allModul;
+import angrybirds.Courbe;
 import entites.Entity;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -57,8 +58,8 @@ public class Bird extends Entity {
      * @param bec La couleur de son bec
      * @param oeil La couleur de son oeil droit
      */
-    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Color corps, ModuleBird... m) {
-        super(pigeonX, pigeonY, fatX, fatY);
+    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Courbe crb, Color corps, ModuleBird... m) {
+        super(pigeonX, pigeonY, fatX, fatY, crb);
         this.corps = corps;
         r = fatX / 2;
         hb = new Hitbox(pigeonX, pigeonY, fatX, fatY);

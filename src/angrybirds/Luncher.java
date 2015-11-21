@@ -10,7 +10,7 @@ public class Luncher extends JFrame {
     /**
      * Le jeu sous panel
      */
-    private AnimationOiseau jeu;
+    private AnimationJeu jeu;
 
     /**
      *
@@ -19,7 +19,7 @@ public class Luncher extends JFrame {
      * @param c
      */
     public Luncher() {
-        jeu = new AnimationOiseau();
+        jeu = new AnimationJeu();
         setDefaultCloseOperation(3);
         setResizable(false);
         setContentPane(jeu);

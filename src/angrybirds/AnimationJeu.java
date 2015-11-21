@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  * du jeu, le moteur de collision, le thread principal du jeu et la courbe
  * engage par l'oiseau
  */
-public class AnimationOiseau extends JPanel {
+public class AnimationJeu extends JPanel {
 
     /**
      * Le visualisateur
@@ -29,24 +29,9 @@ public class AnimationOiseau extends JPanel {
     private Thread core;
 
     /**
-     * Courbe qu'aura le pigeon, qui prendra ses parametres dans le constructeur
-     */
-    private Courbe courbe;
-
-    /**
      * Le constructeur est en prive pour ne pas pouvoir l'appeler
      */
-    public AnimationOiseau() {
-    }
-
-    /**
-     * Constructeur prenant en parametre le point de depart du pigeon et sa
-     * courbe
-     *
-     * @param c Courbe
-     */
-    public AnimationOiseau(Courbe c) {
-        courbe = c;
+    public AnimationJeu() {
     }
 
     {
@@ -73,7 +58,7 @@ public class AnimationOiseau extends JPanel {
         super.paint(g);
         addFootstepCoord();
         g = visu.drawAllNeed(g);
-        //g = visu.drawAllHitBox(g);
+        g = visu.drawAllHitBox(g);
         stun.verif();
     }
 
@@ -83,24 +68,7 @@ public class AnimationOiseau extends JPanel {
     private void addFootstepCoord() {
         footstepX.add(bird.getPosX());
         footstepY.add(bird.getPosY() + bird.getR());
-        footstepA.add(courbe.angleAenT(t));
-    }
-
-    /**
-     * Retourne le courbe de l'animation
-     *
-     * @return La courbe
-     */
-    public Courbe getCourbe() {
-        return courbe;
-    }
-
-    /**
-     * Change la courbe de l'animation
-     * @param c 
-     */
-    public void setCourbe(Courbe c) {
-        this.courbe = c;
+        footstepA.add(bird.getCourbe().angleAenT(t));
     }
     
     /**

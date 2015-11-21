@@ -1,8 +1,8 @@
 package entites.obstacle;
 
+import angrybirds.Courbe;
 import entites.Skin;
 import java.awt.Color;
-import entites.obstacle.Obstacle;
 import java.awt.Graphics;
 
 /**
@@ -19,8 +19,8 @@ public class Carre extends Obstacle {
      * @param y
      * @param c
      */
-    public Carre(int x, int y, int hight, int widht, Color c) {
-        super(x, y, hight, widht, c);
+    public Carre(int x, int y, int hight, int widht, Courbe crb, Color c) {
+        super(x, y, hight, widht, crb, c);
     }
 
     @Override

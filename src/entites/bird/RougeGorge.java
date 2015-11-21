@@ -1,5 +1,6 @@
 package entites.bird;
 
+import angrybirds.Courbe;
 import java.awt.Color;
 import entites.bird.module.BecTriangulaire;
 import entites.bird.module.Oeil;
@@ -15,8 +16,8 @@ public class RougeGorge extends Bird {
     /**
      * Constructeur de la class creeant automatiquement l'oiseau
      */
-    public RougeGorge() {
-        super(0, 0, 20, 20, Color.red);
+    public RougeGorge(Courbe c) {
+        super(0, 0, 20, 20, c, Color.red);
         addModule(bec);
         addModule(oeil);
         //hb.setD(new Dimension((int) (20 + bec.getSize()), 20));

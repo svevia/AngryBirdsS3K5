@@ -4,6 +4,7 @@ import entites.Hitbox;
 import angrybirds.Constante;
 import java.awt.Color;
 import static angrybirds.Constante.obstacle;
+import angrybirds.Courbe;
 import entites.Entity;
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  * Class abstraite des obstacles
  */
 public abstract class Obstacle extends Entity{
+    
     /**
      * La couleur de l'obstacle
      */
@@ -25,14 +27,14 @@ public abstract class Obstacle extends Entity{
      * @param y Position aux ordonnees
      * @param c Couleur
      */
-    public Obstacle(int x, int y, int widht, int hight, Color c) {
-        super(x, y, hight, widht);
+    public Obstacle(int x, int y, int widht, int hight, Courbe crb, Color c) {
+        super(x, y, hight, widht, crb);
         this.c = c;
     }
 
     /**
      *
-     * @return
+     * @return Return la hauteur de l'entite
      */
     public int getHight() {
         return hight;
@@ -51,7 +53,7 @@ public abstract class Obstacle extends Entity{
 
     /**
      *
-     * @return
+     * @return Return la largeur de l'entite
      */
     public int getWeight() {
         return widht;
@@ -70,7 +72,7 @@ public abstract class Obstacle extends Entity{
 
     /**
      *
-     * @return
+     * @return Return la position en x de l'entite
      */
     public int getX() {
         return x;
@@ -81,14 +83,13 @@ public abstract class Obstacle extends Entity{
      * @param x
      */
     public void setX(int x) {
-        if(x < 0 || x > Constante.fenetre.width)
-            throw new IllegalArgumentException(this.getClass().getName() + " : setX : " + x);
         this.x = x;
+        this.hb.setX(x);
     }
 
     /**
      *
-     * @return
+     * @return Return la position en y de l'entite
      */
     public int getY() {
         return y;
@@ -99,9 +100,8 @@ public abstract class Obstacle extends Entity{
      * @param y
      */
     public void setY(int y) {
-        if(y < 0 || y > Constante.fenetre.height)
-            throw new IllegalArgumentException(this.getClass().getName() + " : setY : " + y);
         this.y = y;
+        this.hb.setY(y);
     }
 
     /**

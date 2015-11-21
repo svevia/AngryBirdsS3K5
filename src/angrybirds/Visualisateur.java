@@ -82,7 +82,7 @@ public class Visualisateur {
      */
     public Graphics drawAllNeed(Graphics g) {
         g = drawFond(g);
-        g = drawFootstep(false, calculTraceFootStep(), 3, vitesse + 3, g);
+        g = drawFootstep(true, calculTraceFootStep(), 3, vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
         return g;

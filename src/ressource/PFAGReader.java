@@ -2,6 +2,7 @@ package ressource;
 
 import static angrybirds.Constante.fenetre;
 import static angrybirds.Constante.listeFichier;
+import angrybirds.Courbe;
 import entites.obstacle.Obstacle;
 import entites.obstacle.Carre;
 import java.awt.Color;
@@ -173,7 +174,7 @@ public class PFAGReader {
                         h = r.nextInt(100) + 100;
                     }
                     if (type.equals("carre")) {
-                        ar.add(new Carre(x, y, h, w, couleur));
+                        ar.add(new Carre(x, y, h, w, new Courbe(0, 1, 0, 0, 1, 0), couleur));
                     }
                 }
             }

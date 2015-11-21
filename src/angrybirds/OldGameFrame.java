@@ -10,7 +10,7 @@ public class OldGameFrame extends JFrame {
     /**
      * Le jeu sous panel
      */
-    private AnimationOiseau jeu;
+    private AnimationJeu jeu;
 
     /**
      *
@@ -19,7 +19,7 @@ public class OldGameFrame extends JFrame {
      * @param c
      */
     public OldGameFrame(int serieNum, int totalSeries, Courbe c) {
-        jeu = new AnimationOiseau(c);
+        jeu = new AnimationJeu();
         setDefaultCloseOperation(3);
         setResizable(false);
         setContentPane(jeu);

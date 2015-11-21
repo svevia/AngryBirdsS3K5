@@ -119,7 +119,7 @@ public class Constante {
         gReader = new PFAGReader();
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
-        bird = new RougeGorge();
+        bird = new RougeGorge(new Courbe(0, 1, 0, 0.0009, -0.9, (fenetre.height-200)));
         footstep = Footstep.ARCENCIEL;
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();

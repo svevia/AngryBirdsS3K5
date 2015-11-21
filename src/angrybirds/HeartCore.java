@@ -2,6 +2,7 @@ package angrybirds;
 
 import static angrybirds.Constante.*;
 import static angrybirds.menu.FenetrePrincipale.p;
+import entites.obstacle.Obstacle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +23,7 @@ public class HeartCore extends Thread implements ActionListener {
     /**
      * L'animation utilise
      */
-    public AnimationOiseau anim;
+    public AnimationJeu anim;
 
     /**
      * "L'horloge" du jeu
@@ -34,7 +35,7 @@ public class HeartCore extends Thread implements ActionListener {
      * @param vitesse
      * @param animationOiseau
      */
-    public HeartCore(int vitesse, AnimationOiseau animationOiseau) {
+    public HeartCore(int vitesse, AnimationJeu animationOiseau) {
         anim = animationOiseau;
         Constante.vitesse = vitesse;
     }
@@ -44,59 +45,48 @@ public class HeartCore extends Thread implements ActionListener {
      */
     @Override
     public void run() {
-        xDepart = (int) anim.getCourbe().getXenT(1);
-        yDepart = (int) anim.getCourbe().getYenT(1);
+        xDepart = (int) bird.getCourbe().getXenT(1);
+        yDepart = (int) bird.getCourbe().getYenT(1);
         while (!last) {
             t++;
-            bird.setPosX((int) anim.getCourbe().getXenT(t));
-            bird.setPosY((int) anim.getCourbe().getYenT(t));
-            bird.setA(anim.getCourbe().angleAenT(t));
-            if (anim.getCourbe().calculDistance(xDepart, yDepart, bird.getX(), bird.getY()) > vitesse) {
-                refresh(false);
-            }
+            moveAll();
         }
-        refresh(true);
+        refresh();
         t1.setRepeats(false);
         t1.start();
+    }
+
+    private void moveAll() {
+        bird.setPosX((int) bird.getCourbe().getXenT(t));
+        bird.setPosY((int) bird.getCourbe().getYenT(t));
+        bird.setA(bird.getCourbe().angleAenT(t));
+        if (bird.getCourbe().calculDistance(xDepart, yDepart, bird.getX(), bird.getY()) > vitesse) {
+            refresh();
+        }
+        for (Obstacle o : obstacle) {
+            if (o.isMove()) {
+                o.setX((int) o.getCourbe().getXenT(t));
+                o.setY((int) o.getCourbe().getYenT(t));
+            }
+        }
     }
 
     /**
      * Refresh l'animation du jeu
      */
-    public void refresh(boolean impact) {
-        /* Pour d'obscures raisons, quand l'oiseau n'a pas quitté les premiers
-         pixels, le repaint bug */
-        if (bird.getBirdCenterX() < 100) {
-            anim.repaint();
-        } else {
-            int x1 = bird.getPosX() - 10 - vitesse;
-            int x2 = bird.getBirdCenterX() + 10 + vitesse;
-            int y1 = bird.getPosY() - 10 - vitesse;
-            int y2 = bird.getBirdCenterY() + 10 + vitesse;
-            x1 = (x1 > 0) ? x1 : 0;
-            x2 = (x2 > 0) ? x2 : 0;
-            y2 = (y2 > 0) ? y2 : 0;
-            y1 = (y1 > 0) ? y1 : 0;
-            anim.repaint(x1, y1, x2, y2);
-            if (impact && entityHitty != 0) {
-                x1 = obstacle.get(entityHitty).getX();
-                x2 = obstacle.get(entityHitty).getX() + obstacle.get(entityHitty).getWeight();
-                y1 = obstacle.get(entityHitty).getY();
-                y2 = obstacle.get(entityHitty).getY() + obstacle.get(entityHitty).getHight();
-                x1 = (x1 > 0) ? x1 : 0;
-                x2 = (x2 > 0) ? x2 : 0;
-                y2 = (y2 > 0) ? y2 : 0;
-                y1 = (y1 > 0) ? y1 : 0;
-                anim.repaint(x1, y1, x2, y2);
-            }
-        }
-        xDepart = (int) anim.getCourbe().getXenT(t);
-        yDepart = (int) anim.getCourbe().getYenT(t);
+    public void refresh() {
+        refreshAll();
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
             System.out.println("Fred a un soucis de sommeil:(\n" + e.getMessage());
         }
+    }
+
+    private void refreshAll() {
+        anim.repaint();
+        xDepart = (int) bird.getCourbe().getXenT(t);
+        yDepart = (int) bird.getCourbe().getYenT(t);
     }
 
     @Override
