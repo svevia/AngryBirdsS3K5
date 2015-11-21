@@ -39,7 +39,6 @@ public class ConstanteTest {
      */
     @Test
     public void testIniz() {
-        System.out.println("Test d'initialisation du programme");
         /**
          * Rappel :
          *
@@ -61,7 +60,6 @@ public class ConstanteTest {
      */
     @Test
     public void testGenerateCourbe() {
-        System.out.println("Test de la génération d'une courbe");
         double aMin = 0.0007, aMax = 0.0008;
         double bMin = -2, bMax = 0;
         Courbe result = Constante.generateCourbe();
@@ -76,7 +74,6 @@ public class ConstanteTest {
      */
     @Test
     public void testGenerateListObstacle() {
-        System.out.println("Test de la génération d'une liste d'obstacle");
         int combien = 0;
         ArrayList<Obstacle> result = Constante.generateListObstacle(combien);
         assertTrue(result.isEmpty());
@@ -96,7 +93,6 @@ public class ConstanteTest {
      */
     @Test
     public void testGenereObstacle() {
-        System.out.println("Test de la génération d'obstacle");
         int borneXMin = 500, borneXMax = fenetre.width;
         int borneYMin = 0, borneYMax = fenetre.height;
         int tailleHMin = 0, tailleHMax = 100;
