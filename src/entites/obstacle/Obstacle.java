@@ -1,7 +1,6 @@
 package entites.obstacle;
 
 import entites.Hitbox;
-import angrybirds.Constante;
 import java.awt.Color;
 import static angrybirds.Constante.obstacle;
 import angrybirds.Courbe;

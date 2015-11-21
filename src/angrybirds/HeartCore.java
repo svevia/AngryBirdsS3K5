@@ -5,6 +5,7 @@ import static angrybirds.menu.FenetrePrincipale.p;
 import entites.obstacle.Obstacle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
@@ -12,8 +13,7 @@ import java.awt.event.ActionListener;
  */
 public class HeartCore extends Thread implements ActionListener {
 
-    javax.swing.Timer t1 = new javax.swing.Timer(2000, this);
-    java.util.Timer t2 = new java.util.Timer();
+    Timer t1 = new Timer(2000, this);
 
     /**
      * Point de depart qui permet de calculer la vitesse du pigeon
@@ -45,48 +45,39 @@ public class HeartCore extends Thread implements ActionListener {
      */
     @Override
     public void run() {
+        t1.setRepeats(false);
         xDepart = (int) bird.getCourbe().getXenT(1);
         yDepart = (int) bird.getCourbe().getYenT(1);
-        while (!last) {
-            t++;
-            moveAll();
-        }
-        refresh();
-        t1.setRepeats(false);
+        moveAll();
+        anim.repaint();
         t1.start();
     }
 
     private void moveAll() {
-        bird.setPosX((int) bird.getCourbe().getXenT(t));
-        bird.setPosY((int) bird.getCourbe().getYenT(t));
-        bird.setA(bird.getCourbe().angleAenT(t));
-        if (bird.getCourbe().calculDistance(xDepart, yDepart, bird.getX(), bird.getY()) > vitesse) {
-            refresh();
-        }
         for (Obstacle o : obstacle) {
             if (o.isMove()) {
                 o.setX((int) o.getCourbe().getXenT(t));
                 o.setY((int) o.getCourbe().getYenT(t));
             }
         }
-    }
+        bird.setPosX((int) bird.getCourbe().getXenT(t));
+        bird.setPosY((int) bird.getCourbe().getYenT(t));
+        bird.setA(bird.getCourbe().angleAenT(t));
 
-    /**
-     * Refresh l'animation du jeu
-     */
-    public void refresh() {
-        refreshAll();
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-            System.out.println("Fred a un soucis de sommeil:(\n" + e.getMessage());
+        if (bird.getCourbe().calculDistance(xDepart, yDepart, bird.getX(), bird.getY()) > vitesse) {
+            anim.repaint();
+            xDepart = (int) bird.getCourbe().getXenT(t);
+            yDepart = (int) bird.getCourbe().getYenT(t);
+            try {
+                sleep(30);
+            } catch (InterruptedException ex) {
+                System.out.println("Il a fait un arret cardiac !" + ex.getMessage());
+            }
         }
-    }
-
-    private void refreshAll() {
-        anim.repaint();
-        xDepart = (int) bird.getCourbe().getXenT(t);
-        yDepart = (int) bird.getCourbe().getYenT(t);
+        if (!last) {
+            t++;
+            moveAll();
+        }
     }
 
     @Override
