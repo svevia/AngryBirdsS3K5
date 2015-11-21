@@ -1,7 +1,6 @@
 package entites.bird.module;
 
 import entites.bird.Bird;
-import entites.bird.ModuleBird;
 import java.awt.Color;
 import java.awt.Graphics;
 

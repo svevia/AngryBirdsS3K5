@@ -1,5 +1,6 @@
-package entites.bird;
+package entites.bird.module;
 
+import entites.bird.Bird;
 import java.awt.Graphics;
 
 /**
@@ -17,7 +18,7 @@ public abstract class ModuleBird {
      * L'emplecement par rapport au corps de l'oiseau, sur ou sous l'oiseau sur
      * un plan 2D
      */
-    protected boolean over;
+    public boolean over;
 
     /**
      * Distance comprise entre 0 et 1, plus que 1 mettra le module hors du corp

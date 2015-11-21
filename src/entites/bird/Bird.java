@@ -1,5 +1,6 @@
 package entites.bird;
 
+import entites.bird.module.ModuleBird;
 import static angrybirds.Constante.allModul;
 import entites.Entity;
 import java.awt.Color;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * La class abstraite Bird normalise la creation des oiseaux donnant acce a une
  * methode un constructeur et une fonction draw.
  */
-public abstract class Bird extends Entity {
+public class Bird extends Entity {
 
     /**
      * Angle d'inclinaison du pigeon
@@ -56,7 +57,7 @@ public abstract class Bird extends Entity {
      * @param bec La couleur de son bec
      * @param oeil La couleur de son oeil droit
      */
-    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Color corps) {
+    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Color corps, ModuleBird... m) {
         super(pigeonX, pigeonY, fatX, fatY);
         this.corps = corps;
         r = fatX / 2;

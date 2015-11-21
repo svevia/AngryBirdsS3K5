@@ -1,9 +1,8 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
-import entites.Matrice;
 import entites.obstacle.Obstacle;
-import entites.obstacle.skin.Carre;
+import entites.obstacle.Carre;
 import java.awt.Color;
 import java.util.ArrayList;
 import org.junit.After;

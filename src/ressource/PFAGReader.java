@@ -3,7 +3,7 @@ package ressource;
 import static angrybirds.Constante.fenetre;
 import static angrybirds.Constante.listeFichier;
 import entites.obstacle.Obstacle;
-import entites.obstacle.skin.Carre;
+import entites.obstacle.Carre;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.BufferedReader;

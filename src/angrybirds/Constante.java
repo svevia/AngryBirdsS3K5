@@ -1,5 +1,6 @@
 package angrybirds;
 
+import entites.bird.module.ModuleBird;
 import entites.bird.RougeGorge;
 import entites.obstacle.Obstacle;
 import java.awt.Dimension;
@@ -106,6 +107,9 @@ public class Constante {
      */
     public static int indexPFAGUtilise = 0;
     
+    /**
+     * Variable qui indique quel obstacle de la liste est touche
+     */
     public static int entityHitty = 0;
 
     /**

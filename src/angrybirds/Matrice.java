@@ -1,4 +1,4 @@
-package entites;
+package angrybirds;
 
 /**
  * Represente une matrice

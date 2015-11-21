@@ -1,7 +1,5 @@
 package entites;
 
-import java.awt.Graphics;
-
 /**
  * Donne les parametres minimale pour obtenir une entitee utilisable sur le jeu
  */

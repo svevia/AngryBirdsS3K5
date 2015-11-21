@@ -1,4 +1,4 @@
-package entites.obstacle.skin;
+package entites.obstacle;
 
 import entites.Skin;
 import java.awt.Color;
