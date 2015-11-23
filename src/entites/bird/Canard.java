@@ -18,7 +18,7 @@ public class Canard extends Bird {
      * Constructeur de la class creeant automatiquement l'oiseau
      */
     public Canard(Courbe c) {
-        super(0, 0, 40, 40, c, Color.white);
+        super(0, 0, 40, c, Color.white);
         addModule(bec);
         addModule(oeil);
     }

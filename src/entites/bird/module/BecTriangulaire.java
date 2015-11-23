@@ -1,8 +1,8 @@
 package entites.bird.module;
 
+import entites.Skin;
 import entites.bird.Bird;
 import java.awt.Color;
-import java.awt.Graphics;
 
 /**
  * Rajoute un bec triangulaire (en trois points) a l'oiseau
@@ -32,8 +32,8 @@ public class BecTriangulaire extends ModuleBird {
     }
 
     @Override
-    public Graphics draw(Graphics g) {
-        g.setColor(couleur);
+    public Skin draw(Skin s) {
+        s.getG().setColor(couleur);
         this.pointX = new int[nbPoint];
         this.pointY = new int[nbPoint];
         double angle = (Math.sin(b.getA()));
@@ -43,24 +43,9 @@ public class BecTriangulaire extends ModuleBird {
         pointY[0] = (int) (b.getBirdCenterY() + b.getR() * Math.sin(angle - largeur));
         pointY[1] = (int) (b.getBirdCenterY() + ((hauteur * b.getR()) * Math.sin(angle)));
         pointY[2] = (int) (b.getBirdCenterY() + b.getR() * Math.sin(angle + largeur));
-        g.fillPolygon(pointX, pointY, nbPoint);
-        return g;
+        s.getG().fillPolygon(pointX, pointY, nbPoint);
+        return s;
     }
-
-//    @Override
-//    public void createHitbox() {
-//        for (int i = 0; i < this.pointX.length; i++) {
-//            for (int j = 0; j < this.pointY.length; i++) {
-//                hb = new Hitbox(this.pointX[i], this.pointY[j],
-//                        new Dimension(this.pointX[this.nbPoint], this.pointY[this.nbPoint]));
-//            }
-//        }
-//    }
-
-    /**
-     *
-     * @return
-     */
     
     @Override
     public int getSize() {

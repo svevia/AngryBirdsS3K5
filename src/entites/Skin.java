@@ -8,8 +8,7 @@ import java.awt.Graphics;
  */
 public class Skin {
 
-    
-    Graphics g;
+    private Graphics g;
 
     public Skin(Graphics g) {
         this.g = g;
@@ -22,6 +21,5 @@ public class Skin {
     public Graphics getG() {
         return g;
     }
-    
-    
+
 }

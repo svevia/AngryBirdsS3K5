@@ -1,11 +1,10 @@
 package angrybirds;
 
 import entites.bird.module.ModuleBird;
-import entites.bird.RougeGorge;
+import entites.bird.*;
 import entites.obstacle.Obstacle;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import entites.bird.*;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -41,7 +40,7 @@ public class Constante {
      * La fond choisi
      */
     public static ArrayList<ImageCustomz> fond;
-    
+
     /**
      * Les dimensions de la fenetre
      */
@@ -75,13 +74,8 @@ public class Constante {
     /**
      * OLD - La fenetre du jeu
      */
-    public static OldGameFrame gf;
+    public static GameFrame gf;
 
-    /**
-     * Le luncher du jeu
-     */
-    public static Luncher l;
-    
     /**
      * Indique au coeur que c'est son dernier batement....
      */
@@ -101,12 +95,12 @@ public class Constante {
      * Les images du packet utilise
      */
     static public HashMap<String, ImageCustomz> allIPacketmageRessource;
-    
+
     /**
      * L'index du PFAG a utiliser
      */
-    public static int indexPFAGUtilise = 0;
-    
+    public static int indexPFAGUtilise = 1;
+
     /**
      * Variable qui indique quel obstacle de la liste est touche
      */
@@ -119,7 +113,7 @@ public class Constante {
         gReader = new PFAGReader();
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
-        bird = new RougeGorge(new Courbe(0, 1, 0, 0.0009, -0.9, (fenetre.height-200)));
+        bird = new RougeGorge(new Courbe(0, 1, 0, 0.0009, -0.9, (fenetre.height - 200)));
         footstep = Footstep.ARCENCIEL;
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();
@@ -141,10 +135,10 @@ public class Constante {
 //        double b = alea.nextDouble() * -2;
 //        return new Courbe(a, b, fenetre.getHeight() - 150);
 //    }
-
     /**
      * Liste tout les fichiers de la source qui ont l'extension specifie en clef
      * et sa source en valeur
+     *
      * @param source Source a parcourir, ex : src/ressource
      * @param extension Suite de lettre apres le point, ex : pfag
      * @return

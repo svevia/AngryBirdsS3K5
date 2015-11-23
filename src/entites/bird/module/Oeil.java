@@ -1,8 +1,8 @@
 package entites.bird.module;
 
+import entites.Skin;
 import entites.bird.Bird;
 import java.awt.Color;
-import java.awt.Graphics;
 
 /**
  * Rajoute un oeil oval a l'oiseau
@@ -28,24 +28,18 @@ public class Oeil extends ModuleBird {
     }
 
     @Override
-    public Graphics draw(Graphics g) {
-        g.setColor(couleur);
+    public Skin draw(Skin s) {
+        s.getG().setColor(couleur);
         this.angle = (Math.sin(b.getA()));
-        g.fillOval((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))), (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), diametre, diametre);
-        return g;
+        s.getG().fillOval((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))), (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), diametre, diametre);
+        return s;
     }
-
-//    @Override
-//    public void createHitbox() {
-//        hb = new Hitbox((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))),
-//                (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), new Dimension(diametre, diametre));
-//    }
 
     /**
      *
      * @return
      */
-        @Override
+    @Override
     public int getSize() {
         return 0;
     }

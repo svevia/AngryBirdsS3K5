@@ -3,7 +3,6 @@ package entites.obstacle;
 import angrybirds.Courbe;
 import entites.Skin;
 import java.awt.Color;
-import java.awt.Graphics;
 
 /**
  * Dessine un obstacle en forme de carre
@@ -25,10 +24,8 @@ public class Carre extends Obstacle {
 
     @Override
     public Skin draw(Skin s) {
-        Graphics g = s.getG();
-        g.setColor(c);
-        g.fillRect(x, y, widht, hight);
-        s.setG(g);
+        s.getG().setColor(c);
+        s.getG().fillRect(x, y, widht, hight);
         return s;
     }
 }

@@ -1,7 +1,6 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
-import static angrybirds.menu.FenetrePrincipale.p;
 import entites.obstacle.Obstacle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,8 +59,8 @@ public class HeartCore extends Thread implements ActionListener {
                 o.setY((int) o.getCourbe().getYenT(t));
             }
         }
-        bird.setPosX((int) bird.getCourbe().getXenT(t));
-        bird.setPosY((int) bird.getCourbe().getYenT(t));
+        bird.setX((int) bird.getCourbe().getXenT(t));
+        bird.setY((int) bird.getCourbe().getYenT(t));
         bird.setA(bird.getCourbe().angleAenT(t));
 
         if (bird.getCourbe().calculDistance(xDepart, yDepart, bird.getX(), bird.getY()) > vitesse) {
@@ -84,7 +83,6 @@ public class HeartCore extends Thread implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == t1) {
             gf.dispose();
-            p.run();
         }
     }
 }

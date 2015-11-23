@@ -1,5 +1,7 @@
 package angrybirds.menu;
 
+import static angrybirds.Constante.gf;
+import angrybirds.GameFrame;
 import static angrybirds.menu.FenetrePrincipale.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -53,9 +55,9 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == jouer) {
-            p = new LivOne(10);
+            gf = new GameFrame();
             son.stop();
-            p.run();
+            gf.run();
         }
 
         if (event.getSource() == option) {

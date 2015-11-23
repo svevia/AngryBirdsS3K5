@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import static angrybirds.HeartCore.t;
 import entites.Collision;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 
 /**
@@ -11,7 +13,7 @@ import javax.swing.JPanel;
  * du jeu, le moteur de collision, le thread principal du jeu et la courbe
  * engage par l'oiseau
  */
-public class AnimationJeu extends JPanel {
+public class AnimationJeu extends JPanel implements KeyListener {
 
     /**
      * Le visualisateur
@@ -29,13 +31,14 @@ public class AnimationJeu extends JPanel {
     private Thread core;
 
     /**
-     * Le constructeur est en prive pour ne pas pouvoir l'appeler
+     * Boolean de lancement de l'animation
      */
-    public AnimationJeu() {
-    }
+    boolean shoot = false;
 
-    {
+    public AnimationJeu() {
+        setFocusable(true);
         setDoubleBuffered(true); // Un bel affichage en HD
+        addKeyListener(this);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(this); // Gestionnaire de collision
         core = new HeartCore(5, this); // Gestionnaire d'evenement
@@ -45,6 +48,9 @@ public class AnimationJeu extends JPanel {
      * Demmarrage de l'animation
      */
     public final void start() {
+        bird.setX((int)bird.getCourbe().getXenT(1));
+        bird.setY((int)bird.getCourbe().getYenT(1));
+        lancement();
         core.start();
     }
 
@@ -66,11 +72,11 @@ public class AnimationJeu extends JPanel {
      * Fonction qui ajoute les coordonnes actuel a une liste
      */
     private void addFootstepCoord() {
-        footstepX.add(bird.getPosX());
-        footstepY.add(bird.getPosY() + bird.getR());
+        footstepX.add(bird.getX());
+        footstepY.add(bird.getY() + bird.getR());
         footstepA.add(bird.getCourbe().angleAenT(t));
     }
-    
+
     /**
      * Retourne le thread du jeu
      *
@@ -78,5 +84,32 @@ public class AnimationJeu extends JPanel {
      */
     public Thread getCore() {
         return core;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            shoot = true;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            bird.setA(bird.getA()-0.1);
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            bird.setA(bird.getA()+0.1);
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+
+    private void lancement() {
+        while (!shoot) {
+            repaint();
+        }
     }
 }

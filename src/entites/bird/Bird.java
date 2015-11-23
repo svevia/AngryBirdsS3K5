@@ -5,7 +5,6 @@ import static angrybirds.Constante.allModul;
 import angrybirds.Courbe;
 import entites.Entity;
 import java.awt.Color;
-import java.awt.Graphics;
 import entites.Hitbox;
 import entites.Skin;
 import java.util.ArrayList;
@@ -42,27 +41,26 @@ public class Bird extends Entity {
     protected Color corps;
 
     /**
-     * Les modules de l'oiseau
+     * Les modules de l'oiseau (pimp my cybird)
      */
     protected ArrayList<ModuleBird> modul = new ArrayList<>();
 
     /**
      * Le constructeur de l'oiseau
      *
-     * @param pigeonX
+     * @param pigeonX La position de départ en x
+     * @param pigeonY La position de départ en y
      * @param fatX Sa largeur
-     * @param pigeonY
      * @param fatY Sa hauteur
-     * @param tailleBec La taille en radian du bec (la taille de la base du bec)
+     * @param crb Sa courbe
      * @param corps La couleur principale du pigeon
-     * @param bec La couleur de son bec
-     * @param oeil La couleur de son oeil droit
+     * @param m Ses modules
      */
-    public Bird(int pigeonX, int pigeonY, int fatX, int fatY, Courbe crb, Color corps, ModuleBird... m) {
-        super(pigeonX, pigeonY, fatX, fatY, crb);
+    public Bird(int pigeonX, int pigeonY, int diametre, Courbe crb, Color corps) {
+        super(pigeonX, pigeonY, diametre, diametre, crb);
         this.corps = corps;
-        r = fatX / 2;
-        hb = new Hitbox(pigeonX, pigeonY, fatX, fatY);
+        r = diametre / 2;
+        hb = new Hitbox(pigeonX, pigeonY, diametre, diametre);
     }
 
     /**
@@ -73,12 +71,12 @@ public class Bird extends Entity {
      * @param g Le Graphics sur le quel applique le dessin
      * @return Le Graphics dessine
      */
-    protected Graphics MinimalBirdFactory(Graphics g) {
-        g.setColor(corps); // La couleur du pigeon
-        g.fillOval(getPosX(), getPosY(), getWidht(), getHight()); // Le corp
-        g.setColor(Color.black);
-        g.drawOval(getPosX(), getPosY(), getWidht(), getHight()); // Le corp
-        return g;
+    protected Skin MinimalBirdFactory(Skin s) {
+        s.getG().setColor(corps); // La couleur du pigeon
+        s.getG().fillOval(x, y, widht, hight); // Le corp
+        s.getG().setColor(Color.black);
+        s.getG().drawOval(x, y, widht, hight); // Les contours du corp
+        return s;
     }
 
     public double getA() {
@@ -99,50 +97,10 @@ public class Bird extends Entity {
 
     /**
      *
-     * @return
-     */
-    public Hitbox getHb() {
-        return hb;
-    }
-
-    /**
-     *
      * @param corps
      */
     public void setCorps(Color corps) {
         this.corps = corps;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getPosX() {
-        return super.x;
-    }
-
-    /**
-     *
-     * @param posX
-     */
-    public void setPosX(int posX) {
-        super.x = posX;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getPosY() {
-        return super.y;
-    }
-
-    /**
-     *
-     * @param posY
-     */
-    public void setPosY(int posY) {
-        super.y = posY;
     }
 
     /**
@@ -184,21 +142,21 @@ public class Bird extends Entity {
      * @param over
      * @return
      */
-    public Graphics drawAllModule(Graphics g, boolean over) {
+    public Skin drawAllModule(Skin s, boolean over) {
         if (over) {
             for (int i = 0; i < modul.size(); i++) {
-                if (modul.get(i).isOver()) {
-                    modul.get(i).draw(g);
+                if (modul.get(i).over) {
+                    modul.get(i).draw(s);
                 }
             }
         } else {
             for (int i = 0; i < modul.size(); i++) {
                 if (!modul.get(i).over) {
-                    modul.get(i).draw(g);
+                    modul.get(i).draw(s);
                 }
             }
         }
-        return g;
+        return s;
     }
 
     /**
@@ -217,11 +175,9 @@ public class Bird extends Entity {
         birdCenterY = getY() + getHight() / 2;
 
         super.hb.setPosition(getX(), getY());
-        Graphics g = s.getG();
-        g = drawAllModule(g, false);
-        g = MinimalBirdFactory(g);
-        g = drawAllModule(g, true);
-        s.setG(g);
+        s = drawAllModule(s, false);
+        s = MinimalBirdFactory(s);
+        s = drawAllModule(s, true);
         return s;
     }
 }

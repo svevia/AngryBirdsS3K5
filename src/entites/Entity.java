@@ -36,6 +36,11 @@ public abstract class Entity {
      * La courbe que suit l'entite
      */
     protected Courbe crb;
+    
+    /**
+     * Skin de l'entite
+     */
+    protected Skin skin;
 
     /**
      * L'indicateur de mouvement de l'entite, si elle est equipe d'une courbe ce
@@ -144,10 +149,17 @@ public abstract class Entity {
         this.hb = hb;
     }
 
+    /**
+     * @return La courbe de l'entite
+     */
     public Courbe getCourbe() {
         return crb;
     }
 
+    /**
+     * 
+     * @param crb La nouvelle courbe a suivre 
+     */
     public void setCourbe(Courbe crb) {
         this.crb = crb;
         move = true;
@@ -156,15 +168,19 @@ public abstract class Entity {
         }
     }
 
+    /**
+     * 
+     * @return Si l'entite doit bouger ou pas 
+     */
     public boolean isMove() {
         return move;
     }
 
     /**
-     * Dessine l'entite sur un Graphics
+     * Dessine l'entite sur un Skin
      *
-     * @param g le Graphics sur le quel dessiner
+     * @param g le Skin sur le quel dessiner
      * @return Le Graphics modifie
      */
-    public abstract Skin draw(Skin g);
+    public abstract Skin draw(Skin s);
 }

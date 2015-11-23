@@ -43,9 +43,9 @@ public class Collision {
      * @return True si l'oiseau touche les bords
      */
     private boolean borderTouch() {
-        return (bird.getPosX() + bird.getWidht() > fenetre.width
-                || bird.getPosY() + bird.getR()*2 > fenetre.height - 100
-                || bird.getPosY() < 0);
+        return (bird.getX() + bird.getWidht() > fenetre.width
+                || bird.getY() + bird.getR()*2 > fenetre.height - 100
+                || bird.getY() < 0);
     }
 
     /**

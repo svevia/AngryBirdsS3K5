@@ -1,9 +1,8 @@
 package entites.bird.module;
 
+import entites.Skin;
 import entites.bird.Bird;
-
 import java.awt.Color;
-import java.awt.Graphics;
 
 public class BecCanard extends ModuleBird {
 
@@ -27,8 +26,8 @@ public class BecCanard extends ModuleBird {
     }
 
     @Override
-    public Graphics draw(Graphics g) {
-        g.setColor(couleur);
+    public Skin draw(Skin s) {
+        s.getG().setColor(couleur);
         this.pointX = new int[nbPoint];
         this.pointY = new int[nbPoint];
         double angle = (Math.sin(b.getA()));
@@ -40,28 +39,8 @@ public class BecCanard extends ModuleBird {
         pointY[1] = (int) (b.getBirdCenterY() + 2 * b.getR() * Math.sin(angle));
         pointY[2] = (int) (b.getBirdCenterY() + 1.5 * b.getR() * Math.sin(angle + largeur));
         pointY[3] = (int) (b.getBirdCenterY() + b.getR() * Math.sin(angle + largeur));
-        g.fillPolygon(pointX, pointY, nbPoint);
-        return g;
-    }
-    
-    
-
-//    @Override
-//    public void createHitbox() {
-//        for (int i = 0; i < this.pointX.length; i++) {
-//            for (int j = 0; j < this.pointY.length; j++) {
-//                hb = new Hitbox(pointX[i], pointY[j], new Dimension(pointX[nbPoint], pointY[nbPoint]));
-//            }
-//        }
-//    }
-
-    /**
-     *
-     * @return
-     */
-    
-    public double getLargeur() {
-        return largeur;
+        s.getG().fillPolygon(pointX, pointY, nbPoint);
+        return s;
     }
 
     /**

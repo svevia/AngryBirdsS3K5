@@ -17,9 +17,8 @@ public class RougeGorge extends Bird {
      * Constructeur de la class creeant automatiquement l'oiseau
      */
     public RougeGorge(Courbe c) {
-        super(0, 0, 20, 20, c, Color.red);
+        super(0, 0, 20, c, Color.red);
         addModule(bec);
         addModule(oeil);
-        //hb.setD(new Dimension((int) (20 + bec.getSize()), 20));
     }
 }

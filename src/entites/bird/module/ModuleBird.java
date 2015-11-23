@@ -1,7 +1,7 @@
 package entites.bird.module;
 
+import entites.Skin;
 import entites.bird.Bird;
-import java.awt.Graphics;
 
 /**
  * Un module d'oiseau est un éléments qui se rajoute au corps de l'oiseau en
@@ -74,18 +74,13 @@ public abstract class ModuleBird {
      * La representation graphique du module
      *
      * @param g
-     * @return 
-     */
-    abstract public Graphics draw(Graphics g);
-
-//    /**
-//     * Cree ou met a jour la Hitbox du module
-//     */
-//    abstract public void createHitbox();
-
-    /**
-     *
      * @return
      */
-        abstract public int getSize();
+    abstract public Skin draw(Skin s);
+
+    /**
+     * 
+     * @return 
+     */
+    abstract public int getSize();
 }
