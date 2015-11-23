@@ -83,6 +83,7 @@ public class HeartCore extends Thread implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == t1) {
             gf.dispose();
+            System.exit(0);
         }
     }
 }

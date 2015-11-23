@@ -48,8 +48,8 @@ public class AnimationJeu extends JPanel implements KeyListener {
      * Demmarrage de l'animation
      */
     public final void start() {
-        bird.setX((int)bird.getCourbe().getXenT(1));
-        bird.setY((int)bird.getCourbe().getYenT(1));
+        bird.setX(5);
+        bird.setY(fenetre.height - 150);
         lancement();
         core.start();
     }
@@ -64,7 +64,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
         super.paint(g);
         addFootstepCoord();
         g = visu.drawAllNeed(g);
-        g = visu.drawAllHitBox(g);
+        //g = visu.drawAllHitBox(g);
         stun.verif();
     }
 
@@ -72,9 +72,11 @@ public class AnimationJeu extends JPanel implements KeyListener {
      * Fonction qui ajoute les coordonnes actuel a une liste
      */
     private void addFootstepCoord() {
-        footstepX.add(bird.getX());
-        footstepY.add(bird.getY() + bird.getR());
-        footstepA.add(bird.getCourbe().angleAenT(t));
+        if (bird.isMove()) {
+            footstepX.add(bird.getX());
+            footstepY.add(bird.getY() + bird.getR());
+            footstepA.add(bird.getCourbe().angleAenT(t));
+        }
     }
 
     /**
@@ -93,13 +95,14 @@ public class AnimationJeu extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            bird.setCourbe(new Courbe(0, 1, bird.getX(), 0.0009, bird.getA(), bird.getY()));
             shoot = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            bird.setA(bird.getA()-0.1);
+            bird.setA(bird.getA() - 0.1);
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            bird.setA(bird.getA()+0.1);
+            bird.setA(bird.getA() + 0.1);
         }
     }
 
