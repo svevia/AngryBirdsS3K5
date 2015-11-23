@@ -36,7 +36,7 @@ public class BecTriangulaire extends ModuleBird {
         s.getG().setColor(couleur);
         this.pointX = new int[nbPoint];
         this.pointY = new int[nbPoint];
-        double angle = (Math.sin(b.getA()));
+        double angle = (b.getA());
         pointX[0] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle - largeur));
         pointX[1] = (int) (b.getBirdCenterX() + hauteur * b.getR() * Math.cos(angle));
         pointX[2] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle + largeur));
@@ -46,7 +46,7 @@ public class BecTriangulaire extends ModuleBird {
         s.getG().fillPolygon(pointX, pointY, nbPoint);
         return s;
     }
-    
+
     @Override
     public int getSize() {
         return hauteur * 3;

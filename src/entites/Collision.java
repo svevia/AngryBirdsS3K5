@@ -45,7 +45,9 @@ public class Collision {
     private boolean borderTouch() {
         return (bird.getX() + bird.getWidht() > fenetre.width
                 || bird.getY() + bird.getR()*2 > fenetre.height - 100
-                || bird.getY() < 0);
+                || bird.getY() < 0
+                ||bird.getX() < 0
+                );
     }
 
     /**

@@ -30,7 +30,7 @@ public class BecCanard extends ModuleBird {
         s.getG().setColor(couleur);
         this.pointX = new int[nbPoint];
         this.pointY = new int[nbPoint];
-        double angle = (Math.sin(b.getA()));
+        double angle = (b.getA());
         pointX[0] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle - largeur));
         pointX[1] = (int) (b.getBirdCenterX() + 2 * b.getR() * Math.cos(angle));
         pointX[2] = (int) (b.getBirdCenterX() + 1.5 * b.getR() * Math.cos(angle + largeur));

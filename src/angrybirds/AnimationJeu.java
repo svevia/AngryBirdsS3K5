@@ -48,8 +48,8 @@ public class AnimationJeu extends JPanel implements KeyListener {
      * Demmarrage de l'animation
      */
     public final void start() {
-        bird.setX(5);
-        bird.setY(fenetre.height - 150);
+        bird.setX(500);
+        bird.setY(500);
         lancement();
         core.start();
     }
@@ -95,7 +95,12 @@ public class AnimationJeu extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            bird.setCourbe(new Courbe(0, 1, bird.getX(), 0.0009, bird.getA(), bird.getY()));
+            int k = 1;
+            if (bird.getA() > Math.PI/2
+                    || bird.getA() < -Math.PI/2) {
+                k = -1;
+            }
+            bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, bird.getA(), bird.getY()));
             shoot = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {

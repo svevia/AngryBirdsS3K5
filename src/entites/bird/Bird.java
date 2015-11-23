@@ -84,7 +84,7 @@ public class Bird extends Entity {
     }
 
     public void setA(double a) {
-        this.a = a;
+        this.a = a%(Math.PI*2);
     }
 
     /**

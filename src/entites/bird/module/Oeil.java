@@ -30,7 +30,7 @@ public class Oeil extends ModuleBird {
     @Override
     public Skin draw(Skin s) {
         s.getG().setColor(couleur);
-        this.angle = (Math.sin(b.getA()));
+        this.angle = (b.getA());
         s.getG().fillOval((int) (b.getBirdCenterX() + (distanceCentre * Math.cos(angle - Math.PI / 4))), (int) (b.getBirdCenterY() + (distanceCentre * Math.sin(angle - Math.PI / 4))), diametre, diametre);
         return s;
     }
