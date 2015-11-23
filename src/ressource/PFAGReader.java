@@ -123,6 +123,7 @@ public class PFAGReader {
         StringTokenizer st2;
         String type = "";
         int x = 0, y = 0, w = 0, h = 0;
+        int aX = 0, bX = 0, aY = 0, bY = 0;
         Color couleur = Color.red;
         Random r = new Random();
         try {
@@ -132,6 +133,10 @@ public class PFAGReader {
                 y = 0;
                 w = 0;
                 h = 0;
+                aX = 0;
+                bX = 0;
+                aY = 0;
+                bY = 0;
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("obstacle")) {
                     st2 = new StringTokenizer(st.nextToken(), ",");
@@ -152,6 +157,24 @@ public class PFAGReader {
                                 break;
                             case "h":
                                 h = Integer.parseInt(st.nextToken());
+                                break;
+                            case "aX":
+                                aX = Integer.parseInt(st.nextToken());
+                                break;
+                            case "bX":
+                                bX = Integer.parseInt(st.nextToken());
+                                break;
+                            case "cX":
+                                x = Integer.parseInt(st.nextToken());
+                                break;
+                            case "aY":
+                                aY = Integer.parseInt(st.nextToken());
+                                break;
+                            case "bY":
+                                bY = Integer.parseInt(st.nextToken());
+                                break;
+                            case "cY":
+                                y = Integer.parseInt(st.nextToken());
                                 break;
                             case "color":
                                 couleur = new Color(Integer.parseInt(st.nextToken()));
@@ -174,7 +197,7 @@ public class PFAGReader {
                         h = r.nextInt(100) + 100;
                     }
                     if (type.equals("carre")) {
-                        ar.add(new Carre(x, y, h, w, new Courbe(0, 1, 0, 0, 1, 0), couleur));
+                        ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
                     }
                 }
             }

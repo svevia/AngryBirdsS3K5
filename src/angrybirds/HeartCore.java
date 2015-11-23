@@ -55,8 +55,8 @@ public class HeartCore extends Thread implements ActionListener {
     private void moveAll() {
         for (Obstacle o : obstacle) {
             if (o.isMove()) {
-                o.setX((int) o.getCourbe().getXenT(t));
-                o.setY((int) o.getCourbe().getYenT(t));
+                o.setX((int) (o.getCourbe().getXenT(t)));
+                o.setY((int) (o.getCourbe().getYenT(t)));
             }
         }
         bird.setX((int) bird.getCourbe().getXenT(t));
