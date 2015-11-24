@@ -1,7 +1,5 @@
 package angrybirds.menu;
 
-import static angrybirds.Constante.gf;
-import angrybirds.GameFrame;
 import angrybirds.option.Option;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -18,6 +16,7 @@ public class FenetrePrincipale extends Application {
     public Scene scene = new Scene(menu, 1000, 666);;
 
     public void start(Stage primaryStage) {
+        scene.getStylesheets().add("ressource/stylesheet.css");
         primaryStage.setScene(scene);
         primaryStage.setTitle("Menu Angry Birds");
         primaryStage.getIcons().add(new Image("ressource/icon.png"));

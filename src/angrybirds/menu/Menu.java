@@ -29,14 +29,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         setHgap(10);
         setVgap(10);
 
-        jeu.setStyle("-fx-font-size: 40;\n"
-                + "-fx-text-fill: rgba(255,0,0,1);\n"
-                + "-fx-font-family: sans-serif;\n"
-                + "-fx-font-angle: 40;\n"
-                + "-fx-effect: dropshadow( three-pass-box , rgba(0,0,127,1) , 1,10,0,0 );\n"
-                + "-fx-scale-y:3;\n"
-                + "-fx-scale-x:3;"
-        );
+        jeu.getStyleClass().add("titreMenu");
         jeu.setPadding(new Insets(0, 0, 25, 30));
         jouer.setOnAction(this);
         option.setOnAction(this);
@@ -48,7 +41,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         add(jouer, 5, 5);
         add(option, 5, 6);
         add(quitter, 5, 7);
-        
+
         fred.start();
     }
 

@@ -17,12 +17,7 @@ public class BoutonMenu extends Button implements EventHandler<MouseEvent> {
         setPrefWidth(300);
         setOnMouseEntered(this);
         setOnMouseExited(this);
-        setStyle("-fx-background-color: linear-gradient(#ff5400, #be1d00);\n"
-                + "-fx-background-radius: 30;\n"
-                + "-fx-background-insets: 0;\n"
-                + "-fx-text-fill: white;\n"
-                + "-fx-font-family: monospace;\n"
-                + "-fx-font-size: 40px;\n");
+        getStyleClass().add("boutonMenu");
     }
 
     @Override
