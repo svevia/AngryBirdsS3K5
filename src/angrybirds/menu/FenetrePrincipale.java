@@ -22,7 +22,7 @@ public class FenetrePrincipale extends Application {
         primaryStage.setTitle("Menu Angry Birds");
         primaryStage.getIcons().add(new Image("ressource/icon.png"));
         primaryStage.show();
-        son.start();
+//        son.start();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -46,8 +46,8 @@ public class FenetrePrincipale extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        launch(args);
-        gf = new GameFrame();
-        gf.run();
+        launch(args);
+//        gf = new GameFrame();
+//        gf.run();
     }
 }

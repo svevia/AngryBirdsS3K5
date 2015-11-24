@@ -7,6 +7,7 @@ import entites.Collision;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JPanel;
+import static ressource.PFAGReader.listePFAG;
 
 /**
  * La classe principale du programme la ou se consentre aussi le visualisateur
@@ -48,8 +49,8 @@ public class AnimationJeu extends JPanel implements KeyListener {
      * Demmarrage de l'animation
      */
     public final void start() {
-        bird.setX(500);
-        bird.setY(500);
+        bird.setX(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).height);
+        bird.setY(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).width);
         lancement();
         core.start();
     }

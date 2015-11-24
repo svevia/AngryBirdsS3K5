@@ -1,6 +1,9 @@
 package angrybirds.option;
 
+import static angrybirds.Constante.footstep;
+import static angrybirds.Constante.indexPFAGUtilise;
 import angrybirds.menu.FenetrePrincipale;
+import entites.bird.Footstep;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,15 +21,17 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import static ressource.PFAGReader.listePFAG;
 
 public class Option extends GridPane implements EventHandler<ActionEvent> {
 
     FenetrePrincipale root;
     VBox vb = new VBox();
     Text option = new Text("Option");
-    ChoiceBox<String> cb = new ChoiceBox<>(FXCollections.observableArrayList(
-            "First", "Second", "Third")
-    );
+    Text choiseMap = new Text("Choisissez votre map");
+    ChoiceBox<String> cb1 = new ChoiceBox<>(FXCollections.observableArrayList(listePFAG()));
+    Text choiseFootstep = new Text("Choisissez votre empreinte");
+    ChoiceBox<String> cb2 = new ChoiceBox<>(FXCollections.observableArrayList(Footstep.getListFootstep()));
     CheckBox pe = new CheckBox("Plein ecran");
 
     GridPane hb1 = new GridPane();
@@ -54,7 +59,12 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
         hb2.setAlignment(Pos.CENTER);
         hb2.add(apply, 0, 0);
 
-        vb.getChildren().addAll(option, s1, pe, cb, s2, hb2, hb1);
+        cb1.setValue(listePFAG().get(indexPFAGUtilise));
+        String fsUse = footstep.toString();
+        int indexFsUse = Footstep.getListFootstep().indexOf(fsUse);
+        cb2.setValue(Footstep.getListFootstep().get(indexFsUse));
+
+        vb.getChildren().addAll(option, s1, pe, choiseMap, cb1, choiseFootstep, cb2, s2, hb2, hb1);
         add(vb, 1, 1);
 
     }
@@ -62,7 +72,8 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == apply) {
-            System.out.println("ouaip");
+            indexPFAGUtilise = listePFAG().indexOf(cb1.getValue());
+            footstep = Footstep.valueOf(cb2.getValue());
         }
         if (event.getSource() == back) {
             root.changeScene(1);

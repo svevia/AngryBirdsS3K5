@@ -123,7 +123,7 @@ public class PFAGReader {
         StringTokenizer st2;
         String type = "";
         int x = 0, y = 0, w = 0, h = 0;
-        int aX = 0, bX = 0, aY = 0, bY = 0;
+        double aX = 0, bX = 0, aY = 0, bY = 0;
         Color couleur = Color.red;
         Random r = new Random();
         try {
@@ -159,19 +159,19 @@ public class PFAGReader {
                                 h = Integer.parseInt(st.nextToken());
                                 break;
                             case "aX":
-                                aX = Integer.parseInt(st.nextToken());
+                                aX = Double.parseDouble(st.nextToken());
                                 break;
                             case "bX":
-                                bX = Integer.parseInt(st.nextToken());
+                                bX = Double.parseDouble(st.nextToken());
                                 break;
                             case "cX":
                                 x = Integer.parseInt(st.nextToken());
                                 break;
                             case "aY":
-                                aY = Integer.parseInt(st.nextToken());
+                                aY = Double.parseDouble(st.nextToken());
                                 break;
                             case "bY":
-                                bY = Integer.parseInt(st.nextToken());
+                                bY = Double.parseDouble(st.nextToken());
                                 break;
                             case "cY":
                                 y = Integer.parseInt(st.nextToken());
@@ -224,6 +224,47 @@ public class PFAGReader {
             while ((line = in.readLine()) != null) {
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("fenetre")) {
+                    st2 = new StringTokenizer(st.nextToken(), ",");
+                    while (st2.hasMoreTokens()) {
+                        st = new StringTokenizer(st2.nextToken(), "=");
+                        switch (st.nextToken()) {
+                            case "x":
+                                x = Integer.parseInt(st.nextToken());
+                                break;
+                            case "y":
+                                y = Integer.parseInt(st.nextToken());
+                                break;
+                            default:
+                                System.out.println("Un argument est incorrecte " + st.nextToken());
+                                break;
+                        }
+                    }
+                    d = new Dimension(x, y);
+                }
+            }
+            in.close();
+        } catch (IOException ex) {
+            System.out.println("Bug lecture");
+        }
+        return d;
+    }
+
+    /**
+     * 
+     * @param pfag
+     * @return La position du pigeon par le biais d'une Dimension
+     */
+    public Dimension positionOiseau(String pfag) {
+        Dimension d = new Dimension();
+        String line = "";
+        StringTokenizer st;
+        StringTokenizer st2;
+        int x = 0, y = 0;
+        try {
+            in = Files.newBufferedReader(Paths.get("src/" + pfagOfSource.get(pfag)));
+            while ((line = in.readLine()) != null) {
+                st = new StringTokenizer(line, ":");
+                if (st.nextToken().equals("bird")) {
                     st2 = new StringTokenizer(st.nextToken(), ",");
                     while (st2.hasMoreTokens()) {
                         st = new StringTokenizer(st2.nextToken(), "=");

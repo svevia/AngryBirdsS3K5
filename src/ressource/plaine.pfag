@@ -10,5 +10,6 @@ obstacle:type=carre,bX=1
 obstacle:type=carre
 obstacle:type=carre
 obstacle:type=carre,bY=1
-obstacle:type=carre,bX=1,bY=1
+obstacle:type=carre,bX=0.1,bY=0.1
 obstacle:type=carre
+bird:x=500,y=500

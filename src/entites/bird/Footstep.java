@@ -3,6 +3,7 @@ package entites.bird;
 import java.awt.Color;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
+import java.util.ArrayList;
 
 /**
  * L'enumeration qui contient tout les skins d'empreinte et les fonctions
@@ -136,5 +137,16 @@ public enum Footstep {
             }
         }
         return g;
+    }
+    
+    /**
+     * @return La liste des footsteps
+     */
+    public static ArrayList<String> getListFootstep() {
+        ArrayList<String> al = new ArrayList<>();
+        for (Footstep f : Footstep.values()) {
+            al.add(f.toString());
+        }
+        return al;
     }
 }

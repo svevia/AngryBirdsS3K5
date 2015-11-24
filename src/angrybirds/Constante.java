@@ -22,6 +22,11 @@ import static ressource.PFAGReader.listePFAG;
 public class Constante {
 
     /**
+     * Le reader de pfag
+     */
+    public static PFAGReader gReader = new PFAGReader();
+
+    /**
      * La vitesse de l'oiseau
      */
     public static int vitesse;
@@ -34,7 +39,7 @@ public class Constante {
     /**
      * La couleur du trace choisi
      */
-    public static Footstep footstep;
+    public static Footstep footstep = Footstep.ARCENCIEL;
 
     /**
      * La fond choisi
@@ -87,11 +92,6 @@ public class Constante {
     public static int wallHurty;
 
     /**
-     * Le reader de pfag
-     */
-    public static PFAGReader gReader;
-
-    /**
      * Les images du packet utilise
      */
     static public HashMap<String, ImageCustomz> allIPacketmageRessource;
@@ -110,11 +110,9 @@ public class Constante {
      * Reinitialise la class a zero
      */
     public static void iniz() throws IOException {
-        gReader = new PFAGReader();
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
         allModul = new ArrayList<>();
         bird = new RougeGorge(null);
-        footstep = Footstep.ARCENCIEL;
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
         obstacle = new ArrayList<>();
         footstepX = new ArrayList<>();
