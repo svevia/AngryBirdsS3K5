@@ -29,7 +29,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
     /**
      * Thread de l'animation
      */
-    private Thread core;
+    private HeartCore core;
 
     /**
      * Boolean de lancement de l'animation

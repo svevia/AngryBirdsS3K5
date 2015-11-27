@@ -8,12 +8,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import static angrybirds.menu.FenetrePrincipale.*;
 import static ressource.PFAGReader.listePFAG;
 
 public class Option extends GridPane implements EventHandler<ActionEvent> {
@@ -21,7 +21,7 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
     FenetrePrincipale root;
     VBox vb = new VBox();
     VBox vb2 = new VBox();
-    Text option = new Text("Option");
+    Text option = new Text("Options");
     Text choiseMap = new Text("Choisissez votre map");
     ChoiceBox<String> cb1 = new ChoiceBox<>(FXCollections.observableArrayList(listePFAG()));
     Text choiseFootstep = new Text("Choisissez votre empreinte");
@@ -32,7 +32,7 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
     BoutonOption back = new BoutonOption("Retour au menu");
     BoutonOption apply = new BoutonOption("Appliquer");
 
-    SeparatorVDeux s1 = new SeparatorVDeux("Diver");
+    SeparatorVDeux s1 = new SeparatorVDeux("Divers");
     Separator s2 = new Separator();
 
     public Option(FenetrePrincipale root) {
@@ -75,7 +75,7 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
             footstep = Footstep.valueOf(cb2.getValue());
         }
         if (event.getSource() == back) {
-            root.changeScene(1);
+            root.changeScene(ChoseScene.MENU);
         }
         if (event.getSource() == s1.b) {
             if (vb.getChildren().contains(vb2)) {

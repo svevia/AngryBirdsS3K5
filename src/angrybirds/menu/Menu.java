@@ -10,15 +10,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
-/**
- *
- * @author Wissam
- */
 public class Menu extends GridPane implements EventHandler<ActionEvent> {
 
     private Label jeu = new Label("AngryBirds");
     private BoutonMenu jouer = new BoutonMenu("Jouer");
-    private BoutonMenu option = new BoutonMenu("Option");
+    private BoutonMenu option = new BoutonMenu("Options");
     private BoutonMenu quitter = new BoutonMenu("Quitter");
     private Thread fred = new Thread(new AnimationMenu(this));
     private FenetrePrincipale root;
@@ -54,7 +50,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         }
 
         if (event.getSource() == option) {
-            root.changeScene(2);
+            root.changeScene(ChoseScene.OPTION);
         }
 
         if (event.getSource() == quitter) {

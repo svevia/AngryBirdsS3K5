@@ -3,14 +3,13 @@ package angrybirds;
 import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 /**
  * Cette class a pour but de gerer l'avancement du projet grace aux thread comme
  * coeur qui bat.
  */
-public class HeartCore extends Thread implements ActionListener {
+public class HeartCore extends Thread implements java.awt.event.ActionListener {
 
     Timer t1 = new Timer(2000, this);
 

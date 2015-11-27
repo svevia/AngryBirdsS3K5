@@ -82,7 +82,7 @@ public class Visualisateur {
      */
     public Graphics drawAllNeed(Graphics g) {
         g = drawFond(g);
-        g = drawFootstep(true, calculTraceFootStep(), 3, vitesse + 3, g);
+        g = drawFootstep(true, calculTraceFootStep(), 3, (int)vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
         return g;
@@ -96,9 +96,9 @@ public class Visualisateur {
     private int calculTraceFootStep() {
         //Si jamais on a un x/0 on cale un finally ici
         try {
-            return (100 / (vitesse + 1)) + 10;
+            return (100 / ((int)vitesse + 1)) + 10;
         } finally {
-            return (100 / (vitesse + 2)) + 10;
+            return (100 / ((int)vitesse + 2)) + 10;
         }
     }
 

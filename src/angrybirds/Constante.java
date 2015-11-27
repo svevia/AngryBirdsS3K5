@@ -121,18 +121,7 @@ public class Constante {
         entityHitty = 0;
         last = false;
     }
-
-//    /**
-//     * Genere une courbe aleatoirement dans le cadre du jeu
-//     *
-//     * @return La courbe genere
-//     */
-//    public static Courbe generateCourbe() {
-//        Random alea = new Random();
-//        double a = (alea.nextDouble() + 7) / 10000;
-//        double b = alea.nextDouble() * -2;
-//        return new Courbe(a, b, fenetre.getHeight() - 150);
-//    }
+    
     /**
      * Liste tout les fichiers de la source qui ont l'extension specifie en clef
      * et sa source en valeur
@@ -179,4 +168,5 @@ public class Constante {
         }
         return sources;
     }
+    
 }
