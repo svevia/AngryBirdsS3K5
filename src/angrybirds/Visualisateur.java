@@ -82,7 +82,7 @@ public class Visualisateur {
      */
     public Graphics drawAllNeed(Graphics g) {
         g = drawFond(g);
-        g = drawFootstep(true, calculTraceFootStep(), 3, (int)vitesse + 3, g);
+        g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
         return g;
@@ -96,9 +96,9 @@ public class Visualisateur {
     private int calculTraceFootStep() {
         //Si jamais on a un x/0 on cale un finally ici
         try {
-            return (100 / ((int)vitesse + 1)) + 10;
+            return (100 / ((int) vitesse + 1)) + 10;
         } finally {
-            return (100 / ((int)vitesse + 2)) + 10;
+            return (100 / ((int) vitesse + 2)) + 10;
         }
     }
 
@@ -128,6 +128,19 @@ public class Visualisateur {
             g = drawHitBox(obstacle.get(i), g, Color.black);
         }
         g = drawHitBox(bird, g, Color.red);
+        return g;
+    }
+
+    public Graphics drawCurve(Graphics g, Courbe c) {
+        if (c != null) {
+            int x, y, t = 0;
+            do {
+                t++;
+                x = (int) c.getXenT(t);
+                y = (int) c.getYenT(t);
+                g.fillOval(x, y, 3, 3);
+            } while (x < fenetre.width && x > 0 && y < fenetre.height && y > 0);
+        }
         return g;
     }
 }

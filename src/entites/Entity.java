@@ -36,7 +36,7 @@ public abstract class Entity {
      * La courbe que suit l'entite
      */
     protected Courbe crb;
-    
+
     /**
      * Skin de l'entite
      */
@@ -157,8 +157,8 @@ public abstract class Entity {
     }
 
     /**
-     * 
-     * @param crb La nouvelle courbe a suivre 
+     *
+     * @param crb La nouvelle courbe a suivre
      */
     public void setCourbe(Courbe crb) {
         this.crb = crb;
@@ -169,8 +169,8 @@ public abstract class Entity {
     }
 
     /**
-     * 
-     * @return Si l'entite doit bouger ou pas 
+     *
+     * @return Si l'entite doit bouger ou pas
      */
     public boolean isMove() {
         return move;
@@ -183,4 +183,12 @@ public abstract class Entity {
      * @return Le Graphics modifie
      */
     public abstract Skin draw(Skin s);
+
+    /**
+     * Fait bouger l'entite
+     */
+    public void move(int t) {
+        setX((int) crb.getXenT(t));
+        setY((int) crb.getYenT(t));
+    }
 }

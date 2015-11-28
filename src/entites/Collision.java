@@ -7,20 +7,7 @@ import java.awt.Color;
 /**
  * Classe qui gere les collisions, le moteur de collision
  */
-public class Collision {
-
-    /**
-     * L'animation ou est appele le moteur de collision
-     */
-    AnimationJeu anim;
-
-    /**
-     *
-     * @param animationOiseau L'animation sur la quelle travailler
-     */
-    public Collision(AnimationJeu animationOiseau) {
-        anim = animationOiseau;
-    }
+public class Collision extends Thread {
 
     /**
      * Fonction permettant de trouver l'element percute
@@ -53,7 +40,7 @@ public class Collision {
     /**
      * Verifie qu'aucune collision n'est comise
      */
-    public void verif() {
+    private void verif() {
         if (entityHit() != 0 || borderTouch()) {
             entityHitty = entityHit();
             bird.setCorps(Color.gray);
@@ -62,5 +49,10 @@ public class Collision {
             }
             last = true;
         }
+    }
+
+    @Override
+    public void run() {
+        verif();
     }
 }

@@ -41,7 +41,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
         setDoubleBuffered(true); // Un bel affichage en HD
         addKeyListener(this);
         visu = new Visualisateur(); // Gestionnaire d'affichage
-        stun = new Collision(this); // Gestionnaire de collision
+        stun = new Collision(); // Gestionnaire de collision
         core = new HeartCore(5, this); // Gestionnaire d'evenement
     }
 
@@ -49,6 +49,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
      * Demmarrage de l'animation
      */
     public final void start() {
+        bird.setA(3.14);
         bird.setX(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).height);
         bird.setY(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).width);
         lancement();
@@ -65,8 +66,8 @@ public class AnimationJeu extends JPanel implements KeyListener {
         super.paint(g);
         addFootstepCoord();
         g = visu.drawAllNeed(g);
-        //g = visu.drawAllHitBox(g);
-        stun.verif();
+        g = visu.drawCurve(g, bird.getCourbe());
+        stun.run();
     }
 
     /**
@@ -95,13 +96,11 @@ public class AnimationJeu extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int k = 1;
+        if (bird.getA() > Math.PI / 2 || bird.getA() < -Math.PI / 2) {
+            k = -1;
+        }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            int k = 1;
-            if (bird.getA() > Math.PI/2
-                    || bird.getA() < -Math.PI/2) {
-                k = -1;
-            }
-            bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, bird.getA(), bird.getY()));
             shoot = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -110,6 +109,9 @@ public class AnimationJeu extends JPanel implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             bird.setA(bird.getA() + 0.1);
         }
+
+        System.out.println(bird.getA());
+        bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, bird.getA(), bird.getY()));
     }
 
     @Override

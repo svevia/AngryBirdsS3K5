@@ -55,17 +55,17 @@ public class Courbe {
         return (aY * Math.pow(t, 2) + bY * t + cY);
     }
 
-    double calculDistance(double x1, double y1, double x2, double y2) {
+    public double calculDistance(double x1, double y1, double x2, double y2) {
         return (Math.pow((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)), 0.5));
     }
 
-    double calculAngle(double d1, double d2, double d3) {
+    public double calculAngle(double d1, double d2, double d3) {
         double p1 = (Math.pow(d1, 2) + Math.pow(d2, 2) - Math.pow(d3, 2));
         double p2 = 2 * d1 * d2;
         return Math.acos(p1 / p2);
     }
 
-    double angleAenT(double t) {
+    public double angleAenT(double t) {
         double x = getXenT(t);
         double y = getYenT(t);
         double xP = getXenT(t + 1);

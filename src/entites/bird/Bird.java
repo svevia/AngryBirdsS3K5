@@ -2,7 +2,9 @@ package entites.bird;
 
 import entites.bird.module.ModuleBird;
 import static angrybirds.Constante.allModul;
+import static angrybirds.Constante.bird;
 import angrybirds.Courbe;
+import static angrybirds.HeartCore.t;
 import entites.Entity;
 import java.awt.Color;
 import entites.Hitbox;
@@ -84,7 +86,7 @@ public class Bird extends Entity {
     }
 
     public void setA(double a) {
-        this.a = a%(Math.PI*2);
+        this.a = a % (Math.PI * 2);
     }
 
     /**
@@ -179,5 +181,10 @@ public class Bird extends Entity {
         s = MinimalBirdFactory(s);
         s = drawAllModule(s, true);
         return s;
+    }
+
+    public void move(int t) {
+        super.move(t);
+        setA(super.crb.angleAenT(t));
     }
 }
