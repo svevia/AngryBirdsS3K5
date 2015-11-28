@@ -93,37 +93,39 @@ public class AnimationJeu extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
+    /**
+     * Direction du lance
+     */
+    int k = 1;
+
     @Override
     public void keyPressed(KeyEvent e) {
-        int k = 1;
         double a = bird.getA();
-        if (bird.getA() > Math.PI / 2 || bird.getA() < -Math.PI / 2) {
-            k = -1;
-            if (bird.getA() > Math.PI / 2) {
-                a = 1.6 - (a - 1.6);
-            }
-            if (bird.getA() < -Math.PI / 2) {
-                a = -1.6 + (a + 1.6);
-            }
-        }
-        //a - 1.6;
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             shoot = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            bird.setA(bird.getA() - 0.1);
+            if (bird.getA() > -1.6) {
+                bird.setA(bird.getA() - 0.1);
+            }
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            bird.setA(bird.getA() + 0.1);
+            if (bird.getA() < 1.6) {
+                bird.setA(bird.getA() + 0.1);
+            }
         }
-
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            k = 1;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            k = -1;
+        }
         System.out.println(bird.getA());
         bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, a, bird.getY()));
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-    }
+    public void keyReleased(KeyEvent e){}
 
     private void lancement() {
         while (!shoot) {
