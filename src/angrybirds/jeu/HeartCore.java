@@ -1,5 +1,6 @@
-package angrybirds;
+package angrybirds.jeu;
 
+import angrybirds.Constante;
 import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
 

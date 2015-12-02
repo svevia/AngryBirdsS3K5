@@ -1,4 +1,4 @@
-package angrybirds;
+package modele;
 
 /**
  * Represente une matrice

@@ -1,5 +1,6 @@
 package angrybirds;
 
+import modele.Courbe;
 import static angrybirds.Constante.*;
 import entites.obstacle.Obstacle;
 import entites.obstacle.Carre;

@@ -1,8 +1,11 @@
-package angrybirds;
+package angrybirds.jeu;
 
+import modele.Courbe;
+import angrybirds.jeu.Visualisateur;
+import angrybirds.jeu.HeartCore;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
-import static angrybirds.HeartCore.t;
+import static angrybirds.jeu.HeartCore.t;
 import entites.Collision;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -17,17 +20,17 @@ import static ressource.PFAGReader.listePFAG;
 public class AnimationJeu extends JPanel implements KeyListener {
 
     /**
-     * Le visualisateur
+     * Le visualisateur qui gere l'affichage des skins sur le plan
      */
     private Visualisateur visu;
 
     /**
-     * Gestionnaire de collision
+     * Thread des collisions (gere la partie physique du jeu)
      */
     private Collision stun;
 
     /**
-     * Thread de l'animation
+     * Thread de l'animation (gere les deplacements et l'affichage du jeu au niveau des calculs)
      */
     private HeartCore core;
 
@@ -66,6 +69,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
         addFootstepCoord();
         g = visu.drawAllNeed(g);
         g = visu.drawCurve(g, bird.getCourbe());
+        g = visu.drawAllHitBox(g);
         stun.run();
     }
 
@@ -98,9 +102,13 @@ public class AnimationJeu extends JPanel implements KeyListener {
      */
     int k = 1;
 
+    /**
+     * Prend une touche du clavier, si on appuis sur espace, le jeu se lance, les
+     * touches directionnelles permettent de regler la courbe
+     * @param e L'evenement pris en compte 
+     */
     @Override
     public void keyPressed(KeyEvent e) {
-        double a = bird.getA();
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             shoot = true;
         }
@@ -120,8 +128,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             k = -1;
         }
-        System.out.println(bird.getA());
-        bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, a, bird.getY()));
+        bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, bird.getA(), bird.getY()));
     }
 
     @Override

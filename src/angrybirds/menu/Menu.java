@@ -1,8 +1,9 @@
 package angrybirds.menu;
 
+import angrybirds.FenetrePrincipale;
 import static angrybirds.Constante.gf;
-import angrybirds.GameFrame;
-import static angrybirds.menu.FenetrePrincipale.*;
+import angrybirds.jeu.GameFrame;
+import static angrybirds.FenetrePrincipale.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;

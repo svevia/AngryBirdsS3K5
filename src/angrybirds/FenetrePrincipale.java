@@ -1,7 +1,9 @@
-package angrybirds.menu;
+package angrybirds;
 
 import static angrybirds.Constante.gf;
-import angrybirds.GameFrame;
+import angrybirds.jeu.GameFrame;
+import angrybirds.menu.Menu;
+import angrybirds.menu.MusicMenu;
 import angrybirds.option.Option;
 import javafx.application.Application;
 import javafx.event.EventHandler;

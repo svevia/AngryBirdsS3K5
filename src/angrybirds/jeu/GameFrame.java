@@ -1,5 +1,7 @@
-package angrybirds;
+package angrybirds.jeu;
 
+import angrybirds.Constante;
+import angrybirds.jeu.AnimationJeu;
 import static angrybirds.Constante.gReader;
 import static angrybirds.Constante.indexPFAGUtilise;
 import static angrybirds.Constante.iniz;
@@ -18,6 +20,10 @@ public class GameFrame extends JFrame implements Runnable {
      */
     private AnimationJeu jeu;
 
+    /**
+     * Constructeur remettant tout a 0 et affichant une nouvelle fenetre avec le jeu
+     * en pannel
+     */
     public GameFrame() {
         try {
             iniz();
@@ -36,6 +42,10 @@ public class GameFrame extends JFrame implements Runnable {
         }
     }
 
+    /**
+     * Remet tout a 0 et reaffiche le pannel dans la même fenetre (contrairement
+     * au constructeur qui change de fenetre)
+     */
     @Override
     public void run() {
         try {

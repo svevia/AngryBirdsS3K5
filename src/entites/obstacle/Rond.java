@@ -1,23 +1,23 @@
 package entites.obstacle;
 
-import angrybirds.Courbe;
+import modele.Courbe;
+import entites.Hitbox;
 import entites.Skin;
 import java.awt.Color;
-import java.awt.Graphics;
 
 /**
- * Objet permettant de faire des obstacles en forme de rond
+ * Dessine un obstacle en forme de carre
  */
 public class Rond extends Obstacle {
 
     /**
-     * Dessine un rond
+     * Cree un obstacle en forme de carre
      *
-     * @param hight
-     * @param widht
-     * @param x
-     * @param y
-     * @param c
+     * @param hight La hauteur de l'obstacle
+     * @param widht La largeur de l'obstacle
+     * @param x La position en x de l'obstacle
+     * @param y La position en y de l'obstacle
+     * @param c La couleur de l'obstacle
      */
     public Rond(int x, int y, int hight, int widht, Courbe crb, Color c) {
         super(x, y, hight, widht, crb, c);
@@ -25,10 +25,8 @@ public class Rond extends Obstacle {
 
     @Override
     public Skin draw(Skin s) {
-        Graphics g = s.getG();
-        g.setColor(c);
-        g.fillOval(x, y, widht, hight);
-        s.setG(g);
+        s.getG().setColor(c);
+        s.getG().fillOval(x, y, widht, hight);
         return s;
     }
 }

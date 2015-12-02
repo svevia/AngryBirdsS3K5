@@ -1,6 +1,5 @@
 package entites;
 
-import angrybirds.AnimationJeu;
 import static angrybirds.Constante.*;
 import java.awt.Color;
 

@@ -4,10 +4,10 @@ imagecustomz:name=herbe,src=/ressource/herbe.png,y=980
 imagecustomz:name=nuage,src=/ressource/nuage.png
 obstacle:type=carre,x=5,y=50,h=50,w=50,color=90
 obstacle:type=carre
-obstacle:type=carre
+obstacle:type=rond
 obstacle:type=carre
 obstacle:type=carre,bX=1
-obstacle:type=carre
+obstacle:type=rond
 obstacle:type=carre
 obstacle:type=carre,bY=1
 obstacle:type=carre,bX=0.1,bY=0.1

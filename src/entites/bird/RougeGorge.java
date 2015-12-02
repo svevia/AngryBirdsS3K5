@@ -1,6 +1,6 @@
 package entites.bird;
 
-import angrybirds.Courbe;
+import modele.Courbe;
 import java.awt.Color;
 import entites.bird.module.BecTriangulaire;
 import entites.bird.module.Oeil;

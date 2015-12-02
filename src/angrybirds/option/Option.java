@@ -2,7 +2,7 @@ package angrybirds.option;
 
 import static angrybirds.Constante.footstep;
 import static angrybirds.Constante.indexPFAGUtilise;
-import angrybirds.menu.FenetrePrincipale;
+import angrybirds.FenetrePrincipale;
 import entites.bird.Footstep;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -13,7 +13,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import static angrybirds.menu.FenetrePrincipale.*;
+import static angrybirds.FenetrePrincipale.*;
 import static ressource.PFAGReader.listePFAG;
 
 public class Option extends GridPane implements EventHandler<ActionEvent> {
@@ -32,13 +32,11 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
     BoutonOption back = new BoutonOption("Retour au menu");
     BoutonOption apply = new BoutonOption("Appliquer");
 
-    SeparatorVDeux s1 = new SeparatorVDeux("Divers");
+    SeparatorVDeux s1 = new SeparatorVDeux("Divers", this);
     Separator s2 = new Separator();
 
     public Option(FenetrePrincipale root) {
         
-        s1.setOnAction(this);
-
         this.root = root;
         setAlignment(Pos.CENTER);
         option.getStyleClass().add("textOption1");

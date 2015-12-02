@@ -3,7 +3,7 @@ package entites.obstacle;
 import entites.Hitbox;
 import java.awt.Color;
 import static angrybirds.Constante.obstacle;
-import angrybirds.Courbe;
+import modele.Courbe;
 import entites.Entity;
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public abstract class Obstacle extends Entity{
      * @param c Couleur
      */
     public Obstacle(int x, int y, int widht, int hight, Courbe crb, Color c) {
-        super(x, y, hight, widht, crb);
+        super(x , y, hight, widht, crb);
         this.c = c;
     }
 

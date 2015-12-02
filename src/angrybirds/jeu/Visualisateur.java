@@ -1,5 +1,6 @@
-package angrybirds;
+package angrybirds.jeu;
 
+import modele.Courbe;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import entites.Entity;

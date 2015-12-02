@@ -2,9 +2,10 @@ package ressource;
 
 import static angrybirds.Constante.fenetre;
 import static angrybirds.Constante.listeFichier;
-import angrybirds.Courbe;
+import modele.Courbe;
 import entites.obstacle.Obstacle;
 import entites.obstacle.Carre;
+import entites.obstacle.Rond;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.BufferedReader;
@@ -198,6 +199,9 @@ public class PFAGReader {
                     }
                     if (type.equals("carre")) {
                         ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
+                    }
+                    if (type.equals("rond")) {
+                        ar.add(new Rond(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
                     }
                 }
             }

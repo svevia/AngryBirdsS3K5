@@ -1,6 +1,6 @@
 package entites.obstacle;
 
-import angrybirds.Courbe;
+import modele.Courbe;
 import entites.Skin;
 import java.awt.Color;
 
@@ -12,11 +12,11 @@ public class Carre extends Obstacle {
     /**
      * Cree un obstacle en forme de carre
      *
-     * @param hight
-     * @param widht
-     * @param x
-     * @param y
-     * @param c
+     * @param hight La hauteur de l'obstacle
+     * @param widht La largeur de l'obstacle
+     * @param x La position en x de l'obstacle
+     * @param y La position en y de l'obstacle
+     * @param c La couleur de l'obstacle
      */
     public Carre(int x, int y, int hight, int widht, Courbe crb, Color c) {
         super(x, y, hight, widht, crb, c);

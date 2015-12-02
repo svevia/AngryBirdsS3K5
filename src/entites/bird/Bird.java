@@ -2,9 +2,7 @@ package entites.bird;
 
 import entites.bird.module.ModuleBird;
 import static angrybirds.Constante.allModul;
-import static angrybirds.Constante.bird;
-import angrybirds.Courbe;
-import static angrybirds.HeartCore.t;
+import modele.Courbe;
 import entites.Entity;
 import java.awt.Color;
 import entites.Hitbox;
@@ -81,10 +79,18 @@ public class Bird extends Entity {
         return s;
     }
 
+    /**
+     * 
+     * @return L'angle du pigeon 
+     */
     public double getA() {
         return a;
     }
-
+    
+    /**
+     * Change l'angle du pigeon
+     * @param a 
+     */
     public void setA(double a) {
         this.a = a % (Math.PI * 2);
     }
@@ -183,6 +189,11 @@ public class Bird extends Entity {
         return s;
     }
 
+    /**
+     * Bouge l'entite en fonction de sa courbe, celui de bird rajoute l'angle
+     * en plus
+     * @param t 
+     */
     public void move(int t) {
         super.move(t);
         setA(super.crb.angleAenT(t));

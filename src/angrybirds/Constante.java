@@ -1,5 +1,6 @@
 package angrybirds;
 
+import angrybirds.jeu.GameFrame;
 import entites.bird.module.ModuleBird;
 import entites.bird.*;
 import entites.obstacle.Obstacle;

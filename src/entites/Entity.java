@@ -1,6 +1,6 @@
 package entites;
 
-import angrybirds.Courbe;
+import modele.Courbe;
 
 /**
  * Donne les parametres minimale pour obtenir une entitee utilisable sur le jeu
@@ -185,7 +185,8 @@ public abstract class Entity {
     public abstract Skin draw(Skin s);
 
     /**
-     * Fait bouger l'entite
+     * Fait bouger l'entite en fonction de t et de sa courbe
+     * @param t
      */
     public void move(int t) {
         setX((int) crb.getXenT(t));
