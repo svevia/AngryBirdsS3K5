@@ -1,7 +1,6 @@
 package angrybirds.jeu;
 
 import angrybirds.Constante;
-import angrybirds.jeu.AnimationJeu;
 import static angrybirds.Constante.gReader;
 import static angrybirds.Constante.indexPFAGUtilise;
 import static angrybirds.Constante.iniz;

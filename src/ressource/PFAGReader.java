@@ -123,7 +123,7 @@ public class PFAGReader {
         StringTokenizer st;
         StringTokenizer st2;
         String type = "";
-        int x = 0, y = 0, w = 0, h = 0;
+        int x = 0, y = 0, w = 0, h = 0, mouvementMax = 0;
         double aX = 0, bX = 0, aY = 0, bY = 0;
         Color couleur = Color.red;
         Random r = new Random();
@@ -138,6 +138,7 @@ public class PFAGReader {
                 bX = 0;
                 aY = 0;
                 bY = 0;
+                mouvementMax = 0;
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("obstacle")) {
                     st2 = new StringTokenizer(st.nextToken(), ",");
@@ -180,6 +181,9 @@ public class PFAGReader {
                             case "color":
                                 couleur = new Color(Integer.parseInt(st.nextToken()));
                                 break;
+                            case "mouvement":
+                                mouvementMax = Integer.parseInt(st.nextToken());
+                                break;
                             default:
                                 System.out.println("Un argument est incorrecte " + st.nextToken());
                                 break;
@@ -197,11 +201,20 @@ public class PFAGReader {
                     if (h == 0) {
                         h = r.nextInt(100) + 100;
                     }
-                    if (type.equals("carre")) {
-                        ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
-                    }
-                    if (type.equals("rond")) {
-                        ar.add(new Rond(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
+                    if (mouvementMax == 0) {
+                        if (type.equals("carre")) {
+                            ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
+                        }
+                        if (type.equals("rond")) {
+                            ar.add(new Rond(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
+                        }
+                    } else {
+                        if (type.equals("carre")) {
+                            ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), couleur));
+                        }
+                        if (type.equals("rond")) {
+                            ar.add(new Rond(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), couleur));
+                        }
                     }
                 }
             }
@@ -254,7 +267,7 @@ public class PFAGReader {
     }
 
     /**
-     * 
+     *
      * @param pfag
      * @return La position du pigeon par le biais d'une Dimension
      */

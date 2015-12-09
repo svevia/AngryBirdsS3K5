@@ -1,8 +1,6 @@
 package angrybirds.jeu;
 
 import modele.Courbe;
-import angrybirds.jeu.Visualisateur;
-import angrybirds.jeu.HeartCore;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import static angrybirds.jeu.HeartCore.t;
@@ -113,6 +111,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("ok");
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             shoot = true;
         }

@@ -10,6 +10,6 @@ obstacle:type=carre,bX=1
 obstacle:type=rond
 obstacle:type=carre
 obstacle:type=carre,bY=1
-obstacle:type=carre,bX=0.1,bY=0.1
+obstacle:type=carre,bX=0.2,bY=0.2,mouvement=100,color=50,x=1,y=1,w=50,h=50
 obstacle:type=carre
 bird:x=500,y=500
