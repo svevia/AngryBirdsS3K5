@@ -1,0 +1,21 @@
+class CourbeTest
+!!!160005.java!!!	testGetYenX() : void
+        int x = 5;
+        assertTrue(c1.getYenX(x) == (20 * Math.pow(x, 2) + 40 * x + 0));
+        assertTrue(c2.getYenX(x) == (-20 * Math.pow(x, 2) + -40 * x + 0));
+!!!160133.java!!!	testDistanceEntreDeuxPoints() : void
+        double x1 = 2;
+        double x2 = 3;
+        double y1 = 1;
+        double y2 = 1;
+        double expResult = 1;
+        double result = c1.distanceEntreDeuxPoints(x1, x2, y1, y2);
+        assertEquals(expResult, result, 0.0);
+!!!160261.java!!!	testGetA() : void
+        double expResult = 20;
+        double result = c1.getA();
+        assertEquals(expResult, result, 0.0);
+!!!160389.java!!!	testGetB() : void
+        double expResult = 40;
+        double result = c1.getB();
+        assertEquals(expResult, result, 0.0);

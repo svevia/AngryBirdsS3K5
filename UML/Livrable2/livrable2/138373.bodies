@@ -1,0 +1,30 @@
+class RotateButton
+!!!139141.java!!!	RotateButton(inout b : Button)
+        this.b = b;
+        i = b.getRotate();
+        t.setRepeats(false);
+!!!139269.java!!!	start() : void
+        rotation();
+!!!139397.java!!!	interrupt() : void
+        super.interrupt();
+        finish = true;
+!!!139525.java!!!	rotation() : void
+
+        if (uping) {
+            i++;
+            if (i > angleMax) {
+                uping = false;
+            }
+        } else {
+            i--;
+            if (i < -angleMax) {
+                uping = true;
+            }
+        }
+
+        if (!finish) {
+            t.start();
+        }
+!!!139653.java!!!	actionPerformed(inout e : ActionEvent) : void
+        b.setRotate(i);
+        rotation();

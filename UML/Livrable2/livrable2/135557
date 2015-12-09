@@ -1,0 +1,683 @@
+format 210
+"module" // AngryBirdsS3K5::src::entites::bird::module
+  revision 1
+  modified_by 5 "lefevrew"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  java_dir "/home/infoetu/lefevrew/NetBeansProjects/AngryBirdsProject/AngryBirdsS3K5/src/entites/bird/module/"
+  java_package "entites.bird.module"
+  classview 135045 "module"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 135301 "ModuleBird"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Un module d'oiseau est un éléments qui se rajoute au corps de l'oiseau en
+fonction de sa distance au centre de l'oiseau
+"
+      classrelation 141701 // b (<unidirectional association>)
+	relation 141701 --->
+	  a role_name "b" protected
+	    comment "
+L'oiseau a qui appartient le module
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 141701 // b (<unidirectional association>)
+	  b parent class_ref 134789 // Bird
+      end
+
+      attribute 145285 "over"
+	public explicit_type "boolean"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "L'emplecement par rapport au corps de l'oiseau, sur ou sous l'oiseau sur
+un plan 2D
+
+"
+      end
+
+      attribute 145413 "distanceCentre"
+	protected explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Distance comprise entre 0 et 1, plus que 1 mettra le module hors du corp
+de l'oiseau
+
+"
+      end
+
+      operation 147589 "ModuleBird"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "distanceCentre" explicit_type "double"
+	  param inout name "b" type class_ref 134789 // Bird
+	  param inout name "over" explicit_type "boolean"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param distanceCentre
+@param b
+@param over
+"
+      end
+
+      operation 147717 "getDistanceCentre"
+	public explicit_return_type "double"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+
+      operation 147845 "setDistanceCentre"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "distanceCentre" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param distanceCentre
+"
+      end
+
+      operation 147973 "isOver"
+	public explicit_return_type "boolean"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+
+      operation 148101 "setOver"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "over" explicit_type "boolean"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param over
+"
+      end
+
+      operation 148229 "draw"
+	abstract public return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "La representation graphique du module
+
+@param g
+@return
+"
+      end
+
+      operation 148357 "getSize"
+	abstract public explicit_return_type "int"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return 
+"
+      end
+    end
+
+    class 139653 "BecCanard"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 141829 // <generalisation>
+	relation 141829 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 141829 // <generalisation>
+	  b parent class_ref 135301 // ModuleBird
+      end
+
+      attribute 145541 "nbPoint"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145669 "couleur"
+	private explicit_type "Color"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145797 "largeur"
+	private explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 145925 "pointX"
+	package explicit_type "int"
+	multiplicity "[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 146053 "pointY"
+	package explicit_type "int"
+	multiplicity "[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 148485 "BecCanard"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "largeur" explicit_type "double"
+	  param in name "distanceCentre" explicit_type "double"
+	  param inout name "b" type class_ref 134789 // Bird
+	  param inout name "couleur" explicit_type "Color"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param largeur
+@param distanceCentre
+@param b
+@param couleur
+"
+      end
+
+      operation 148613 "draw"
+	public return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+
+      operation 148741 "getSize"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+    end
+
+    class 139781 "Oeil"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Rajoute un oeil oval a l'oiseau
+"
+      classrelation 142085 // <generalisation>
+	relation 142085 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 142085 // <generalisation>
+	  b parent class_ref 135301 // ModuleBird
+      end
+
+      attribute 146949 "diametre"
+	package explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 147077 "couleur"
+	package explicit_type "Color"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 147205 "angle"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 149253 "Oeil"
+	public explicit_return_type ""
+	nparams 5
+	  param in name "distanceCentre" explicit_type "double"
+	  param inout name "b" type class_ref 134789 // Bird
+	  param inout name "over" explicit_type "boolean"
+	  param in name "diametre" explicit_type "int"
+	  param inout name "couleur" explicit_type "Color"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param distanceCentre
+@param b
+@param over
+@param diametre
+@param couleur
+"
+      end
+
+      operation 149381 "draw"
+	public return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+
+      operation 149509 "getSize"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+    end
+
+    class 140037 "BecTriangulaire"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Rajoute un bec triangulaire (en trois points) a l'oiseau
+"
+      classrelation 141957 // <generalisation>
+	relation 141957 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 141957 // <generalisation>
+	  b parent class_ref 135301 // ModuleBird
+      end
+
+      attribute 146181 "nbPoint"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 146309 "couleur"
+	private explicit_type "Color"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 146437 "hauteur"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 146565 "largeur"
+	private explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 146693 "pointX"
+	package explicit_type "int"
+	multiplicity "[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 146821 "pointY"
+	package explicit_type "int"
+	multiplicity "[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 148869 "BecTriangulaire"
+	public explicit_return_type ""
+	nparams 5
+	  param in name "hauteur" explicit_type "int"
+	  param in name "largeur" explicit_type "double"
+	  param in name "distanceCentre" explicit_type "double"
+	  param inout name "b" type class_ref 134789 // Bird
+	  param inout name "couleur" explicit_type "Color"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param hauteur
+@param largeur
+@param distanceCentre
+@param b
+@param couleur
+"
+      end
+
+      operation 148997 "draw"
+	public return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+
+      operation 149125 "getSize"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 135301 "module"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 137221 "ModuleBird"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import entites.Skin;
+import entites.bird.Bird;
+${definition}"
+      associated_classes
+	class_ref 135301 // ModuleBird
+      end
+    end
+
+    artifact 137349 "BecCanard"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import entites.Skin;
+import entites.bird.Bird;
+import java.awt.Color;
+${definition}"
+      associated_classes
+	class_ref 139653 // BecCanard
+      end
+    end
+
+    artifact 137477 "BecTriangulaire"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import entites.Skin;
+import entites.bird.Bird;
+import java.awt.Color;
+${definition}"
+      associated_classes
+	class_ref 140037 // BecTriangulaire
+      end
+    end
+
+    artifact 137605 "Oeil"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import entites.Skin;
+import entites.bird.Bird;
+import java.awt.Color;
+${definition}"
+      associated_classes
+	class_ref 139781 // Oeil
+      end
+    end
+  end
+end

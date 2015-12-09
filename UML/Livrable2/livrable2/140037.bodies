@@ -1,0 +1,22 @@
+class BecTriangulaire
+!!!148869.java!!!	BecTriangulaire(in hauteur : int, in largeur : double, in distanceCentre : double, inout b : Bird, inout couleur : Color)
+        super(distanceCentre, b, false);
+        nbPoint = 3;
+        this.hauteur = hauteur;
+        this.largeur = largeur;
+        this.couleur = couleur;
+!!!148997.java!!!	draw(inout s : Skin) : Skin
+        s.getG().setColor(couleur);
+        this.pointX = new int[nbPoint];
+        this.pointY = new int[nbPoint];
+        double angle = (b.getA());
+        pointX[0] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle - largeur));
+        pointX[1] = (int) (b.getBirdCenterX() + hauteur * b.getR() * Math.cos(angle));
+        pointX[2] = (int) (b.getBirdCenterX() + b.getR() * Math.cos(angle + largeur));
+        pointY[0] = (int) (b.getBirdCenterY() + b.getR() * Math.sin(angle - largeur));
+        pointY[1] = (int) (b.getBirdCenterY() + ((hauteur * b.getR()) * Math.sin(angle)));
+        pointY[2] = (int) (b.getBirdCenterY() + b.getR() * Math.sin(angle + largeur));
+        s.getG().fillPolygon(pointX, pointY, nbPoint);
+        return s;
+!!!149125.java!!!	getSize() : int
+        return hauteur * 3;

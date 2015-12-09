@@ -1,0 +1,50 @@
+class ConstanteTest
+!!!159493.java!!!	testIniz() : void
+        /**
+         * Rappel :
+         *
+         * allModul = new ArrayList<>(); bird = new RougeGorge(); footstep =
+         * Footstep.GAY; fond = Fond.PLAINE; obstacle = new ArrayList<>();
+         * footstepX = new ArrayList<>(); footstepY = new ArrayList<>();
+         * footstepA = new ArrayList<>(); last = false;
+         */
+        Constante.iniz();
+        assertTrue(obstacle.isEmpty());
+        assertTrue(footstepA.isEmpty());
+        assertTrue(footstepX.isEmpty());
+        assertTrue(footstepY.isEmpty());
+        assertTrue(!last);
+!!!159621.java!!!	testGenerateCourbe() : void
+        double aMin = 0.0007, aMax = 0.0008;
+        double bMin = -2, bMax = 0;
+        Courbe result = Constante.generateCourbe();
+        assertTrue(aMin < result.getA());
+        assertTrue(aMax > result.getA());
+        assertTrue(bMin < result.getB());
+        assertTrue(bMax > result.getB());
+!!!159749.java!!!	testGenerateListObstacle() : void
+        int combien = 0;
+        ArrayList<Obstacle> result = Constante.generateListObstacle(combien);
+        assertTrue(result.isEmpty());
+
+        combien = 5;
+        result = Constante.generateListObstacle(combien);
+        assertTrue(result.size() == 5);
+
+        // Verifie que tout les objets contenue dans la liste sont bien des obstacles
+        for (int i = 0; i < result.size(); i++) {
+            assertTrue(result.get(i) instanceof Obstacle);
+        }
+!!!159877.java!!!	testGenereObstacle() : void
+        int borneXMin = 500, borneXMax = fenetre.width;
+        int borneYMin = 0, borneYMax = fenetre.height;
+        int tailleHMin = 0, tailleHMax = 100;
+        int tailleWMin = 0, tailleWMax = 100;
+        assertTrue((borneXMin < genereObstacle().getX()));
+        assertTrue(borneXMax > genereObstacle().getX());
+        assertTrue(borneYMin < genereObstacle().getY());
+        assertTrue(borneYMax > genereObstacle().getY());
+        assertTrue(tailleHMin < genereObstacle().getHight());
+        assertTrue(tailleHMax > genereObstacle().getHight());
+        assertTrue(tailleWMin < genereObstacle().getWeight());
+        assertTrue(tailleWMax > genereObstacle().getWeight());

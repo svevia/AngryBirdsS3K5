@@ -1,0 +1,50 @@
+class Footstep
+!!!146821.java!!!	Footstep(inout  : Color...c)
+        this.c = c;
+!!!146949.java!!!	getC() : Color
+        return c;
+!!!147077.java!!!	drawFootstep(in part : int, in tailleVerticale : int, in tailleHorizontale : int, inout g : Graphics) : Graphics
+        if (!footstepA.isEmpty()) {
+            int[] xP = new int[4], yP = new int[4];
+            int i = (footstepX.size() - part < 0) ? 0 : footstepX.size() - part;
+            for (i = i; i < footstepX.size(); i++) {
+                for (int j = 0; j < c.length; j++) {
+                    g.setColor(c[j]);
+                    xP[0] = footstepX.get(i);
+                    xP[1] = footstepX.get(i) + tailleHorizontale;
+                    xP[2] = footstepX.get(i) + tailleHorizontale;
+                    xP[3] = footstepX.get(i);
+                    yP[0] = footstepY.get(i) + j * tailleVerticale;
+                    yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
+                    yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
+                    yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
+                    g.fillPolygon(xP, yP, 4);
+                }
+            }
+        }
+        return g;
+!!!147205.java!!!	drawAllFootstep(in tailleVerticale : int, in tailleHorizontale : int, inout g : Graphics) : Graphics
+        if (!footstepA.isEmpty()) {
+            int[] xP = new int[4], yP = new int[4];
+            for (int i = 0; i < footstepX.size(); i++) {
+                for (int j = 0; j < c.length; j++) {
+                    g.setColor(c[j]);
+                    xP[0] = footstepX.get(i);
+                    xP[1] = footstepX.get(i) + tailleHorizontale;
+                    xP[2] = footstepX.get(i) + tailleHorizontale;
+                    xP[3] = footstepX.get(i);
+                    yP[0] = footstepY.get(i) + j * tailleVerticale;
+                    yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
+                    yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
+                    yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
+                    g.fillPolygon(xP, yP, 4);
+                }
+            }
+        }
+        return g;
+!!!147333.java!!!	getListFootstep() : ArrayList<String>
+        ArrayList<String> al = new ArrayList<>();
+        for (Footstep f : Footstep.values()) {
+            al.add(f.toString());
+        }
+        return al;

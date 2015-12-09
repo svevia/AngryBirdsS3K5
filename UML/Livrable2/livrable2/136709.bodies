@@ -1,0 +1,27 @@
+class Collision
+!!!140805.java!!!	entityHit() : int
+        for (int i = 0; i < obstacle.size(); i++) {
+            // Compare les hit boxes
+            int j = bird.getHb().compareTo(obstacle.get(i).getHb());
+            if (j == 1) {
+                return i;
+            }
+        }
+        return 0;
+!!!140933.java!!!	borderTouch() : boolean
+        return (bird.getX() + bird.getWidht() > fenetre.width
+                || bird.getY() + bird.getR()*2 > fenetre.height - 100
+                || bird.getY() < 0
+                ||bird.getX() < 0
+                );
+!!!141061.java!!!	verif() : void
+        if (entityHit() != 0 || borderTouch()) {
+            entityHitty = entityHit();
+            bird.setCorps(Color.gray);
+            if (!borderTouch()){
+	            obstacle.get(entityHitty).setC(Color.gray);
+            }
+            last = true;
+        }
+!!!141189.java!!!	run() : void
+        verif();

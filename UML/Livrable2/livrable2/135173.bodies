@@ -1,0 +1,53 @@
+class Obstacle
+!!!149637.java!!!	Obstacle(in x : int, in y : int, in widht : int, in hight : int, inout crb : Courbe, inout c : Color)
+        super(x , y, hight, widht, crb);
+        this.c = c;
+!!!149765.java!!!	getHight() : int
+        return hight;
+!!!149893.java!!!	setHight(in hight : int) : void
+        if(hight > 0)
+            this.hight = hight;
+        else
+            this.hight = 42;
+!!!150021.java!!!	getWeight() : int
+        return widht;
+!!!150149.java!!!	setWeight(in weight : int) : void
+        if(weight > 0)
+            this.widht = weight;
+        else
+            this.widht = 42;
+!!!150277.java!!!	getX() : int
+        return x;
+!!!150405.java!!!	setX(in x : int) : void
+        this.x = x;
+        this.hb.setX(x);
+!!!150533.java!!!	getY() : int
+        return y;
+!!!150661.java!!!	setY(in y : int) : void
+        this.y = y;
+        this.hb.setY(y);
+!!!150789.java!!!	getC() : Color
+        return c;
+!!!150917.java!!!	setC(inout c : Color) : void
+        this.c = c;
+!!!151045.java!!!	getWidht() : int
+        return widht;
+!!!151173.java!!!	getHb() : Hitbox
+        return hb;
+!!!151301.java!!!	addObstacle(inout o : Obstacle) : void
+        obstacle.add(o);
+!!!151429.java!!!	addListObstacle(inout  : Obstacle...o) : void
+        for (Obstacle oi : o) {
+            addObstacle(oi);
+        }
+!!!151557.java!!!	addListObstacle(inout o : ArrayList<Obstacle>) : void
+        obstacle = o;
+!!!151685.java!!!	removeObstacle(in i : int) : void
+        if(i < obstacle.size())
+            obstacle.remove(i);
+!!!151813.java!!!	removeAllObstacle() : void
+        obstacle = new ArrayList<>();
+!!!151941.java!!!	removeAllSpecifiedKindObstacle(inout o : Obstacle) : void
+        for (int i = 0; i < obstacle.size(); i++) {
+            obstacle.remove(o);
+        }

@@ -1,0 +1,5 @@
+class Canard
+!!!146693.java!!!	Canard(inout c : Courbe)
+        super(0, 0, 40, c, Color.white);
+        addModule(bec);
+        addModule(oeil);

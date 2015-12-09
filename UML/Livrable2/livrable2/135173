@@ -1,0 +1,867 @@
+format 210
+"entites" // AngryBirdsS3K5::src::entites
+  revision 1
+  modified_by 5 "lefevrew"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  java_dir "/home/infoetu/lefevrew/NetBeansProjects/AngryBirdsProject/AngryBirdsS3K5/src/entites/"
+  java_package "entites"
+  package_ref 135301 // bird
+
+  package_ref 135429 // obstacle
+
+  classview 135685 "entites"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 136709 "Collision"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Classe qui gere les collisions, le moteur de collision
+"
+      operation 140805 "entityHit"
+	private explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Fonction permettant de trouver l'element percute
+
+@return 0 si aucun element n'est percute, si non son index dans la liste
+"
+      end
+
+      operation 140933 "borderTouch"
+	private explicit_return_type "boolean"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Methode qui indique si un cote de la fenetre est touche
+@return True si l'oiseau touche les bords
+"
+      end
+
+      operation 141061 "verif"
+	private explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Verifie qu'aucune collision n'est comise
+"
+      end
+
+      operation 141189 "run"
+	public explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+    end
+
+    class 137477 "Entity"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Donne les parametres minimale pour obtenir une entitee utilisable sur le jeu
+"
+      attribute 141829 "x"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Position en x sur la fenetre
+
+"
+      end
+
+      attribute 141957 "y"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Position en y sur la fenetre
+
+"
+      end
+
+      attribute 142085 "hight"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La hauteur de l'entitie
+
+"
+      end
+
+      attribute 142213 "widht"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La largeur de l'entite
+
+"
+      end
+
+      classrelation 140165 // hb (<unidirectional association>)
+	relation 140165 --->
+	  a role_name "hb" protected
+	    comment "
+La hitbox de l'entite
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 140165 // hb (<unidirectional association>)
+	  b parent class_ref 139141 // Hitbox
+      end
+
+      classrelation 140293 // crb (<unidirectional association>)
+	relation 140293 --->
+	  a role_name "crb" protected
+	    comment "
+La courbe que suit l'entite
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 140293 // crb (<unidirectional association>)
+	  b parent class_ref 137605 // Courbe
+      end
+
+      classrelation 140421 // skin (<unidirectional association>)
+	relation 140421 --->
+	  a role_name "skin" protected
+	    comment "
+Skin de l'entite
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 140421 // skin (<unidirectional association>)
+	  b parent class_ref 139269 // Skin
+      end
+
+      attribute 142341 "move"
+	private explicit_type "boolean"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "L'indicateur de mouvement de l'entite, si elle est equipe d'une courbe ce
+booleen doit etre true
+
+"
+      end
+
+      operation 141317 "Entity"
+	public explicit_return_type ""
+	nparams 5
+	  param in name "x" explicit_type "int"
+	  param in name "y" explicit_type "int"
+	  param in name "hight" explicit_type "int"
+	  param in name "widht" explicit_type "int"
+	  param inout name "crb" type class_ref 137605 // Courbe
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Definie une entite en x et y sur une taille donne avec sa Hitbox carre
+
+@param x La position en x de l'entite
+@param y La position en y de l'entite
+@param hight La hauteur de l'entite
+@param widht La largeur de l'entite
+"
+      end
+
+      operation 141445 "getX"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return La position de l'entite en x
+"
+      end
+
+      operation 141573 "setX"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "x" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param x La position de l'entite en x a changer
+"
+      end
+
+      operation 141701 "getY"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return La position de l'entite en y
+"
+      end
+
+      operation 141829 "setY"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "y" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param y La position de l'entite en y a changer
+"
+      end
+
+      operation 141957 "getHight"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return La hauteur de l'entite
+"
+      end
+
+      operation 142085 "setHight"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "hight" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param hight La hauteur de l'entite a changer
+"
+      end
+
+      operation 142213 "getWidht"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return La largeur de l'entite
+"
+      end
+
+      operation 142341 "setWidht"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "widht" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param widht La largeur de l'entite a changer
+"
+      end
+
+      operation 142469 "getHb"
+	public return_type class_ref 139141 // Hitbox
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return La Hitbox de l'entite
+"
+      end
+
+      operation 142597 "setHb"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "hb" type class_ref 139141 // Hitbox
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param hb La Hitbox a changer
+"
+      end
+
+      operation 142725 "getCourbe"
+	public return_type class_ref 137605 // Courbe
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "@return La courbe de l'entite
+"
+      end
+
+      operation 142853 "setCourbe"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "crb" type class_ref 137605 // Courbe
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param crb La nouvelle courbe a suivre
+"
+      end
+
+      operation 142981 "isMove"
+	public explicit_return_type "boolean"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return Si l'entite doit bouger ou pas
+"
+      end
+
+      operation 143109 "draw"
+	abstract public return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine l'entite sur un Skin
+
+@param g le Skin sur le quel dessiner
+@return Le Graphics modifie
+"
+      end
+
+      operation 143237 "move"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "t" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Fait bouger l'entite en fonction de t et de sa courbe
+@param t
+"
+      end
+    end
+
+    class 139141 "Hitbox"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "HitBox qui définie l'endroit virtuel ou se situe un objet qui contient le
+contient
+"
+      attribute 142469 "x"
+	public explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Position en x de la Hitbox
+
+"
+      end
+
+      attribute 142597 "y"
+	public explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Position en y en de la Hitbox
+
+"
+      end
+
+      attribute 142725 "w"
+	public explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La largeur d'une Hitbox carre
+
+"
+      end
+
+      attribute 142853 "h"
+	public explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La hauteur d'une Hitbox carre
+
+"
+      end
+
+      operation 143365 "Hitbox"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "x" explicit_type "int"
+	  param in name "y" explicit_type "int"
+	  param in name "w" explicit_type "int"
+	  param in name "h" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Crée une hitbox avec sa position et sa dimension
+
+@param x position aux abscisses
+@param y position aux ordonnees
+@param w largeur de la hitbox
+@param h hauteur de la hitbox
+"
+      end
+
+      operation 143493 "compareTo"
+	public explicit_return_type "int"
+	nparams 1
+	  param inout name "o" type class_ref 139141 // Hitbox
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+	comment "Fonction qui gere les collisions ULTRA SIMPLIFIEE
+
+@param o La Hitbox a comparer
+@return Le numero de l'obstacle en collision ou 0 si rien
+"
+      end
+
+      operation 143621 "getX"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return Retourne la position en x de la Hitbox 
+"
+      end
+
+      operation 143749 "setX"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "x" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param x Change la position en x de la Hitbox
+"
+      end
+
+      operation 143877 "getY"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return Retourne la position en y de la Hitbox 
+"
+      end
+
+      operation 144005 "setY"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "y" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param y Change la positon en y de la Hitbox 
+"
+      end
+
+      operation 144133 "setPosition"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "x" explicit_type "int"
+	  param in name "y" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Met a jour les points x et y en même temps
+@param x La nouvelle position en x
+@param y La nouvelle position en y
+"
+      end
+
+      operation 144261 "misaAJour"
+	public explicit_return_type "void"
+	nparams 4
+	  param in name "x" explicit_type "int"
+	  param in name "y" explicit_type "int"
+	  param in name "w" explicit_type "int"
+	  param in name "h" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Met a jour les points x et y et la dimension en même temps
+@param x La nouvelle position en x
+@param y La nouvelle position en y
+@param d La nouvelle dimension
+"
+      end
+
+      operation 144389 "toString"
+	public explicit_return_type "String"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+    end
+
+    class 139269 "Skin"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "
+@author Wissam
+"
+      attribute 142981 "g"
+	private explicit_type "Graphics"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 144517 "Skin"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 144645 "setG"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 144773 "getG"
+	public explicit_return_type "Graphics"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 135045 "entites"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 136197 "Collision"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import java.awt.Color;
+import static angrybirds.Constante.*;
+${definition}"
+      associated_classes
+	class_ref 136709 // Collision
+      end
+    end
+
+    artifact 136325 "Entity"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import modele.Courbe;
+${definition}"
+      associated_classes
+	class_ref 137477 // Entity
+      end
+    end
+
+    artifact 136453 "Hitbox"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import java.awt.Dimension;
+${definition}"
+      associated_classes
+	class_ref 139141 // Hitbox
+      end
+    end
+
+    artifact 136581 "Skin"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import java.awt.Graphics;
+${definition}"
+      associated_classes
+	class_ref 139269 // Skin
+      end
+    end
+  end
+end

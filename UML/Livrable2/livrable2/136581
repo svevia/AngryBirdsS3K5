@@ -1,0 +1,858 @@
+format 210
+"modele" // AngryBirdsS3K5::src::modele
+  revision 1
+  modified_by 5 "lefevrew"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  java_dir "/home/infoetu/lefevrew/NetBeansProjects/AngryBirdsProject/AngryBirdsS3K5/src/modele/"
+  java_package "modele"
+  classview 135941 "modele"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 137605 "Courbe"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Objet permettant de creer une courbe a partir de deux polynomes du second degres
+"
+      attribute 147461 "aX"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur du premier polynome
+
+"
+      end
+
+      attribute 147589 "bX"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur du premier polynome
+
+"
+      end
+
+      attribute 147717 "cX"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur du premier polynome
+
+"
+      end
+
+      attribute 147845 "aY"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur du second polynome
+
+"
+      end
+
+      attribute 147973 "bY"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur du second polynome
+
+"
+      end
+
+      attribute 148101 "cY"
+	package explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur du second polynome
+
+"
+      end
+
+      attribute 148229 "nbMaxY"
+	package explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur d'arret de la courbe
+
+"
+      end
+
+      attribute 148357 "nbMaxX"
+	package explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Valeur d'arret de la courbe
+
+"
+      end
+
+      operation 152581 "Courbe"
+	private explicit_return_type ""
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur vide
+"
+      end
+
+      operation 152709 "Courbe"
+	public explicit_return_type ""
+	nparams 6
+	  param in name "aX" explicit_type "double"
+	  param in name "bX" explicit_type "double"
+	  param in name "cX" explicit_type "double"
+	  param in name "aY" explicit_type "double"
+	  param in name "bY" explicit_type "double"
+	  param in name "cY" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Construit la courbe a partir de deux polynomes
+@param aX 
+@param bX
+@param cX
+@param aY
+@param bY
+@param cY 
+"
+      end
+
+      operation 152837 "Courbe"
+	public explicit_return_type ""
+	nparams 8
+	  param in name "aX" explicit_type "double"
+	  param in name "bX" explicit_type "double"
+	  param in name "cX" explicit_type "double"
+	  param in name "aY" explicit_type "double"
+	  param in name "bY" explicit_type "double"
+	  param in name "cY" explicit_type "double"
+	  param in name "nbMaxY" explicit_type "int"
+	  param in name "nbMaxX" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}, ${t5} ${p5}, ${t6} ${p6}, ${t7} ${p7}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Construit la courbe a partir de deux polynomes et deux valeurs d'arret
+@param aX
+@param bX
+@param cX
+@param aY
+@param bY
+@param cY
+@param nbMaxY
+@param nbMaxX 
+"
+      end
+
+      operation 152965 "getXenT"
+	public explicit_return_type "double"
+	nparams 1
+	  param in name "t" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Renvoie la position x du pigeon en temps t
+
+@param t
+@return
+"
+      end
+
+      operation 153093 "getYenT"
+	public explicit_return_type "double"
+	nparams 1
+	  param in name "t" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Renvoie la position y du pigeon en temps t
+
+@param t
+@return
+"
+      end
+
+      operation 153221 "calculDistance"
+	public explicit_return_type "double"
+	nparams 4
+	  param in name "x1" explicit_type "double"
+	  param in name "y1" explicit_type "double"
+	  param in name "x2" explicit_type "double"
+	  param in name "y2" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Calcul la distance entre deux points
+@param x1
+@param y1
+@param x2
+@param y2
+@return La distance entre les deux points
+"
+      end
+
+      operation 153349 "calculAngle"
+	public explicit_return_type "double"
+	nparams 3
+	  param in name "d1" explicit_type "double"
+	  param in name "d2" explicit_type "double"
+	  param in name "d3" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Calcul l'angle  d1^d2 entre trois distances
+@param d1
+@param d2
+@param d3
+@return 
+"
+      end
+
+      operation 153477 "angleAenT"
+	public explicit_return_type "double"
+	nparams 1
+	  param in name "t" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Donne l'angle en t
+@param t Temps
+@return L'angle en t
+"
+      end
+    end
+
+    class 140421 "Calcul"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Cette classe, singleton, a pour but de reunir differentes methode de calcul
+afin de bouger nos entites
+"
+    end
+
+    class 140549 "Matrice"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Represente une matrice
+"
+      attribute 148485 "nombreColonne"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "nombre de colonne que possede la matrice
+
+"
+      end
+
+      attribute 148613 "nombreLigne"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "nombre de ligne que possede la matrice
+
+"
+      end
+
+      attribute 148741 "matrice"
+	private explicit_type "int"
+	multiplicity "[][]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "tableau a deux dimensions representant la matrice
+
+"
+      end
+
+      operation 153605 "Matrice"
+	public explicit_return_type ""
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur
+"
+      end
+
+      operation 153733 "Matrice"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "ligne" explicit_type "int"
+	  param in name "colonne" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur
+@param ligne
+@param colonne
+"
+      end
+
+      operation 153861 "Matrice"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "matrice" explicit_type "int"
+	multiplicity "[][]"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0}[][] ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 153989 "Matrice"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 154117 "setValueAtIdx"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "ligne" explicit_type "int"
+	  param in name "colonne" explicit_type "int"
+	  param in name "value" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Initialise a l indice donne la valeur dans la matrice
+@param ligne
+@param colonne
+@param value
+"
+      end
+
+      operation 154245 "getValueAtIdx"
+	public explicit_return_type "int"
+	nparams 2
+	  param in name "ligne" explicit_type "int"
+	  param in name "colonne" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne la valeur de l indice 
+@param ligne
+@param colonne
+@return
+"
+      end
+
+      operation 154373 "haveTheSameDimensions"
+	public explicit_return_type "boolean"
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne true si les 2 matrice on les meme dimensions
+@param m
+@return
+"
+      end
+
+      operation 154501 "additionMatrice"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "additionne les deux matrices
+@param m
+"
+      end
+
+      operation 154629 "newAdditionMatrice"
+	public return_type class_ref 140549 // Matrice
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne l addition des deux matrices
+@param m
+@return
+"
+      end
+
+      operation 154757 "soustractionMatrice"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "soustrait les deux matrices
+@param m
+"
+      end
+
+      operation 154885 "newSoustractionMatrice"
+	public return_type class_ref 140549 // Matrice
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne la soustraction des deux matrices
+@param m
+@return
+"
+      end
+
+      operation 155013 "transposition"
+	public explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "transpose la matrice
+"
+      end
+
+      operation 155141 "multipliable"
+	public explicit_return_type "boolean"
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne true si les 2 matrices peuvent etre multiplie
+@param m
+@return
+"
+      end
+
+      operation 155269 "MultipliMatrice"
+	public return_type class_ref 140549 // Matrice
+	nparams 1
+	  param inout name "m" type class_ref 140549 // Matrice
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne le produit des deux matrices
+@param m
+@return
+"
+      end
+
+      operation 155397 "insertLigne"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "idx" explicit_type "int"
+	  param inout name "nouvelLigne" explicit_type "int"
+	multiplicity "[]"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1}[] ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Insert une ligne a l indice idx, les donnees qui ete a cette indice seront decale a l indice idx+1 (le nombre de ligne du tableau augmente de 1)
+@param idx
+@param nouvelLigne
+"
+      end
+
+      operation 155525 "insertColonne"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "idx" explicit_type "int"
+	  param inout name "nouvelColonne" explicit_type "int"
+	multiplicity "[]"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1}[] ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Insert une colonne a l indice idx, les donnees qui ete a cette indice seront decale a l indice idx+1 (le nombre de colonne du tableau augmente de 1)
+@param idx
+@param nouvelColonne
+"
+      end
+
+      operation 155653 "getNombreColonne"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne le nombre de colonne de la matrice
+@return
+"
+      end
+
+      operation 155781 "setNombreColonne"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "nombreColonne" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Initialise le nombre de colonne de la matrice, nombreColonne doit etre superieur a zero
+@param nombreColonne
+"
+      end
+
+      operation 155909 "getNombreLigne"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne le nombre de ligne de la matrice
+@return
+"
+      end
+
+      operation 156037 "setNombreLigne"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "nombreLigne" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Initialise le nombre de ligne de la matrice, nombreLigne doit etre superieur a zero
+@param nombreLigne
+"
+      end
+
+      operation 156165 "getMatrice"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type}[][] ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne la matrice sous forme de tableau a 2 dimensions
+@return
+"
+      end
+
+      operation 156293 "setMatrice"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "matrice" explicit_type "int"
+	multiplicity "[][]"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0}[][] ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Initialise la matrice, la martice doit avoir les dimensions
+@param matrice
+"
+      end
+
+      operation 156421 "setMatrice"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "ligne" explicit_type "int"
+	  param in name "colonne" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Initialise la matrice
+@param ligne
+@param colonne
+"
+      end
+
+      operation 156549 "toString"
+	public explicit_return_type "String"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne sous forme de chaine de caractere la matrice
+"
+      end
+    end
+  end
+
+  deploymentview 135557 "modele"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 138117 "Calcul"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 140421 // Calcul
+      end
+    end
+
+    artifact 138245 "Courbe"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 137605 // Courbe
+      end
+    end
+
+    artifact 138373 "Matrice"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 140549 // Matrice
+      end
+    end
+  end
+end

@@ -1,0 +1,7 @@
+class Rond
+!!!152325.java!!!	Rond(in x : int, in y : int, in hight : int, in widht : int, inout crb : Courbe, inout c : Color)
+        super(x, y, hight, widht, crb, c);
+!!!152453.java!!!	draw(inout s : Skin) : Skin
+        s.getG().setColor(c);
+        s.getG().fillOval(x, y, widht, hight);
+        return s;

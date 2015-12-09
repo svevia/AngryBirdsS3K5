@@ -1,0 +1,7 @@
+class Carre
+!!!152069.java!!!	Carre(in x : int, in y : int, in hight : int, in widht : int, inout crb : Courbe, inout c : Color)
+        super(x, y, hight, widht, crb, c);
+!!!152197.java!!!	draw(inout s : Skin) : Skin
+        s.getG().setColor(c);
+        s.getG().fillRect(x, y, widht, hight);
+        return s;

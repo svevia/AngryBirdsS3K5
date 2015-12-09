@@ -1,0 +1,5 @@
+class RougeGorge
+!!!147461.java!!!	RougeGorge(inout c : Courbe)
+        super(0, 0, 20, c, Color.red);
+        addModule(bec);
+        addModule(oeil);

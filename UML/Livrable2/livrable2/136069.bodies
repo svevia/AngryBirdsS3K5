@@ -1,0 +1,46 @@
+class Option
+!!!140293.java!!!	Option(inout root : FenetrePrincipale)
+        
+        this.root = root;
+        setAlignment(Pos.CENTER);
+        option.getStyleClass().add("textOption1");
+        choiseMap.getStyleClass().add("textOption2");
+        choiseFootstep.getStyleClass().add("textOption2");
+
+        vb.setMinSize(800, 666);
+        vb.setAlignment(Pos.TOP_CENTER);
+        vb2.setAlignment(Pos.TOP_CENTER);
+        vb.setBackground(new Background(new BackgroundImage(new Image("ressource/papyrus.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+
+        back.setOnAction(this);
+        apply.setOnAction(this);
+        hb1.setAlignment(Pos.CENTER_LEFT);
+        hb1.add(back, 0, 0);
+        hb2.setAlignment(Pos.CENTER);
+        hb2.add(apply, 0, 0);
+
+        cb1.setValue(listePFAG().get(indexPFAGUtilise));
+        String fsUse = footstep.toString();
+        int indexFsUse = Footstep.getListFootstep().indexOf(fsUse);
+        cb2.setValue(Footstep.getListFootstep().get(indexFsUse));
+
+        vb2.getChildren().addAll(choiseMap, cb1, choiseFootstep, cb2);
+        vb.getChildren().addAll(option, s1, vb2, s2, hb2, hb1);
+        add(vb, 1, 1);
+
+!!!140421.java!!!	handle(inout event : ActionEvent) : void
+        if (event.getSource() == apply) {
+            indexPFAGUtilise = listePFAG().indexOf(cb1.getValue());
+            footstep = Footstep.valueOf(cb2.getValue());
+        }
+        if (event.getSource() == back) {
+            root.changeScene(ChoseScene.MENU);
+        }
+        if (event.getSource() == s1.b) {
+            if (vb.getChildren().contains(vb2)) {
+                s1.indexHided = vb.getChildren().indexOf(vb2);
+                vb.getChildren().remove(s1.indexHided);
+            } else {
+                vb.getChildren().add(s1.indexHided, vb2);
+            }
+        }

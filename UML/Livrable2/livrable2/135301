@@ -1,0 +1,845 @@
+format 210
+"bird" // AngryBirdsS3K5::src::entites::bird
+  revision 2
+  modified_by 5 "lefevrew"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  java_dir "/home/infoetu/lefevrew/NetBeansProjects/AngryBirdsProject/AngryBirdsS3K5/src/entites/bird/"
+  java_package "entites.bird"
+  classview 134789 "bird"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 134789 "Bird"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "La class abstraite Bird normalise la creation des oiseaux donnant acce a une
+methode un constructeur et une fonction draw.
+"
+      classrelation 140677 // <generalisation>
+	relation 140677 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 140677 // <generalisation>
+	  b parent class_ref 137477 // Entity
+      end
+
+      attribute 143109 "a"
+	protected explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Angle d'inclinaison du pigeon
+
+"
+      end
+
+      attribute 143237 "r"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Rayon du corp de l'oiseau en pixel
+
+"
+      end
+
+      attribute 143365 "birdCenterX"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La position graphique du centre du corp de l'oiseau en x sur la fenetre
+
+"
+      end
+
+      attribute 143493 "birdCenterY"
+	protected explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La position graphique du centre du corp de l'oiseau en y sur la fenetre
+
+"
+      end
+
+      attribute 143621 "corps"
+	protected explicit_type "Color"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La couleur du corps
+
+"
+      end
+
+      classrelation 140805 // modul (<unidirectional association>)
+	relation 140805 --->
+	  stereotype "ArrayList"
+	  a role_name "modul" init_value " new ArrayList<>()" protected
+	    comment "Les modules de l'oiseau (pimp my cybird)
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 140805 // modul (<unidirectional association>)
+	  b parent class_ref 135301 // ModuleBird
+      end
+
+      operation 144901 "Bird"
+	public explicit_return_type ""
+	nparams 5
+	  param in name "pigeonX" explicit_type "int"
+	  param in name "pigeonY" explicit_type "int"
+	  param in name "diametre" explicit_type "int"
+	  param inout name "crb" type class_ref 137605 // Courbe
+	  param inout name "corps" explicit_type "Color"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Le constructeur de l'oiseau
+
+@param pigeonX La position de départ en x
+@param pigeonY La position de départ en y
+@param fatX Sa largeur
+@param fatY Sa hauteur
+@param crb Sa courbe
+@param corps La couleur principale du pigeon
+@param m Ses modules
+"
+      end
+
+      operation 145029 "MinimalBirdFactory"
+	protected return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "La fonction dessine l'oiseau en position x, y et angle a sur le Graphics
+voulu \"g\"
+
+@param posX La position de l'entite en x
+@param g Le Graphics sur le quel applique le dessin
+@return Le Graphics dessine
+"
+      end
+
+      operation 145157 "getA"
+	public explicit_return_type "double"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return L'angle du pigeon 
+"
+      end
+
+      operation 145285 "setA"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "a" explicit_type "double"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Change l'angle du pigeon
+@param a 
+"
+      end
+
+      operation 145413 "getR"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+
+      operation 145541 "setCorps"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "corps" explicit_type "Color"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param corps
+"
+      end
+
+      operation 145669 "getBirdCenterX"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+
+      operation 145797 "setBirdCenterX"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "birdCenterX" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param birdCenterX
+"
+      end
+
+      operation 145925 "getBirdCenterY"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return
+"
+      end
+
+      operation 146053 "setBirdCenterY"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "birdCenterY" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param birdCenterY
+"
+      end
+
+      operation 146181 "drawAllModule"
+	public return_type class_ref 139269 // Skin
+	nparams 2
+	  param inout name "s" type class_ref 139269 // Skin
+	  param inout name "over" explicit_type "boolean"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Le draw des modules
+
+@param g
+@param over
+@return
+"
+      end
+
+      operation 146309 "addModule"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "mb" type class_ref 135301 // ModuleBird
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Ajoute un module a l'oiseau
+
+@param mb
+"
+      end
+
+      operation 146437 "draw"
+	public return_type class_ref 139269 // Skin
+	nparams 1
+	  param inout name "s" type class_ref 139269 // Skin
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+
+      operation 146565 "move"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "t" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Bouge l'entite en fonction de sa courbe, celui de bird rajoute l'angle
+en plus
+@param t 
+"
+      end
+    end
+
+    class 134917 "Footstep"
+      visibility public stereotype "enum"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "L'enumeration qui contient tout les skins d'empreinte et les fonctions
+associees
+"
+      attribute 143749 "NONE"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Sans couleur
+"
+      end
+
+      attribute 143877 "ROUGE"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.red),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Couleur simple rouge
+"
+      end
+
+      attribute 144005 "NOIR"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.black),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Couleur simple noir
+"
+      end
+
+      attribute 144133 "ARCENCIEL"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.magenta, Color.blue, Color.cyan, Color.green, Color.yellow, Color.ORANGE, Color.red),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Au couleur de l'arc en ciel
+"
+      end
+
+      attribute 144261 "BRETZEL"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.BLACK, Color.RED, Color.YELLOW),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Au couleur du drapeau Allemand
+"
+      end
+
+      attribute 144389 "GAY"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.magenta),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Au couleur du drapeau de la gaypride
+"
+      end
+
+      attribute 144517 "ROSE"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.pink),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Couleur simple rose
+"
+      end
+
+      attribute 144645 "RAZER"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.black, new Color(2, 255, 4), Color.black),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Au couleur du serpent vert et noir
+"
+      end
+
+      attribute 144773 "NEERLANDE"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.red, Color.red, Color.white, Color.white, Color.blue, Color.blue),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Aux couleurs des pays bas
+"
+      end
+
+      attribute 144901 "USA"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Aux couleurs des USA
+"
+      end
+
+      attribute 145029 "VODKA"
+	public type class_ref 134917 // Footstep
+	cpp_decl ""
+	java_decl "  ${@}${name}(Color.WHITE, Color.BLUE, Color.RED),${comment}"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "au couleur du drapeau Russe
+"
+      end
+
+      attribute 145157 "c"
+	private explicit_type "Color"
+	multiplicity "[]"
+	stereotype "attribute"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "La liste des couleurs du skin
+
+"
+      end
+
+      operation 146821 "Footstep"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "" explicit_type "Color...c"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur prenant en parametre une liste de couleurs
+
+@param c
+"
+      end
+
+      operation 146949 "getC"
+	public explicit_return_type "Color"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type}[] ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Return un tableau des couleurs d'un skin
+
+@return
+"
+      end
+
+      operation 147077 "drawFootstep"
+	public explicit_return_type "Graphics"
+	nparams 4
+	  param in name "part" explicit_type "int"
+	  param in name "tailleVerticale" explicit_type "int"
+	  param in name "tailleHorizontale" explicit_type "int"
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessinne une partie des empreintes
+
+@param part Nombre de pas a dessiner a partir de l'entite
+@param tailleVerticale
+@param g Graphique sur le quel il s'applique
+@param tailleHorizontale
+@return
+"
+      end
+
+      operation 147205 "drawAllFootstep"
+	public explicit_return_type "Graphics"
+	nparams 3
+	  param in name "tailleVerticale" explicit_type "int"
+	  param in name "tailleHorizontale" explicit_type "int"
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessinne toute les empreintes
+
+@param tailleVerticale
+@param tailleHorizontale
+@param g Graphique sur le quel il s'applique
+@return
+"
+      end
+
+      operation 147333 "getListFootstep"
+	class_operation public explicit_return_type "ArrayList<String>"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "@return La liste des footsteps
+"
+      end
+    end
+
+    class 139525 "Canard"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "w
+Class permettante de dessiner un canard
+"
+      classrelation 140933 // <generalisation>
+	relation 140933 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 140933 // <generalisation>
+	  b parent class_ref 134789 // Bird
+      end
+
+      classrelation 141061 // bec (<unidirectional association>)
+	relation 141061 --->
+	  a role_name "bec" init_value " new BecCanard(Math.PI / 4, 1, this, Color.yellow)" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 141061 // bec (<unidirectional association>)
+	  b parent class_ref 139653 // BecCanard
+      end
+
+      classrelation 141189 // oeil (<unidirectional association>)
+	relation 141189 --->
+	  a role_name "oeil" init_value " new Oeil(15, this, true, 5, Color.blue)" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 141189 // oeil (<unidirectional association>)
+	  b parent class_ref 139781 // Oeil
+      end
+
+      operation 146693 "Canard"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "c" type class_ref 137605 // Courbe
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur de la class creeant automatiquement l'oiseau
+"
+      end
+    end
+
+    class 139909 "RougeGorge"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Class permettante de dessiner un oiseau tout rouge
+"
+      classrelation 141445 // bec (<unidirectional association>)
+	relation 141445 --->
+	  a role_name "bec" init_value " new BecTriangulaire(2, Math.PI / 4, 1, this, Color.orange)" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 141445 // bec (<unidirectional association>)
+	  b parent class_ref 140037 // BecTriangulaire
+      end
+
+      classrelation 141573 // oeil (<unidirectional association>)
+	relation 141573 --->
+	  a role_name "oeil" init_value " new Oeil(8, this, true, 3, Color.BLACK)" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 141573 // oeil (<unidirectional association>)
+	  b parent class_ref 139781 // Oeil
+      end
+
+      operation 147461 "RougeGorge"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "c" type class_ref 137605 // Courbe
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur de la class creeant automatiquement l'oiseau
+"
+      end
+    end
+  end
+
+  package_ref 135557 // module
+
+  deploymentview 135173 "bird"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 136709 "Bird"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import entites.bird.module.ModuleBird;
+import modele.Courbe;
+import entites.Entity;
+import java.awt.Color;
+import entites.Hitbox;
+import entites.Skin;
+import java.util.ArrayList;
+import static angrybirds.Constante.allModul;
+${definition}"
+      associated_classes
+	class_ref 134789 // Bird
+      end
+    end
+
+    artifact 136837 "Canard"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import modele.Courbe;
+import java.awt.Color;
+import entites.bird.module.BecCanard;
+import entites.bird.module.Oeil;
+${definition}"
+      associated_classes
+	class_ref 139525 // Canard
+      end
+    end
+
+    artifact 136965 "Footstep"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import static angrybirds.Constante.*;
+${definition}"
+      associated_classes
+	class_ref 134917 // Footstep
+      end
+    end
+
+    artifact 137093 "RougeGorge"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import modele.Courbe;
+import java.awt.Color;
+import entites.bird.module.BecTriangulaire;
+import entites.bird.module.Oeil;
+${definition}"
+      associated_classes
+	class_ref 139909 // RougeGorge
+      end
+    end
+  end
+end

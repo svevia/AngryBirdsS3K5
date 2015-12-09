@@ -1,0 +1,438 @@
+format 210
+"ressource" // AngryBirdsS3K5::src::ressource
+  revision 1
+  modified_by 5 "lefevrew"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  java_dir "/home/infoetu/lefevrew/NetBeansProjects/AngryBirdsProject/AngryBirdsS3K5/src/ressource/"
+  java_package "ressource"
+  classview 134661 "ressource"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 134661 "PFAGReader"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 149253 "source"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149381 "in"
+	package explicit_type "BufferedReader"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149509 "pfagOfSource"
+	package explicit_type "String, String"
+	stereotype "HashMap"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 157957 "PFAGReader"
+	public explicit_return_type ""
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Cree un reader du fichier src/ressource
+
+@param source
+"
+      end
+
+      operation 158085 "hashMapImage"
+	public return_type class_ref 135045 // ImageCustomz
+	nparams 1
+	  param in name "pfag" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}LinkedHashMap<String, ${type}> ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Liste toute les ImageCustomz du fichier pfag dans une hashmap
+
+@return La liste des images et leur positions, si aucune position n'est
+specifie la position de l'image vaut 0
+"
+      end
+
+      operation 158213 "listeImage"
+	public return_type class_ref 135045 // ImageCustomz
+	nparams 1
+	  param in name "pfag" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}ArrayList<${type}> ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 158341 "listePFAG"
+	class_operation public explicit_return_type "ArrayList<String>"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Liste tout les fichiers pfag du repertoire src/ressource
+
+@return Tout les fichiers pfag du repertoire src/ressource
+"
+      end
+
+      operation 158469 "listeObstacle"
+	public return_type class_ref 135173 // Obstacle
+	nparams 1
+	  param in name "pfag" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}ArrayList<${type}> ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Liste toute les obstacles du fichier pfag dans une ArrayList
+
+@return La liste des images et leur positions, si aucune position n'est
+specifie la position de l'image vaut 0
+"
+      end
+
+      operation 158597 "dimensionFenetre"
+	public explicit_return_type "Dimension"
+	nparams 1
+	  param in name "pfag" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@return La taille de la fenetre si specifie dans le ficher pfag si non
+par defaut la fenetre fait 1920 par 1080 p
+"
+      end
+
+      operation 158725 "positionOiseau"
+	public explicit_return_type "Dimension"
+	nparams 1
+	  param in name "pfag" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param pfag
+@return La position du pigeon par le biais d'une Dimension
+"
+      end
+    end
+
+    class 135045 "ImageCustomz"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "
+@author Wissam
+"
+      attribute 148869 "posX"
+	package explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148997 "posY"
+	package explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149125 "src"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 156677 "ImageCustomz"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "posX" explicit_type "int"
+	  param in name "posY" explicit_type "int"
+	  param in name "src" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 156805 "ImageCustomz"
+	private explicit_return_type ""
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 156933 "getPosX"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157061 "setPosX"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "posX" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157189 "getPosY"
+	public explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157317 "setPosY"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "posY" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157445 "getSrc"
+	public explicit_return_type "String"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157573 "setSrc"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "src" explicit_type "String"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157701 "getImage"
+	public explicit_return_type "Image"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 157829 "toString"
+	public explicit_return_type "String"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 135685 "ressource"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 138501 "ImageCustomz"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import java.awt.Image;
+import java.awt.Toolkit;
+${definition}"
+      associated_classes
+	class_ref 135045 // ImageCustomz
+      end
+    end
+
+    artifact 138629 "PFAGReader"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import modele.Courbe;
+import entites.obstacle.Obstacle;
+import entites.obstacle.Carre;
+import entites.obstacle.Rond;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Random;
+import java.util.StringTokenizer;
+import static angrybirds.Constante.fenetre;
+import static angrybirds.Constante.listeFichier;
+${definition}"
+      associated_classes
+	class_ref 134661 // PFAGReader
+      end
+    end
+  end
+end

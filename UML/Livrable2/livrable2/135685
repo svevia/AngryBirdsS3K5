@@ -1,0 +1,752 @@
+format 210
+"jeu" // AngryBirdsS3K5::src::angrybirds::jeu
+  revision 1
+  modified_by 5 "lefevrew"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  java_dir "/home/infoetu/lefevrew/NetBeansProjects/AngryBirdsProject/AngryBirdsS3K5/src/angrybirds/jeu/"
+  java_package "angrybirds.jeu"
+  classview 135173 "jeu"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 135429 "GameFrame"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "La fenetre du jeu
+"
+      classrelation 136837 // jeu (<unidirectional association>)
+	relation 136837 --->
+	  a role_name "jeu" private
+	    comment "
+Le jeu sous panel
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136837 // jeu (<unidirectional association>)
+	  b parent class_ref 136197 // AnimationJeu
+      end
+
+      operation 136581 "GameFrame"
+	public explicit_return_type ""
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructeur remettant tout a 0 et affichant une nouvelle fenetre avec le jeu
+en pannel
+"
+      end
+
+      operation 136709 "run"
+	public explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+	comment "Remet tout a 0 et reaffiche le pannel dans la même fenetre (contrairement
+au constructeur qui change de fenetre)
+"
+      end
+    end
+
+    class 136197 "AnimationJeu"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "La classe principale du programme la ou se consentre aussi le visualisateur
+du jeu, le moteur de collision, le thread principal du jeu et la courbe
+engage par l'oiseau
+"
+      classrelation 136197 // visu (<unidirectional association>)
+	relation 136197 --->
+	  a role_name "visu" private
+	    comment "
+Le visualisateur qui gere l'affichage des skins sur le plan
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136197 // visu (<unidirectional association>)
+	  b parent class_ref 136581 // Visualisateur
+      end
+
+      classrelation 136325 // stun (<unidirectional association>)
+	relation 136325 --->
+	  a role_name "stun" private
+	    comment "
+Thread des collisions (gere la partie physique du jeu)
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136325 // stun (<unidirectional association>)
+	  b parent class_ref 136709 // Collision
+      end
+
+      classrelation 136453 // core (<unidirectional association>)
+	relation 136453 --->
+	  a role_name "core" private
+	    comment "
+Thread de l'animation (gere les deplacements et l'affichage du jeu au niveau des calculs)
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136453 // core (<unidirectional association>)
+	  b parent class_ref 136837 // HeartCore
+      end
+
+      attribute 136325 "shoot"
+	package explicit_type "boolean"
+	init_value " false"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Boolean de lancement de l'animation
+
+"
+      end
+
+      operation 135429 "AnimationJeu"
+	public explicit_return_type ""
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 135557 "start"
+	public explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Demmarrage de l'animation
+"
+      end
+
+      operation 135685 "paint"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+	comment "Le painteur du jeu, simplifie grace au visu'
+
+@param g Le graphics sur le quelle dessiner
+"
+      end
+
+      operation 135813 "addFootstepCoord"
+	private explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Fonction qui ajoute les coordonnes actuel a une liste
+"
+      end
+
+      operation 135941 "getCore"
+	public explicit_return_type "Thread"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Retourne le thread du jeu
+
+@return Le thread du jeu
+"
+      end
+
+      operation 136069 "keyTyped"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "e" explicit_type "KeyEvent"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+
+      attribute 136453 "k"
+	package explicit_type "int"
+	init_value " 1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Direction du lance
+
+"
+      end
+
+      operation 136197 "keyPressed"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "e" explicit_type "KeyEvent"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+	comment "Prend une touche du clavier, si on appuis sur espace, le jeu se lance, les
+touches directionnelles permettent de regler la courbe
+@param e L'evenement pris en compte 
+"
+      end
+
+      operation 136325 "keyReleased"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "e" explicit_type "KeyEvent"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+
+      operation 136453 "lancement"
+	private explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 136581 "Visualisateur"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Pour une programme en structure MVC, il est necessaire que se qui dessine, se
+qui est dessine et se qui dit quand on doit dessine ne se melange pas, cette
+classe a donc pour but de faire la liaison entre se que sur quoi on dessine,
+qui appel un evement et se qui est dessine. Concretement, une classe
+contenant un Graphics veut qu'on lui ajoute en dessin, un oiseau, un obstacle
+ou une empreintes full ou partiel, la classe Viasualisateur prendra donc en
+parametre se qu'on veut, ou on veut et sur quoi on le veut pour le mettre.
+"
+      operation 137349 "drawOiseau"
+	public explicit_return_type "Graphics"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine l'oiseau en x, y et a sur g
+
+@param y Position en y
+@return Le Graphics modefie
+"
+      end
+
+      operation 137477 "drawFootstep"
+	public explicit_return_type "Graphics"
+	nparams 5
+	  param inout name "full" explicit_type "boolean"
+	  param in name "part" explicit_type "int"
+	  param in name "tailleVerticale" explicit_type "int"
+	  param in name "tailleHorizontale" explicit_type "int"
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine les toute ou partiellement les empreintes
+
+@param full Si on les veut toute ou pas
+@param part Le nombre d'empreinte si full = false
+@param tailleVerticale
+@param g Graphics qui recoit le dessin
+@param tailleHorizontale
+@return Le Graphics modifie
+"
+      end
+
+      operation 137605 "drawObstacle"
+	public explicit_return_type "Graphics"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine les obstacles
+
+@param g Le Graphics qui recoit le dessin
+@return Le Graphics modifie
+"
+      end
+
+      operation 137733 "drawFond"
+	public explicit_return_type "Graphics"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine le fond
+
+@param g Le Graphics qui recoit le dessin
+@return Le Graphics modifie
+"
+      end
+
+      operation 137861 "drawAllNeed"
+	public explicit_return_type "Graphics"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessinne tout se qu'il faut pour avoir le jeu C'est a dire le fond, le
+trace, l'oiseau et les obstacles
+
+@param g Le Graphics qui recoit le dessin
+@return Le Graphics modifie
+"
+      end
+
+      operation 137989 "calculTraceFootStep"
+	private explicit_return_type "int"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Calcule le nombre de trace laisse par le footstep
+
+@return Le nombre de point que doit garder le footstep en memoire
+"
+      end
+
+      operation 138117 "drawHitBox"
+	public explicit_return_type "Graphics"
+	nparams 3
+	  param inout name "e" type class_ref 137477 // Entity
+	  param inout name "g" explicit_type "Graphics"
+	  param inout name "c" explicit_type "Color"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine les contours de la hitbox d'une entite
+
+@param e
+@param g
+@param c
+@return
+"
+      end
+
+      operation 138245 "drawAllHitBox"
+	public explicit_return_type "Graphics"
+	nparams 1
+	  param inout name "g" explicit_type "Graphics"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Dessine la hitbox de toute les entite, en bleu l'oiseau, en noir les
+obstacles
+
+@param g
+@return
+"
+      end
+
+      operation 138373 "drawCurve"
+	public explicit_return_type "Graphics"
+	nparams 2
+	  param inout name "g" explicit_type "Graphics"
+	  param inout name "c" type class_ref 137605 // Courbe
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 136837 "HeartCore"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Cette class a pour but de gerer l'avancement du projet grace aux thread comme
+coeur qui bat.
+"
+      attribute 136581 "t1"
+	package explicit_type "javax.swing.Timer"
+	init_value " new javax.swing.Timer(2000, this)"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Timer de fin de jeu
+
+"
+      end
+
+      attribute 136709 "xDepart"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Point de depart qui permet de calculer la vitesse du pigeon
+
+"
+      end
+
+      attribute 136837 "yDepart"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Point de depart qui permet de calculer la vitesse du pigeon
+
+"
+      end
+
+      classrelation 137221 // anim (<unidirectional association>)
+	relation 137221 --->
+	  a role_name "anim" public
+	    comment "
+L'animation qui utilise le core
+
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137221 // anim (<unidirectional association>)
+	  b parent class_ref 136197 // AnimationJeu
+      end
+
+      attribute 136965 "t"
+	class_attribute public explicit_type "int"
+	init_value " 1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "\"L'horloge\" du jeu
+
+"
+      end
+
+      operation 136837 "HeartCore"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "vitesse" explicit_type "int"
+	  param inout name "animationOiseau" type class_ref 136197 // AnimationJeu
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "
+@param vitesse
+@param animationOiseau
+"
+      end
+
+      operation 136965 "run"
+	public explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+	comment "Le run avance le x par \"step\", repaint et attends un peu
+"
+      end
+
+      operation 137093 "action"
+	private explicit_return_type "void"
+	nparams 0
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 137221 "actionPerformed"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "e" explicit_type "java.awt.event.ActionEvent"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	java_annotation "@Override
+"
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 134661 "jeu"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 134789 "AnimationJeu"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import modele.Courbe;
+import angrybirds.jeu.Visualisateur;
+import angrybirds.jeu.HeartCore;
+import java.awt.Graphics;
+import entites.Collision;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JPanel;
+import static angrybirds.Constante.*;
+import static angrybirds.jeu.HeartCore.t;
+import static ressource.PFAGReader.listePFAG;
+${definition}"
+      associated_classes
+	class_ref 136197 // AnimationJeu
+      end
+    end
+
+    artifact 134917 "GameFrame"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import angrybirds.Constante;
+import angrybirds.jeu.AnimationJeu;
+import entites.obstacle.Obstacle;
+import java.io.IOException;
+import javax.swing.JFrame;
+import ressource.PFAGReader;
+import static angrybirds.Constante.gReader;
+import static angrybirds.Constante.indexPFAGUtilise;
+import static angrybirds.Constante.iniz;
+${definition}"
+      associated_classes
+	class_ref 135429 // GameFrame
+      end
+    end
+
+    artifact 135045 "HeartCore"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import angrybirds.Constante;
+import entites.obstacle.Obstacle;
+import static angrybirds.Constante.*;
+${definition}"
+      associated_classes
+	class_ref 136837 // HeartCore
+      end
+    end
+
+    artifact 135173 "Visualisateur"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import modele.Courbe;
+import java.awt.Graphics;
+import entites.Entity;
+import entites.Skin;
+import java.awt.Color;
+import static angrybirds.Constante.*;
+${definition}"
+      associated_classes
+	class_ref 136581 // Visualisateur
+      end
+    end
+  end
+end
