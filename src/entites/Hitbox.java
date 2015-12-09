@@ -1,7 +1,5 @@
 package entites;
 
-import java.awt.Dimension;
-
 /**
  * HitBox qui définie l'endroit virtuel ou se situe un objet qui contient le
  * contient

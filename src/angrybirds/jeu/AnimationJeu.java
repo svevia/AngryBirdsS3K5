@@ -30,7 +30,8 @@ public class AnimationJeu extends JPanel implements KeyListener {
     private Collision stun;
 
     /**
-     * Thread de l'animation (gere les deplacements et l'affichage du jeu au niveau des calculs)
+     * Thread de l'animation (gere les deplacements et l'affichage du jeu au
+     * niveau des calculs)
      */
     private HeartCore core;
 
@@ -102,10 +103,13 @@ public class AnimationJeu extends JPanel implements KeyListener {
      */
     int k = 1;
 
+    int u = 0;
+
     /**
-     * Prend une touche du clavier, si on appuis sur espace, le jeu se lance, les
-     * touches directionnelles permettent de regler la courbe
-     * @param e L'evenement pris en compte 
+     * Prend une touche du clavier, si on appuis sur espace, le jeu se lance,
+     * les touches directionnelles permettent de regler la courbe
+     *
+     * @param e L'evenement pris en compte
      */
     @Override
     public void keyPressed(KeyEvent e) {
@@ -132,7 +136,8 @@ public class AnimationJeu extends JPanel implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e){}
+    public void keyReleased(KeyEvent e) {
+    }
 
     private void lancement() {
         while (!shoot) {

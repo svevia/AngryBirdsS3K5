@@ -31,7 +31,7 @@ public class Collision extends Thread {
     private boolean borderTouch() {
         return (bird.getX() + bird.getWidht() > fenetre.width
                 || bird.getY() + bird.getR()*2 > fenetre.height - 100
-                || bird.getY() < 0
+                //|| bird.getY() < 0 //Empéche l'oiseau d'aller au dessus de la fenêtreS
                 ||bird.getX() < 0
                 );
     }

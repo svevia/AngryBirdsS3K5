@@ -26,7 +26,7 @@ public class Courbe {
     private Courbe() {
     }
 
-    /**
+    /** 
      * Construit la courbe a partir de deux polynomes
      * @param aX 
      * @param bX
