@@ -91,18 +91,16 @@ public class Courbe {
      * @return
      */
     public double getXenT(double t) {
-        System.out.println(t);
-        t -= soustracteur;
+        t = t - soustracteur;
         if (demiTour) {
-            if (t == mouvementMax) {
-                sens = false;
-            }
-            if (t == 1) {
-                sens = true;
-                soustracteur = (int) t;
-            }
             if (!sens) {
-                t = mouvementMax - (t % mouvementMax);
+                soustracteur = soustracteur + 2;
+                if (t <= 0) {
+                    sens = true;
+                }
+            }
+            if (sens && t >= mouvementMax) {
+                sens = false;
             }
         }
         return (aX * Math.pow(t, 2) + bX * t + cX);
@@ -115,17 +113,16 @@ public class Courbe {
      * @return
      */
     public double getYenT(double t) {
-             t -= soustracteur;
+         t = t - soustracteur;
         if (demiTour) {
-            if (t == mouvementMax) {
-                sens = false;
-            }
-            if (t == 1) {
-                sens = true;
-                soustracteur = (int) t;
-            }
             if (!sens) {
-                t = mouvementMax - (t % mouvementMax);
+                soustracteur = soustracteur + 2;
+                if (t <= 0) {
+                    sens = true;
+                }
+            }
+            if (sens && t >= mouvementMax) {
+                sens = false;
             }
         }
         return (aY * Math.pow(t, 2) + bY * t + cY);
