@@ -149,7 +149,7 @@ public class Constante {
                     tmp = p.toString();
                     tmp = tmp.substring(tmp.length() - extension.length());
                     if (tmp.equals(extension)) {
-                        if (p.getName(0).toString().equals("src")) {
+                        if (p.getName(0).toString().equals("Ressource")) {
                             tmp = "";
                             for (int i = 1; i < p.getNameCount() - 1; i++) {
                                 tmp += p.getName(i) + "/";
