@@ -29,9 +29,12 @@ Liste des mots clef et de leur clefs/valeurs  + (valeur par defaut) :
     h=int (random)
     w=int (random)
     color=intColor* (rouge)
+    aX, bX, cX=double (paramètres de la courbe pour la position de l'obstacle en x)
+    aY, bY, cY=double (paramètres de la courbe pour la position de l'obstacle en y)
+    mouvement=int (mouvements que doit faire l'obstacle avant de faire demi tour, revenir à son point de départ et repartir)
 
 StringObstacle : carre
-intColor : Crée une couleur correspondant à l'entier spécifié (dans ce nombre, les bits 16 à 23 représentent la part de rouge, les bits de 8 à 15 la part de vert et les bits de 0 à 7 la part de bleu)
+intColor : Crée une couleur correspondant à l'entier spécifié (dans ce nombre, les bits 16 à 23 représentent la part de rouge, les bits de 8 à 15 la part de vert et les bits de 0 à 7 la part de bleu) (exemple 30 = bleu)
 
 - imagecustomz :
     name=String (Aucun par defaut)
