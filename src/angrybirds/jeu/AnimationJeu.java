@@ -7,15 +7,18 @@ import static angrybirds.jeu.HeartCore.t;
 import entites.Collision;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JPanel;
-import static ressource.PFAGReader.listePFAG;
+import static modele.Calcul.angle;
+import static modele.PFAGReader.listePFAG;
 
 /**
  * La classe principale du programme la ou se consentre aussi le visualisateur
  * du jeu, le moteur de collision, le thread principal du jeu et la courbe
  * engage par l'oiseau
  */
-public class AnimationJeu extends JPanel implements KeyListener {
+public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
 
     /**
      * Le visualisateur qui gere l'affichage des skins sur le plan
@@ -38,10 +41,16 @@ public class AnimationJeu extends JPanel implements KeyListener {
      */
     boolean shoot = false;
 
+    /**
+     * Le centre de la cible drag n drop
+     */
+    int xTarget, yTarger;
+
     public AnimationJeu() {
         setFocusable(true);
         setDoubleBuffered(true); // Un bel affichage en HD
         addKeyListener(this);
+        addMouseListener(this);
         visu = new Visualisateur(); // Gestionnaire d'affichage
         stun = new Collision(); // Gestionnaire de collision
         core = new HeartCore(5, this); // Gestionnaire d'evenement
@@ -53,6 +62,7 @@ public class AnimationJeu extends JPanel implements KeyListener {
     public final void start() {
         bird.setX(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).height);
         bird.setY(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).width);
+        bird.setCourbe(new Courbe(0, 1, bird.getX(), 0.0009, bird.getA(), bird.getY()));
         lancement();
         core.start();
     }
@@ -65,6 +75,9 @@ public class AnimationJeu extends JPanel implements KeyListener {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        if (paintCible) {
+            g = visu.drawTarget(g, this, xTarget, yTarger);
+        }
         addFootstepCoord();
         g = visu.drawAllNeed(g);
         g = visu.drawCurve(g, bird.getCourbe());
@@ -101,8 +114,6 @@ public class AnimationJeu extends JPanel implements KeyListener {
      */
     int k = 1;
 
-    int u = 0;
-
     /**
      * Prend une touche du clavier, si on appuis sur espace, le jeu se lance,
      * les touches directionnelles permettent de regler la courbe
@@ -111,7 +122,6 @@ public class AnimationJeu extends JPanel implements KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("ok");
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             shoot = true;
         }
@@ -138,6 +148,41 @@ public class AnimationJeu extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
+    //*** Intégration du drag'n'drop the bass off****//
+    /**
+     * Paint une cuble si le click est fait
+     */
+    boolean paintCible = false;
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        xTarget = e.getX();
+        yTarger = e.getY();
+        paintCible = true;
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        shoot = true;
+        paintCible = false;
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
+
+    /**
+     * Garde le jeu dans un etat de zombie tant que la variable shoot n'est pas
+     * true
+     */
     private void lancement() {
         while (!shoot) {
             repaint();

@@ -26,7 +26,7 @@ public class SeparatorVDeux extends VBox {
     /**
      * L'image sur le separateur
      */
-    Image img = new Image("ressource/triangle.png");
+    Image img = new Image("Ressource/ressource/triangle.png");
 
     /**
      * Le bouton a parametrer

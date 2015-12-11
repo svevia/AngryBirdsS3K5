@@ -54,11 +54,11 @@ public class FenetrePrincipale extends Application {
     public Scene scene = new Scene(menu, 980, 660);
 
     public void start(Stage primaryStage) {
-        scene.getStylesheets().add("ressource/stylesheet.css");
+        scene.getStylesheets().add("Ressource/ressource/stylesheet.css");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Menu Angry Birds");
-        primaryStage.getIcons().add(new Image("ressource/icon.png"));
+        //primaryStage.getIcons().add(new Image("ressource/icon.png"));
         primaryStage.show();
         son.start();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {

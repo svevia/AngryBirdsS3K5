@@ -113,7 +113,7 @@ public class Courbe {
      * @return
      */
     public double getYenT(double t) {
-         t = t - soustracteur;
+        t = t - soustracteur;
         if (demiTour) {
             if (!sens) {
                 soustracteur = soustracteur + 2;
@@ -137,7 +137,7 @@ public class Courbe {
      * @param y2
      * @return La distance entre les deux points
      */
-    public double calculDistance(double x1, double y1, double x2, double y2) {
+    public static double calculDistance(double x1, double y1, double x2, double y2) {
         return (Math.pow((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)), 0.5));
     }
 
@@ -149,7 +149,7 @@ public class Courbe {
      * @param d3
      * @return
      */
-    public double calculAngle(double d1, double d2, double d3) {
+    public static double calculAngle(double d1, double d2, double d3) {
         double p1 = (Math.pow(d1, 2) + Math.pow(d2, 2) - Math.pow(d3, 2));
         double p2 = 2 * d1 * d2;
         return Math.acos(p1 / p2);

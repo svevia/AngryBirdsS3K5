@@ -6,6 +6,9 @@ import static angrybirds.Constante.*;
 import entites.Entity;
 import entites.Skin;
 import java.awt.Color;
+import javax.swing.JPanel;
+import static modele.Calcul.angle;
+import static modele.Calcul.force;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se
@@ -82,7 +85,7 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawAllNeed(Graphics g) {
-        g = drawFond(g);
+        //    g = drawFond(g);
         g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
@@ -132,6 +135,13 @@ public class Visualisateur {
         return g;
     }
 
+    /**
+     * Dessine la courbe dans les limites de la fenetre
+     *
+     * @param g Le graphics qui recois
+     * @param c La courbe a dessiner
+     * @return Le graphics modifier
+     */
     public Graphics drawCurve(Graphics g, Courbe c) {
         if (c != null) {
             int x, y, t = 0;
@@ -141,6 +151,29 @@ public class Visualisateur {
                 y = (int) c.getYenT(t);
                 g.fillOval(x, y, 3, 3);
             } while (x < fenetre.width && x > 0 && y < fenetre.height && y > 0);
+        }
+        return g;
+    }
+
+    public Graphics drawTarget(Graphics g, JPanel pane, int centreX, int centreY) {
+        try {
+            xFocusActual = pane.getMousePosition().x;
+            yFocusActual = pane.getMousePosition().y;
+        } finally {
+        }
+        xFocus = centreX;
+        yFocus = centreY;
+        g.setColor(new Color(50, 50, 200, 50));
+        g.fillOval(xFocus - 5, yFocus - 5, 10, 10);
+        g.drawOval(xFocus - rayonCercleDeForce / 2, yFocus - rayonCercleDeForce / 2, rayonCercleDeForce, rayonCercleDeForce);
+        g.drawLine(xFocus, yFocus, xFocusActual, yFocusActual);
+        g.setColor(Color.black);
+        g.drawString(angle() + " r", xFocus + 10, yFocus - 10);
+        g.setColor(Color.red);
+        g.drawString(force() + "%", xFocus + 20, yFocus + 10);
+        if (angle() < 1.14 && angle() > -1.14) {
+            bird.setA(angle());
+            bird.setCourbe(new Courbe(0, 1, bird.getX(), 0.0009, bird.getA(), bird.getY()));
         }
         return g;
     }

@@ -17,8 +17,8 @@ public class AnimationMenu implements Runnable, ActionListener {
     boolean boobool = true;
     Pane racine;
 
-    Image img1 = new Image("ressource/rayonBleu1.png");
-    Image img2 = new Image("ressource/rayonBleu2.png");
+    Image img1 = new Image("Ressource/ressource/rayonBleu1.png");
+    Image img2 = new Image("Ressource/ressource/rayonBleu2.png");
     Background bkg1 = new Background(new BackgroundImage(img1, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT));
     Background bkg2 = new Background(new BackgroundImage(img2, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT));
 

@@ -1,5 +1,6 @@
 package ressource;
 
+import modele.ImageCustomz;
 import static angrybirds.Constante.fenetre;
 import static angrybirds.Constante.listeFichier;
 import modele.Courbe;

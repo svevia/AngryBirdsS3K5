@@ -11,7 +11,7 @@ public class MusicMenu extends Thread {
     boolean begin = false;
 
     public void run() {
-        File fichier = new File("src/ressource/ambianceMenu.wav");
+        File fichier = new File("Ressource/ressource/ambianceMenu.wav");
         try {
             audioInputStream = AudioSystem.getAudioInputStream(fichier);
             AudioFormat audioFormat = audioInputStream.getFormat();

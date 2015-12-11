@@ -13,9 +13,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
-import ressource.ImageCustomz;
-import ressource.PFAGReader;
-import static ressource.PFAGReader.listePFAG;
+import modele.Courbe;
+import modele.ImageCustomz;
+import modele.PFAGReader;
+import static modele.PFAGReader.listePFAG;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -108,6 +109,21 @@ public class Constante {
     public static int entityHitty = 0;
 
     /**
+     * Position du centre de la cible
+     */
+    public static int xFocus, yFocus;
+
+    /**
+     * Position de la souris lorsque la cible est la
+     */
+    public static int xFocusActual, yFocusActual;
+
+    /**
+     * Rayon de la cible
+     */
+    public static int rayonCercleDeForce = 150;
+
+    /**
      * Reinitialise la class a zero
      */
     public static void iniz() throws IOException {
@@ -122,7 +138,7 @@ public class Constante {
         entityHitty = 0;
         last = false;
     }
-    
+
     /**
      * Liste tout les fichiers de la source qui ont l'extension specifie en clef
      * et sa source en valeur
@@ -169,5 +185,5 @@ public class Constante {
         }
         return sources;
     }
-    
+
 }

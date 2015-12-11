@@ -7,7 +7,7 @@ import static angrybirds.Constante.iniz;
 import entites.obstacle.Obstacle;
 import java.io.IOException;
 import javax.swing.JFrame;
-import ressource.PFAGReader;
+import modele.PFAGReader;
 
 /**
  * La fenetre du jeu

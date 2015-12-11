@@ -6,7 +6,6 @@
             <name>GitAngryBirds</name>
             <source-roots>
                 <root id="src.exe.dir" name="Executeur"/>
-                <root id="src.dist.dir" name="Distribution"/>
                 <root id="src.Ressource.dir"/>
                 <root id="src.dir"/>
                 <root id="src.UML.dir" name="UML Package"/>
