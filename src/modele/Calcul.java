@@ -1,10 +1,7 @@
 package modele;
 
-import static angrybirds.Constante.rayonCercleDeForce;
-import static angrybirds.Constante.xFocus;
-import static angrybirds.Constante.xFocusActual;
-import static angrybirds.Constante.yFocus;
-import static angrybirds.Constante.yFocusActual;
+import static angrybirds.Constante.bird;
+import static angrybirds.Constante.vitesse;
 import static modele.Courbe.calculAngle;
 import static modele.Courbe.calculDistance;
 
@@ -15,10 +12,26 @@ import static modele.Courbe.calculDistance;
 public class Calcul {
 
     /**
+     * Position du centre de la cible
+     */
+    public static int xFocus, yFocus;
+
+    /**
+     * Position de la souris lorsque la cible est la
+     */
+    public static int xFocusActual, yFocusActual;
+
+    /**
+     * Rayon de la cible, jedi
+     */
+    public static int diametreCercleDeForce = 300;
+
+    /**
      * @return Return la puissance du lance en pourcentage
      */
     public static int force() {
-        int ret = (int) (Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)) * rayonCercleDeForce / 100;
+        int ret = (int) (((Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce/2)) * 100);
+        System.out.println((int) (Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)));
         if (ret > 100) {
             ret = 100;
         }
@@ -45,4 +58,11 @@ public class Calcul {
         return a;
     }
 
+    public static void setCourbeDragNDrop() {
+        if (angle() < 1.14 && angle() > -1.14 && force() > 20) {
+            bird.setA(angle());
+            vitesse = force() / 20;
+            bird.setCourbe(new Courbe(0, vitesse, bird.getX(), 0.9 / force(), bird.getA(), bird.getY()));
+        }
+    }
 }

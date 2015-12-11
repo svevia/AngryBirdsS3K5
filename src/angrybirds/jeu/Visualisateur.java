@@ -7,8 +7,14 @@ import entites.Entity;
 import entites.Skin;
 import java.awt.Color;
 import javax.swing.JPanel;
+import modele.Calcul;
 import static modele.Calcul.angle;
 import static modele.Calcul.force;
+import static modele.Calcul.diametreCercleDeForce;
+import static modele.Calcul.xFocus;
+import static modele.Calcul.xFocusActual;
+import static modele.Calcul.yFocus;
+import static modele.Calcul.yFocusActual;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se
@@ -155,6 +161,14 @@ public class Visualisateur {
         return g;
     }
 
+    /**
+     * Surement la methode du visu la plus proche d'un model
+     * @param g Le graphics a modifier
+     * @param pane Le panel du graphics
+     * @param centreX Le centre de la cible
+     * @param centreY Le centre de la cible
+     * @return 
+     */
     public Graphics drawTarget(Graphics g, JPanel pane, int centreX, int centreY) {
         try {
             xFocusActual = pane.getMousePosition().x;
@@ -163,18 +177,16 @@ public class Visualisateur {
         }
         xFocus = centreX;
         yFocus = centreY;
+        int rayonCentral = diametreCercleDeForce*20/100;
         g.setColor(new Color(50, 50, 200, 50));
-        g.fillOval(xFocus - 5, yFocus - 5, 10, 10);
-        g.drawOval(xFocus - rayonCercleDeForce / 2, yFocus - rayonCercleDeForce / 2, rayonCercleDeForce, rayonCercleDeForce);
+        g.fillOval(xFocus - rayonCentral/2, yFocus - rayonCentral/2, rayonCentral, rayonCentral);
+        g.drawOval(xFocus - diametreCercleDeForce / 2, yFocus - diametreCercleDeForce / 2, diametreCercleDeForce, diametreCercleDeForce);
         g.drawLine(xFocus, yFocus, xFocusActual, yFocusActual);
         g.setColor(Color.black);
         g.drawString(angle() + " r", xFocus + 10, yFocus - 10);
         g.setColor(Color.red);
         g.drawString(force() + "%", xFocus + 20, yFocus + 10);
-        if (angle() < 1.14 && angle() > -1.14) {
-            bird.setA(angle());
-            bird.setCourbe(new Courbe(0, 1, bird.getX(), 0.0009, bird.getA(), bird.getY()));
-        }
+        Calcul.setCourbeDragNDrop();
         return g;
     }
 }

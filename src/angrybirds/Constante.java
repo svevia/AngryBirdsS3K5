@@ -13,7 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
-import modele.Courbe;
 import modele.ImageCustomz;
 import modele.PFAGReader;
 import static modele.PFAGReader.listePFAG;
@@ -107,21 +106,6 @@ public class Constante {
      * Variable qui indique quel obstacle de la liste est touche
      */
     public static int entityHitty = 0;
-
-    /**
-     * Position du centre de la cible
-     */
-    public static int xFocus, yFocus;
-
-    /**
-     * Position de la souris lorsque la cible est la
-     */
-    public static int xFocusActual, yFocusActual;
-
-    /**
-     * Rayon de la cible
-     */
-    public static int rayonCercleDeForce = 150;
 
     /**
      * Reinitialise la class a zero

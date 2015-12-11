@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
-import static modele.Calcul.angle;
 import static modele.PFAGReader.listePFAG;
 
 /**
@@ -41,6 +40,11 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
      */
     boolean shoot = false;
 
+    /**
+     * Paint une cible si le click est fait
+     */
+    boolean paintCible = false;
+    
     /**
      * Le centre de la cible drag n drop
      */
@@ -147,12 +151,6 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     @Override
     public void keyReleased(KeyEvent e) {
     }
-
-    //*** Intégration du drag'n'drop the bass off****//
-    /**
-     * Paint une cuble si le click est fait
-     */
-    boolean paintCible = false;
 
     @Override
     public void mouseClicked(MouseEvent e) {
