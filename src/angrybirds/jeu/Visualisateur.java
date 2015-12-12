@@ -91,7 +91,7 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawAllNeed(Graphics g) {
-        g = drawFond(g);
+        //g = drawFond(g);
         g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
@@ -163,6 +163,7 @@ public class Visualisateur {
 
     /**
      * Surement la methode du visu la plus proche d'un model
+     *
      * @param g Le graphics a modifier
      * @param pane Le panel du graphics
      * @param centreX Le centre de la cible
@@ -177,9 +178,9 @@ public class Visualisateur {
         }
         xFocus = centreX;
         yFocus = centreY;
-        int rayonCentral = diametreCercleDeForce*20/100;
+        int rayonCentral = diametreCercleDeForce * 20 / 100;
         g.setColor(new Color(50, 50, 200, 50));
-        g.fillOval(xFocus - rayonCentral/2, yFocus - rayonCentral/2, rayonCentral, rayonCentral);
+        g.fillOval(xFocus - rayonCentral / 2, yFocus - rayonCentral / 2, rayonCentral, rayonCentral);
         g.drawOval(xFocus - diametreCercleDeForce / 2, yFocus - diametreCercleDeForce / 2, diametreCercleDeForce, diametreCercleDeForce);
         g.drawLine(xFocus, yFocus, xFocusActual, yFocusActual);
         g.setColor(Color.black);
@@ -187,6 +188,8 @@ public class Visualisateur {
         g.setColor(Color.red);
         g.drawString(force() + "%", xFocus + 20, yFocus + 10);
         Calcul.setCourbeDragNDrop();
+        Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
+        g.drawString(potentielC.toString(), xFocus + 10, yFocus - 40);
         return g;
     }
 }

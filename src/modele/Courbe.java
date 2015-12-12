@@ -181,4 +181,9 @@ public class Courbe {
         }
         return a;
     }
+
+    @Override
+    public String toString() {
+        return aX + " - " + bX + " - " + cX + " - " + aY + " - " + bY + " - " + cY;
+    }
 }

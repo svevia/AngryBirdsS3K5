@@ -30,7 +30,7 @@ public class Calcul {
      * @return Return la puissance du lance en pourcentage
      */
     public static int force() {
-        int ret = (int) (((Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce/2)) * 100);
+        int ret = (int) (((Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce / 2)) * 100);
         System.out.println((int) (Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)));
         if (ret > 100) {
             ret = 100;
@@ -67,5 +67,37 @@ public class Calcul {
             vitesse = force() / 20;
             bird.setCourbe(new Courbe(0, vitesse, bird.getX(), 0.9 / force(), bird.getA(), bird.getY()));
         }
+    }
+
+    public static int[] rotation(int[] tab, double angle, boolean cos) {
+        for (int i = 0; i < tab.length; i++) {
+            if (cos) {
+                tab[i] = (int) (tab[i] * Math.cos(angle));
+            } else {
+                tab[i] = (int) (tab[i] * Math.sin(angle));
+            }
+        }
+        return tab;
+    }
+
+    public static int rotation(int x, double angle, boolean cos) {
+        if (cos) {
+            x = (int) (x * Math.cos(angle));
+        } else {
+            x = (int) (x * Math.sin(angle));
+        }
+        return x;
+    }
+
+    public static int[] addition(int[] tab, int add) {
+        for (int i = 0; i < tab.length; i++) {
+            tab[i] = (int) (tab[i] + add);
+        }
+        return tab;
+    }
+    
+    public static Courbe calculCourbe(int x, int y, int toX, int toY) {
+        Courbe ret = new Courbe(0, toX - x, x, 0, toY - y, y);
+        return ret;
     }
 }

@@ -52,7 +52,7 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
 
     public AnimationJeu() {
         setFocusable(true);
-        setDoubleBuffered(true); // Un bel affichage en HD
+        setDoubleBuffered(true); // Un bel affichage en HD !!!
         addKeyListener(this);
         addMouseListener(this);
         visu = new Visualisateur(); // Gestionnaire d'affichage
