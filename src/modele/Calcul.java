@@ -58,6 +58,9 @@ public class Calcul {
         return a;
     }
 
+    /**
+     * Met a jour la courbe du drag and drop (la cible)
+     */
     public static void setCourbeDragNDrop() {
         if (angle() < 1.14 && angle() > -1.14 && force() > 20) {
             bird.setA(angle());

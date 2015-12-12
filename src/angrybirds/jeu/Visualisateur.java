@@ -91,7 +91,7 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawAllNeed(Graphics g) {
-        //    g = drawFond(g);
+        g = drawFond(g);
         g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
@@ -167,7 +167,7 @@ public class Visualisateur {
      * @param pane Le panel du graphics
      * @param centreX Le centre de la cible
      * @param centreY Le centre de la cible
-     * @return 
+     * @return Le grpahics avec la cible
      */
     public Graphics drawTarget(Graphics g, JPanel pane, int centreX, int centreY) {
         try {

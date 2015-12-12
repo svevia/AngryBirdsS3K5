@@ -11,17 +11,50 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import javax.swing.Timer;
 
+/**
+ * L'animation du jeu 
+ */
 public class AnimationMenu implements Runnable, ActionListener {
 
+    /**
+     * Le tomer de l'animation
+     */
     Timer t = new Timer(500, this);
+
+    /**
+     * Le boolean qui permet de savoir quelle image doit s'afficher
+     */
     boolean boobool = true;
+
+    /**
+     * La Pane qui recoit
+     */
     Pane racine;
 
+    /**
+     * La premiere image de l'animation
+     */
     Image img1 = new Image("Ressource/ressource/rayonBleu1.png");
+
+    /**
+     * La seconde image de l'animation
+     */
     Image img2 = new Image("Ressource/ressource/rayonBleu2.png");
+
+    /**
+     * Le background de la premere image
+     */
     Background bkg1 = new Background(new BackgroundImage(img1, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT));
+
+    /**
+     * Le background de la seconde image
+     */
     Background bkg2 = new Background(new BackgroundImage(img2, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT));
 
+    /**
+     * Construit une animation
+     * @param r Le menu qui recoit l'animation
+     */
     public AnimationMenu(Pane r) {
         racine = r;
     }

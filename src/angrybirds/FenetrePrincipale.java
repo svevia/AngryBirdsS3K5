@@ -11,6 +11,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Cette classe represente le point de depart du programme, quand la fontion start
+ * est utilise (par le biais de lunch), elle ouvrira une fenetre du menu du jeu
+ */
 public class FenetrePrincipale extends Application {
 
     /**
@@ -52,6 +56,10 @@ public class FenetrePrincipale extends Application {
      */
     public Scene scene = new Scene(menu, 980, 660);
 
+    /**
+     * Demarre le menu
+     * @param primaryStage 
+     */
     public void start(Stage primaryStage) {
         scene.getStylesheets().add("Ressource/ressource/stylesheet.css");
         primaryStage.setResizable(false);
@@ -73,7 +81,6 @@ public class FenetrePrincipale extends Application {
      * @param choseScene Enumerateur de la scene
      */
     public void changeScene(ChoseScene choseScene) {
-        System.out.println(choseScene.getScene());
         switch (choseScene.getScene()) {
             case 1:
                 scene.setRoot(menu);

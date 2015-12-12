@@ -11,6 +11,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * Mon separateur a moi permet de cacher ou de montrer certaine partie d'un bloc
+ * en appuyant sur un bouton (magique), il contient un label et une ligne en
+ * plus
+ */
 public class SeparatorVDeux extends VBox {
 
     /**
@@ -66,6 +71,7 @@ public class SeparatorVDeux extends VBox {
 
     /**
      * Modifie l'action du bouton
+     *
      * @param event La nouvelle action
      */
     public void setOnAction(EventHandler<ActionEvent> event) {

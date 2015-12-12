@@ -16,25 +16,85 @@ import javafx.scene.text.Text;
 import static angrybirds.FenetrePrincipale.*;
 import static modele.PFAGReader.listePFAG;
 
+/**
+ *  Les options permettent de configurer le jeu
+ */
 public class Option extends GridPane implements EventHandler<ActionEvent> {
 
+    /**
+     * La fenetre ou doit s'afficher les options
+     */
     FenetrePrincipale root;
+    
+    /**
+     * Le bloc principal
+     */
     VBox vb = new VBox();
+    
+    /**
+     * Le bloc secondaire
+     */
     VBox vb2 = new VBox();
+    
+    /**
+     * Le titre au sommet
+     */
     Text option = new Text("Options");
+    
+    /**
+     * Le label sur la liste deroulante
+     */
     Text choiseMap = new Text("Choisissez votre map");
+    
+    /**
+     * La liste deroulante
+     */
     ChoiceBox<String> cb1 = new ChoiceBox<>(FXCollections.observableArrayList(listePFAG()));
+    
+    /**
+     * Le label au dessus de la seconde liste deroulante
+     */
     Text choiseFootstep = new Text("Choisissez votre empreinte");
+    
+    /**
+     * La seconde liste deroulante
+     */
     ChoiceBox<String> cb2 = new ChoiceBox<>(FXCollections.observableArrayList(Footstep.getListFootstep()));
 
+    /**
+     * Le bloc tout en bas avec les boutons
+     */
     GridPane hb1 = new GridPane();
+    
+    /**
+     * Le bloc secondaire du bloc si dessus
+     */
     GridPane hb2 = new GridPane();
+    
+    /**
+     * Le bouton qui permet de revenir en arriere
+     */
     BoutonOption back = new BoutonOption("Retour au menu");
+    
+    /**
+     * Le bouton qui permet d'appliquer les changements
+     */
     BoutonOption apply = new BoutonOption("Appliquer");
 
+    /**
+     * Separateur qui gere la partie Divers des options
+     */
     SeparatorVDeux s1 = new SeparatorVDeux("Divers", this);
+    
+    /**
+     * Separateur du bloc tout en bas
+     */
     Separator s2 = new Separator();
 
+    /**
+     * Construit les options sur la fenetre root
+     * @param root La fenetre
+     */
     public Option(FenetrePrincipale root) {
         
         this.root = root;

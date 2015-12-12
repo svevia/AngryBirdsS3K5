@@ -147,7 +147,7 @@ public class Courbe {
      * @param d1
      * @param d2
      * @param d3
-     * @return
+     * @return L'angle des trois distances
      */
     public static double calculAngle(double d1, double d2, double d3) {
         double p1 = (Math.pow(d1, 2) + Math.pow(d2, 2) - Math.pow(d3, 2));
