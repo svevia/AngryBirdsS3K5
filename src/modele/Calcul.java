@@ -65,9 +65,27 @@ public class Calcul {
         if (force() > 20 && angle() < 10 && angle() > -10) {
             bird.setA(angle() + PI);
             vitesse = force() / 20;
-            Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
-            bird.setCourbe(potentielC);
-            bird.setCourbe(new Courbe(0.009 / force(), cos(bird.getA()), bird.getX(), 0.009 / force(), sin(bird.getA()), bird.getY()));
+            vitesse = force()/10; 
+            int force = force() - 100;
+            force = abs(force);
+            double laPUISSANCE = force * vitesse; // C'est une question de physique
+            laPUISSANCE /= 100000; // Mon pigeon est faible en faite
+            /**
+             * Explication :
+             * La courbe se fait donc avec deux polynomes du second degree
+             * Chaque polynome est construit ainsi :
+             *  Le 1er parametre sert a regler la courbation de la courbe, vue que
+             *  la puissance viens de la vitesse, plus le pigeon est puissant,
+             *  plus sa vitesse sera forte !
+             *  Si on fait varier la puissance de x, on obtiens des truc bizzares
+             * 
+             *  Le 2e parametre sert d'angle
+             * 
+             *  Le 3e parametre sert de point de depart
+             * 
+             *  Le 2e et le 3e parametre varie que sa soit le 1er ou le 2e polynome
+             */
+            bird.setCourbe(new Courbe(0, cos(bird.getA()), bird.getX(), laPUISSANCE, sin(bird.getA()), bird.getY()));
         }
     }
 

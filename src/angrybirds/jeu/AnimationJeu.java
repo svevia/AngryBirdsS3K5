@@ -55,9 +55,11 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
         setDoubleBuffered(true); // Un bel affichage en HD !!!
         addKeyListener(this);
         addMouseListener(this);
-        visu = new Visualisateur(); // Gestionnaire d'affichage
-        stun = new Collision(); // Gestionnaire de collision
-        core = new HeartCore(5, this); // Gestionnaire d'evenement
+        // On compte externisé les listener plus tard
+        visu = new Visualisateur(); // Gestionnaire d'affichage, plus souvent appellé "le visu"
+        stun = new Collision(); // Gestionnaire de collision, ou "coco"
+        core = new HeartCore(5, this); // Gestionnaire d'evenement, le coeur
+        // Ces trois potes enssemble gèrent le jeu
     }
 
     /**
@@ -79,13 +81,13 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        if (paintCible) {
-            g = visu.drawTarget(g, this, xTarget, yTarger);
-        }
         addFootstepCoord();
         g = visu.drawAllNeed(g);
         g = visu.drawCurve(g, bird.getCourbe());
         g = visu.drawAllHitBox(g);
+        if (paintCible) {
+            g = visu.drawTarget(g, this, xTarget, yTarger);
+        }
         stun.run();
     }
 

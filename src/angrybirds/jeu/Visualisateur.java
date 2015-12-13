@@ -90,7 +90,7 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawAllNeed(Graphics g) {
-        //g = drawFond(g);
+        g = drawFond(g);
         g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
@@ -186,9 +186,11 @@ public class Visualisateur {
         g.drawString(angle() + " r", xFocus + 10, yFocus - 10);
         g.setColor(Color.red);
         g.drawString(force() + "%", xFocus + 20, yFocus + 10);
+        // Les calculs ne devraient pas se faire ici, j'ai honte de ce pavé
         Calcul.setCourbeDragNDrop();
         Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
         g.drawString(potentielC.toString(), xFocus + 10, yFocus - 40);
+        // Promis je change ça pour le Jalon 3
         return g;
     }
 }
