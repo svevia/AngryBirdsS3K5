@@ -32,7 +32,6 @@ public class Calcul {
      */
     public static int force() {
         int ret = (int) (((pow((pow((xFocus - xFocusActual), 2) + pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce / 2)) * 100);
-        System.out.println((int) (pow((pow((xFocus - xFocusActual), 2) + pow((yFocus - yFocusActual), 2)), 0.5)));
         if (ret > 100) {
             ret = 100;
         }
@@ -72,6 +71,14 @@ public class Calcul {
         }
     }
 
+    /**
+     * Fzit tourner une matrice autours de l'origine
+     * @param tab La matrice sous forme de tableau
+     * @param angle L'angle a ajouter
+     * @param cos Si la mtrice est celle des points en abscisse (true) ou en 
+     * ordonne
+     * @return La matrice modifie 
+     */
     public static int[] rotation(int[] tab, double angle, boolean cos) {
         for (int i = 0; i < tab.length; i++) {
             if (cos) {
@@ -83,6 +90,13 @@ public class Calcul {
         return tab;
     }
 
+    /**
+     * Fait tourner un seul point autour de l'origine
+     * @param x Le point a tourner
+     * @param angle L'angle a ajouter
+     * @param cos Si le point est en abscisse ou en ordonne
+     * @return Le point modifie
+     */
     public static int rotation(int x, double angle, boolean cos) {
         if (cos) {
             x = (int) (x * cos(angle));
@@ -92,6 +106,12 @@ public class Calcul {
         return x;
     }
 
+    /**
+     * Additionne un chiffre a une matrice 
+     * @param tab La matrice
+     * @param add Le addition
+     * @return La matrice additionne 
+     */
     public static int[] addition(int[] tab, int add) {
         for (int i = 0; i < tab.length; i++) {
             tab[i] = (int) (tab[i] + add);
@@ -99,6 +119,14 @@ public class Calcul {
         return tab;
     }
 
+    /**
+     * Calcul la courbe d'un point x a toX et y toX
+     * @param x L'origine
+     * @param y L'origine
+     * @param toX La destination final
+     * @param toY La destination
+     * @return La courbe genere
+     */
     public static Courbe calculCourbe(int x, int y, int toX, int toY) {
         Courbe ret = new Courbe(0, toX - x, x, 0, toY - y, y);
         return ret;
