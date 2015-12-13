@@ -53,7 +53,7 @@ public class Calcul {
         }
         double a = calculAngle(d1, d2, d3);
         if (yFocusActual <= yFocus) {
-            a = -a;
+            //a += ;
         }
         return a;
     }
@@ -67,7 +67,7 @@ public class Calcul {
             vitesse = force() / 20;
             Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
             bird.setCourbe(potentielC);
-            bird.setCourbe(new Courbe(0, vitesse, bird.getX(), 0.9 / force(), bird.getA(), bird.getY()));
+            bird.setCourbe(new Courbe(0, vitesse, bird.getX(), 0/*0.9 / force()*/, bird.getA(), bird.getY()));
         }
     }
 

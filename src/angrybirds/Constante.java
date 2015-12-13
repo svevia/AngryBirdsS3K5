@@ -18,6 +18,7 @@ import modele.PFAGReader;
 import static modele.PFAGReader.listePFAG;
 
 /**
+ * @author K5
  * La classe constante reunni toute les constantes du programme.
  */
 public class Constante {
