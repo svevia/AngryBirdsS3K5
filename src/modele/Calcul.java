@@ -62,9 +62,11 @@ public class Calcul {
      * Met a jour la courbe du drag and drop (la cible)
      */
     public static void setCourbeDragNDrop() {
-        if (angle() < 1.14 && angle() > -1.14 && force() > 20) {
-            bird.setA(angle());
+        if (force() > 20 && angle() < 10 && angle() > -10) {
+            bird.setA(angle() + Math.PI);
             vitesse = force() / 20;
+            Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
+            bird.setCourbe(potentielC);
             bird.setCourbe(new Courbe(0, vitesse, bird.getX(), 0.9 / force(), bird.getA(), bird.getY()));
         }
     }
@@ -95,7 +97,7 @@ public class Calcul {
         }
         return tab;
     }
-    
+
     public static Courbe calculCourbe(int x, int y, int toX, int toY) {
         Courbe ret = new Courbe(0, toX - x, x, 0, toY - y, y);
         return ret;

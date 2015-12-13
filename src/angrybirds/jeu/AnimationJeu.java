@@ -44,7 +44,7 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
      * Paint une cible si le click est fait
      */
     boolean paintCible = false;
-    
+
     /**
      * Le centre de la cible drag n drop
      */
@@ -128,6 +128,8 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             shoot = true;
+            removeKeyListener(this);
+            removeMouseListener(this);
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             if (bird.getA() > -1.6) {
@@ -167,6 +169,8 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     public void mouseReleased(MouseEvent e) {
         shoot = true;
         paintCible = false;
+        removeKeyListener(this);
+        removeMouseListener(this);
     }
 
     @Override
