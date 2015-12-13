@@ -1,14 +1,13 @@
 package angrybirds.jeu;
 
 import angrybirds.Constante;
-import angrybirds.jeu.AnimationJeu;
 import static angrybirds.Constante.gReader;
 import static angrybirds.Constante.indexPFAGUtilise;
 import static angrybirds.Constante.iniz;
 import entites.obstacle.Obstacle;
 import java.io.IOException;
 import javax.swing.JFrame;
-import ressource.PFAGReader;
+import modele.PFAGReader;
 
 /**
  * La fenetre du jeu

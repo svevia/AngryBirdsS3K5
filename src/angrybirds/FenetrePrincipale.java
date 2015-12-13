@@ -8,12 +8,18 @@ import angrybirds.option.Option;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Cette classe represente le point de depart du programme, quand la fontion start
+ * est utilise (par le biais de lunch), elle ouvrira une fenetre du menu du jeu
+ */
 public class FenetrePrincipale extends Application {
 
+    /**
+     * Enum qui permet de modifier la scene
+     */
     public enum ChoseScene {
 
         MENU(1),
@@ -29,17 +35,37 @@ public class FenetrePrincipale extends Application {
             return scene;
         }
     }
+    
+    /**
+     * Le son du menu
+     */
     public static Thread son = new MusicMenu();
+    
+    /**
+     * Le menu
+     */
     public Menu menu = new Menu(this);
+    
+    /**
+     * Les options
+     */
     public Option option = new Option(this);
+    
+    /**
+     * La scene principale
+     */
     public Scene scene = new Scene(menu, 980, 660);
 
+    /**
+     * Demarre le menu
+     * @param primaryStage 
+     */
     public void start(Stage primaryStage) {
-        scene.getStylesheets().add("ressource/stylesheet.css");
+        scene.getStylesheets().add("Ressource/ressource/stylesheet.css");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Menu Angry Birds");
-        primaryStage.getIcons().add(new Image("ressource/icon.png"));
+        //primaryStage.getIcons().add(new Image("ressource/icon.png"));
         primaryStage.show();
         son.start();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -50,8 +76,11 @@ public class FenetrePrincipale extends Application {
         });
     }
 
+    /**
+     * Change la scene sur la scene voulu
+     * @param choseScene Enumerateur de la scene
+     */
     public void changeScene(ChoseScene choseScene) {
-        System.out.println(choseScene.getScene());
         switch (choseScene.getScene()) {
             case 1:
                 scene.setRoot(menu);

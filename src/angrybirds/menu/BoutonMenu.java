@@ -7,10 +7,20 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javax.swing.Timer;
 
+/**
+ * Les boutons du menu
+ */
 public class BoutonMenu extends Button implements EventHandler<MouseEvent> {
 
+    /**
+     * Le thread qui fait tourner les tetes
+     */
     Thread rotation;
 
+    /**
+     * Constuit un bouton comme je le veux
+     * @param text Le texte du bouton
+     */
     public BoutonMenu(String text) {
         super(text);
         setPrefHeight(100);
@@ -32,20 +42,59 @@ public class BoutonMenu extends Button implements EventHandler<MouseEvent> {
     }
 }
 
+/**
+ *  Classe qui fait tourner les boutons, un bouton a son thread a lui 
+ */
 class RotateButton extends Thread implements ActionListener {
 
-    int angleMax = 10, delay = 40;
+    /**
+     * Angle d'inclinais maximal
+     */
+    int angleMax = 10;
+    
+    /**
+     * Delay entre deux mouvement
+     */
+    int delay = 40;
+    
+    /**
+     * Le boutton qui recoit
+     */
     Button b;
+    
+    /**
+     * La rotation actuel
+     */
     double i;
-    boolean uping = true, finish = false;
+    
+    /**
+     * Le boolean qui permet de connaitre le sens de rotation
+     */
+    boolean uping = true;
+    
+    /**
+     * Le boolean qui permet de savoir quand c'est fini
+     */
+    boolean finish = false;
+    
+    /**
+     * Le timer qui regularise la vitesse du bouton avec delay
+     */
     Timer t = new Timer(delay, this);
 
+    /**
+     * Construit la rotation
+     * @param b sur le bouton voulu
+     */
     public RotateButton(Button b) {
         this.b = b;
         i = b.getRotate();
         t.setRepeats(false);
     }
 
+    /**
+     * Demarrage le tournage
+     */
     public void start() {
         rotation();
     }
@@ -56,8 +105,10 @@ class RotateButton extends Thread implements ActionListener {
         finish = true;
     }
 
+    /**
+     * Fait tourner
+     */
     void rotation() {
-
         if (uping) {
             i++;
             if (i > angleMax) {
@@ -69,7 +120,6 @@ class RotateButton extends Thread implements ActionListener {
                 uping = true;
             }
         }
-
         if (!finish) {
             t.start();
         }

@@ -6,6 +6,15 @@ import static angrybirds.Constante.*;
 import entites.Entity;
 import entites.Skin;
 import java.awt.Color;
+import javax.swing.JPanel;
+import modele.Calcul;
+import static modele.Calcul.angle;
+import static modele.Calcul.force;
+import static modele.Calcul.diametreCercleDeForce;
+import static modele.Calcul.xFocus;
+import static modele.Calcul.xFocusActual;
+import static modele.Calcul.yFocus;
+import static modele.Calcul.yFocusActual;
 
 /**
  * Pour une programme en structure MVC, il est necessaire que se qui dessine, se
@@ -82,7 +91,7 @@ public class Visualisateur {
      * @return Le Graphics modifie
      */
     public Graphics drawAllNeed(Graphics g) {
-        g = drawFond(g);
+        //g = drawFond(g);
         g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
@@ -132,6 +141,13 @@ public class Visualisateur {
         return g;
     }
 
+    /**
+     * Dessine la courbe dans les limites de la fenetre
+     *
+     * @param g Le graphics qui recois
+     * @param c La courbe a dessiner
+     * @return Le graphics modifier
+     */
     public Graphics drawCurve(Graphics g, Courbe c) {
         if (c != null) {
             int x, y, t = 0;
@@ -142,6 +158,38 @@ public class Visualisateur {
                 g.fillOval(x, y, 3, 3);
             } while (x < fenetre.width && x > 0 && y < fenetre.height && y > 0);
         }
+        return g;
+    }
+
+    /**
+     * Surement la methode du visu la plus proche d'un model
+     *
+     * @param g Le graphics a modifier
+     * @param pane Le panel du graphics
+     * @param centreX Le centre de la cible
+     * @param centreY Le centre de la cible
+     * @return Le grpahics avec la cible
+     */
+    public Graphics drawTarget(Graphics g, JPanel pane, int centreX, int centreY) {
+        try {
+            xFocusActual = pane.getMousePosition().x;
+            yFocusActual = pane.getMousePosition().y;
+        } finally {
+        }
+        xFocus = centreX;
+        yFocus = centreY;
+        int rayonCentral = diametreCercleDeForce * 20 / 100;
+        g.setColor(new Color(50, 50, 200, 50));
+        g.fillOval(xFocus - rayonCentral / 2, yFocus - rayonCentral / 2, rayonCentral, rayonCentral);
+        g.drawOval(xFocus - diametreCercleDeForce / 2, yFocus - diametreCercleDeForce / 2, diametreCercleDeForce, diametreCercleDeForce);
+        g.drawLine(xFocus, yFocus, xFocusActual, yFocusActual);
+        g.setColor(Color.black);
+        g.drawString(angle() + " r", xFocus + 10, yFocus - 10);
+        g.setColor(Color.red);
+        g.drawString(force() + "%", xFocus + 20, yFocus + 10);
+        Calcul.setCourbeDragNDrop();
+        Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
+        g.drawString(potentielC.toString(), xFocus + 10, yFocus - 40);
         return g;
     }
 }

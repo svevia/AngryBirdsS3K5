@@ -11,15 +11,45 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Le menu du jeu a partir du quel on peut lancer le jeu, le configurer ou le quitter
+ */
 public class Menu extends GridPane implements EventHandler<ActionEvent> {
 
+    /**
+     * Le label au sommet du menu
+     */
     private Label jeu = new Label("AngryBirds");
+    
+    /**
+     * Le bouton jouer
+     */
     private BoutonMenu jouer = new BoutonMenu("Jouer");
+    
+    /**
+     * Le bouton option
+     */
     private BoutonMenu option = new BoutonMenu("Options");
+    
+    /**
+     * Le bouton quitter
+     */
     private BoutonMenu quitter = new BoutonMenu("Quitter");
+    
+    /**
+     * L'animation
+     */
     private Thread fred = new Thread(new AnimationMenu(this));
+    
+    /**
+     * La fenetre qui recoit
+     */
     private FenetrePrincipale root;
 
+    /**
+     * Cree le menu sur root
+     * @param root La fenetre qui recoit
+     */
     public Menu(FenetrePrincipale root) {
         this.root = root;
         setAlignment(Pos.CENTER);

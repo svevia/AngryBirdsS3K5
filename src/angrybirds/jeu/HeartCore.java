@@ -53,6 +53,9 @@ public class HeartCore extends Thread implements java.awt.event.ActionListener {
         t1.start();
     }
 
+    /**
+     * Une action du jeu
+     */
     private void action() {
         for (Obstacle o : obstacle) {
             if (o.isMove()) {
@@ -76,6 +79,10 @@ public class HeartCore extends Thread implements java.awt.event.ActionListener {
         }
     }
 
+    /**
+     * Action qui permet d'utiliser le Timer
+     * @param e 
+     */
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == t1) {

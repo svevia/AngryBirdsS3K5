@@ -47,24 +47,21 @@ public abstract class ModuleBird {
     }
 
     /**
-     *
-     * @param distanceCentre
+     * @param distanceCentre Renvoie la distance entre le module et le centre de l'oiseau
      */
     public void setDistanceCentre(double distanceCentre) {
         this.distanceCentre = distanceCentre;
     }
 
     /**
-     *
-     * @return
+     * @return Si il est sur ou sous l'oiseau
      */
     public boolean isOver() {
         return over;
     }
 
     /**
-     *
-     * @param over
+     * @param over Sur ou sous l'oiseau
      */
     public void setOver(boolean over) {
         this.over = over;
@@ -72,15 +69,14 @@ public abstract class ModuleBird {
 
     /**
      * La representation graphique du module
-     *
-     * @param g
-     * @return
+     * @param s Le skin a drow
+     * @return Le skin drow
      */
     abstract public Skin draw(Skin s);
 
     /**
      * 
-     * @return 
+     * @return La taille du module
      */
     abstract public int getSize();
 }

@@ -1,0 +1,15 @@
+fenetre:x=1920,y=1080
+imagecustomz:name=sunset,src=/ressource/sunset.png
+imagecustomz:name=cielnoir,src=/ressource/cielnoir.png
+imagecustomz:name=volcan,src=/ressource/volcan.png,x=1400,y=600
+imagecustomz:name=solrocheux,src=/ressource/solrocheux.png,y=980
+obstacle:type=carre,x=5,y=50,h=50,w=50,color=852
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre
+obstacle:type=carre

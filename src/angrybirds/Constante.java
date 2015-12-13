@@ -13,9 +13,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
-import ressource.ImageCustomz;
-import ressource.PFAGReader;
-import static ressource.PFAGReader.listePFAG;
+import modele.ImageCustomz;
+import modele.PFAGReader;
+import static modele.PFAGReader.listePFAG;
 
 /**
  * La classe constante reunni toute les constantes du programme.
@@ -122,7 +122,7 @@ public class Constante {
         entityHitty = 0;
         last = false;
     }
-    
+
     /**
      * Liste tout les fichiers de la source qui ont l'extension specifie en clef
      * et sa source en valeur
@@ -149,7 +149,7 @@ public class Constante {
                     tmp = p.toString();
                     tmp = tmp.substring(tmp.length() - extension.length());
                     if (tmp.equals(extension)) {
-                        if (p.getName(0).toString().equals("src")) {
+                        if (p.getName(0).toString().equals("Ressource")) {
                             tmp = "";
                             for (int i = 1; i < p.getNameCount() - 1; i++) {
                                 tmp += p.getName(i) + "/";
@@ -169,5 +169,5 @@ public class Constante {
         }
         return sources;
     }
-    
+
 }
