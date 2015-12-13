@@ -84,7 +84,7 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
         addFootstepCoord();
         g = visu.drawAllNeed(g);
         g = visu.drawCurve(g, bird.getCourbe());
-        g = visu.drawAllHitBox(g);
+//        g = visu.drawAllHitBox(g);
         if (paintCible) {
             g = visu.drawTarget(g, this, xTarget, yTarger);
         }

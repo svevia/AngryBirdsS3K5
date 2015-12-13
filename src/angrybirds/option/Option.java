@@ -106,7 +106,7 @@ public class Option extends GridPane implements EventHandler<ActionEvent> {
         vb.setMinSize(800, 666);
         vb.setAlignment(Pos.TOP_CENTER);
         vb2.setAlignment(Pos.TOP_CENTER);
-        vb.setBackground(new Background(new BackgroundImage(new Image("Ressource/ressource/papyrus.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        vb.setBackground(new Background(new BackgroundImage(new Image("ressource/papyrus.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 
         back.setOnAction(this);
         apply.setOnAction(this);

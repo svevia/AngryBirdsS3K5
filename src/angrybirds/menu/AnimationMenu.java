@@ -34,12 +34,12 @@ public class AnimationMenu implements Runnable, ActionListener {
     /**
      * La premiere image de l'animation
      */
-    Image img1 = new Image("Ressource/ressource/rayonBleu1.png");
+    Image img1 = new Image("ressource/rayonBleu1.png");
 
     /**
      * La seconde image de l'animation
      */
-    Image img2 = new Image("Ressource/ressource/rayonBleu2.png");
+    Image img2 = new Image("ressource/rayonBleu2.png");
 
     /**
      * Le background de la premere image

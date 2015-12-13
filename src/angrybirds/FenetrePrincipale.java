@@ -61,7 +61,7 @@ public class FenetrePrincipale extends Application {
      * @param primaryStage 
      */
     public void start(Stage primaryStage) {
-        scene.getStylesheets().add("Ressource/ressource/stylesheet.css");
+        scene.getStylesheets().add("ressource/stylesheet.css");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Menu Angry Birds");
@@ -95,8 +95,8 @@ public class FenetrePrincipale extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        launch(args);
-        gf = new GameFrame();
-        gf.run();
+        launch(args);
+//        gf = new GameFrame();
+//        gf.run();
     }
 }
