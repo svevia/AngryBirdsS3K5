@@ -1,7 +1,7 @@
 package angrybirds.menu;
 
 import angrybirds.FenetrePrincipale;
-import static angrybirds.Constante.gf;
+import static angrybirds.Constante.*;
 import angrybirds.jeu.GameFrame;
 import static angrybirds.FenetrePrincipale.*;
 import javafx.event.ActionEvent;
@@ -12,7 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 /**
- * Le menu du jeu a partir du quel on peut lancer le jeu, le configurer ou le quitter
+ * Le menu du jeu a partir du quel on peut lancer le jeu, le configurer ou le
+ * quitter
  */
 public class Menu extends GridPane implements EventHandler<ActionEvent> {
 
@@ -20,27 +21,27 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
      * Le label au sommet du menu
      */
     private Label jeu = new Label("AngryBirds");
-    
+
     /**
      * Le bouton jouer
      */
     private BoutonMenu jouer = new BoutonMenu("Jouer");
-    
+
     /**
      * Le bouton option
      */
     private BoutonMenu option = new BoutonMenu("Options");
-    
+
     /**
      * Le bouton quitter
      */
     private BoutonMenu quitter = new BoutonMenu("Quitter");
-    
+
     /**
      * L'animation
      */
     private Thread fred = new Thread(new AnimationMenu(this));
-    
+
     /**
      * La fenetre qui recoit
      */
@@ -48,6 +49,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
 
     /**
      * Cree le menu sur root
+     *
      * @param root La fenetre qui recoit
      */
     public Menu(FenetrePrincipale root) {
@@ -61,9 +63,11 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         jouer.setOnAction(this);
         option.setOnAction(this);
         quitter.setOnAction(this);
-        // Note ou plutot astuce de progra, ne commencez pas par l'index
-        // 0 pour placer vos articles sur la grille, on sait jamais si d'autres
-        // viennent s'ajouter avant, le resultat est le meme au final
+        /**
+         * Note ou plutot astuce de progra, ne commencez pas par l'index 0 pour
+         * placer vos articles sur la grille, on sait jamais si d'autres
+         * viennent s'ajouter avant, le resultat est le meme au final
+         */
         add(jeu, 5, 2);
         add(jouer, 5, 5);
         add(option, 5, 6);
@@ -85,7 +89,7 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
         }
 
         if (event.getSource() == quitter) {
-            System.exit(0);
+            order66();
         }
     }
 }

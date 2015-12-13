@@ -18,8 +18,7 @@ import modele.PFAGReader;
 import static modele.PFAGReader.listePFAG;
 
 /**
- * @author K5
- * La classe constante reunni toute les constantes du programme.
+ * @author K5 La classe constante reunni toute les constantes du programme.
  */
 public class Constante {
 
@@ -171,4 +170,8 @@ public class Constante {
         return sources;
     }
 
+    // A n'executer qu'en cas de rebellion du systeme
+    static public void order66() {
+        System.exit(0);
+    }
 }

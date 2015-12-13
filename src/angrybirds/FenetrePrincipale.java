@@ -1,6 +1,6 @@
 package angrybirds;
 
-import static angrybirds.Constante.gf;
+import static angrybirds.Constante.*;
 import angrybirds.jeu.GameFrame;
 import angrybirds.menu.Menu;
 import angrybirds.menu.MusicMenu;
@@ -71,7 +71,7 @@ public class FenetrePrincipale extends Application {
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                System.exit(0);
+                order66();
             }
         });
     }

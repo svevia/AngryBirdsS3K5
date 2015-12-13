@@ -4,6 +4,7 @@ import static angrybirds.Constante.bird;
 import static angrybirds.Constante.vitesse;
 import static modele.Courbe.calculAngle;
 import static modele.Courbe.calculDistance;
+import static java.lang.Math.*;
 
 /**
  * Cette classe, singleton, a pour but de reunir differentes methode de calcul
@@ -30,8 +31,8 @@ public class Calcul {
      * @return Return la puissance du lance en pourcentage
      */
     public static int force() {
-        int ret = (int) (((Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce / 2)) * 100);
-        System.out.println((int) (Math.pow((Math.pow((xFocus - xFocusActual), 2) + Math.pow((yFocus - yFocusActual), 2)), 0.5)));
+        int ret = (int) (((pow((pow((xFocus - xFocusActual), 2) + pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce / 2)) * 100);
+        System.out.println((int) (pow((pow((xFocus - xFocusActual), 2) + pow((yFocus - yFocusActual), 2)), 0.5)));
         if (ret > 100) {
             ret = 100;
         }
@@ -53,7 +54,7 @@ public class Calcul {
         }
         double a = calculAngle(d1, d2, d3);
         if (yFocusActual <= yFocus) {
-            //a += ;
+            a = PI + -(a -PI);
         }
         return a;
     }
@@ -63,20 +64,20 @@ public class Calcul {
      */
     public static void setCourbeDragNDrop() {
         if (force() > 20 && angle() < 10 && angle() > -10) {
-            bird.setA(angle() + Math.PI);
+            bird.setA(angle() + PI);
             vitesse = force() / 20;
             Courbe potentielC = Calcul.calculCourbe(xFocus, yFocus, xFocusActual, yFocusActual);
             bird.setCourbe(potentielC);
-            bird.setCourbe(new Courbe(0, vitesse, bird.getX(), 0/*0.9 / force()*/, bird.getA(), bird.getY()));
+            bird.setCourbe(new Courbe(0.009 / force(), cos(bird.getA()), bird.getX(), 0.009 / force(), sin(bird.getA()), bird.getY()));
         }
     }
 
     public static int[] rotation(int[] tab, double angle, boolean cos) {
         for (int i = 0; i < tab.length; i++) {
             if (cos) {
-                tab[i] = (int) (tab[i] * Math.cos(angle));
+                tab[i] = (int) (tab[i] * cos(angle));
             } else {
-                tab[i] = (int) (tab[i] * Math.sin(angle));
+                tab[i] = (int) (tab[i] * sin(angle));
             }
         }
         return tab;
@@ -84,9 +85,9 @@ public class Calcul {
 
     public static int rotation(int x, double angle, boolean cos) {
         if (cos) {
-            x = (int) (x * Math.cos(angle));
+            x = (int) (x * cos(angle));
         } else {
-            x = (int) (x * Math.sin(angle));
+            x = (int) (x * sin(angle));
         }
         return x;
     }

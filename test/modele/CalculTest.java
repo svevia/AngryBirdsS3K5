@@ -63,7 +63,7 @@ public class CalculTest {
         Calcul.xFocusActual = 150;
         Calcul.yFocusActual = 100;
         Calcul.diametreCercleDeForce = 100;
-        assertEquals(0, (double) Calcul.angle(), 5);
+        assertEquals(2* Math.PI, (double) Calcul.angle(), 5);
         /**
          * L'angle fait un demi angle droit cette fois
          */
@@ -80,6 +80,6 @@ public class CalculTest {
          */
         Calcul.xFocusActual = 0;
         Calcul.yFocusActual = 100;
-        assertEquals(-Math.PI, (double) Calcul.angle(), 5);
+        assertEquals(Math.PI, (double) Calcul.angle(), 5);
     }
 }
