@@ -50,11 +50,8 @@ public class Bird extends Entity {
      *
      * @param pigeonX La position de départ en x
      * @param pigeonY La position de départ en y
-     * @param fatX Sa largeur
-     * @param fatY Sa hauteur
      * @param crb Sa courbe
      * @param corps La couleur principale du pigeon
-     * @param m Ses modules
      */
     public Bird(int pigeonX, int pigeonY, int diametre, Courbe crb, Color corps) {
         super(pigeonX, pigeonY, diametre, diametre, crb);
@@ -146,7 +143,7 @@ public class Bird extends Entity {
     /**
      * Le draw des modules
      *
-     * @param g
+     * @param s
      * @param over
      * @return
      */

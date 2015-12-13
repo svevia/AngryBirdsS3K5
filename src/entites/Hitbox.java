@@ -104,7 +104,8 @@ public class Hitbox implements Comparable<Hitbox> {
      * Met a jour les points x et y et la dimension en même temps
      * @param x La nouvelle position en x
      * @param y La nouvelle position en y
-     * @param d La nouvelle dimension
+     * @param w La nouvelle largeur
+     * @param h la nouvelle hauteur
      */
     public void misaAJour(int x, int y, int w, int h) {
         this.x = x;

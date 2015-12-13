@@ -28,7 +28,6 @@ public class PFAGReader {
     /**
      * Cree un reader du fichier src/ressource
      *
-     * @param source
      */
     public PFAGReader() {
         this.source = "Ressource/ressource";

@@ -179,7 +179,7 @@ public abstract class Entity {
     /**
      * Dessine l'entite sur un Skin
      *
-     * @param g le Skin sur le quel dessiner
+     * @param s le Skin sur le quel dessiner
      * @return Le Graphics modifie
      */
     public abstract Skin draw(Skin s);

@@ -30,7 +30,6 @@ public class Visualisateur {
     /**
      * Dessine l'oiseau en x, y et a sur g
      *
-     * @param y Position en y
      * @return Le Graphics modefie
      */
     public Graphics drawOiseau(Graphics g) {

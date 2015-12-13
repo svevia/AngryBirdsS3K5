@@ -1,7 +1,10 @@
 angrybirds
+angrybirds.jeu
+angrybirds.menu
+angrybirds.option
 entites
 entites.bird
 entites.bird.module
-entites.bird.skin
 entites.obstacle
-entites.obstacle.skin
+modele
+ressource
