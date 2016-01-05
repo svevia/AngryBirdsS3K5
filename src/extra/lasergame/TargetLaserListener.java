@@ -1,7 +1,7 @@
 package extra.lasergame;
 
 import static angrybirds.Constante.screen;
-import angrybirds.jeu.core.VisualCore;
+import angrybirds.core.VisualCore;
 import entites.target.TargetListener;
 import java.awt.event.MouseEvent;
 

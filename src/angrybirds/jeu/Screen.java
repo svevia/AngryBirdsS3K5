@@ -4,7 +4,7 @@ import static angrybirds.Constante.*;
 import angrybirds.jeu.core.HeartCore;
 import angrybirds.jeu.core.HeartMoveBird;
 import java.awt.Graphics;
-import angrybirds.jeu.core.VisualCore;
+import angrybirds.core.VisualCore;
 import entites.obstacle.ImpactOrder;
 import entites.target.TargetListener;
 import javax.swing.JPanel;
@@ -31,7 +31,7 @@ public class Screen extends JPanel {
         vitesse = 5;
         setFocusable(true);
         setDoubleBuffered(true); // Un bel affichage en HD !!!
-        visu = new VisualCore(); // Gestionnaire d'affichage, plus souvent appellé "le visu"
+        visu = new VisualCore(this); // Gestionnaire d'affichage, plus souvent appellé "le visu"
         visu.setDaemon(true);
         // Le gestionnaire de calcul, le coeur, est remit a plus tard desormais (rf order277)
     }

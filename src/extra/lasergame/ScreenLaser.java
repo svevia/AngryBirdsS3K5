@@ -1,7 +1,7 @@
 package extra.lasergame;
 
 import angrybirds.jeu.Screen;
-import angrybirds.jeu.core.VisualCore;
+import angrybirds.core.VisualCore;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 
@@ -16,7 +16,7 @@ public class ScreenLaser extends Screen {
         bird = new Depart(null);
         setFocusable(true);
         setDoubleBuffered(true);
-        visu = new VisualCore();
+        visu = new VisualCore(this);
         visu.setDaemon(true);
         addMouseListener(new TargetLaserListener(visu));
     }

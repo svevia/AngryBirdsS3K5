@@ -1,7 +1,7 @@
 package entites.target;
 
 import static angrybirds.Constante.screen;
-import angrybirds.jeu.core.VisualCore;
+import angrybirds.core.VisualCore;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

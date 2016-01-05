@@ -1,16 +1,15 @@
 package angrybirds.core;
 
 import static angrybirds.Constante.FPS60;
-import static angrybirds.Constante.anim;
 import static angrybirds.Constante.bird;
 import static angrybirds.Constante.vitesse;
-import static angrybirds.Visualisateur.calculTraceFootStep;
 import static angrybirds.Visualisateur.drawCurve;
 import static angrybirds.Visualisateur.drawFond;
 import static angrybirds.Visualisateur.drawFootstep;
 import static angrybirds.Visualisateur.drawObstacle;
 import static angrybirds.Visualisateur.drawOiseau;
 import static angrybirds.Visualisateur.drawTarget;
+import angrybirds.jeu.Screen;
 import java.awt.Graphics;
 
 public class VisualCore extends Thread {
@@ -24,8 +23,11 @@ public class VisualCore extends Thread {
      * L'endroit ou la cible sera dessine
      */
     public int xTarget, yTarget;
+    
+    public Screen anim;
 
-    public VisualCore() {
+    public VisualCore(Screen anim) {
+        this.anim = anim;
     }
 
     /**
@@ -51,7 +53,7 @@ public class VisualCore extends Thread {
 
     public Graphics draw(Graphics g) {
         g = drawFond(g);
-        g = drawFootstep(true, calculTraceFootStep(), 3, (int) vitesse + 3, g);
+        g = drawFootstep(3, (int) vitesse + 3, g);
         g = drawOiseau(g);
         g = drawObstacle(g);
         g = drawCurve(g, bird.getCourbe());
