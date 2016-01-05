@@ -50,7 +50,7 @@ public class Constante {
     /**
      * Les dimensions de la fenetre
      */
-    public static Dimension fenetre = new Dimension(1920, 1080);//4K maggle
+    public static Dimension fenetre = new Dimension(800, 600);//4K maggle
 
     /**
      * Liste des obstacles du jeu
