@@ -1,14 +1,21 @@
 package entites.obstacle;
 
+import static angrybirds.jeu.core.CrashCore.entityHitBird;
 import modele.Courbe;
-import entites.Hitbox;
 import entites.Skin;
+import static entites.obstacle.ImpactOrder.lastObstacleRebond;
+import static entites.obstacle.ImpactOrder.rebondOiseau;
 import java.awt.Color;
 
 /**
  * Dessine un obstacle en forme de carre
  */
 public class Rond extends Obstacle {
+
+    /**
+     * La couleur du rond
+     */
+    Color c;
 
     /**
      * Cree un obstacle en forme de carre
@@ -20,7 +27,8 @@ public class Rond extends Obstacle {
      * @param c La couleur de l'obstacle
      */
     public Rond(int x, int y, int hight, int widht, Courbe crb, Color c) {
-        super(x, y, hight, widht, crb, c);
+        super(x, y, hight, widht, crb);
+        this.c = c;
     }
 
     @Override
@@ -28,5 +36,13 @@ public class Rond extends Obstacle {
         s.getG().setColor(c);
         s.getG().fillOval(x, y, widht, hight);
         return s;
+    }
+
+    @Override
+    public void impact() {
+        if (lastObstacleRebond != this) {
+            lastObstacleRebond = this;
+            rebondOiseau(entityHitBird(false));
+        }
     }
 }

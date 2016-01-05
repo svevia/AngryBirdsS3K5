@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import static angrybirds.Constante.*;
 import java.util.ArrayList;
+import static java.awt.Color.*;
 
 /**
  * L'enumeration qui contient tout les skins d'empreinte et les fonctions
@@ -18,43 +19,43 @@ public enum Footstep {
     /**
      * Couleur simple rouge
      */
-    ROUGE(Color.red),
+    ROUGE(red),
     /**
      * Couleur simple noir
      */
-    NOIR(Color.black),
+    NOIR(black),
     /**
      * Au couleur de l'arc en ciel
      */
-    ARCENCIEL(Color.magenta, Color.blue, Color.cyan, Color.green, Color.yellow, Color.ORANGE, Color.red),
+    ARCENCIEL(magenta, blue, cyan, green, yellow, ORANGE, red),
     /**
      * Au couleur du drapeau Allemand
      */
-    BRETZEL(Color.BLACK, Color.RED, Color.YELLOW),
+    BRETZEL(BLACK, RED, YELLOW),
     /**
      * Au couleur du drapeau de la gaypride
      */
-    GAY(Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.magenta),
+    GAY(red, orange, yellow, green, blue, magenta),
     /**
      * Couleur simple rose
      */
-    ROSE(Color.pink),
+    ROSE(pink),
     /**
      * Au couleur du serpent vert et noir
      */
-    RAZER(Color.black, new Color(2, 255, 4), Color.black),
+    RAZER(black, new Color(2, 255, 4), black),
     /**
      * Aux couleurs des pays bas
      */
-    NEERLANDE(Color.red, Color.red, Color.white, Color.white, Color.blue, Color.blue),
+    NEERLANDE(red, red, white, white, blue, blue),
     /**
      * Aux couleurs des USA
      */
-    USA(Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red, Color.white, Color.red),
+    USA(red, white, red, white, red, white, red, white, red, white, red, white, red),
     /**
      * au couleur du drapeau Russe
      */
-    VODKA(Color.WHITE, Color.BLUE, Color.RED);
+    VODKA(WHITE, BLUE, RED);
 
     /**
      * La liste des couleurs du skin
@@ -80,19 +81,18 @@ public enum Footstep {
     }
 
     /**
-     * Dessinne une partie des empreintes
+     * Dessinne une partie des empreintes Methode obselete
      *
-     * @param part Nombre de pas a dessiner a partir de l'entite
      * @param tailleVerticale
      * @param g Graphique sur le quel il s'applique
      * @param tailleHorizontale
      * @return
      */
-    public Graphics drawFootstep(int part, int tailleVerticale, int tailleHorizontale, Graphics g) {
+    @Deprecated
+    public Graphics drawFootstep(int tailleVerticale, int tailleHorizontale, Graphics g) {
         if (!footstepA.isEmpty()) {
             int[] xP = new int[4], yP = new int[4];
-            int i = (footstepX.size() - part < 0) ? 0 : footstepX.size() - part;
-            for (i = i; i < footstepX.size(); i++) {
+            footstepX.stream().forEach((Integer i) -> {
                 for (int j = 0; j < c.length; j++) {
                     g.setColor(c[j]);
                     xP[0] = footstepX.get(i);
@@ -105,7 +105,7 @@ public enum Footstep {
                     yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
                     g.fillPolygon(xP, yP, 4);
                 }
-            }
+            });
         }
         return g;
     }
@@ -120,25 +120,29 @@ public enum Footstep {
      */
     public Graphics drawAllFootstep(int tailleVerticale, int tailleHorizontale, Graphics g) {
         if (!footstepA.isEmpty()) {
-            int[] xP = new int[4], yP = new int[4];
-            for (int i = 0; i < footstepX.size(); i++) {
-                for (int j = 0; j < c.length; j++) {
-                    g.setColor(c[j]);
-                    xP[0] = footstepX.get(i);
-                    xP[1] = footstepX.get(i) + tailleHorizontale;
-                    xP[2] = footstepX.get(i) + tailleHorizontale;
-                    xP[3] = footstepX.get(i);
-                    yP[0] = footstepY.get(i) + j * tailleVerticale;
-                    yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
-                    yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
-                    yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
-                    g.fillPolygon(xP, yP, 4);
+            try {
+                int[] xP = new int[4], yP = new int[4];
+                for (int i = 0; i < footstepX.size(); i++) {
+                    for (int j = 0; j < c.length; j++) {
+                        g.setColor(c[j]);
+                        xP[0] = footstepX.get(i);
+                        xP[1] = footstepX.get(i) + tailleHorizontale;
+                        xP[2] = footstepX.get(i) + tailleHorizontale;
+                        xP[3] = footstepX.get(i);
+                        yP[0] = footstepY.get(i) + j * tailleVerticale;
+                        yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
+                        yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
+                        yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
+                        g.fillPolygon(xP, yP, 4);
+                    }
                 }
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(e.getMessage());
             }
         }
         return g;
     }
-    
+
     /**
      * @return La liste des footsteps
      */

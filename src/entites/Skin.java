@@ -3,33 +3,33 @@ package entites;
 import java.awt.Graphics;
 
 /**
- *  Transporte un grpahics qui represente une entite reellement 
+ * Proxy servant a remplacer le Graphics
  */
 public class Skin {
 
     /**
-     * Le grpahics du skin
+     * Graphics du skin
      */
     private Graphics g;
 
     /**
-     * Construit un skin a partir d'un graphics existant
-     * @param g Le graphics de base
+     * Constructeur
+     * @param g Le skin de base
      */
     public Skin(Graphics g) {
         this.g = g;
     }
 
     /**
-     * Change le graphics
-     * @param g Le nouveau graphics
+     * Remplace le graphics par un autre
+     * @param g Nouveau graphics
      */
     public void setG(Graphics g) {
         this.g = g;
     }
 
     /**
-     * @return Le graphics 
+     * @return Le graphics du skin 
      */
     public Graphics getG() {
         return g;

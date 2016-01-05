@@ -1,11 +1,12 @@
 package entites.bird;
 
-import modele.Courbe;
 import java.awt.Color;
 import entites.bird.module.BecCanard;
 import entites.bird.module.Oeil;
+import modele.Courbe;
 
 /**
+ * w
  * Class permettante de dessiner un canard
  */
 public class Canard extends Bird {
@@ -17,7 +18,7 @@ public class Canard extends Bird {
      * Constructeur de la class creeant automatiquement l'oiseau
      */
     public Canard(Courbe c) {
-        super(0, 0, 40, c, Color.white);
+        super(0, 0, 40, 100, c, Color.white);
         addModule(bec);
         addModule(oeil);
     }

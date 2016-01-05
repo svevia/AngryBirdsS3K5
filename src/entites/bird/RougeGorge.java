@@ -1,9 +1,9 @@
 package entites.bird;
 
-import modele.Courbe;
 import java.awt.Color;
 import entites.bird.module.BecTriangulaire;
 import entites.bird.module.Oeil;
+import modele.Courbe;
 
 /**
  * Class permettante de dessiner un oiseau tout rouge
@@ -17,7 +17,7 @@ public class RougeGorge extends Bird {
      * Constructeur de la class creeant automatiquement l'oiseau
      */
     public RougeGorge(Courbe c) {
-        super(0, 0, 20, c, Color.red);
+        super(0, 0, 20, 50, c, Color.red);
         addModule(bec);
         addModule(oeil);
     }

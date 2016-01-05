@@ -1,13 +1,13 @@
 package entites.bird;
 
 import entites.bird.module.ModuleBird;
-import static angrybirds.Constante.allModul;
-import modele.Courbe;
 import entites.Entity;
 import java.awt.Color;
 import entites.Hitbox;
 import entites.Skin;
+import entites.bird.power.Power;
 import java.util.ArrayList;
+import modele.Courbe;
 
 /**
  * La class abstraite Bird normalise la creation des oiseaux donnant acce a une
@@ -26,6 +26,11 @@ public class Bird extends Entity {
     protected int r;
 
     /**
+     * Masse du pigeon
+     */
+    protected int masse;
+
+    /**
      * La position graphique du centre du corp de l'oiseau en x sur la fenetre
      */
     protected int birdCenterX;
@@ -41,6 +46,11 @@ public class Bird extends Entity {
     protected Color corps;
 
     /**
+     * Le pouvoir du pigeon
+     */
+    protected ArrayList<Power> power = new ArrayList<>();
+
+    /**
      * Les modules de l'oiseau (pimp my cybird)
      */
     protected ArrayList<ModuleBird> modul = new ArrayList<>();
@@ -53,9 +63,10 @@ public class Bird extends Entity {
      * @param crb Sa courbe
      * @param corps La couleur principale du pigeon
      */
-    public Bird(int pigeonX, int pigeonY, int diametre, Courbe crb, Color corps) {
+    public Bird(int pigeonX, int pigeonY, int diametre, int masse, Courbe crb, Color corps) {
         super(pigeonX, pigeonY, diametre, diametre, crb);
         this.corps = corps;
+        this.masse = masse;
         r = diametre / 2;
         hb = new Hitbox(pigeonX, pigeonY, diametre, diametre);
     }
@@ -77,16 +88,17 @@ public class Bird extends Entity {
     }
 
     /**
-     * 
-     * @return L'angle du pigeon 
+     *
+     * @return L'angle du pigeon
      */
     public double getA() {
         return a;
     }
-    
+
     /**
      * Change l'angle du pigeon
-     * @param a 
+     *
+     * @param a
      */
     public void setA(double a) {
         this.a = a % (Math.PI * 2);
@@ -171,7 +183,6 @@ public class Bird extends Entity {
      */
     public void addModule(ModuleBird mb) {
         modul.add(mb);
-        allModul.add(mb);
     }
 
     @Override
@@ -187,12 +198,39 @@ public class Bird extends Entity {
     }
 
     /**
-     * Bouge l'entite en fonction de sa courbe, celui de bird rajoute l'angle
-     * en plus
-     * @param t 
+     * Bouge l'entite en fonction de sa courbe, celui de bird rajoute l'angle en
+     * plus
+     *
+     * @param t
      */
     public void move(int t) {
         super.move(t);
         setA(super.crb.angleAenT(t));
     }
+
+    public ArrayList<Power> getPower() {
+        return power;
+    }
+
+    public void setPower(ArrayList<Power> power) {
+        this.power = power;
+    }
+
+    public ArrayList<ModuleBird> getModul() {
+        return modul;
+    }
+
+    public void setModul(ArrayList<ModuleBird> modul) {
+        this.modul = modul;
+    }
+
+    public int getMasse() {
+        return masse;
+    }
+
+    public void setMasse(int masse) {
+        this.masse = masse;
+    }
+    
+    
 }

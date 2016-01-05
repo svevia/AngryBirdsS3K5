@@ -7,27 +7,22 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javax.swing.Timer;
 
-/**
- * Les boutons du menu
- */
 public class BoutonMenu extends Button implements EventHandler<MouseEvent> {
 
-    /**
-     * Le thread qui fait tourner les tetes
-     */
     Thread rotation;
 
-    /**
-     * Constuit un bouton comme je le veux
-     * @param text Le texte du bouton
-     */
     public BoutonMenu(String text) {
         super(text);
         setPrefHeight(100);
         setPrefWidth(300);
         setOnMouseEntered(this);
         setOnMouseExited(this);
-        getStyleClass().add("boutonMenu");
+        setStyle("-fx-background-color: linear-gradient(#ff5400, #be1d00);\n"
+                + "-fx-background-radius: 30;\n"
+                + "-fx-background-insets: 0;\n"
+                + "-fx-text-fill: white;\n"
+                + "-fx-font-family: monospace;\n"
+                + "-fx-font-size: 40px;\n");
     }
 
     @Override
@@ -42,59 +37,20 @@ public class BoutonMenu extends Button implements EventHandler<MouseEvent> {
     }
 }
 
-/**
- *  Classe qui fait tourner les boutons, un bouton a son thread a lui 
- */
 class RotateButton extends Thread implements ActionListener {
 
-    /**
-     * Angle d'inclinais maximal
-     */
-    int angleMax = 10;
-    
-    /**
-     * Delay entre deux mouvement
-     */
-    int delay = 40;
-    
-    /**
-     * Le boutton qui recoit
-     */
+    int angleMax = 10, delay = 40;
     Button b;
-    
-    /**
-     * La rotation actuel
-     */
     double i;
-    
-    /**
-     * Le boolean qui permet de connaitre le sens de rotation
-     */
-    boolean uping = true;
-    
-    /**
-     * Le boolean qui permet de savoir quand c'est fini
-     */
-    boolean finish = false;
-    
-    /**
-     * Le timer qui regularise la vitesse du bouton avec delay
-     */
+    boolean uping = true, finish = false;
     Timer t = new Timer(delay, this);
 
-    /**
-     * Construit la rotation
-     * @param b sur le bouton voulu
-     */
     public RotateButton(Button b) {
         this.b = b;
         i = b.getRotate();
         t.setRepeats(false);
     }
 
-    /**
-     * Demarrage le tournage
-     */
     public void start() {
         rotation();
     }
@@ -105,10 +61,8 @@ class RotateButton extends Thread implements ActionListener {
         finish = true;
     }
 
-    /**
-     * Fait tourner
-     */
     void rotation() {
+
         if (uping) {
             i++;
             if (i > angleMax) {
@@ -120,6 +74,7 @@ class RotateButton extends Thread implements ActionListener {
                 uping = true;
             }
         }
+
         if (!finish) {
             t.start();
         }

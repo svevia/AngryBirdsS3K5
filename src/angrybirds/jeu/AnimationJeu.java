@@ -1,14 +1,11 @@
 package angrybirds.jeu;
 
-import modele.Courbe;
-import java.awt.Graphics;
+import angrybirds.Constante;
 import static angrybirds.Constante.*;
-import static angrybirds.jeu.HeartCore.t;
-import entites.Collision;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import angrybirds.core.HeartCore;
+import java.awt.Graphics;
+import angrybirds.core.VisualCore;
+import entites.target.TargetListener;
 import javax.swing.JPanel;
 import static modele.PFAGReader.listePFAG;
 
@@ -17,17 +14,12 @@ import static modele.PFAGReader.listePFAG;
  * du jeu, le moteur de collision, le thread principal du jeu et la courbe
  * engage par l'oiseau
  */
-public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
+public class AnimationJeu extends JPanel {
 
     /**
      * Le visualisateur qui gere l'affichage des skins sur le plan
      */
-    private Visualisateur visu;
-
-    /**
-     * Thread des collisions (gere la partie physique du jeu)
-     */
-    private Collision stun;
+    private VisualCore visu;
 
     /**
      * Thread de l'animation (gere les deplacements et l'affichage du jeu au
@@ -36,29 +28,18 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     private HeartCore core;
 
     /**
-     * Boolean de lancement de l'animation
+     * Boolean de lancement du jeu, le jeu est separe en deux phase, la phase de
+     * lancement, et la phase de jeu.
      */
-    boolean shoot = false;
-
-    /**
-     * Paint une cible si le click est fait
-     */
-    boolean paintCible = false;
-
-    /**
-     * Le centre de la cible drag n drop
-     */
-    int xTarget, yTarger;
+    private boolean shoot = false;
 
     public AnimationJeu() {
+        Constante.vitesse = 5;
         setFocusable(true);
         setDoubleBuffered(true); // Un bel affichage en HD !!!
-        addKeyListener(this);
-        addMouseListener(this);
-        // On compte externisé les listener plus tard
-        visu = new Visualisateur(); // Gestionnaire d'affichage, plus souvent appellé "le visu"
-        stun = new Collision(); // Gestionnaire de collision, ou "coco"
-        core = new HeartCore(5, this); // Gestionnaire d'evenement, le coeur
+        visu = new VisualCore(); // Gestionnaire d'affichage, plus souvent appellé "le visu"
+        core = new HeartCore(); // Gestionnaire d'evenement, le coeur
+        addMouseListener(new TargetListener(visu));
         // Ces trois potes enssemble gèrent le jeu
     }
 
@@ -68,9 +49,10 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     public final void start() {
         bird.setX(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).height);
         bird.setY(gReader.positionOiseau(listePFAG().get(indexPFAGUtilise)).width);
-        bird.setCourbe(new Courbe(0, 1, bird.getX(), 0.0009, bird.getA(), bird.getY()));
         lancement();
-        core.start();
+        // Demarre la bête
+        core.start(); // Les calculs
+        visu.start(); // Et l'affichage
     }
 
     /**
@@ -81,115 +63,27 @@ public class AnimationJeu extends JPanel implements KeyListener, MouseListener {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        addFootstepCoord();
-        g = visu.drawAllNeed(g);
-        g = visu.drawCurve(g, bird.getCourbe());
-//        g = visu.drawAllHitBox(g);
-        if (paintCible) {
-            g = visu.drawTarget(g, this, xTarget, yTarger);
-        }
-        stun.run();
+        g = visu.draw(g);
     }
 
     /**
-     * Fonction qui ajoute les coordonnes actuel a une liste
-     */
-    private void addFootstepCoord() {
-        if (bird.isMove()) {
-            footstepX.add(bird.getX());
-            footstepY.add(bird.getY() + bird.getR());
-            footstepA.add(bird.getCourbe().angleAenT(t));
-        }
-    }
-
-    /**
-     * Retourne le thread du jeu
-     *
-     * @return Le thread du jeu
-     */
-    public Thread getCore() {
-        return core;
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
-
-    /**
-     * Direction du lance
-     */
-    int k = 1;
-
-    /**
-     * Prend une touche du clavier, si on appuis sur espace, le jeu se lance,
-     * les touches directionnelles permettent de regler la courbe
-     *
-     * @param e L'evenement pris en compte
-     */
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            shoot = true;
-            removeKeyListener(this);
-            removeMouseListener(this);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            if (bird.getA() > -1.6) {
-                bird.setA(bird.getA() - 0.1);
-            }
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if (bird.getA() < 1.6) {
-                bird.setA(bird.getA() + 0.1);
-            }
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            k = 1;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            k = -1;
-        }
-        bird.setCourbe(new Courbe(0, k, bird.getX(), 0.0009, bird.getA(), bird.getY()));
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        xTarget = e.getX();
-        yTarger = e.getY();
-        paintCible = true;
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        shoot = true;
-        paintCible = false;
-        removeKeyListener(this);
-        removeMouseListener(this);
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-    /**
-     * Garde le jeu dans un etat de zombie tant que la variable shoot n'est pas
-     * true
+     * Garde le jeu dans un etat de zombie tant que l'ordre 227 n'est pas
+     * execute
      */
     private void lancement() {
         while (!shoot) {
             repaint();
         }
+    }
+
+    /**
+     * Aucun retrait n'est permis desormais, vous venez de vous lancer dans une
+     * grande aventure, enjoy it !
+     */
+    public void oder227() {
+        shoot = true;
+        bird.getPower().stream().forEach((p) -> {
+            addKeyListener(p);
+        });
     }
 }

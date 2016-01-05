@@ -12,26 +12,13 @@ import static java.lang.Math.*;
  */
 public class Calcul {
 
-    /**
-     * Position du centre de la cible
-     */
-    public static int xFocus, yFocus;
-
-    /**
-     * Position de la souris lorsque la cible est la
-     */
-    public static int xFocusActual, yFocusActual;
-
-    /**
-     * Rayon de la cible, jedi
-     */
-    public static int diametreCercleDeForce = 300;
+    public static double laPUISSANCE;
 
     /**
      * @return Return la puissance du lance en pourcentage
      */
-    public static int force() {
-        int ret = (int) (((pow((pow((xFocus - xFocusActual), 2) + pow((yFocus - yFocusActual), 2)), 0.5)) / (diametreCercleDeForce / 2)) * 100);
+    public static int force(int xFocus, int yFocus, int mouseX, int mouseY, int rayonDeLaForce) {
+        int ret = (int) (((pow((pow((xFocus - mouseX), 2) + pow((yFocus - mouseY), 2)), 0.5)) / (rayonDeLaForce / 2)) * 100);
         if (ret > 100) {
             ret = 100;
         }
@@ -41,19 +28,19 @@ public class Calcul {
     /**
      * @return Return l'angle du lance en radian
      */
-    public static double angle() {
-        double d1 = calculDistance(xFocus, yFocus, xFocusActual, yFocusActual);
-        double d2 = calculDistance(xFocus, yFocus, xFocusActual, yFocus);
-        double d3 = calculDistance(xFocusActual, yFocus, xFocusActual, yFocusActual);
-        if (xFocusActual <= xFocus) {
+    public static double angle(int xFocus, int yFocus, int mouseX, int mouseY) {
+        double d1 = calculDistance(xFocus, yFocus, mouseX, mouseY);
+        double d2 = calculDistance(xFocus, yFocus, mouseX, yFocus);
+        double d3 = calculDistance(mouseX, yFocus, mouseX, mouseY);
+        if (mouseX <= xFocus) {
             d2 = -d2;
         }
-        if (yFocusActual <= yFocus) {
+        if (mouseX <= yFocus) {
             d3 = -d3;
         }
         double a = calculAngle(d1, d2, d3);
-        if (yFocusActual <= yFocus) {
-            a = PI + -(a -PI);
+        if (mouseY <= yFocus) {
+            a = PI + -(a - PI);
         }
         return a;
     }
@@ -61,41 +48,42 @@ public class Calcul {
     /**
      * Met a jour la courbe du drag and drop (la cible)
      */
-    public static void setCourbeDragNDrop() {
-        if (force() > 20 && angle() < 10 && angle() > -10) {
-            bird.setA(angle() + PI);
-            vitesse = force() / 20;
-            vitesse = force()/10; 
-            int force = force() - 100;
+    public static void setCourbeDragNDrop(int xFocus, int yFocus, int mouseX, int mouseY, int rayonDeLaForce) {
+        if (force(xFocus, yFocus, mouseX, mouseY, rayonDeLaForce) > 20 && angle(xFocus, yFocus, mouseX, mouseY) < 10 && angle(xFocus, yFocus, mouseX, mouseY) > -10) {
+            bird.setA(angle(xFocus, yFocus, mouseX, mouseY) + PI);
+            vitesse = force(xFocus, yFocus, mouseX, mouseY, rayonDeLaForce) / 10;
+            int force = force(xFocus, yFocus, mouseX, mouseY, rayonDeLaForce) - 100;
             force = abs(force);
-            double laPUISSANCE = force * vitesse; // C'est une question de physique
+            laPUISSANCE = force * vitesse; // C'est une question de physique
             laPUISSANCE /= 100000; // Mon pigeon est faible en faite
             /**
-             * Explication :
-             * La courbe se fait donc avec deux polynomes du second degree
-             * Chaque polynome est construit ainsi :
-             *  Le 1er parametre sert a regler la courbation de la courbe, vue que
-             *  la puissance viens de la vitesse, plus le pigeon est puissant,
-             *  plus sa vitesse sera forte !
-             *  Si on fait varier la puissance de x, on obtiens des truc bizzares
-             * 
-             *  Le 2e parametre sert d'angle
-             * 
-             *  Le 3e parametre sert de point de depart
-             * 
-             *  Le 2e et le 3e parametre varie que sa soit le 1er ou le 2e polynome
+             * Explication : La courbe se fait donc avec deux polynomes du
+             * second degree Chaque polynome est construit ainsi : Le 1er
+             * parametre sert a regler la courbation de la courbe, vue que la
+             * puissance viens de la vitesse, plus le pigeon est puissant, plus
+             * sa vitesse sera forte ! Si on fait varier la puissance de x, on
+             * obtiens des truc bizzares
+             *
+             * Le 2e parametre sert d'angle
+             *
+             * Le 3e parametre sert de point de depart
+             *
+             * Le 2e et le 3e parametre varie que sa soit le 1er ou le 2e
+             * polynome
              */
             bird.setCourbe(new Courbe(0, cos(bird.getA()), bird.getX(), laPUISSANCE, sin(bird.getA()), bird.getY()));
+            vitesse--;
         }
     }
 
     /**
      * Fzit tourner une matrice autours de l'origine
+     *
      * @param tab La matrice sous forme de tableau
      * @param angle L'angle a ajouter
-     * @param cos Si la mtrice est celle des points en abscisse (true) ou en 
+     * @param cos Si la mtrice est celle des points en abscisse (true) ou en
      * ordonne
-     * @return La matrice modifie 
+     * @return La matrice modifie
      */
     public static int[] rotation(int[] tab, double angle, boolean cos) {
         for (int i = 0; i < tab.length; i++) {
@@ -110,6 +98,7 @@ public class Calcul {
 
     /**
      * Fait tourner un seul point autour de l'origine
+     *
      * @param x Le point a tourner
      * @param angle L'angle a ajouter
      * @param cos Si le point est en abscisse ou en ordonne
@@ -125,10 +114,11 @@ public class Calcul {
     }
 
     /**
-     * Additionne un chiffre a une matrice 
+     * Additionne un chiffre a une matrice
+     *
      * @param tab La matrice
      * @param add Le addition
-     * @return La matrice additionne 
+     * @return La matrice additionne
      */
     public static int[] addition(int[] tab, int add) {
         for (int i = 0; i < tab.length; i++) {
@@ -139,6 +129,7 @@ public class Calcul {
 
     /**
      * Calcul la courbe d'un point x a toX et y toX
+     *
      * @param x L'origine
      * @param y L'origine
      * @param toX La destination final

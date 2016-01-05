@@ -1,9 +1,16 @@
 package angrybirds;
 
+import angrybirds.jeu.Screen;
 import angrybirds.jeu.GameFrame;
-import entites.bird.module.ModuleBird;
-import entites.bird.*;
+import angrybirds.jeu.core.HeartCore;
+import angrybirds.jeu.core.HeartMoveBird;
+import angrybirds.jeu.core.HeartMoveObstacle;
+import entites.bird.Bird;
+import entites.bird.Footstep;
 import entites.obstacle.Obstacle;
+import static entites.obstacle.Obstacle.addListObstacle;
+import entites.target.ClassicalTarget;
+import entites.target.Target;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -14,13 +21,35 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
 import modele.ImageCustomz;
+import modele.InfoPigeon;
 import modele.PFAGReader;
 import static modele.PFAGReader.listePFAG;
 
 /**
- * @author K5 La classe constante reunni toute les constantes du programme.
+ * @author K5 La classe constante reunni toute les "constantes" du programme.
  */
 public class Constante {
+
+    /**
+     * Le temps entre deux images pour un jeu en 30 fps
+     */
+    public static final int FPS30 = 34;
+
+    /**
+     * Le temps entre deux images pour un jeu en 60 fps
+     */
+    public static final int FPS60 = 16;
+
+    /**
+     * Le temps entre deux images pour un jeu en 120 fpd
+     */
+    public static final int FPS120 = 8;
+
+    /**
+     * Le temps maximal entre deux images, 500 fps, affichage subliminal (meme
+     * si ton oeil ne vois que 60 fps)
+     */
+    public static final int FPSUNLIMITED = 2;
 
     /**
      * Le reader de pfag
@@ -30,7 +59,7 @@ public class Constante {
     /**
      * La vitesse de l'oiseau
      */
-    public static int vitesse;
+    public static int vitesse = 5;
 
     /**
      * L'oiseau choisi
@@ -45,41 +74,37 @@ public class Constante {
     /**
      * La fond choisi
      */
-    public static ArrayList<ImageCustomz> fond;
+    public static ArrayList<ImageCustomz> fond = new ArrayList<>();
 
     /**
      * Les dimensions de la fenetre
      */
-    public static Dimension fenetre = new Dimension(800, 600);//4K maggle
+    public static Dimension fenetre = new Dimension(1920, 1080);//4K maggle
 
     /**
      * Liste des obstacles du jeu
      */
-    public static ArrayList<Obstacle> obstacle;
-
-    /**
-     * Liste de tout les modules
-     */
-    public static ArrayList<ModuleBird> allModul;
+    public static ArrayList<Obstacle> obstacle = new ArrayList<>();
 
     /**
      * Liste des points de passages du pigeon en x
      */
-    public static ArrayList<Integer> footstepX;
+    public static ArrayList<Integer> footstepX = new ArrayList<>();
 
     /**
      * Liste des points de passages du pigeon en y
      */
-    public static ArrayList<Integer> footstepY;
+    public static ArrayList<Integer> footstepY = new ArrayList<>();
 
     /**
      * Liste des angles fait par le pigeon
      */
-    public static ArrayList<Double> footstepA;
+    public static ArrayList<Double> footstepA = new ArrayList<>();
 
     /**
      * OLD - La fenetre du jeu
      */
+    @Deprecated
     public static GameFrame gf;
 
     /**
@@ -108,19 +133,39 @@ public class Constante {
     public static int entityHitty = 0;
 
     /**
-     * Reinitialise la class a zero
+     * La target du jeu, qui sert a viser au lancement
      */
-    public static void iniz() throws IOException {
+    public static Target target = new ClassicalTarget();
+
+    /**
+     * L'animation principal du jeu
+     */
+    public static Screen screen;
+
+    /**
+     * L'essai numero x, actuel
+     */
+    public static int essai = 1;
+
+    /**
+     * Le nombre d'essai total
+     */
+    public static int nombreEssai = 1;
+
+    /**
+     * La map des pigeons
+     */
+    public static HashMap<Integer, InfoPigeon> pigeons = new HashMap<>();
+
+    /**
+     * Initialise le jeu
+     */
+    public static void iniz() {
         fenetre = gReader.dimensionFenetre(listePFAG().get(indexPFAGUtilise));
-        allModul = new ArrayList<>();
-        bird = new RougeGorge(null);
+        nombreEssai = gReader.nombreEssai(listePFAG().get(indexPFAGUtilise));
+        gReader.initialisePigeons(listePFAG().get(indexPFAGUtilise));
         fond = gReader.listeImage(listePFAG().get(indexPFAGUtilise));
-        obstacle = new ArrayList<>();
-        footstepX = new ArrayList<>();
-        footstepY = new ArrayList<>();
-        footstepA = new ArrayList<>();
-        entityHitty = 0;
-        last = false;
+        addListObstacle(gReader.listeObstacle(PFAGReader.listePFAG().get(indexPFAGUtilise)));
     }
 
     /**
@@ -165,13 +210,23 @@ public class Constante {
                 stream.close();
             }
         } catch (IOException ex) {
-            System.out.println("Bug lecture des sources, source ou/et extension incorectes");
+            System.out.println("Bug lecture des sources, source ou/et extensions incorectes");
         }
         return sources;
     }
 
-    // A n'executer qu'en cas de rebellion du systeme
+    /**
+     * A n'executer qu'en cas de rebellion du systeme
+     */
     static public void order66() {
         System.exit(0);
     }
+    
+    /**
+     * Super methode qui renvoie la valeur de tout les timers du jeu
+     * @return Tout les timers du jeu sous la forme d'une chaine de charactere separe par un tiret
+     */
+    static public String soutAllTimer() {
+        return HeartCore.t + " - " + HeartMoveBird.internalTime + " - " + HeartMoveObstacle.tWall;
+    } 
 }

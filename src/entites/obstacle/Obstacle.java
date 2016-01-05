@@ -1,21 +1,15 @@
 package entites.obstacle;
 
 import entites.Hitbox;
-import java.awt.Color;
 import static angrybirds.Constante.obstacle;
-import modele.Courbe;
 import entites.Entity;
 import java.util.ArrayList;
+import modele.Courbe;
 
 /**
  * Class abstraite des obstacles
  */
 public abstract class Obstacle extends Entity{
-    
-    /**
-     * La couleur de l'obstacle
-     */
-    protected Color c;
 
     /**
      * Cree un obtacle avec sa taille, sa position et sa couleur initiale
@@ -26,13 +20,16 @@ public abstract class Obstacle extends Entity{
      * @param y Position aux ordonnees
      * @param c Couleur
      */
-    public Obstacle(int x, int y, int widht, int hight, Courbe crb, Color c) {
+    public Obstacle(int x, int y, int widht, int hight, Courbe crb) {
         super(x , y, hight, widht, crb);
-        this.c = c;
     }
+    
+    /**
+     * Action au moment de l'impacte
+     */
+    public abstract void impact();
 
     /**
-     *
      * @return Return la hauteur de l'entite
      */
     public int getHight() {
@@ -102,23 +99,7 @@ public abstract class Obstacle extends Entity{
         this.y = y;
         this.hb.setY(y);
     }
-
-    /**
-     *
-     * @return
-     */
-    public Color getC() {
-        return c;
-    }
-
-    /**
-     *
-     * @param c
-     */
-    public void setC(Color c) {
-        this.c = c;
-    }
-
+    
     /**
      *
      * @return

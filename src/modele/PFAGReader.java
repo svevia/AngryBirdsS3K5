@@ -2,8 +2,15 @@ package modele;
 
 import static angrybirds.Constante.fenetre;
 import static angrybirds.Constante.listeFichier;
+import static angrybirds.Constante.pigeons;
+import entites.bird.Canard;
+import entites.bird.Cobay;
+import entites.bird.RougeGorge;
 import entites.obstacle.Obstacle;
 import entites.obstacle.Carre;
+import entites.obstacle.PoutreBois;
+import entites.obstacle.PoutreMetal;
+import entites.obstacle.PoutreVerre;
 import entites.obstacle.Rond;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -123,9 +130,10 @@ public class PFAGReader {
         String line = "";
         StringTokenizer st;
         StringTokenizer st2;
-        String type = "";   
+        String type = "";
         int x = 0, y = 0, w = 0, h = 0, mouvementMax = 0;
         double aX = 0, bX = 0, aY = 0, bY = 0;
+        boolean vertical = true;
         Color couleur = Color.red;
         Random r = new Random();
         try {
@@ -140,6 +148,7 @@ public class PFAGReader {
                 aY = 0;
                 bY = 0;
                 mouvementMax = 0;
+                vertical = true;
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("obstacle")) {
                     st2 = new StringTokenizer(st.nextToken(), ",");
@@ -185,6 +194,9 @@ public class PFAGReader {
                             case "mouvement":
                                 mouvementMax = Integer.parseInt(st.nextToken());
                                 break;
+                            case "vertical":
+                                vertical = Boolean.parseBoolean(st.nextToken());
+                                break;
                             default:
                                 System.out.println("Un argument est incorrecte " + st.nextToken());
                                 break;
@@ -209,12 +221,30 @@ public class PFAGReader {
                         if (type.equals("rond")) {
                             ar.add(new Rond(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
                         }
+                        if (type.equals("poutreMetal")) {
+                            ar.add(new PoutreMetal(x, y, h, new Courbe(aX, bX, x, aY, bY, y), vertical));
+                        }
+                        if (type.equals("poutreBois")) {
+                            ar.add(new PoutreBois(x, y, h, new Courbe(aX, bX, x, aY, bY, y), vertical));
+                        }
+                        if (type.equals("poutreVerre")) {
+                            ar.add(new PoutreVerre(x, y, h, new Courbe(aX, bX, x, aY, bY, y), vertical));
+                        }
                     } else {
                         if (type.equals("carre")) {
                             ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), couleur));
                         }
                         if (type.equals("rond")) {
                             ar.add(new Rond(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), couleur));
+                        }
+                        if (type.equals("poutreMetal")) {
+                            ar.add(new PoutreMetal(x, y, h, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), vertical));
+                        }
+                        if (type.equals("poutreBois")) {
+                            ar.add(new PoutreBois(x, y, h, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), vertical));
+                        }
+                        if (type.equals("poutreVerre")) {
+                            ar.add(new PoutreVerre(x, y, h, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), vertical));
                         }
                     }
                 }
@@ -268,21 +298,26 @@ public class PFAGReader {
     }
 
     /**
+     * Initialise les positions des pigeons dans les tableaux appropries
      *
      * @param pfag
-     * @return La position du pigeon par le biais d'une Dimension
      */
-    public Dimension positionOiseau(String pfag) {
-        Dimension d = new Dimension();
+    public void initialisePigeons(String pfag) {
         String line = "";
         StringTokenizer st;
         StringTokenizer st2;
-        int x = 0, y = 0;
+        InfoPigeon tmp = new InfoPigeon(0, 0, new RougeGorge(null));
+        int x = 0, y = 0, n = 1;
+        String type = "";
         try {
             in = Files.newBufferedReader(Paths.get("Ressource/" + pfagOfSource.get(pfag)));
             while ((line = in.readLine()) != null) {
                 st = new StringTokenizer(line, ":");
                 if (st.nextToken().equals("bird")) {
+                    x = 0;
+                    y = 0;
+                    n = 1;
+                    type = "";
                     st2 = new StringTokenizer(st.nextToken(), ",");
                     while (st2.hasMoreTokens()) {
                         st = new StringTokenizer(st2.nextToken(), "=");
@@ -293,18 +328,73 @@ public class PFAGReader {
                             case "y":
                                 y = Integer.parseInt(st.nextToken());
                                 break;
+                            case "n":
+                                n = Integer.parseInt(st.nextToken());
+                                break;
+                            case "type":
+                                type = st.nextToken();
+                                break;
                             default:
                                 System.out.println("Un argument est incorrecte " + st.nextToken());
                                 break;
                         }
                     }
-                    d = new Dimension(x, y);
+                    switch (type) {
+                        case "rg":
+                            tmp = new InfoPigeon(x, y, new RougeGorge(null));
+                            break;
+                        case "canard":
+                            tmp = new InfoPigeon(x, y, new Canard(null));
+                            break;
+                        case "cobay":
+                            tmp = new InfoPigeon(x, y, new Cobay(null));
+                            break;
+                        default:
+                            tmp = new InfoPigeon(x, y, new RougeGorge(null));
+                            break;
+                    }
+                    pigeons.putIfAbsent(n, tmp);
                 }
             }
             in.close();
         } catch (IOException ex) {
             System.out.println("Bug lecture");
         }
-        return d;
+    }
+
+    /**
+     *
+     * @param pfag Le pfag a lire
+     * @return Le nombre d'essai a faire
+     */
+    public int nombreEssai(String pfag) {
+        String line = "";
+        StringTokenizer st;
+        StringTokenizer st2;
+        int hesay = 1;
+        try {
+            in = Files.newBufferedReader(Paths.get("Ressource/" + pfagOfSource.get(pfag)));
+            while ((line = in.readLine()) != null) {
+                st = new StringTokenizer(line, ":");
+                if (st.nextToken().equals("try")) {
+                    st2 = new StringTokenizer(st.nextToken(), ",");
+                    while (st2.hasMoreTokens()) {
+                        st = new StringTokenizer(st2.nextToken(), "=");
+                        switch (st.nextToken()) {
+                            case "try":
+                                hesay = Integer.parseInt(st.nextToken());
+                                break;
+                            default:
+                                System.out.println("Un argument est incorrecte " + st.nextToken());
+                                break;
+                        }
+                    }
+                }
+            }
+            in.close();
+        } catch (IOException ex) {
+            System.out.println("Bug lecture");
+        }
+        return hesay;
     }
 }

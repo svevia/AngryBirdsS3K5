@@ -4,24 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
 
-/**
- * Classe de la musique du jeu
- */
 public class MusicMenu extends Thread {
 
-    /**
-     * Le stream audio
-     */
     AudioInputStream audioInputStream = null;
-
-    /**
-     * Les donnes permettant de lire la musique
-     */
     SourceDataLine line;
-
-    /**
-     * Si la musique tourne ou pas deja
-     */
     boolean begin = false;
 
     public void run() {

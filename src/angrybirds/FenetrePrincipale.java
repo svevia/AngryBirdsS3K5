@@ -5,6 +5,7 @@ import angrybirds.jeu.GameFrame;
 import angrybirds.menu.Menu;
 import angrybirds.menu.MusicMenu;
 import angrybirds.option.Option;
+import extra.lasergame.MainLaser;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -12,8 +13,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
- * Cette classe represente le point de depart du programme, quand la fontion start
- * est utilise (par le biais de lunch), elle ouvrira une fenetre du menu du jeu
+ * Cette classe represente le point de depart du programme, quand la fontion
+ * start est utilise (par le biais de lunch), elle ouvrira une fenetre du menu
+ * du jeu
  */
 public class FenetrePrincipale extends Application {
 
@@ -35,22 +37,22 @@ public class FenetrePrincipale extends Application {
             return scene;
         }
     }
-    
+
     /**
      * Le son du menu
      */
     public static Thread son = new MusicMenu();
-    
+
     /**
      * Le menu
      */
     public Menu menu = new Menu(this);
-    
+
     /**
      * Les options
      */
     public Option option = new Option(this);
-    
+
     /**
      * La scene principale
      */
@@ -58,7 +60,8 @@ public class FenetrePrincipale extends Application {
 
     /**
      * Demarre le menu
-     * @param primaryStage 
+     *
+     * @param primaryStage
      */
     public void start(Stage primaryStage) {
         scene.getStylesheets().add("ressource/stylesheet.css");
@@ -78,6 +81,7 @@ public class FenetrePrincipale extends Application {
 
     /**
      * Change la scene sur la scene voulu
+     *
      * @param choseScene Enumerateur de la scene
      */
     public void changeScene(ChoseScene choseScene) {
@@ -95,8 +99,15 @@ public class FenetrePrincipale extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
-//        gf = new GameFrame();
-//        gf.run();
+        // Attention, ne garder sans commentaires que une des options si dessous
+
+        // Cette ligne sert à lancer le menu
+//        launch(args);
+        // Ces lignes servent à lancer angry birds sans menu
+        gf = new GameFrame();
+        gf.run();
+        // Ces lignes servent à lancer le jeu du laser sans menu
+//        MainLaser ml = new MainLaser();
+//        ml.run();
     }
 }
