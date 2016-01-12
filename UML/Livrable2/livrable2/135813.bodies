@@ -1,5 +1,0 @@
-class ChoseScene
-!!!134789.java!!!	ChoseScene(in scene : int)
-            this.scene = scene;
-!!!134917.java!!!	getScene() : int
-            return scene;

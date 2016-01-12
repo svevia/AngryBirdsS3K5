@@ -1,7 +1,0 @@
-class Skin
-!!!144517.java!!!	Skin(inout g : Graphics)
-        this.g = g;
-!!!144645.java!!!	setG(inout g : Graphics) : void
-        this.g = g;
-!!!144773.java!!!	getG() : Graphics
-        return g;

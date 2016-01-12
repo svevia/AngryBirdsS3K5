@@ -1,1 +1,0 @@
-Il se peut que le jeu complet ne fonctionne pas ou que le jeu avec fond (NoMenuHBNoHB) n'ai pas de fond, dans ce cas référé vous aux sources pour lancer le jeu avec le menu. Le problème est du à la transformation du jeu en éxécutable.

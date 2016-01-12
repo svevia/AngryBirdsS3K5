@@ -1,5 +1,0 @@
-class BoutonOption
-!!!140165.java!!!	BoutonOption(in text : String)
-        super(text);
-        setPrefHeight(30);
-        getStyleClass().add("boutonOption");
