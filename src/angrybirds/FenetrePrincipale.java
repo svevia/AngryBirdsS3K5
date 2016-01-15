@@ -1,11 +1,11 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
+import angrybirds.extra.Extra;
 import angrybirds.jeu.GameFrame;
 import angrybirds.menu.Menu;
 import angrybirds.menu.MusicMenu;
 import angrybirds.option.Option;
-import extra.lasergame.MainLaser;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -25,7 +25,8 @@ public class FenetrePrincipale extends Application {
     public enum ChoseScene {
 
         MENU(1),
-        OPTION(2);
+        OPTION(2),
+        EXTRA(3);
 
         int scene;
 
@@ -52,6 +53,11 @@ public class FenetrePrincipale extends Application {
      * Les options
      */
     public Option option = new Option(this);
+    
+    /**
+     * Le menu des extras
+     */
+    public Extra extra = new Extra(this);
 
     /**
      * La scene principale
@@ -87,10 +93,13 @@ public class FenetrePrincipale extends Application {
     public void changeScene(ChoseScene choseScene) {
         switch (choseScene.getScene()) {
             case 1:
-                scene.setRoot(menu);
+                scene.setRoot(menu); 
                 break;
             case 2:
                 scene.setRoot(option);
+                break;
+            case 3:
+                scene.setRoot(extra);
                 break;
         }
     }
@@ -102,10 +111,10 @@ public class FenetrePrincipale extends Application {
         // Attention, ne garder sans commentaires que une des options si dessous
 
         // Cette ligne sert à lancer le menu
-//        launch(args);
+        launch(args);
         // Ces lignes servent à lancer angry birds sans menu
-        gf = new GameFrame();
-        gf.run();
+//        gf = new GameFrame();
+//        gf.run();
         // Ces lignes servent à lancer le jeu du laser sans menu
 //        MainLaser ml = new MainLaser();
 //        ml.run();
