@@ -8,7 +8,6 @@ import javax.swing.JFrame;
  * Le jeu du laser, petit extra fait a partir des heritages du petit angry birds
  * Le principe est de reutiliser les classes et methodes du moteur d'angry birds 
  * pour en faire un autre mini jeu.
- * @author Wissam
  */
 public class MainLaser extends JFrame implements Runnable {
     
@@ -23,7 +22,7 @@ public class MainLaser extends JFrame implements Runnable {
         setSize(1920, 1080);
         setLocationRelativeTo(null); // Center
         setVisible(true);
-        setTitle("Jeu du laser");
+        setTitle("Jeu du laser - Beta v0.1");
     }
 
     /**
@@ -31,7 +30,8 @@ public class MainLaser extends JFrame implements Runnable {
      */
     @Override
     public void run() {
-        obstacle.add(new Objectif(500, 500, 100, 100, null));
+        obstacle.add(new Objectif(400, 500, 100, 100, null));
+        obstacle.add(new Miroir(300, 600, 100, 10, null));
         screen.start();
     }
 }

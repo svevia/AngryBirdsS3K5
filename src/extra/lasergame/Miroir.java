@@ -6,12 +6,11 @@ import java.awt.Color;
 import modele.Courbe;
 
 /**
- * Finalite du jeu
- *
+ *  Un obstacle reflettant le laser
  */
-public class Objectif extends Obstacle {
+public class Miroir extends Obstacle {
 
-    public Objectif(int x, int y, int widht, int hight, Courbe crb) {
+    public Miroir(int x, int y, int widht, int hight, Courbe crb) {
         super(x, y, widht, hight, crb);
     }
 
@@ -21,9 +20,8 @@ public class Objectif extends Obstacle {
 
     @Override
     public Skin draw(Skin s) {
-        s.getG().setColor(Color.green);
+        s.getG().setColor(Color.blue);
         s.getG().fillRect(x, y, widht, hight);
         return s;
     }
-
 }
