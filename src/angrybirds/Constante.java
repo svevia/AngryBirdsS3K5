@@ -104,7 +104,6 @@ public class Constante {
     /**
      * OLD - La fenetre du jeu
      */
-    @Deprecated
     public static GameFrame gf;
 
     /**

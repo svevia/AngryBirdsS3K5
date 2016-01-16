@@ -21,7 +21,7 @@ public abstract class Obstacle extends Entity{
      * @param c Couleur
      */
     public Obstacle(int x, int y, int widht, int hight, Courbe crb) {
-        super(x , y, hight, widht, crb);
+        super(x , y, widht, hight, crb);
     }
     
     /**
@@ -172,5 +172,9 @@ public abstract class Obstacle extends Entity{
             obstacle.remove(o);
         }
     }
-    
+
+    @Override
+    public String toString() {
+        return "X : " + x + "; Y : " + y + "; W : " + widht + "; H : " + hight;
+    }
 }

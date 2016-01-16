@@ -14,7 +14,7 @@ public class Teleportation extends Power {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_F) {
-            HeartMoveBird.internalTime += 500;
+            HeartMoveBird.internalTime += 100;
             autodestruction();
         }
     }

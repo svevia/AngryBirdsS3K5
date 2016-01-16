@@ -8,7 +8,6 @@ import modele.Courbe;
 /**
  * Point de depart du laser
  *
- * @author Wissam
  */
 public class Depart extends Bird {
 

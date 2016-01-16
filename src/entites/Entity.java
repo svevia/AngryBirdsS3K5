@@ -56,11 +56,11 @@ public abstract class Entity {
      * @param hight La hauteur de l'entite
      * @param widht La largeur de l'entite
      */
-    public Entity(int x, int y, int hight, int widht, Courbe crb) {
+    public Entity(int x, int y, int widht, int hight, Courbe crb) {
         this.x = x;
         this.y = y;
-        this.hight = hight;
         this.widht = widht;
+        this.hight = hight;
         this.crb = crb;
         move = true;
         if (crb == null) {

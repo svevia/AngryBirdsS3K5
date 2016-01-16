@@ -38,9 +38,12 @@ public class Calcul {
         if (mouseX <= yFocus) {
             d3 = -d3;
         }
-        double a = calculAngle(d1, d2, d3);
+        Double a = calculAngle(d1, d2, d3);
         if (mouseY <= yFocus) {
             a = PI + -(a - PI);
+        }
+        if (a.isNaN()) {
+            a = 0.0;
         }
         return a;
     }
@@ -122,7 +125,7 @@ public class Calcul {
      */
     public static int[] addition(int[] tab, int add) {
         for (int i = 0; i < tab.length; i++) {
-            tab[i] = (int) (tab[i] + add);
+            tab[i] += add;
         }
         return tab;
     }

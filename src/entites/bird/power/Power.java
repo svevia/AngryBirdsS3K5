@@ -1,7 +1,7 @@
 package entites.bird.power;
 
 import static angrybirds.Constante.screen;
-import static angrybirds.jeu.Visualisateur.listeAnimationToDraw;
+import static modele.Visualisateur.listeAnimationToDraw;
 import angrybirds.jeu.animation.Animation;
 import java.awt.event.KeyListener;
 import java.util.LinkedList;
