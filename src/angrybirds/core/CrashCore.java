@@ -1,4 +1,4 @@
-package angrybirds.jeu.core;
+package angrybirds.core;
 
 import static angrybirds.Constante.bird;
 import static angrybirds.Constante.entityHitty;
@@ -13,26 +13,19 @@ import java.awt.Color;
 public class CrashCore extends Thread {
 
     /**
-     * Methode qui permet de savoir quel element est percuter ou de savoir ou il 
-     * a ete percute
-     * @param indexObstacle Si true, l'index de l'obstacle dans la liste, si non
-     * le numero de la zone percute
-     * @return Si true, l'index de l'obstacle dans la liste, si non
-     * le numero de la zone percute
+     * Fonction permettant de trouver l'element percute
+     *
+     * @return 0 si aucun element n'est percute, si non son index dans la liste
      */
-    public static int entityHitBird(boolean indexObstacle) {
+    private int entityHitBird() {
         for (int i = 0; i < obstacle.size(); i++) {
             // Compare les hit boxes avec l'oiseau
             int j = bird.getHb().compareTo(obstacle.get(i).getHb());
-            if (j != 0) {
-                if (indexObstacle) {
-                    return i;
-                } else {
-                    return j;
-                }
+            if (j == 1) {
+                return i;
             }
         }
-        return -1;
+        return 0;
     }
 
     /**
@@ -51,8 +44,8 @@ public class CrashCore extends Thread {
      * Verifie qu'aucune collision n'est comise
      */
     private void verif() {
-        if (entityHitBird(true) != -1 || borderTouch()) {
-            entityHitty = entityHitBird(true);
+        if (entityHitBird() != 0 || borderTouch()) {
+            entityHitty = entityHitBird();
             bird.setCorps(Color.gray);
             if (!borderTouch()) {
                 obstacle.get(entityHitty).impact();
