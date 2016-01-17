@@ -75,7 +75,7 @@ public class Calcul {
              * polynome
              */
             bird.setCourbe(new Courbe(0, cos(bird.getA()), bird.getX(), laPUISSANCE, sin(bird.getA()), bird.getY()));
-            vitesse--;
+            vitesse++;
         }
     }
 

@@ -52,7 +52,7 @@ public class Constante {
     public static final int FPSUNLIMITED = 2;
 
     /**
-     * Les FPS choisin, par defaut 60
+     * Les FPS choisi, par defaut 60
      */
     public static int FPSChose = FPS60;
     
@@ -129,7 +129,7 @@ public class Constante {
     /**
      * L'index du PFAG a utiliser
      */
-    public static int indexPFAGUtilise = 1;
+    public static int indexPFAGUtilise = 2;
 
     /**
      * Variable qui indique quel obstacle de la liste est touche

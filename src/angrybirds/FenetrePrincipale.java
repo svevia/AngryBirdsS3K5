@@ -76,7 +76,7 @@ public class FenetrePrincipale extends Application {
     /**
      * La scene principale
      */
-    public Scene scene = new Scene(option, 980, 660);
+    public Scene scene = new Scene(menu, 980, 660);
 
     /**
      * Demarre le menu
@@ -131,10 +131,10 @@ public class FenetrePrincipale extends Application {
         // Attention, ne garder sans commentaires que une des options si dessous
 
         // Cette ligne sert à lancer le menu
-        launch(args);
+//        launch(args);
         // Ces lignes servent à lancer angry birds sans menu
-//        gf = new GameFrame();
-//        gf.run();
+        gf = new angrybirds.jeu.GameFrame();
+        gf.run();
         // Ces lignes servent à lancer le jeu du laser sans menu
 //        MainLaser ml = new MainLaser();
 //        ml.run();

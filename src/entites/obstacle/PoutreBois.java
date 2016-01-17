@@ -17,7 +17,10 @@ public class PoutreBois extends Obstacle {
             int tmp = super.hight;
             super.hight = super.widht;
             super.widht = tmp;
-        }    }
+            super.hb.h = super.hight;
+            super.hb.w = super.widht;
+        }
+    }
 
     @Override
     public Skin draw(Skin s) {

@@ -8,6 +8,7 @@ import entites.bird.Cobay;
 import entites.bird.RougeGorge;
 import entites.obstacle.Obstacle;
 import entites.obstacle.Carre;
+import entites.obstacle.Objectif;
 import entites.obstacle.PoutreBois;
 import entites.obstacle.PoutreMetal;
 import entites.obstacle.PoutreVerre;
@@ -230,6 +231,9 @@ public class PFAGReader {
                         if (type.equals("poutreVerre")) {
                             ar.add(new PoutreVerre(x, y, h, new Courbe(aX, bX, x, aY, bY, y), vertical));
                         }
+                        if (type.equals("objectif")) {
+                            ar.add(new Objectif(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y), couleur));
+                        }
                     } else {
                         if (type.equals("carre")) {
                             ar.add(new Carre(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), couleur));
@@ -245,6 +249,9 @@ public class PFAGReader {
                         }
                         if (type.equals("poutreVerre")) {
                             ar.add(new PoutreVerre(x, y, h, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), vertical));
+                        }
+                        if (type.equals("objectif")) {
+                            ar.add(new Objectif(x, y, h, w, new Courbe(aX, bX, x, aY, bY, y, mouvementMax, true), couleur));
                         }
                     }
                 }

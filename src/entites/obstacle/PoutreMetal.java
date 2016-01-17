@@ -16,6 +16,8 @@ public class PoutreMetal extends Obstacle {
             int tmp = super.hight;
             super.hight = super.widht;
             super.widht = tmp;
+            super.hb.h = super.hight;
+            super.hb.w = super.widht;
         }
     }
 
@@ -30,5 +32,6 @@ public class PoutreMetal extends Obstacle {
     public void impact() {
         if (!destroy(this, 1500)) {
             stopCore();
-        }    }
+        }
+    }
 }

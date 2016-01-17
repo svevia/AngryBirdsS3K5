@@ -1,7 +1,5 @@
 package entites.obstacle;
 
-import static angrybirds.jeu.core.CrashCore.entityHitBird;
-import static entites.obstacle.ImpactOrder.*;
 import entites.Skin;
 import java.awt.Color;
 import modele.Courbe;
@@ -9,10 +7,10 @@ import modele.Courbe;
 /**
  * Dessine un obstacle en forme de carre
  */
-public class Carre extends Obstacle {
+public class Objectif extends Obstacle {
 
     /**
-     * La couleur du rond
+     * La couleur du carre
      */
     Color c;
 
@@ -30,7 +28,7 @@ public class Carre extends Obstacle {
      * @param y La position en y de l'obstacle
      * @param c La couleur de l'obstacle
      */
-    public Carre(int x, int y, int hight, int widht, Courbe crb, Color c) {
+    public Objectif(int x, int y, int hight, int widht, Courbe crb, Color c) {
         super(x, y, widht, hight, crb);
         this.c = c;
     }
@@ -44,9 +42,11 @@ public class Carre extends Obstacle {
 
     @Override
     public void impact() {
-        if (lastObstacleRebond != this) {
-            lastObstacleRebond = this;
-            rebondOiseau(entityHitBird(false), 1);
+        try {
+            Thread.sleep(5000);
+            ImpactOrder.stopCore();
+        } catch (InterruptedException ex) {
+            System.out.println("Fin du jeu impossible " + ex.getMessage());
         }
     }
 }
