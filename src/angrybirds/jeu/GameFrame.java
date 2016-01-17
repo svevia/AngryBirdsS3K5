@@ -3,6 +3,7 @@ package angrybirds.jeu;
 import angrybirds.Constante;
 import static angrybirds.Constante.iniz;
 import static angrybirds.Constante.screen;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
@@ -17,13 +18,13 @@ public class GameFrame extends JFrame implements Runnable {
     public GameFrame() {
         iniz();
         screen = new Screen();
-        setDefaultCloseOperation(3);
+        setDefaultCloseOperation(2);
         setResizable(false);
         setContentPane(screen);
         setSize(Constante.fenetre.getSize());
         setLocationRelativeTo(null);
         setVisible(true);
-        //   setIconImage(Toolkit.getDefaultToolkit().getImage("ressource/icon.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("ressource/icon.png"));
         setTitle("Angry Birds");
     }
 
