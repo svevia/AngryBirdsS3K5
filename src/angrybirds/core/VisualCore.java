@@ -1,6 +1,6 @@
 package angrybirds.core;
 
-import static angrybirds.Constante.FPS60;
+import static angrybirds.Constante.FPSChose;
 import static angrybirds.Constante.bird;
 import static angrybirds.Constante.vitesse;
 import static angrybirds.Visualisateur.drawCurve;
@@ -24,8 +24,15 @@ public class VisualCore extends Thread {
      */
     public int xTarget, yTarget;
     
+    /**
+     * Le screen de l'animation
+     */
     public Screen anim;
 
+    /**
+     * Le visu sert a gerer l'affichage sur un screen
+     * @param anim  Le screen
+     */
     public VisualCore(Screen anim) {
         this.anim = anim;
     }
@@ -44,13 +51,18 @@ public class VisualCore extends Thread {
     private void showMeNom() {
         try {
             anim.repaint();
-            sleep(FPS60);
+            sleep(FPSChose);
             showMeNom();
         } catch (InterruptedException ex) {
             System.out.println("Oh no ! I'm blind now " + ex.getMessage());
         }
     }
 
+    /**
+     * Tout se qui sera actualise sur le screen
+     * @param g Le graphics du screen
+     * @return Le graphics modifie
+     */
     public Graphics draw(Graphics g) {
         g = drawFond(g);
         g = drawFootstep(3, (int) vitesse + 3, g);

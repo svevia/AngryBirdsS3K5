@@ -52,6 +52,11 @@ public class Constante {
     public static final int FPSUNLIMITED = 2;
 
     /**
+     * Les FPS choisin, par defaut 60
+     */
+    public static int FPSChose = FPS60;
+    
+    /**
      * Le reader de pfag
      */
     public static PFAGReader gReader = new PFAGReader();

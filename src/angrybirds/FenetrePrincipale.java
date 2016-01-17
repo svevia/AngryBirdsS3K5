@@ -10,6 +10,7 @@ import angrybirds.option.Option;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -75,7 +76,7 @@ public class FenetrePrincipale extends Application {
     /**
      * La scene principale
      */
-    public Scene scene = new Scene(menu, 980, 660);
+    public Scene scene = new Scene(option, 980, 660);
 
     /**
      * Demarre le menu
@@ -87,7 +88,7 @@ public class FenetrePrincipale extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Menu Angry Birds");
-        //primaryStage.getIcons().add(new Image("ressource/icon.png"));
+        primaryStage.getIcons().add(new Image("ressource/icon.png"));
         primaryStage.show();
         son.start();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {

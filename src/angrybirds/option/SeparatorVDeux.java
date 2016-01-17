@@ -67,6 +67,7 @@ public class SeparatorVDeux extends VBox {
         getChildren().addAll(hb, s);
         b.setStyle("-fx-color: red;");
         b.setOnAction(event);
+        setStyle("-fx-padding: 20;");
     }
 
     /**
