@@ -16,7 +16,7 @@ public class AnimationMenu implements Runnable, ActionListener {
     Timer t = new Timer(500, this);
     boolean boobool = true;
     Pane racine;
-
+    
     Image img1 = new Image("ressource/rayonBleu1.png");
     Image img2 = new Image("ressource/rayonBleu2.png");
     Background bkg1 = new Background(new BackgroundImage(img1, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT));

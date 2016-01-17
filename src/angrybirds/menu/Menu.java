@@ -101,6 +101,9 @@ public class Menu extends GridPane implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         if (event.getSource() == jouer) {
             gf = new GameFrame();
+            jouer.setOnAction(null);
+            option.setOnAction(null);
+            extra.setOnAction(null);
             son.stop();
             gf.run();
         }

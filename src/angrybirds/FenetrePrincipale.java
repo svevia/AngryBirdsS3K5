@@ -131,12 +131,12 @@ public class FenetrePrincipale extends Application {
         // Attention, ne garder sans commentaires que une des options si dessous
 
         // Cette ligne sert à lancer le menu
-//        launch(args);
+        launch(args);
         // Ces lignes servent à lancer angry birds sans menu
-        gf = new angrybirds.jeu.GameFrame();
-        gf.run();
+//        gf = new angrybirds.jeu.GameFrame();
+//        gf.run();
         // Ces lignes servent à lancer le jeu du laser sans menu
-//        MainLaser ml = new MainLaser();
+//        extra.lasergame.MainLaser ml = new extra.lasergame.MainLaser();
 //        ml.run();
     }
 }
