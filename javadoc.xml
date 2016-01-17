@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="C:\Users\Ali\Downloads\eclipse-java-kepler-SR2-win32-x86_64\eclipse\plugins\org.hamcrest.core_1.3.0.v201303031735.jar;C:\Users\Ali\Downloads\eclipse-java-kepler-SR2-win32-x86_64\eclipse\plugins\org.junit_4.11.0.v201303080030\junit.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="angrybirds.menu,angrybirds.jeu.animation,angrybirds.option,extra.lasergame,entites.bird,angrybirds.extra,entites.bird.power,entites,entites.bird.module,angrybirds.jeu,entites.obstacle,angrybirds.jeu.core,angrybirds,entites.target" source="1.7" sourcefiles="src/modele/InfoPigeon.java,src/modele/Calcul.java,src/modele/Courbe.java,src/modele/Visualisateur.java,src/modele/ImageCustomz.java,src/modele/Matrice.java,src/modele/PFAGReader.java" sourcepath="src;test" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
