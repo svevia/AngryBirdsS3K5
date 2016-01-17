@@ -20,6 +20,9 @@ import javafx.scene.layout.GridPane;
  */
 public class Extra extends GridPane implements EventHandler<ActionEvent> {
     
+    /**
+     * Le label du titre
+     */
     private Label titre = new Label("Extras");
 
     /**
@@ -87,6 +90,8 @@ public class Extra extends GridPane implements EventHandler<ActionEvent> {
         add(retourMenu, 5, 8);
     }
     
+    
+    
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() == jeuLaser) {
@@ -97,6 +102,8 @@ public class Extra extends GridPane implements EventHandler<ActionEvent> {
             root.changeScene(FenetrePrincipale.ChoseScene.WEB);
         }
         if (event.getSource() == credit) {
+            root.changeScene(FenetrePrincipale.ChoseScene.CREDIT);
+            root.credit.go();
         }
         if (event.getSource() == retourMenu) {
             root.changeScene(FenetrePrincipale.ChoseScene.MENU);

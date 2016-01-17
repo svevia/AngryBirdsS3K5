@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="8">
         <file>
+            <url>src/angrybirds/jeu/Visualisateur.java</url>
+            <bookmark id="6">
+                <name/>
+                <line>150</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
             <url>src/entites/Hitbox.java</url>
             <bookmark id="3">
                 <name/>
@@ -18,14 +26,6 @@
             </bookmark>
         </file>
         <file>
-            <url>src/angrybirds/jeu/Visualisateur.java</url>
-            <bookmark id="6">
-                <name/>
-                <line>150</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>src/angrybirds/jeu/AnimationJeu.java</url>
             <bookmark id="7">
                 <name/>
@@ -37,10 +37,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="VirtualWars - MetalGearTeam">
             <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/option/Option.java</file>
-            <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/extra/CreditLabel.java</file>
             <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/extra/Extra.java</file>
+            <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/extra/Credit.java</file>
             <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/menu/Menu.java</file>
-            <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/option/BoutonOption.java</file>
+            <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/extra/AnimationCredit.java</file>
             <file>file:/C:/Users/Wissam/Documents/GitHub/AngryBirdsS3K5/src/angrybirds/FenetrePrincipale.java</file>
         </group>
     </open-files>

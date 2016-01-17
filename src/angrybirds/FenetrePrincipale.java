@@ -1,6 +1,7 @@
 package angrybirds;
 
 import static angrybirds.Constante.*;
+import angrybirds.extra.Credit;
 import angrybirds.extra.Extra;
 import angrybirds.extra.WebViewer;
 import angrybirds.menu.Menu;
@@ -27,7 +28,8 @@ public class FenetrePrincipale extends Application {
         MENU(1),
         OPTION(2),
         EXTRA(3),
-        WEB(4);
+        WEB(4),
+        CREDIT(5);
 
         int scene;
 
@@ -65,6 +67,11 @@ public class FenetrePrincipale extends Application {
      */
     public WebViewer web = new WebViewer("http://77.149.96.131/AngryBeurds/");
 
+    /**
+     * Les credits du jeu
+     */
+    public Credit credit = new Credit(this);
+    
     /**
      * La scene principale
      */
@@ -109,6 +116,9 @@ public class FenetrePrincipale extends Application {
                 break;
             case 4:
                 scene.setRoot(web);
+                break;
+            case 5:
+                scene.setRoot(credit);
                 break;
         }
     }
