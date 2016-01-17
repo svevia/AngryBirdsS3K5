@@ -4,7 +4,7 @@ import static angrybirds.Constante.bird;
 import java.awt.event.KeyEvent;
 
 /**
- * Pouvoir qui double la masse du pigeon
+ * @author K5
  */
 public class DoubleMasse extends Power {
 
@@ -23,5 +23,4 @@ public class DoubleMasse extends Power {
     @Override
     public void keyReleased(KeyEvent e) {
     }
-
 }

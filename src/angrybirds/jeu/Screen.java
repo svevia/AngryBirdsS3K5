@@ -5,6 +5,7 @@ import angrybirds.jeu.core.HeartCore;
 import angrybirds.jeu.core.HeartMoveBird;
 import java.awt.Graphics;
 import angrybirds.jeu.core.VisualCore;
+import entites.bird.power.Power;
 import entites.obstacle.ImpactOrder;
 import entites.target.TargetListener;
 import javax.swing.JPanel;
@@ -75,9 +76,9 @@ public class Screen extends JPanel {
      * grande aventure, enjoy it ! Fly away !
      */
     public void oder227() {
-        bird.getPower().stream().forEach((p) -> {
+        for (Power p : bird.getPower()) {
             addKeyListener(p);
-        });
+        }
         core = new HeartCore();
         last = false;
         if (!core.isAlive()) {

@@ -92,20 +92,20 @@ public enum Footstep {
     public Graphics drawFootstep(int tailleVerticale, int tailleHorizontale, Graphics g) {
         if (!footstepA.isEmpty()) {
             int[] xP = new int[4], yP = new int[4];
-            footstepX.stream().forEach((Integer i) -> {
-                for (int j = 0; j < c.length; j++) {
-                    g.setColor(c[j]);
-                    xP[0] = footstepX.get(i);
-                    xP[1] = footstepX.get(i) + tailleHorizontale;
-                    xP[2] = footstepX.get(i) + tailleHorizontale;
-                    xP[3] = footstepX.get(i);
-                    yP[0] = footstepY.get(i) + j * tailleVerticale;
-                    yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
-                    yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
-                    yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
-                    g.fillPolygon(xP, yP, 4);
-                }
-            });
+//            footstepX.stream().forEach((Integer i) -> {
+//                for (int j = 0; j < c.length; j++) {
+//                    g.setColor(c[j]);
+//                    xP[0] = footstepX.get(i);
+//                    xP[1] = footstepX.get(i) + tailleHorizontale;
+//                    xP[2] = footstepX.get(i) + tailleHorizontale;
+//                    xP[3] = footstepX.get(i);
+//                    yP[0] = footstepY.get(i) + j * tailleVerticale;
+//                    yP[1] = (int) (footstepY.get(i) + footstepA.get(i)) + j * tailleVerticale;
+//                    yP[2] = (int) (footstepY.get(i) + footstepA.get(i)) + tailleVerticale + j * tailleVerticale;
+//                    yP[3] = footstepY.get(i) + tailleVerticale + j * tailleVerticale;
+//                    g.fillPolygon(xP, yP, 4);
+//                }
+//            });
         }
         return g;
     }

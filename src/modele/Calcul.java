@@ -124,10 +124,11 @@ public class Calcul {
      * @return La matrice additionne
      */
     public static int[] addition(int[] tab, int add) {
+        int[] ret = tab; 
         for (int i = 0; i < tab.length; i++) {
-            tab[i] += add;
+            ret[i] = tab[i] + add;
         }
-        return tab;
+        return ret;
     }
 
     /**
