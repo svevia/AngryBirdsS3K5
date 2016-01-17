@@ -4,7 +4,7 @@ import static angrybirds.Constante.bird;
 import java.awt.event.KeyEvent;
 
 /**
- * Pourvoir qui double la masse du pigeon
+ * Pouvoir qui double la masse du pigeon
  */
 public class DoubleMasse extends Power {
 

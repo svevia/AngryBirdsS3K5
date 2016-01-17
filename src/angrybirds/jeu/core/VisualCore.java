@@ -72,7 +72,7 @@ public class VisualCore extends Thread {
             g = drawCurve(g, bird.getCourbe());
             g = drawOiseau(g);
         }
-        g = drawAllHitBox(g); // A décommenter si vous voulez voir l'envers du décors
+//        g = drawAllHitBox(g); // A décommenter si vous voulez voir l'envers du décors
         g = drawAnimation(g);
         if (paintCible) {
             try {

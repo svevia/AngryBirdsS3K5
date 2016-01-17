@@ -3,6 +3,7 @@ package entites.bird;
 import java.awt.Color;
 import entites.bird.module.BecTriangulaire;
 import entites.bird.module.Oeil;
+import entites.bird.power.SpeedPower;
 import modele.Courbe;
 
 /**
@@ -20,5 +21,6 @@ public class RougeGorge extends Bird {
         super(0, 0, 20, 50, c, Color.red);
         addModule(bec);
         addModule(oeil);
+        power.add(new SpeedPower());
     }
 }

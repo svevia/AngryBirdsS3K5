@@ -3,6 +3,7 @@ package entites.bird;
 import java.awt.Color;
 import entites.bird.module.BecCanard;
 import entites.bird.module.Oeil;
+import entites.bird.power.DoubleMasse;
 import modele.Courbe;
 
 /**
@@ -21,5 +22,6 @@ public class Canard extends Bird {
         super(0, 0, 40, 100, c, Color.white);
         addModule(bec);
         addModule(oeil);
+        power.add(new DoubleMasse());
     }
 }
